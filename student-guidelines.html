@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official student code of discipline, uniform regulations, and moral guidelines for Majestic Primary and High School, Mysore.">
+    <meta name="keywords" content="student guidelines, uniform guidance, exam discipline Mysore, school discipline Majestic Primary">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/student-guidelines.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Student Guidelines | Majestic Primary and High School</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+    /* 🌟 PREMIUM MAJESTIC STUDENT GUIDELINES STYLES 🌟 */
+    .guidelines-wide-container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 991px) {
+        .guidelines-wide-container {
+            padding: 0 20px;
+        }
+    }
+
+    /* SECTION STRUCTURES */
+    .guidelines-section-padding {
+        padding: 100px 0;
+    }
+    @media (max-width: 768px) {
+        .guidelines-section-padding {
+            padding: 60px 0;
+        }
+    }
+
+    /* FANCY SECTION HEADERS */
+    .fancy-section-header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+    .fancy-section-subtitle {
+        display: inline-block;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--secondary-green);
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        border-bottom: 2px solid var(--accent-yellow);
+        padding-bottom: 3px;
+    }
+    .fancy-section-title {
+        font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+        color: var(--primary-blue);
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+
+    /* DAILY EXPECTATIONS GRID */
+    .expectations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        margin-top: 20px;
+    }
+    @media (max-width: 768px) {
+        .expectations-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+
+    .expectation-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.03);
+        border: 1px solid rgba(15, 23, 42, 0.05);
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+    }
+    .expectation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.06);
+        border-color: rgba(5, 150, 105, 0.15);
+    }
+    .expectation-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background-color: rgba(5, 150, 105, 0.06);
+        color: var(--secondary-green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+    .expectation-card:hover .expectation-icon {
+        background-color: var(--secondary-green);
+        color: #ffffff;
+    }
+    .expectation-info h3 {
+        font-size: 1.1rem;
+        color: var(--primary-blue);
+        font-weight: 700;
+        margin: 0 0 8px 0;
+    }
+    .expectation-info p {
+        font-size: 0.92rem;
+        color: var(--text-grey);
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* POLICIES GRID */
+    .policies-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    @media (max-width: 991px) {
+        .policies-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    /* DOUBLE GRID SECTIONS */
+    .half-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+    @media (max-width: 991px) {
+        .half-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+    }
+
+    .handbook-block {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+        border: 1px solid rgba(15, 23, 42, 0.04);
+        transition: all 0.35s ease;
+    }
+    .handbook-block:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
+    }
+    .handbook-block-title {
+        font-size: 1.35rem;
+        color: var(--primary-blue);
+        font-weight: 800;
+        margin: 0 0 25px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid rgba(15, 23, 42, 0.04);
+        padding-bottom: 12px;
+    }
+    .handbook-block-title i {
+        color: var(--secondary-green);
+        font-size: 1.4rem;
+    }
+    .handbook-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .handbook-item {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+        font-size: 0.95rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+    }
+    .handbook-item:last-child {
+        margin-bottom: 0;
+    }
+    .handbook-item i {
+        color: var(--secondary-green);
+        margin-top: 4px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+
+    /* SPECIFIC ACCENT VARIANT FOR COLUMNS */
+    .handbook-block.yellow-accent .handbook-block-title i {
+        color: var(--accent-yellow);
+    }
+
+    /* INSTITUTIONAL CHECKLIST (CLASSROOM BEHAVIOR) */
+    .checklist-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+        margin-top: 15px;
+    }
+    @media (max-width: 680px) {
+        .checklist-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .checklist-card {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 22px 25px;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+        border: 1px solid rgba(15, 23, 42, 0.04);
+        border-left: 4px solid var(--secondary-green);
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        transition: all 0.3s ease;
+    }
+    .checklist-card:hover {
+        transform: translateX(5px);
+        box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+    }
+    .checklist-card i {
+        color: var(--secondary-green);
+        font-size: 1.1rem;
+        margin-top: 4px;
+    }
+    .checklist-content h4 {
+        font-size: 1.05rem;
+        color: var(--primary-blue);
+        font-weight: 700;
+        margin: 0 0 5px 0;
+    }
+    .checklist-content p {
+        font-size: 0.9rem;
+        color: var(--text-grey);
+        margin: 0;
+        line-height: 1.5;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- ✦ NEWS TICKER -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>✦ ADMISSIONS OPEN 2026–27 (CLASSES 1–9) ✦</span>
+            <span>Shaping Minds for a Better Tomorrow</span>
+            <span>✦ Holistic Growth • Ethical Foundation ✦</span>
+        </div>
+    </div>
+
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="center-text">
+                <i class="fas fa-bullhorn"></i>
+                ADMISSIONS OPEN 2026–27 (LIMITED SEATS)
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR -->
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class=""><a href="admissions.html">ADMISSIONS</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🌟 HERO -->
+    <header class="page-hero" style="background-image: url('assets/school_building.jpeg');">
+        <div class="hero-content" data-aos="zoom-out">
+            <p>Developing Character, Honor & Excellence</p>
+            <h1>Student Guidelines</h1>
+        </div>
+    </header>
+
+    <!-- 🌟 INTRODUCTION -->
+    <section class="student-intro guidelines-section-padding" style="background: var(--light-bg);">
+        <div class="guidelines-wide-container">
+            <div style="background: #ffffff; border-radius: var(--border-radius-lg); padding: 60px 40px; box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04); text-align: center; border: 1px solid rgba(15, 23, 42, 0.05);" data-aos="fade-up">
+                <i class="fas fa-graduation-cap" style="font-size: 3.5rem; color: var(--accent-yellow); margin-bottom: 25px; display: block;"></i>
+                <h2 style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 25px; font-weight: 800; letter-spacing: -0.5px;">Code of Personal Excellence</h2>
+                <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text-grey); max-width: 900px; margin: 0 auto;">
+                    At Majestic, discipline is not a constraint, but an empowering force. It builds consistent habits, shapes character, and establishes true self-respect. Every student is expected to wear their identity as a Majestician with deep responsibility, honor, and pride.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✦ SECTION 2: DAILY STUDENT EXPECTATIONS -->
+    <section class="student-expectations-section guidelines-section-padding" style="background: #ffffff; border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="guidelines-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Core Pillars</span>
+                <h2 class="fancy-section-title">Daily Student Expectations</h2>
+            </div>
+            
+            <div class="expectations-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Expectation 1 -->
+                <div class="expectation-card">
+                    <div class="expectation-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="expectation-info">
+                        <h3>Reach Before Assembly</h3>
+                        <p>Students must be in the school perimeter and settle quietly prior to the assembly bell at 8:50 AM.</p>
+                    </div>
+                </div>
+                <!-- Expectation 2 -->
+                <div class="expectation-card">
+                    <div class="expectation-icon"><i class="fa-solid fa-shirt"></i></div>
+                    <div class="expectation-info">
+                        <h3>Wear Proper Uniform</h3>
+                        <p>Wear the prescribed, neatly pressed school uniform, shoes, and tie daily to project a cohesive image.</p>
+                    </div>
+                </div>
+                <!-- Expectation 3 -->
+                <div class="expectation-card">
+                    <div class="expectation-icon"><i class="fa-solid fa-book"></i></div>
+                    <div class="expectation-info">
+                        <h3>Carry Diary & Books</h3>
+                        <p>Always bring the official handbook along with textbooks strictly arranged as per the daily class timetable.</p>
+                    </div>
+                </div>
+                <!-- Expectation 4 -->
+                <div class="expectation-card">
+                    <div class="expectation-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="expectation-info">
+                        <h3>Maintain Punctuality</h3>
+                        <p>Align all actions with the daily operational timetable, respecting transition bells and activity rosters.</p>
+                    </div>
+                </div>
+                <!-- Expectation 5 -->
+                <div class="expectation-card">
+                    <div class="expectation-icon"><i class="fa-solid fa-circle-user"></i></div>
+                    <div class="expectation-info">
+                        <h3>Respect Everyone</h3>
+                        <p>Speak politely to instructors, school management, administrative staff, and your fellow student peers.</p>
+                    </div>
+                </div>
+                <!-- Expectation 6 -->
+                <div class="expectation-card">
+                    <div class="expectation-icon"><i class="fa-solid fa-gavel"></i></div>
+                    <div class="expectation-info">
+                        <h3>Follow Class Discipline</h3>
+                        <p>Adhere to active learning codes, cooperate with classroom instructions, and participate meaningfully.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 CORE INSTITUTIONAL POLICIES -->
+    <section class="guidelines-accordion-section guidelines-section-padding" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="guidelines-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Operational Directives</span>
+                <h2 class="fancy-section-title">Institutional Policies & Code</h2>
+            </div>
+
+            <div class="policies-grid" data-aos="fade-up">
+                <!-- Card 1: Uniform & Grooming Regulations -->
+                <div style="background: #ffffff; border-radius: var(--border-radius-lg); padding: 40px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02); border: 1px solid rgba(15, 23, 42, 0.04); transition: all 0.3s ease;">
+                    <h3 style="color: var(--primary-blue); font-size: 1.35rem; font-weight: 800; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; border-bottom: 2px solid rgba(15, 23, 42, 0.04); padding-bottom: 15px;">
+                        <i class="fas fa-user-tie" style="color: var(--accent-yellow);"></i> Uniform & Grooming
+                    </h3>
+                    <p style="color: var(--text-grey); font-size: 1rem; line-height: 1.7; margin-bottom: 15px;">
+                        The school uniform in harmony builds a neat, equal, and disciplined learning space. Cleanliness in grooming represents deep self-respect.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Standard Prescriptions:</strong> Clean ironed shirt, trousers/skirts, tie, belt, clean nails, socks, and highly polished black school shoes.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>PT Uniform:</strong> Prescribed physical education athletic kit alongside clean white canvas footwear on scheduled PT days.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Grooming & Hair:</strong> Boys must maintain a simple, short academic haircut. Girls must tie/braid hair safely. High personal hygiene and trimmed nails are necessary.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Accessories Limit:</strong> No flashy wristbands, heavy decorations, cosmetics, or expensive jewelry should be worn. Always hold a valid student ID card.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Attendance & Punctuality -->
+                <div style="background: #ffffff; border-radius: var(--border-radius-lg); padding: 40px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02); border: 1px solid rgba(15, 23, 42, 0.04); transition: all 0.3s ease;">
+                    <h3 style="color: var(--primary-blue); font-size: 1.35rem; font-weight: 800; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; border-bottom: 2px solid rgba(15, 23, 42, 0.04); padding-bottom: 15px;">
+                        <i class="fas fa-balance-scale" style="color: var(--secondary-green);"></i> Attendance & Punctuality
+                    </h3>
+                    <p style="color: var(--text-grey); font-size: 1rem; line-height: 1.7; margin-bottom: 15px;">
+                        Consistent, uninterrupted learning is critical. Attendance is meticulously tracked to help foster great learning routines.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Mandatory Percentage:</strong> A cumulative attendance minimum limit of 85% is strictly enforced across classes for seasonal promotions.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Leave Clearances:</strong> Legitimate written leave notes compiled by parents are vital for absences. Medical absence of 3+ days demands doctor certification.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Consecutive Late Log:</strong> Arriving late directly results in manual warnings registered on the student diary and review reports with parents.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: Classroom Behavior & Peer Respect -->
+                <div style="background: #ffffff; border-radius: var(--border-radius-lg); padding: 40px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02); border: 1px solid rgba(15, 23, 42, 0.04); transition: all 0.3s ease;">
+                    <h3 style="color: var(--primary-blue); font-size: 1.35rem; font-weight: 800; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; border-bottom: 2px solid rgba(15, 23, 42, 0.04); padding-bottom: 15px;">
+                        <i class="fas fa-brain" style="color: var(--primary-blue);"></i> Classroom Behavior
+                    </h3>
+                    <p style="color: var(--text-grey); font-size: 1rem; line-height: 1.7; margin-bottom: 15px;">
+                        A supportive, cooperative classroom atmosphere ensures deep focus, active assimilation, and mutual academic growth.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Silence & Focus:</strong> Stay completely quiet and attentive while academic content is presented by teaching faculty.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Raise Hand Style:</strong> Always raise your hand to gain permission before addressing the lecture or expressing opinions.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Zero Peer Abuse:</strong> Respect all classmates deeply. Bullying, physical scuffles, mockings, or harsh teasing calls are completely forbidden.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Pristine Classroom:</strong> Avoid causing scratches on school furniture, writing on boards without consent, and throw trash inside bins.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: Exam & Academic Discipline -->
+                <div style="background: #ffffff; border-radius: var(--border-radius-lg); padding: 40px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02); border: 1px solid rgba(15, 23, 42, 0.04); transition: all 0.3s ease;">
+                    <h3 style="color: var(--primary-blue); font-size: 1.35rem; font-weight: 800; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; border-bottom: 2px solid rgba(15, 23, 42, 0.04); padding-bottom: 15px;">
+                        <i class="fas fa-file-signature" style="color: var(--accent-yellow);"></i> Exam & Academic Discipline
+                    </h3>
+                    <p style="color: var(--text-grey); font-size: 1rem; line-height: 1.7; margin-bottom: 15px;">
+                        A student's assessment journey reflects true personal honesty and academic caliber. Compliance with exam rules is non-negotiable.
+                    </p>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Absolute Academic Honesty:</strong> Avoid any copying, whispering, paper swapping, or carry unauthorized notes inside test rooms.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Required Stationery:</strong> Be prepared by bringing writing materials (pens, scales, geometry tools). Sharing is strictly banned.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Supervisor Command:</strong> Obey all special room seating rules and timing guidelines set by examination invigilators.</span>
+                        </li>
+                        <li style="display: flex; gap: 10px; margin-bottom: 0; font-size: 0.95rem; color: var(--text-grey); line-height: 1.6;">
+                            <i class="fa-solid fa-circle-check" style="color: var(--secondary-green); margin-top: 4px; flex-shrink: 0;"></i>
+                            <span><strong>Regular Habits:</strong> Submit exam papers cleanly within times. Practice continuous regular testing and study patterns daily.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✦ SECTION 4: DIARY RULES & DIGITAL DISCIPLINE -->
+    <section class="diary-digital-section guidelines-section-padding" style="background: #ffffff; border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="guidelines-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Student Handbook</span>
+                <h2 class="fancy-section-title">Diary & Digital Responsibilities</h2>
+            </div>
+            
+            <div class="half-grid">
+                <!-- Card 1: School Diary & Homework -->
+                <div class="handbook-block" data-aos="fade-right">
+                    <h3 class="handbook-block-title">
+                        <i class="fa-solid fa-journal-whills"></i> School Diary & Homework
+                    </h3>
+                    <ul class="handbook-list">
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>The School Diary must be carried to school every academic day without exception.</span>
+                        </li>
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Daily homework tasks and learning goals must be carefully recorded in the diary.</span>
+                        </li>
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Parents should check the diary daily, monitor home assignments, and sign off regularly.</span>
+                        </li>
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>All notices, warning lines, or circulars pinned inside must be read thoroughly by parents and students.</span>
+                        </li>
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>The diary must be kept absolutely clean, neat, tidy, and safely handled throughout the session.</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Card 2: Digital & Responsible Behavior -->
+                <div class="handbook-block yellow-accent" data-aos="fade-left">
+                    <h3 class="handbook-block-title">
+                        <i class="fa-solid fa-laptop-code"></i> Digital & Responsible Behavior
+                    </h3>
+                    <ul class="handbook-list">
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Use computers, internet ports, science labs, and visual aids strictly for academic assignments.</span>
+                        </li>
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Never access forbidden websites, change configurations, or attempt unauthorized logins on school networks.</span>
+                        </li>
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Misuse of hardware, lab models, digital screens, or library accessories will face instant penalty.</span>
+                        </li>
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Promote helpful, healthy, and clean communication during digital labs and classes.</span>
+                        </li>
+                        <li class="handbook-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Protect and maintain the school's high-grade computing machinery, robotics gears, and digital materials with care.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✦ SECTION 5: CAMPUS & TRANSPORT SAFETY -->
+    <section class="safety-discipline-section guidelines-section-padding" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05); padding-bottom: 100px;">
+        <div class="guidelines-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Security Protocol</span>
+                <h2 class="fancy-section-title">Transport & Campus Safety</h2>
+            </div>
+            
+            <div class="checklist-container" data-aos="fade-up" data-aos-delay="100">
+                <!-- Item 1 -->
+                <div class="checklist-card">
+                    <i class="fa-solid fa-person-walking"></i>
+                    <div class="checklist-content">
+                        <h4>Corridor Etiquette</h4>
+                        <p>Walk orderly in single file on the left side of corridors. Rowdy behaviors or blockages are barred.</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="checklist-card" style="border-left-color: var(--accent-yellow);">
+                    <i class="fa-solid fa-person-running" style="color: var(--accent-yellow);"></i>
+                    <div class="checklist-content">
+                        <h4>Staircase Discipline</h4>
+                        <p>Never push, pull, or run on the stairways. Always hold handrails and descend in standard student queues.</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="checklist-card">
+                    <i class="fa-solid fa-door-closed"></i>
+                    <div class="checklist-content">
+                        <h4>School Gate Rules</h4>
+                        <p>Strictly follow security rules at gates. No students are allowed to exit the school perimeter without parent gate passes.</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="checklist-card" style="border-left-color: var(--accent-yellow);">
+                    <i class="fa-solid fa-bus" style="color: var(--accent-yellow);"></i>
+                    <div class="checklist-content">
+                        <h4>Safe Bus Boarding</h4>
+                        <p>Board the school bus or vans in calm lines. Remain seated inside, keeping hands and head within boundaries.</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="checklist-card">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div class="checklist-content">
+                        <h4>Emergency Reporting</h4>
+                        <p>Report any hazards, injuries, sickness, or damages to the nearby teacher or the administrative block immediately.</p>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="checklist-card" style="border-left-color: var(--accent-yellow);">
+                    <i class="fa-solid fa-shield-halved" style="color: var(--accent-yellow);"></i>
+                    <div class="checklist-content">
+                        <h4>General Security Code</h4>
+                        <p>Respect every safety guard, security camera setup, hazard guidelines, and emergency assembly point drills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the guiding philosophy of Majestic Primary and High School, Mysore. Our student-centric approach to holistic education and character transformation.">
+    <meta name="keywords" content="educational philosophy Majestic School, student-centric learning, holistic growth, moral values Mysore">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/guiding-philosophy.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Guiding Philosophy | Majestic Primary and High School</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+    /* 🌟 PREMIUM MAJESTIC GUIDING PHILOSOPHY STYLES 🌟 */
+    .philosophy-wide-container {
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+        box-sizing: border-box;
+    }
+
+    @media (max-width: 991px) {
+        .philosophy-wide-container {
+            padding: 0 20px;
+        }
+    }
+
+    /* SECTION STRUCTURES */
+    .philosophy-section-padding {
+        padding: 100px 0;
+    }
+    @media (max-width: 768px) {
+        .philosophy-section-padding {
+            padding: 60px 0;
+        }
+    }
+
+    /* FANCY SECTION HEADERS */
+    .fancy-section-header {
+        text-align: center;
+        margin-bottom: 45px;
+    }
+    .fancy-section-header.left-aligned {
+        text-align: left;
+    }
+    .fancy-section-subtitle {
+        display: inline-block;
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--secondary-green);
+        letter-spacing: 2px;
+        margin-bottom: 8px;
+        border-bottom: 2px solid var(--accent-yellow);
+        padding-bottom: 3px;
+    }
+    .fancy-section-title {
+        font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+        color: var(--primary-blue);
+        font-weight: 800;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+
+    /* PREMIUM GRID CARDS (Section 2 & 4 style) */
+    .premium-philosophy-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        margin-top: 10px;
+    }
+    @media (max-width: 640px) {
+        .premium-philosophy-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+    }
+
+    .philosophy-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 35px 30px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+        border: 1px solid rgba(15, 23, 42, 0.04);
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        position: relative;
+    }
+    .philosophy-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+        border-color: rgba(5, 150, 105, 0.15);
+    }
+    .philosophy-icon-wrap {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background-color: rgba(5, 150, 105, 0.06);
+        color: var(--secondary-green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+    .philosophy-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: transparent;
+        border-radius: 16px 16px 0 0;
+        transition: all 0.3s ease;
+    }
+    .philosophy-card:hover::before {
+        background: var(--secondary-green);
+    }
+    .philosophy-card:hover .philosophy-icon-wrap {
+        background-color: var(--secondary-green);
+        color: #ffffff;
+    }
+    .philosophy-info h3 {
+        font-size: 1.15rem;
+        color: var(--primary-blue);
+        font-weight: 700;
+        margin: 0 0 8px 0;
+        line-height: 1.3;
+    }
+    .philosophy-info p {
+        font-size: 0.9rem;
+        color: var(--text-grey);
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* INTERACTIVE GRID (Section 4) */
+    .shape-students-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+    }
+    @media (max-width: 768px) {
+        .shape-students-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+    .shape-card {
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 35px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+        border: 1px solid rgba(15, 23, 42, 0.04);
+        border-top: 4px solid var(--primary-blue);
+        transition: all 0.3s ease;
+    }
+    .shape-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+    }
+    .shape-card.yellow-accent {
+        border-top-color: var(--accent-yellow);
+    }
+    .shape-card.green-accent {
+        border-top-color: var(--secondary-green);
+    }
+    .shape-card-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+    .shape-card-icon {
+        font-size: 1.6rem;
+        color: var(--primary-blue);
+    }
+    .shape-card.yellow-accent .shape-card-icon {
+        color: var(--accent-yellow);
+    }
+    .shape-card.green-accent .shape-card-icon {
+        color: var(--secondary-green);
+    }
+    .shape-card h3 {
+        font-size: 1.25rem;
+        color: var(--primary-blue);
+        font-weight: 800;
+        margin: 0;
+    }
+    .shape-card p {
+        font-size: 0.95rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* GENTLE LIST ITEMS for Section 6 (Our Teaching Approach) */
+    .approach-list-item {
+        padding: 16px 20px;
+        margin-bottom: 12px;
+        background: var(--soft-blue-bg);
+        border-left: 5px solid var(--accent-yellow);
+        border-radius: 0 12px 12px 0;
+        font-weight: 500;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        transition: all 0.25s ease;
+    }
+    .approach-list-item:hover {
+        transform: translateX(4px);
+        background: rgba(15, 23, 42, 0.03);
+    }
+    .approach-list-item i {
+        color: var(--secondary-green);
+        font-size: 1.15rem;
+        margin-top: 2px;
+        flex-shrink: 0;
+    }
+    .approach-list-item div {
+        font-size: 0.98rem;
+        line-height: 1.5;
+        color: var(--primary-blue);
+    }
+
+    /* SPLIT GRID (used for Section 3, 6, 8 layout splits) */
+    .philosophy-split-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 60px;
+        align-items: center;
+    }
+    @media (max-width: 991px) {
+        .philosophy-split-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        .philosophy-split-grid.reverse-on-mobile {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+
+    /* PILLARS / EDUCATION CARD (Section 5) */
+    .philosophy-pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+    @media (max-width: 680px) {
+        .philosophy-pillars-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    .phil-pillar-card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+        border: 1px solid rgba(15, 23, 42, 0.04);
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+    .phil-pillar-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+    }
+    .phil-pillar-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--primary-blue);
+        border-radius: 20px 20px 0 0;
+        transition: transform 0.35s ease;
+    }
+    .phil-pillar-card.yellow-accent::before {
+        background: var(--accent-yellow);
+    }
+    .phil-pillar-card.green-accent::before {
+        background: var(--secondary-green);
+    }
+    .phil-pillar-icon {
+        width: 68px;
+        height: 68px;
+        border-radius: 50%;
+        background-color: rgba(15, 23, 42, 0.03);
+        color: var(--primary-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem;
+        margin-bottom: 22px;
+        transition: all 0.35s ease;
+    }
+    .phil-pillar-card.yellow-accent .phil-pillar-icon {
+        color: var(--accent-yellow);
+        background-color: rgba(220, 170, 10, 0.04);
+    }
+    .phil-pillar-card.green-accent .phil-pillar-icon {
+        color: var(--secondary-green);
+        background-color: rgba(5, 150, 105, 0.04);
+    }
+    .phil-pillar-card:hover .phil-pillar-icon {
+        transform: scale(1.1);
+        color: #ffffff;
+    }
+    .phil-pillar-card:hover .phil-pillar-icon {
+        background-color: var(--primary-blue);
+    }
+    .phil-pillar-card.yellow-accent:hover .phil-pillar-icon {
+        background-color: var(--accent-yellow);
+    }
+    .phil-pillar-card.green-accent:hover .phil-pillar-icon {
+        background-color: var(--secondary-green);
+    }
+    .phil-pillar-card h3 {
+        font-size: 1.3rem;
+        color: var(--primary-blue);
+        font-weight: 800;
+        margin: 0 0 12px 0;
+    }
+    .phil-pillar-card p {
+        font-size: 0.92rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    /* CHARACTER BUILDING STACKED BLOCKS (Section 7) */
+    .char-rules-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+    @media (max-width: 991px) {
+        .char-rules-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+    }
+    .char-card-block {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+        border: 1px solid rgba(15, 23, 42, 0.04);
+        transition: all 0.35s ease;
+    }
+    @media (max-width: 500px) {
+        .char-card-block {
+            padding: 25px 20px;
+        }
+    }
+    .char-card-block:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
+    }
+    .char-card-block-title {
+        font-size: 1.35rem;
+        color: var(--primary-blue);
+        font-weight: 800;
+        margin: 0 0 25px 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-bottom: 2px solid rgba(15, 23, 42, 0.04);
+        padding-bottom: 12px;
+    }
+    .char-card-block-title i {
+        color: var(--secondary-green);
+        font-size: 1.4rem;
+    }
+    .char-list-items {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .char-item-element {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+        font-size: 0.95rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+    }
+    .char-item-element:last-child {
+        margin-bottom: 0;
+    }
+    .char-item-element i {
+        color: var(--secondary-green);
+        margin-top: 4px;
+        font-size: 1rem;
+        flex-shrink: 0;
+    }
+    .char-card-block.yellow-accent {
+        border-top: 4px solid var(--accent-yellow);
+    }
+    .char-card-block.yellow-accent .char-card-block-title i {
+        color: var(--accent-yellow);
+    }
+    .char-card-block.blue-accent {
+        border-top: 4px solid var(--primary-blue);
+    }
+    .char-card-block.blue-accent .char-card-block-title i {
+        color: var(--primary-blue);
+    }
+    .char-card-block.green-accent {
+        border-top: 4px solid var(--secondary-green);
+    }
+    .char-card-block.green-accent .char-card-block-title i {
+        color: var(--secondary-green);
+    }
+    </style>
+</head>
+
+<body>
+    <!-- ✦ NEWS TICKER -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>✦ ADMISSIONS OPEN 2026–27 (CLASSES 1–9) ✦</span>
+            <span>Shaping Minds for a Better Tomorrow</span>
+            <span>✦ Holistic Growth • Ethical Foundation ✦</span>
+        </div>
+    </div>
+
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="center-text">
+                <i class="fas fa-bullhorn"></i>
+                ADMISSIONS OPEN 2026–27 (LIMITED SEATS)
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR -->
+    <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class=""><a href="admissions.html">ADMISSIONS</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🌟 HERO -->
+    <header class="page-hero" style="background-image: url('assets/school_building.jpeg');">
+        <div class="hero-content" data-aos="zoom-out">
+            <p>Our Heart & Soul</p>
+            <h1>Guiding Philosophy</h1>
+        </div>
+    </header>
+
+    <!-- 🌟 EDUCATIONAL BELIEF SECTION (Strengthened & Elegant Quote Layout) -->
+    <section id="educational-belief" class="philosophy-section-padding" style="background: var(--light-bg); margin-top: -100px; position: relative; z-index: 10;">
+        <div class="philosophy-wide-container">
+            <div style="background: #ffffff; border-radius: var(--border-radius-lg); padding: 75px 50px; box-shadow: 0 15px 50px rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.04); text-align: center;" data-aos="fade-up">
+                <i class="fas fa-leaf" style="font-size: 3.5rem; color: var(--accent-yellow); margin-bottom: 25px; display: block; opacity: 0.25;"></i>
+                <span class="fancy-section-subtitle">Heart & Soul</span>
+                <h2 style="font-size: clamp(2rem, 3.5vw, 2.7rem); color: var(--primary-blue); margin-bottom: 25px; font-weight: 800; letter-spacing: -0.5px;">Our Educational Belief</h2>
+                <div style="max-width: 950px; margin: 0 auto; line-height: 1.8;">
+                    <p style="font-size: clamp(1.2rem, 2vw, 1.5rem); font-style: italic; color: var(--primary-blue); font-weight: 600; margin-bottom: 20px;">
+                        "Our guiding philosophy is rooted in the belief that every child is a unique universe of potential. We don't just teach; we inspire, nurture, and empower students to build physical confidence, high moral values, balanced developmental growth, and responsible citizenship while seeking knowledge far beyond traditional textbooks."
+                    </p>
+                    <div style="width: 60px; height: 3px; background: var(--secondary-green); margin: 0 auto 20px auto;"></div>
+                    <p style="font-size: 0.95rem; color: var(--text-grey); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;">
+                        Majestic Primary & High School Ethos
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ADDITION: OUR LEARNING PHILOSOPHY -->
+    <section id="learning-philosophy" class="philosophy-section-padding" style="background: #ffffff; border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="philosophy-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Instructional Ethos</span>
+                <h2 class="fancy-section-title">Our Learning Philosophy</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    Discover our primary teaching methodologies that focus on nurturing the mind and building deep cognitive capabilities in students.
+                </p>
+            </div>
+
+            <div class="premium-philosophy-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Card 1 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon-wrap"><i class="fa-solid fa-brain"></i></div>
+                    <div class="philosophy-info">
+                        <h3>Learn with Understanding</h3>
+                        <p>Moving away from rote memorization. We teach concepts by linking them to practical life, logic patterns, and interactive visual aids.</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon-wrap"><i class="fa-solid fa-clock"></i></div>
+                    <div class="philosophy-info">
+                        <h3>Grow with Discipline</h3>
+                        <p>Sustaining daily routines, timely school task tracking, and focused behavioral frameworks to align actions with long-term success.</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon-wrap"><i class="fa-solid fa-compass"></i></div>
+                    <div class="philosophy-info">
+                        <h3>Think Independently</h3>
+                        <p>Helping students formulate original arguments, challenge academic premises respectfully, and solve complex problems bravely.</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon-wrap"><i class="fa-solid fa-medal"></i></div>
+                    <div class="philosophy-info">
+                        <h3>Build Values</h3>
+                        <p>Placing honesty, respectful teamwork, and deep spiritual empathy at the absolute center of every study module.</p>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon-wrap"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="philosophy-info">
+                        <h3>Respect Knowledge</h3>
+                        <p>Developing deep reverence for literature, mathematics, history, science, and the wonderful mentors who deliver them.</p>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="philosophy-card">
+                    <div class="philosophy-icon-wrap"><i class="fa-solid fa-infinity"></i></div>
+                    <div class="philosophy-info">
+                        <h3>Learn for Life</h3>
+                        <p>Ensuring cognitive skills translate beyond immediate examinations to foster continuous post-grad curiosity.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ADDITION: HOW WE SHAPE STUDENTS (Premium Grid) -->
+    <section id="how-we-shape-students" class="philosophy-section-padding" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="philosophy-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Growth Model</span>
+                <h2 class="fancy-section-title">How We Shape Students</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    Explore our integrated developmental lifecycle that guides pupils through rigorous steps to build balanced characters.
+                </p>
+            </div>
+
+            <div class="shape-students-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Card 1 -->
+                <div class="shape-card">
+                    <div class="shape-card-header">
+                        <span class="shape-card-icon"><i class="fa-solid fa-crown"></i></span>
+                        <h3>Academic Excellence</h3>
+                    </div>
+                    <p>Standardized classroom syllabus modules, interactive homework tracks, and close counseling cycles to push subject scores forward.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="shape-card yellow-accent">
+                    <div class="shape-card-header">
+                        <span class="shape-card-icon"><i class="fa-solid fa-face-smile"></i></span>
+                        <h3>Emotional Growth</h3>
+                    </div>
+                    <p>Focusing on secure child-teacher talk circles, empathetic conflict resolutions, and active peer-mentorship sessions to secure peace of mind.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="shape-card green-accent">
+                    <div class="shape-card-header">
+                        <span class="shape-card-icon"><i class="fa-solid fa-gavel"></i></span>
+                        <h3>Ethical Foundation</h3>
+                    </div>
+                    <p>Conducting timely integrity audits, moral-oriented assemblies, and value lessons that establish a life-long honest path.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="shape-card green-accent">
+                    <div class="shape-card-header">
+                        <span class="shape-card-icon"><i class="fa-solid fa-heart-circle-check"></i></span>
+                        <h3>Discipline & Responsibility</h3>
+                    </div>
+                    <p>Fostering positive uniform checks, prompt homework updates, punctual assembly greetings, and neat campus locker care bounds.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="shape-card">
+                    <div class="shape-card-header">
+                        <span class="shape-card-icon"><i class="fa-solid fa-lightbulb"></i></span>
+                        <h3>Creativity & Curiosity</h3>
+                    </div>
+                    <p>Opening active research, multi-disciplinary sandboxes, investigative science hours, and aesthetic visual arts displays.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="shape-card yellow-accent">
+                    <div class="shape-card-header">
+                        <span class="shape-card-icon"><i class="fa-solid fa-bullhorn"></i></span>
+                        <h3>Leadership Development</h3>
+                    </div>
+                    <p>Guiding students via debate participation, class prefect assignments, house captains duties, and voluntary group coordinate tasks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ENHANCED PHILOSOPHY PILLARS SECTION -->
+    <section id="philosophy-pillars" class="philosophy-section-padding" style="background: #ffffff; border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="philosophy-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Core Pillars</span>
+                <h2 class="fancy-section-title">The Pillars of Our Philosophy</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    Discover the four essential moral and educational pillars that direct all training protocols, evaluation guides, and teacher training events.
+                </p>
+            </div>
+
+            <div class="philosophy-pillars-grid">
+                <!-- Pillar 1 -->
+                <div class="phil-pillar-card blue-accent" data-aos="fade-up" data-aos-delay="100">
+                    <div class="phil-pillar-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Holistic Growth</h3>
+                    <p>We integrate rigorous text study with emotional and physical training, so that learning outcomes exist beyond examinations. Real-world example: Every student pairs academic goals with daily sports routines and interactive moral circles.</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="phil-pillar-card yellow-accent" data-aos="fade-up" data-aos-delay="150">
+                    <div class="phil-pillar-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Critical Thinking</h3>
+                    <p>Rather than passive textbook updates, we nurture minds that question. Students solve investigative projects, complete interactive logic puzzles, and critique hypotheses, translating into exceptional analytical skills in real life.</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="phil-pillar-card green-accent" data-aos="fade-up" data-aos-delay="200">
+                    <div class="phil-pillar-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Ethical Foundation</h3>
+                    <p>Education without character is incomplete. We run daily morning moral checks and honor codes inside examinations, keeping students grounded in profound integrity, community service, and environmental stewardship.</p>
+                </div>
+                <!-- Pillar 4 -->
+                <div class="phil-pillar-card green-accent" data-aos="fade-up" data-aos-delay="250">
+                    <div class="phil-pillar-icon"><i class="fas fa-microscope"></i></div>
+                    <h3>Experiential Learning</h3>
+                    <p>We believe knowledge must be lived. We integrate standard science programs with practical playground experiments, biological garden visits, and hands-on lab models to form immediate and deep mental mastery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ADDITION: OUR TEACHING APPROACH (Premium Split Section) -->
+    <section id="teaching-approach" class="philosophy-section-padding" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="philosophy-wide-container">
+            <div class="philosophy-split-grid reverse-on-mobile">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="assets/school_building.jpeg" alt="Majestic School Teaching Approach" style="width: 100%; object-fit: cover; border-radius: var(--border-radius-lg); box-shadow: 0 10px 40px rgba(15, 23, 42, 0.04); border: 1px solid rgba(15, 23, 42, 0.03);">
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <div class="fancy-section-header left-aligned" style="margin-bottom: 25px;">
+                        <span class="fancy-section-subtitle">Instructional Style</span>
+                        <h2 class="fancy-section-title">Our Teaching Approach</h2>
+                    </div>
+                    <p style="color: var(--text-grey); font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">
+                        How our dedicated educators approach daily lesson deliveries to ensure that the classroom experience remains engaging, supportive, and effective:
+                    </p>
+                    <div class="approach-list">
+                        <!-- Item 1 -->
+                        <div class="approach-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Student-Centered Learning:</strong><br>
+                                <span>Developing lessons built around students' interest lines, natural curiosity, and individual speed of uptake.</span>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="approach-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Activity-Based Learning:</strong><br>
+                                <span>Deploying group quests, dramatic lessons, role-playing, and field-visits to ensure active learning.</span>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="approach-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Practical Understanding:</strong><br>
+                                <span>Replacing abstract facts with touchable real-world demonstrations, math experiments, and real lab exercises.</span>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="approach-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Respectful Teacher Guidance:</strong><br>
+                                <span>Formulating positive advice patterns from teachers who guide respectfully like friendly mentors.</span>
+                            </div>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="approach-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Continuous Improvement:</strong><br>
+                                <span>Offering gentle periodic assessments that direct student energy to weak points constructively.</span>
+                            </div>
+                        </div>
+                        <!-- Item 6 -->
+                        <div class="approach-list-item">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Positive Encouragement:</strong><br>
+                                <span>Celebrating slight daily academic shifts and kind student moves to form confidence.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ADDITION: CHARACTER BUILDING VALUES (School-diary-based stacked cards) -->
+    <section id="character-values" class="philosophy-section-padding" style="background: #ffffff; border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="philosophy-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Behavioral Standard</span>
+                <h2 class="fancy-section-title">Character Building Values</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    Timothy-tested moral qualities embedded into our daily evaluation diary sheets to shape the ethical contours of every student.
+                </p>
+            </div>
+
+            <div class="char-rules-grid">
+                <!-- Column 1 -->
+                <div class="char-card-block blue-accent" data-aos="fade-right">
+                    <h3 class="char-card-block-title">
+                        <i class="fa-solid fa-gem"></i> Core Moral Attributes
+                    </h3>
+                    <ul class="char-list-items">
+                        <li class="char-item-element">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Honesty:</strong><br>
+                                <span>Unwavering academic truthfulness, reporting wrong actions, and speaking truth without fear.</span>
+                            </div>
+                        </li>
+                        <li class="char-item-element">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Respect:</strong><br>
+                                <span>Politeness to all class unit peers, caring speech patterns with teachers, and preserving common property.</span>
+                            </div>
+                        </li>
+                        <li class="char-item-element">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Discipline:</strong><br>
+                                <span>Quiet class listening posture, uniform dignity compliance, and regular school homework updates.</span>
+                            </div>
+                        </li>
+                        <li class="char-item-element">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Compassion:</strong><br>
+                                <span>Helping struggling peers during play hours, presenting active support tools, and practicing kindness.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="char-card-block yellow-accent" data-aos="fade-left">
+                    <h3 class="char-card-block-title">
+                        <i class="fa-solid fa-medal"></i> Creative & Social Qualities
+                    </h3>
+                    <ul class="char-list-items">
+                        <li class="char-item-element">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Teamwork:</strong><br>
+                                <span>Embracing individual roles during group models, sports events, and interclass contests happily.</span>
+                            </div>
+                        </li>
+                        <li class="char-item-element">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Responsibility:</strong><br>
+                                <span>Following diary rules, returning library books on schedule, and maintaining healthy desk cleanliness.</span>
+                            </div>
+                        </li>
+                        <li class="char-item-element">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Confidence:</strong><br>
+                                <span>Embracing active public talk events, science debate platforms, and sporting tasks without hesitation.</span>
+                            </div>
+                        </li>
+                        <li class="char-item-element">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong style="color: var(--primary-blue);">Positive Attitude:</strong><br>
+                                <span>Facing rigorous exam dates, difficult lessons, and classroom corrections with progressive smiles.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ADDITION: LONG TERM PHILOSOPHY (Inspirational Institutional Design) -->
+    <section id="long-term-philosophy" class="philosophy-section-padding" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="philosophy-wide-container">
+            <div class="philosophy-split-grid" style="grid-template-columns: 0.85fr 1.15fr; gap: 60px;">
+                <div class="about-image" data-aos="fade-right">
+                    <div style="background: var(--primary-blue); color: #ffffff; padding: 50px 40px; border-radius: var(--border-radius-lg); box-shadow: 0 10px 40px rgba(15,31,63,0.1); position: relative; border-left: 6px solid var(--accent-yellow);">
+                        <i class="fa-solid fa-graduation-cap" style="font-size: 3.5rem; color: var(--accent-yellow); margin-bottom: 25px; display: block;"></i>
+                        <h3 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 15px; color: #ffffff; line-height: 1.3;">Our Unwavering Commitment</h3>
+                        <p style="font-size: 1rem; line-height: 1.6; opacity: 0.9; margin-bottom: 0;">
+                            Our philosophy extends beyond terminal school terms. We aim to construct an enduring, highly resilient blueprint that prepares students to guide communities and innovate in global pathways with calm minds and resolute moral centers.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <div class="fancy-section-header left-aligned" style="margin-bottom: 25px;">
+                        <span class="fancy-section-subtitle">Future Blueprint</span>
+                        <h2 class="fancy-section-title">Our Long-Term Philosophy Goals</h2>
+                    </div>
+                    <p style="color: var(--text-grey); font-size: 1.05rem; line-height: 1.7; margin-bottom: 25px;">
+                        We continually align our resources towards modeling six long-term human assets:
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+                        <!-- Block 1 -->
+                        <div style="background: #ffffff; padding: 25px; border-radius: 12px; border-left: 3px solid var(--primary-blue); box-shadow: 0 4px 15px rgba(15,23,42,0.01);">
+                            <h4 style="color: var(--primary-blue); font-size: 1.05rem; font-weight: 700; margin: 0 0 8px 0;">Lifelong Learners</h4>
+                            <p style="color: var(--text-grey); font-size: 0.88rem; line-height: 1.5; margin: 0;">Igniting inner intellectual fires that drive continuous knowledge discovery long after school. </p>
+                        </div>
+                        <!-- Block 2 -->
+                        <div style="background: #ffffff; padding: 25px; border-radius: 12px; border-left: 3px solid var(--accent-yellow); box-shadow: 0 4px 15px rgba(15,23,42,0.01);">
+                            <h4 style="color: var(--primary-blue); font-size: 1.05rem; font-weight: 700; margin: 0 0 8px 0;">Responsible Citizens</h4>
+                            <p style="color: var(--text-grey); font-size: 0.88rem; line-height: 1.5; margin: 0;">Fostering active obedience to country laws, environmental protection, and civic improvements.</p>
+                        </div>
+                        <!-- Block 3 -->
+                        <div style="background: #ffffff; padding: 25px; border-radius: 12px; border-left: 3px solid var(--secondary-green); box-shadow: 0 4px 15px rgba(15,23,42,0.01);">
+                            <h4 style="color: var(--secondary-green); font-size: 1.05rem; font-weight: 700; margin: 0 0 8px 0;">Ethical Leaders</h4>
+                            <p style="color: var(--text-grey); font-size: 0.88rem; line-height: 1.5; margin: 0;">Generating leaders who place transparency, integrity, and public trust above private gain.</p>
+                        </div>
+                        <!-- Block 4 -->
+                        <div style="background: #ffffff; padding: 25px; border-radius: 12px; border-left: 3px solid var(--primary-blue); box-shadow: 0 4px 15px rgba(15,23,42,0.01);">
+                            <h4 style="color: var(--primary-blue); font-size: 1.05rem; font-weight: 700; margin: 0 0 8px 0;">Independent Thinkers</h4>
+                            <p style="color: var(--text-grey); font-size: 0.88rem; line-height: 1.5; margin: 0;">Building minds capable of logical discernment, creative innovation, and structured analysis.</p>
+                        </div>
+                        <!-- Block 5 -->
+                        <div style="background: #ffffff; padding: 25px; border-radius: 12px; border-left: 3px solid var(--accent-yellow); box-shadow: 0 4px 15px rgba(15,23,42,0.01);">
+                            <h4 style="color: var(--primary-blue); font-size: 1.05rem; font-weight: 700; margin: 0 0 8px 0;">Socially Aware</h4>
+                            <p style="color: var(--text-grey); font-size: 0.88rem; line-height: 1.5; margin: 0;">Unlocking high social empathy, active support actions, and deep sensitivity to fellow units.</p>
+                        </div>
+                        <!-- Block 6 -->
+                        <div style="background: #ffffff; padding: 25px; border-radius: 12px; border-left: 3px solid var(--secondary-green); box-shadow: 0 4px 15px rgba(15,23,42,0.01);">
+                            <h4 style="color: var(--secondary-green); font-size: 1.05rem; font-weight: 700; margin: 0 0 8px 0;">Future-Ready</h4>
+                            <p style="color: var(--text-grey); font-size: 0.88rem; line-height: 1.5; margin: 0;">Equipping student sets with robust tech competency, agile mindset, and profound resilience parameters.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+        <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>

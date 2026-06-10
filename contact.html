@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Majestic Primary and High School in Mysore. Get in touch for admissions, inquiries, or visit us at Aziz Sait Road, Mysuru, Karnataka.">
+    <meta name="keywords" content="contact Majestic School Mysore, school address, phone, email, admissions inquiry">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/contact.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Contact Us | Majestic Primary and High School, Mysore</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Ensure content is visible even if AOS takes time to load */
+        .aos-init:not(.aos-animate) {
+            opacity: 1 !important;
+        }
+
+        /* 🌟 SCROLL PROGRESS INDICATOR */
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 99999;
+            background: transparent;
+            pointer-events: none;
+        }
+        .scroll-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--secondary-green), var(--accent-yellow));
+            transition: width 0.1s ease-out;
+        }
+
+
+        /* --- PREMIUM HERO & OVERLAY --- */
+        .contact-hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.92)), url('assets/school_building.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            width: 100%;
+            padding: 120px 24px 100px 24px;
+        }
+
+        @media (min-width: 992px) {
+            .contact-hero {
+                height: 50vh;
+                min-height: 400px;
+                max-height: 500px;
+                padding: 0 24px;
+            }
+        }
+
+        .contact-hero-container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        .contact-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-hero-subtitle {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            letter-spacing: 2.5px;
+            margin-bottom: 16px;
+            display: block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--white);
+            margin: 0;
+            text-transform: uppercase;
+            line-height: 1.15;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- CONTACT CONTENT GRID --- */
+        .contact-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .contact-grid-pro {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: stretch;
+        }
+
+        .contact-info-pro {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+        }
+
+        .contact-info-pro h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 24px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .info-card-pro {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            background: #f8fafc;
+            padding: 28px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.02);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .info-card-pro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary-green);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .info-card-pro:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-card-pro:hover {
+            background: var(--white);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+            border-color: rgba(15, 23, 42, 0.08);
+        }
+
+        .info-card-pro:hover::before {
+            opacity: 1;
+        }
+
+        .info-card-pro i {
+            font-size: 1.3rem;
+            color: var(--secondary-green);
+            background: rgba(5, 150, 105, 0.08);
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(5, 150, 105, 0.05);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .info-card-pro:hover i {
+            background: var(--secondary-green);
+            color: var(--white);
+        }
+
+        .info-card-pro h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 6px;
+        }
+
+        .info-card-pro p {
+            color: var(--text-grey);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- PREMIUM FORM --- */
+        .contact-form-pro {
+            background: var(--white);
+            padding: 45px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.06);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .contact-form-pro h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 24px;
+            font-weight: 700;
+            border-left: 4px solid var(--accent-yellow);
+            padding-left: 14px;
+            line-height: 1.2;
+            letter-spacing: -0.3px;
+        }
+
+        .form-group-pro {
+            margin-bottom: 20px;
+        }
+
+        .form-group-pro label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .form-group-pro input,
+        .form-group-pro textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1.5px solid #e2e8f0;
+            background: #f8fafc;
+            color: var(--text-dark);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group-pro input::placeholder,
+        .form-group-pro textarea::placeholder {
+            color: var(--text-muted);
+            opacity: 0.75;
+        }
+
+        .form-group-pro input:focus,
+        .form-group-pro textarea:focus {
+            outline: none;
+            border-color: var(--secondary-green);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
+        }
+
+        .submit-btn-pro {
+            width: 100%;
+            padding: 16px 28px;
+            background: var(--accent-yellow);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            margin-top: 10px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-sizing: border-box;
+        }
+
+        .submit-btn-pro:hover {
+            background: #e08e0a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.25);
+        }
+
+        .submit-btn-pro:active {
+            transform: translateY(0);
+        }
+
+        /* --- INTEGRATED MAP --- */
+        .map-section-pro {
+            padding: 85px 0 110px 0;
+            background: #f8fafc;
+            border-top: 1px solid rgba(15, 23, 42, 0.04);
+        }
+
+        .map-container-pro {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.08);
+            border: 10px solid var(--white);
+            line-height: 0;
+            box-sizing: border-box;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .map-container-pro:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 70px rgba(15, 23, 42, 0.12);
+        }
+
+        .map-container-pro iframe {
+            display: block;
+            width: 100%;
+            height: 480px;
+            border: 0;
+        }
+
+        /* --- RESPONSIVE WORK --- */
+        @media (max-width: 1100px) {
+            .contact-grid-pro {
+                gap: 40px;
+            }
+            .contact-form-pro {
+                padding: 35px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-section {
+                padding: 80px 0;
+            }
+            .contact-grid-pro {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            .contact-info-pro {
+                text-align: center;
+                align-items: center;
+            }
+            .info-card-pro {
+                width: 100%;
+                max-width: 600px;
+                text-align: left;
+            }
+            .contact-form-pro {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .map-section-pro {
+                padding: 60px 0 80px 0;
+            }
+            .map-container-pro iframe {
+                height: 380px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .contact-section {
+                padding: 65px 0;
+            }
+            .contact-info-pro h2 {
+                font-size: 2.1rem;
+            }
+            .info-card-pro {
+                padding: 22px;
+                gap: 16px;
+            }
+            .contact-form-pro {
+                padding: 28px 20px;
+            }
+            .contact-form-pro h3 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            .submit-btn-pro {
+                padding: 14px 20px;
+                font-size: 0.9rem;
+            }
+            .map-container-pro {
+                border-width: 6px;
+                border-radius: 16px;
+            }
+            .map-container-pro iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 💫 SCROLL PROGRESS BAR -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- ✦ NEWS TICKER -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>✦ ADMISSIONS OPEN 2026–27 (CLASSES 1–9) ✦</span>
+            <span>Shaping Minds for a Better Tomorrow</span>
+        </div>
+    </div>
+
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="center-text">
+                <i class="fas fa-bullhorn"></i>
+                ADMISSIONS OPEN 2026–27 (LIMITED SEATS)
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR -->
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class=""><a href="admissions.html">ADMISSIONS</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- 🌟 HERO -->
+    <header class="contact-hero">
+        <div class="contact-hero-container">
+            <div class="contact-hero-content" data-aos="zoom-out">
+                <span class="contact-hero-subtitle">Connect with us</span>
+                <h1 class="contact-hero-title">Contact Us</h1>
+            </div>
+        </div>
+    </header>
+ 
+    <!-- 🌟 CONTACT CONTENT -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid-pro">
+                <div class="contact-info-pro" data-aos="fade-right">
+                    <h2>Reach Out to Us</h2>
+                    <div class="info-card-pro">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>School Address</h4>
+                            <p>Aziz Sait Road, B Block, Mahadevapura Road, Udayagiri, Mysuru, Karnataka 570019</p>
+                        </div>
+                    </div>
+                    <div class="info-card-pro">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91 78920 53860</p>
+                        </div>
+                    </div>
+                    <div class="info-card-pro">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>majestichps@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+ 
+                <div class="contact-form-pro" data-aos="fade-left">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group-pro">
+                            <label>Full Name</label>
+                            <input type="text" id="contactName" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group-pro">
+                            <label>Email Address</label>
+                            <input type="email" id="contactEmail" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group-pro">
+                            <label>Subject</label>
+                            <input type="text" id="contactSubject" placeholder="How can we help?">
+                        </div>
+                        <div class="form-group-pro">
+                            <label>Message</label>
+                            <textarea id="contactMessage" rows="4" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <div id="contactFormError" style="color: #ef4444; font-weight: 700; margin-bottom: 15px; display: none;"></div>
+                        <button type="submit" class="submit-btn-pro" id="contactSubmitBtn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane" style="font-size: 0.85em;"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- 🌟 MAP SECTION -->
+    <section class="map-section-pro">
+        <div class="container">
+            <div class="map-container-pro" data-aos="fade-up">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.3245247!2d76.6758428!3d12.3245247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baf7052179f5465%3A0x3feecb7e2c62d18a!2sMajestic%20Higher%20Primary%20School!5e0!3m2!1sen!2sin!4v1710859200000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+        <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/error-handler.js"></script>
+    <script src="js/api-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = document.getElementById('contactSubmitBtn');
+            const errorDiv = document.getElementById('contactFormError');
+            
+            // Validate all fields
+            const nameField = document.getElementById('contactName');
+            const emailField = document.getElementById('contactEmail');
+            const messageField = document.getElementById('contactMessage');
+
+            let isValid = true;
+
+            // Validate name
+            if (!nameField.value.trim()) {
+                ErrorHandler.showFieldError(nameField, 'Name is required');
+                isValid = false;
+            } else {
+                ErrorHandler.clearFieldError(nameField);
+            }
+
+            // Validate email
+            if (!emailField.value.trim()) {
+                ErrorHandler.showFieldError(emailField, 'Email is required');
+                isValid = false;
+            } else if (!ErrorHandler.isValidEmail(emailField.value.trim())) {
+                ErrorHandler.showFieldError(emailField, 'Please enter a valid email address');
+                isValid = false;
+            } else {
+                ErrorHandler.clearFieldError(emailField);
+            }
+
+            // Validate message
+            if (!messageField.value.trim()) {
+                ErrorHandler.showFieldError(messageField, 'Message is required');
+                isValid = false;
+            } else if (messageField.value.trim().length < 10) {
+                ErrorHandler.showFieldError(messageField, 'Message must be at least 10 characters');
+                isValid = false;
+            } else {
+                ErrorHandler.clearFieldError(messageField);
+            }
+
+            if (!isValid) {
+                ErrorHandler.showErrorToast('Please fix the errors above');
+                return;
+            }
+
+            // Extract values
+            const payload = {
+                name: nameField.value.trim(),
+                email: emailField.value.trim(),
+                subject: document.getElementById('contactSubject').value.trim() || 'General Enquiry',
+                message: messageField.value.trim(),
+                mobile: document.getElementById('contactPhone') ? document.getElementById('contactPhone').value.trim() : null
+            };
+
+            // Loading state
+            ErrorHandler.setFormLoading(form, true);
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch(apiUrl('/api/contact'), {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    ErrorHandler.showSuccessToast('Message sent successfully!');
+                    const formContainer = this.parentElement;
+                    formContainer.style.transition = 'opacity 0.4s ease';
+                    formContainer.style.opacity = '0';
+                    setTimeout(() => {
+                        formContainer.innerHTML = `
+                            <div class="success-box" style="text-align: center; padding: 45px 10px; animation: fadeIn 0.8s ease forwards;">
+                                <i class="fas fa-paper-plane" style="font-size: 4.5rem; color: var(--secondary-green); margin-bottom: 25px;"></i>
+                                <h3 style="font-size: 2rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 800;">Message Sent!</h3>
+                                <p style="color: var(--text-grey); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.8;">
+                                    Thank you for reaching out to us. Your message has been saved and our team will review it shortly. We'll get back to you soon.
+                                </p>
+                                <a href="index.html" class="btn btn-primary" style="padding: 12px 30px; border-radius: 50px; text-decoration: none; display: inline-block;">Return Home</a>
+                            </div>
+                        `;
+                        formContainer.style.opacity = '1';
+                    }, 400);
+                } else {
+                    const err = await response.json();
+                    const errorMessage = err.detail || err.error || 'Failed to send message';
+                    ErrorHandler.showErrorToast(errorMessage);
+                    errorDiv.textContent = errorMessage;
+                    errorDiv.style.display = 'block';
+                }
+            } catch (err) {
+                console.error('Request failed:', err);
+                ErrorHandler.showErrorToast('Network error. Please check your connection.');
+                errorDiv.textContent = 'Failed to send message. Please try again.';
+                errorDiv.style.display = 'block';
+            } finally {
+                ErrorHandler.setFormLoading(form, false);
+            }
+        });
+    </script>
+</body>
+
+</html>
+

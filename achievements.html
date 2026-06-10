@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celebrate achievements at Majestic Primary and High School, Mysore. Academic outcomes, student achievements, and excellence gallery showcasing our success stories.">
+    <meta name="keywords" content="achievements Majestic School Mysore, academic outcomes, student awards, excellence gallery, school success">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/achievements.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Achievements | Majestic Primary and High School, Mysore</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --premium-blue: #1e3a8a;
+            --premium-gold: #facc15;
+            --premium-green: #2e7d32;
+            --soft-bg: #f8fafc;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #fdfdfd;
+            color: #334155;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* --- PREMIUM HERO --- */
+        .achievements-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('assets/school_building.jpeg') center/cover no-repeat fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .achievements-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, #fff, var(--premium-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .achievements-hero p {
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        /* --- ACHIEVEMENTS GRID --- */
+        .achievements-section {
+            padding: 100px 0;
+        }
+
+        .section-header-pro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header-pro h2 {
+            font-size: 2.8rem;
+            color: var(--premium-blue);
+            margin-bottom: 15px;
+        }
+
+        .section-header-pro p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .achievements-grid-pro {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .achievement-card-pro {
+            background: white;
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transition: 0.4s;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .achievement-card-pro:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1);
+            border-color: var(--premium-gold);
+        }
+
+        .achievement-icon-pro {
+            width: 70px;
+            height: 70px;
+            background: #eff6ff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--premium-blue);
+            flex-shrink: 0;
+        }
+
+        .achievement-info-pro h3 {
+            font-size: 1.6rem;
+            color: var(--premium-blue);
+            margin-bottom: 15px;
+        }
+
+        .achievement-info-pro p {
+            line-height: 1.7;
+            color: #475569;
+        }
+
+        /* --- TROPHY BANNER --- */
+        .trophy-banner {
+            background: var(--premium-blue);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+            border-radius: 60px;
+            margin: 50px 20px;
+        }
+
+        .trophy-banner i {
+            font-size: 4rem;
+            color: var(--premium-gold);
+            margin-bottom: 30px;
+        }
+
+        .trophy-banner h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .achievements-grid-pro { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .achievements-hero h1 { font-size: 2.5rem; }
+            .achievement-card-pro { flex-direction: column; padding: 40px 30px; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ✦ NEWS TICKER -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>✦ ADMISSIONS OPEN 2026–27 (CLASSES 1–9) ✦</span>
+            <span>Shaping Minds for a Better Tomorrow</span>
+        </div>
+    </div>
+
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="center-text">
+                <i class="fas fa-bullhorn"></i>
+                ADMISSIONS OPEN 2026–27 (LIMITED SEATS)
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR (Sticky) -->
+        </div>
+
+        <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class=""><a href="admissions.html">ADMISSIONS</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- 🌟 HERO -->
+    <header class="achievements-hero">
+        <div class="hero-content" data-aos="zoom-out">
+            <p>Legacy of Excellence</p>
+            <h1>Our Achievements</h1>
+        </div>
+    </header>
+
+    <!-- 🌟 ACHIEVEMENTS CONTENT -->
+    <section class="achievements-section">
+        <div class="container">
+            <div class="section-header-pro" data-aos="fade-up">
+                <h2>Celebrating Success</h2>
+                <p>Our students consistently excel across academic, sports, and cultural domains, reflecting our commitment to holistic development.</p>
+            </div>
+
+            <div class="achievements-grid-pro">
+                <div class="achievement-card-pro" data-aos="fade-up" data-aos-delay="100">
+                    <div class="achievement-icon-pro"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="achievement-info-pro">
+                        <h3>Academic Excellence</h3>
+                        <p>Consistent 100% results in SSLC board examinations with numerous distinctions and state-level recognitions.</p>
+                    </div>
+                </div>
+                <div class="achievement-card-pro" data-aos="fade-up" data-aos-delay="200">
+                    <div class="achievement-icon-pro"><i class="fas fa-running"></i></div>
+                    <div class="achievement-info-pro">
+                        <h3>Sports & Athletics</h3>
+                        <p>Multiple gold and silver medals in district and state-level athletic meets, including football and cricket championships.</p>
+                    </div>
+                </div>
+                <div class="achievement-card-pro" data-aos="fade-up" data-aos-delay="300">
+                    <div class="achievement-icon-pro"><i class="fas fa-palette"></i></div>
+                    <div class="achievement-info-pro">
+                        <h3>Cultural Brilliance</h3>
+                        <p>Outstanding performances in inter-school cultural fests, securing top positions in folk dance, music, and theatre.</p>
+                    </div>
+                </div>
+                <div class="achievement-card-pro" data-aos="fade-up" data-aos-delay="400">
+                    <div class="achievement-icon-pro"><i class="fas fa-users"></i></div>
+                    <div class="achievement-info-pro">
+                        <h3>Leadership Awards</h3>
+                        <p>Recognitions for student-led community initiatives and social responsibility projects that have made a real impact.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 TROPHY BANNER -->
+    <section class="trophy-banner" data-aos="fade-up">
+        <div class="container">
+            <i class="fas fa-trophy"></i>
+            <h2>Every Achievement Tells a Story</h2>
+            <p style="font-size: 1.2rem; opacity: 0.8; max-width: 700px; margin: 0 auto;">We believe in nurturing the unique talents of every child, turning potential into extraordinary performance.</p>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+        <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>

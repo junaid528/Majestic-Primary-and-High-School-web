@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about Majestic Primary and High School in Mysore - our institution, vision, mission, and commitment to holistic education and character development.">
+    <meta name="keywords" content="about Majestic School Mysore, school history, vision mission, holistic education, character building">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/about.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>About Us | Majestic Primary and High School</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0f1f3f;
+            --secondary-green: #059669;
+            --accent-yellow: #dcaa0a;
+            --text-grey: #475569;
+            --light-bg: #f8fafc;
+            --border-radius-lg: 24px;
+        }
+
+        body {
+            font-family: 'Outfit', 'Poppins', sans-serif;
+            background: #ffffff;
+            color: var(--text-grey);
+            overflow-x: hidden;
+        }
+
+        /* Ensure content is visible even if AOS takes time to load */
+        .aos-init:not(.aos-animate) {
+            opacity: 1 !important;
+        }
+
+        /* 🌟 SCROLL PROGRESS INDICATOR */
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 99999;
+            background: transparent;
+            pointer-events: none;
+        }
+        .scroll-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--secondary-green), var(--accent-yellow));
+            transition: width 0.1s ease-out;
+        }
+
+
+        /* --- WIDE CONTAINER --- */
+        .wide-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 991px) {
+            .wide-container {
+                padding: 0 20px;
+            }
+        }
+
+        /* --- SECTION HEADERS --- */
+        .fancy-section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .fancy-section-subtitle {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-green);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: 3px;
+        }
+        
+        .fancy-section-title {
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- PREMIUM HERO & FLOATING BADGES --- */
+        .about-hero {
+            background: linear-gradient(rgba(15, 31, 63, 0.78), rgba(15, 31, 63, 0.92)), url('assets/school_building.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            position: relative;
+            padding: 100px 20px 80px 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        /* Desktop Height constraint */
+        @media (min-width: 992px) {
+            .about-hero {
+                height: 85vh;
+                min-height: 650px;
+                max-height: 800px;
+                padding-top: 130px;
+                padding-bottom: 60px;
+            }
+        }
+
+        .about-hero-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            width: 100%;
+            height: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        .about-hero-content {
+            z-index: 2;
+            max-width: 850px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin: 0 0 24px 0;
+            text-transform: uppercase;
+            line-height: 1.15;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-hero-subtitle {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            letter-spacing: 2.5px;
+            margin: 0 0 16px 0;
+            display: block;
+        }
+
+        .about-hero-tagline {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.95);
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-transform: none;
+            letter-spacing: normal;
+        }
+
+        /* Hero Feature Cards Grid content */
+        .hero-floating-badges {
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            z-index: 10;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+
+        .hero-badge-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 15px 35px rgba(15, 31, 63, 0.15);
+            border-bottom: 4px solid var(--accent-yellow);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .hero-badge-card:nth-child(2) {
+            border-bottom-color: var(--secondary-green);
+        }
+
+        .hero-badge-card:nth-child(3) {
+            border-bottom-color: var(--primary-blue);
+        }
+
+        .hero-badge-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(15, 31, 63, 0.25);
+        }
+
+        .hero-badge-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(15, 31, 63, 0.05);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .hero-badge-card:hover .hero-badge-icon {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .hero-badge-card:nth-child(2) .hero-badge-icon {
+            color: var(--secondary-green);
+            background: rgba(5, 150, 105, 0.05);
+        }
+        .hero-badge-card:nth-child(2):hover .hero-badge-icon {
+            background: var(--secondary-green);
+            color: white;
+        }
+
+        .hero-badge-card:nth-child(3) .hero-badge-icon {
+            color: var(--accent-yellow);
+            background: rgba(220, 170, 10, 0.05);
+        }
+        .hero-badge-card:nth-child(3):hover .hero-badge-icon {
+            background: var(--accent-yellow);
+            color: white;
+        }
+
+        .hero-badge-info h4 {
+            font-size: 1.05rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 3px 0;
+        }
+
+        .hero-badge-info p {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            margin: 0;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* --- INSTITUTION REDESIGN --- */
+        .inst-sec {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .inst-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .inst-img-wrapper {
+            position: sticky;
+            top: 100px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(15, 31, 63, 0.12);
+            border: 5px solid #ffffff;
+        }
+
+        .inst-img {
+            width: 100%;
+            height: Auto;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .inst-img-wrapper:hover .inst-img {
+            transform: scale(1.05);
+        }
+
+        .inst-text {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .inst-intro-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--primary-blue);
+            font-weight: 600;
+            border-left: 4px solid var(--secondary-green);
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .inst-pillars {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .pillar-bullet-card {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 24px;
+            border-left: 5px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .pillar-bullet-card:hover {
+            transform: translateX(6px);
+            box-shadow: 0 10px 25px rgba(15, 31, 63, 0.05);
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 8px;
+        }
+
+        .pillar-icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(15, 31, 63, 0.06);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .pillar-bullet-card:nth-child(2n) {
+            border-left-color: var(--secondary-green);
+        }
+        .pillar-bullet-card:nth-child(2n) .pillar-icon-box {
+            background: rgba(5, 150, 105, 0.06);
+            color: var(--secondary-green);
+        }
+
+        .pillar-bullet-card:nth-child(3n) {
+            border-left-color: var(--accent-yellow);
+        }
+        .pillar-bullet-card:nth-child(3n) .pillar-icon-box {
+            background: rgba(220, 170, 10, 0.06);
+            color: var(--accent-yellow);
+        }
+
+        .pillar-header h3 {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .pillar-bullet-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-grey);
+        }
+
+        /* --- STATS SECTION --- */
+        .about-stats-sec {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #080f1e 100%);
+            padding: 100px 0;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid var(--accent-yellow);
+            border-bottom: 4px solid var(--secondary-green);
+        }
+
+        .about-stats-sec::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .stats-flex-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card-premium {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 40px 24px;
+            text-align: center;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card-premium:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--accent-yellow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card-premium:nth-child(even):hover {
+            border-color: var(--secondary-green);
+        }
+
+        .stat-card-icon {
+            font-size: 2.3rem;
+            color: var(--accent-yellow);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card-premium:nth-child(even) .stat-card-icon {
+            color: var(--secondary-green);
+        }
+
+        .stat-card-premium:hover .stat-card-icon {
+            transform: scale(1.1);
+        }
+
+        .stat-num-premium {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            color: var(--accent-yellow);
+            margin: 0 0 8px 0;
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .stat-card-premium:nth-child(even) .stat-num-premium {
+            color: var(--secondary-green);
+        }
+
+        .stat-label-premium {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        /* --- TIMELINE (OUR LEGACY) --- */
+        .timeline-sec {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* The central line */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: rgba(15, 31, 63, 0.1);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .timeline-block {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+        }
+
+        .timeline-block-left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-block-right {
+            left: 50%;
+            text-align: left;
+        }
+
+        /* The timeline dots */
+        .timeline-dot {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 4px solid var(--accent-yellow);
+            top: 26px;
+            z-index: 5;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-block-left .timeline-dot {
+            right: -12px;
+        }
+
+        .timeline-block-right .timeline-dot {
+            left: -12px;
+        }
+
+        .timeline-block:hover .timeline-dot {
+            background-color: var(--accent-yellow);
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(220, 170, 10, 0.5);
+        }
+
+        .timeline-block-right:nth-child(even) .timeline-dot {
+            border-color: var(--secondary-green);
+        }
+        .timeline-block-right:nth-child(even):hover .timeline-dot {
+            background-color: var(--secondary-green);
+            box-shadow: 0 0 15px rgba(5, 150, 105, 0.5);
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #ffffff;
+            background: var(--primary-blue);
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .timeline-block-left .timeline-badge {
+            background: var(--primary-blue);
+        }
+
+        .timeline-block-right .timeline-badge {
+            background: var(--secondary-green);
+        }
+
+        .timeline-block:nth-child(3n) .timeline-badge {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+        }
+
+        .timeline-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(15, 31, 63, 0.04);
+            border: 1px solid rgba(15, 31, 63, 0.02);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+
+        .timeline-block:hover .timeline-card {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(15, 31, 63, 0.08);
+            border-color: rgba(15, 31, 63, 0.05);
+        }
+
+        .timeline-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 10px 0;
+        }
+
+        .timeline-card p {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-grey);
+        }
+
+        /* --- PRINCIPAL’S MESSAGE --- */
+        .principal-section {
+            padding: 120px 0;
+            background: #ffffff;
+        }
+
+        .principal-card {
+            background: var(--light-bg);
+            border-radius: 32px;
+            padding: 65px;
+            display: grid;
+            grid-template-columns: 1.2fr 350px;
+            gap: 65px;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(15, 31, 63, 0.05);
+            border: 1px solid rgba(15, 23, 42, 0.03);
+        }
+
+        .principal-msg-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .principal-mini-label {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-green);
+            letter-spacing: 2.5px;
+            margin-bottom: 8px;
+        }
+
+        .principal-sec-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 25px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .principal-quote-box {
+            position: relative;
+            padding: 24px 30px;
+            background: #ffffff;
+            border-radius: 16px;
+            border-left: 5px solid var(--accent-yellow);
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.01);
+        }
+
+        .quote-icon {
+            position: absolute;
+            left: 15px;
+            top: -12px;
+            font-size: 2rem;
+            color: var(--accent-yellow);
+            opacity: 0.15;
+        }
+
+        .principal-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--primary-blue);
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .principal-body-text {
+            font-size: 1.05rem;
+            color: var(--text-grey);
+            line-height: 1.8;
+            margin: 0 0 20px 0;
+        }
+
+        .principal-body-text:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .principal-photo-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .principal-img {
+            width: 100%;
+            height: auto;
+            max-width: 320px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(15, 31, 63, 0.12);
+            object-fit: cover;
+            margin-bottom: 25px;
+            border: 6px solid #ffffff;
+        }
+
+        .principal-signature-desktop {
+            text-align: center;
+        }
+
+        .principal-signature-desktop h4 {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 4px 0;
+            text-transform: uppercase;
+        }
+
+        .principal-signature-desktop p {
+            font-size: 0.95rem;
+            color: var(--secondary-green);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .principal-signature-mobile {
+            display: none;
+        }
+
+        .principal-mobile-heading {
+            display: none;
+        }
+
+        /* --- WHY MAJESTIC --- */
+        .why-majestic-sec {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+
+        .why-majestic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .why-majestic-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 45px 35px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .why-majestic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+
+        .why-majestic-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            transition: all 0.35s ease;
+            flex-shrink: 0;
+        }
+
+        .why-majestic-icon.blue-icon {
+            background-color: rgba(15, 31, 63, 0.06);
+            color: var(--primary-blue);
+        }
+
+        .why-majestic-icon.green-icon {
+            background-color: rgba(5, 150, 105, 0.06);
+            color: var(--secondary-green);
+        }
+
+        .why-majestic-icon.yellow-icon {
+            background-color: rgba(220, 170, 10, 0.06);
+            color: var(--accent-yellow);
+        }
+
+        .why-majestic-card:hover .why-majestic-icon.blue-icon {
+            background-color: var(--primary-blue);
+            color: #ffffff;
+        }
+
+        .why-majestic-card:hover .why-majestic-icon.green-icon {
+            background-color: var(--secondary-green);
+            color: #ffffff;
+        }
+
+        .why-majestic-card:hover .why-majestic-icon.yellow-icon {
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+        }
+
+        .why-majestic-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 14px 0;
+        }
+
+        .why-majestic-card p {
+            font-size: 0.98rem;
+            color: var(--text-grey);
+            line-height: 1.65;
+            margin: 0;
+        }
+
+        /* --- STUDENT LIFE & SCHOOL CULTURE --- */
+        .student-life-sec {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .student-life-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .life-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .life-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+            border-color: rgba(15, 31, 63, 0.1);
+        }
+
+        .life-img-box {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: var(--primary-blue);
+        }
+
+        .life-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            opacity: 0.9;
+        }
+
+        .life-card:hover .life-img {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        .life-content {
+            padding: 30px;
+        }
+
+        .life-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-green);
+            background: rgba(5, 150, 105, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .life-card:nth-child(2) .life-tag {
+            color: var(--accent-yellow);
+            background: rgba(220, 170, 10, 0.08);
+        }
+
+        .life-card:nth-child(3) .life-tag {
+            color: var(--primary-blue);
+            background: rgba(15, 31, 63, 0.06);
+        }
+
+        .life-content h3 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 10px 0;
+        }
+
+        .life-content p {
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- CAMPUS & ENVIRONMENT --- */
+        .campus-sec {
+            padding: 100px 0;
+            background: var(--light-bg);
+        }
+
+        .campus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .campus-card {
+            background: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+        }
+
+        .campus-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+            border-bottom: 4px solid var(--accent-yellow);
+        }
+
+        .campus-card:nth-child(even):hover {
+            border-bottom-color: var(--secondary-green);
+        }
+
+        .campus-img-box {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+            background: var(--primary-blue);
+        }
+
+        .campus-img-placeholder {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.95;
+            transition: transform 0.5s ease;
+        }
+
+        .campus-card:hover .campus-img-placeholder {
+            transform: scale(1.05);
+        }
+
+        .campus-icon-overlay {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            z-index: 2;
+        }
+
+        .campus-card:nth-child(even) .campus-icon-overlay {
+            background: var(--secondary-green);
+            color: #ffffff;
+        }
+
+        .campus-card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .campus-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 10px 0;
+        }
+
+        .campus-card p {
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- CORE VALUES --- */
+        .values-sec {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 35px 30px;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.015);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            box-sizing: border-box;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px) translateX(2px);
+            box-shadow: 0 20px 40px rgba(15, 31, 63, 0.06);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+
+        .value-icon-wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(15, 31, 63, 0.05);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(15, 31, 63, 0.03);
+        }
+
+        .value-card:hover .value-icon-wrapper {
+            background: var(--primary-blue);
+            color: #ffffff;
+            transform: rotate(10deg);
+        }
+
+        .value-card:nth-child(even):hover .value-icon-wrapper {
+            background: var(--secondary-green);
+        }
+
+        .value-card:nth-child(3n):hover .value-icon-wrapper {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+        }
+
+        .value-info h3 {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            text-transform: uppercase;
+        }
+
+        .value-info p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- CALL TO ACTION --- */
+        .cta-strip {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0c1628 100%);
+            padding: 85px 0;
+            color: #ffffff;
+            text-align: center;
+            border-top: 5px solid var(--accent-yellow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-strip::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 15% 15%, rgba(5, 150, 105, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 85% 85%, rgba(220, 170, 10, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 3;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: #ffffff;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-content p {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
+            line-height: 1.65;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+        }
+
+        .cta-btn-primary {
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            box-shadow: 0 10px 25px rgba(220, 170, 10, 0.3);
+        }
+
+        .cta-btn-primary:hover {
+            background-color: #f1bf12;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(220, 170, 10, 0.4);
+        }
+
+        .cta-btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-btn-secondary:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* --- RESPONSIVE OVERRIDES --- */
+        @media (max-width: 1100px) {
+            .hero-floating-badges {
+                gap: 16px;
+                padding: 0 10px;
+            }
+            .hero-badge-card {
+                padding: 18px 14px;
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero-floating-badges {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin: 30px auto 0 auto;
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .about-hero {
+                height: auto;
+                min-height: auto;
+                padding: 120px 20px 60px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .inst-sec {
+                padding: 80px 0;
+            }
+
+            .inst-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .inst-img-wrapper {
+                position: static;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .stats-flex-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .principal-card {
+                padding: 40px;
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .principal-photo-col {
+                order: 1;
+            }
+
+            .principal-msg-col {
+                order: 2;
+            }
+
+            .why-majestic-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .student-life-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .campus-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .timeline-container::after {
+                left: 30px;
+            }
+
+            .timeline-block {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                text-align: left;
+            }
+
+            .timeline-block-left {
+                left: 0;
+            }
+
+            .timeline-block-right {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 18px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .inst-sec, .timeline-sec, .principal-section, .why-majestic-sec, .student-life-sec, .campus-sec, .values-sec {
+                padding: 60px 0;
+            }
+
+            .principal-card {
+                padding: 30px 20px;
+                border-radius: 24px;
+            }
+
+            .principal-mobile-heading {
+                display: block;
+                font-size: 2rem;
+                color: var(--primary-blue);
+                font-weight: 800;
+                text-align: center;
+                margin-bottom: 20px;
+                width: 100%;
+            }
+
+            .principal-sec-title {
+                display: none;
+            }
+
+            .principal-mini-label {
+                display: none;
+            }
+
+            .principal-img {
+                max-width: 250px;
+                margin: 0 auto 15px auto;
+            }
+
+            .principal-signature-desktop {
+                display: none;
+            }
+
+            .principal-signature-mobile {
+                display: block;
+                margin-top: 25px;
+                padding-top: 20px;
+                border-top: 1px solid #e2e8f0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .principal-signature-mobile h4 {
+                font-size: 1.15rem;
+                color: var(--primary-blue);
+                font-weight: 800;
+                margin: 0 0 4px 0;
+            }
+
+            .principal-signature-mobile p {
+                font-size: 0.9rem;
+                color: var(--secondary-green);
+                font-weight: 600;
+                margin: 0;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .why-majestic-grid, .student-life-grid, .campus-grid, .values-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .stats-flex-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+
+            .cta-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 💫 SCROLL PROGRESS BAR -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- ✦ NEWS TICKER -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>✦ ADMISSIONS OPEN 2026–27 (CLASSES 1–9) ✦</span>
+            <span>Shaping Minds for a Better Tomorrow</span>
+            <span>✦ 25 Years of Educational Legacy ✦</span>
+        </div>
+    </div>
+
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="center-text">
+                <i class="fas fa-bullhorn"></i>
+                ADMISSIONS OPEN 2026–27 (LIMITED SEATS)
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR -->
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown active">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class=""><a href="admissions.html">ADMISSIONS</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🌟 HERO -->
+    <header class="about-hero">
+        <div class="wide-container about-hero-container">
+            <div class="about-hero-content" data-aos="zoom-out">
+                <p class="about-hero-subtitle">Establishing Leaders Since 1999</p>
+                <h1 class="about-hero-title">Our Legacy of Excellence</h1>
+                <p class="about-hero-tagline">Shaping minds, strengthening moral characters, and nurturing academic greatness in Mysuru for over two and a half decades.</p>
+            </div>
+            
+            <!-- Floating Badges in Hero (Nested in Flex logic) -->
+            <div class="hero-floating-badges" data-aos="fade-up" data-aos-delay="200">
+                <!-- Badge 1 -->
+                <div class="hero-badge-card">
+                    <div class="hero-badge-icon"><i class="fas fa-shield-halved"></i></div>
+                    <div class="hero-badge-info">
+                        <h4>Discipline</h4>
+                        <p>Exemplary Code of Conduct</p>
+                    </div>
+                </div>
+                <!-- Badge 2 -->
+                <div class="hero-badge-card">
+                    <div class="hero-badge-card-inner"></div>
+                    <div class="hero-badge-icon"><i class="fas fa-seedling"></i></div>
+                    <div class="hero-badge-info">
+                        <h4>Holistic Growth</h4>
+                        <p>Balanced Curricular Strides</p>
+                    </div>
+                </div>
+                <!-- Badge 3 -->
+                <div class="hero-badge-card">
+                    <div class="hero-badge-icon"><i class="fas fa-medal"></i></div>
+                    <div class="hero-badge-info">
+                        <h4>Academic Merit</h4>
+                        <p>Uncompromising Board Scores</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🌟 ABOUT INSTITUTION -->
+    <section class="inst-sec">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Who We Are</span>
+                <h2 class="fancy-section-title">Our Institution</h2>
+            </div>
+            
+            <div class="inst-grid">
+                <!-- Left Column: Sticky Image -->
+                <div class="inst-img-wrapper" data-aos="fade-right">
+                    <img src="assets/school_building.jpeg" alt="Majestic School Campus Building" class="inst-img">
+                </div>
+
+                <!-- Right Column: Storytelling List -->
+                <div class="inst-text" data-aos="fade-left">
+                    <p class="inst-intro-text">
+                        Founded on solid values, Majestic School is Mysuru's premier center for value-based child development and academic excellence. We combine standard state syllabus programs with diligent focus on moral grounding.
+                    </p>
+                    
+                    <div class="inst-pillars">
+                        <!-- Pillar 1 -->
+                        <div class="pillar-bullet-card">
+                            <div class="pillar-header">
+                                <div class="pillar-icon-box"><i class="fas fa-book-open"></i></div>
+                                <h3>Quality Education</h3>
+                            </div>
+                            <p>Rigorous textbook guidance and systematic feedback loops ensure every student builds deep analytical mastery of academic topics.</p>
+                        </div>
+                        <!-- Pillar 2 -->
+                        <div class="pillar-bullet-card">
+                            <div class="pillar-header">
+                                <div class="pillar-icon-box"><i class="fas fa-heart"></i></div>
+                                <h3>Character & Moral Values</h3>
+                            </div>
+                            <p>Instilling respectful behaviors, strong ethics, accountability, and kindness to cultivate honorable citizens.</p>
+                        </div>
+                        <!-- Pillar 3 -->
+                        <div class="pillar-bullet-card">
+                            <div class="pillar-header">
+                                <div class="pillar-icon-box"><i class="fas fa-user-shield"></i></div>
+                                <h3>Exemplary Discipline</h3>
+                            </div>
+                            <p>Strict observance of task deadlines, active general courtesy, and high neatness expectations shape independent life habits.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 STATS SECTION -->
+    <section class="about-stats-sec">
+        <div class="wide-container">
+            <div class="stats-flex-grid">
+                <!-- StatCard 1 -->
+                <div class="stat-card-premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card-icon"><i class="fas fa-user-graduate"></i></div>
+                    <div class="stat-num-premium stat-number" data-target="1200">0</div>
+                    <p class="stat-label-premium">Happy Students</p>
+                </div>
+                <!-- StatCard 2 -->
+                <div class="stat-card-premium" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-num-premium stat-number" data-target="25">0</div>
+                    <p class="stat-label-premium">Years of Legacy</p>
+                </div>
+                <!-- StatCard 3 -->
+                <div class="stat-card-premium" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card-icon"><i class="fas fa-users"></i></div>
+                    <div class="stat-num-premium stat-number" data-target="50">0</div>
+                    <p class="stat-label-premium">Expert Teachers</p>
+                </div>
+                <!-- StatCard 4 -->
+                <div class="stat-card-premium" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-card-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-num-premium stat-number" data-target="100">0</div>
+                    <p class="stat-label-premium">% Success Rate</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 OUR LEGACY / TIMELINE -->
+    <section class="timeline-sec">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Milestones of Growth</span>
+                <h2 class="fancy-section-title">Our Journey & Legacy</h2>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Timeline Block 1 -->
+                <div class="timeline-block timeline-block-left" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-badge">1999 — Foundation</span>
+                    <div class="timeline-card">
+                        <h3>The Genesis</h3>
+                        <p>Established as a neighborhood learning center, gaining instant parental trust through high moral expectations and rigorous basic studies.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Block 2 -->
+                <div class="timeline-block timeline-block-right" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-badge">Expanding Sections</span>
+                    <div class="timeline-card">
+                        <h3>Pioneering High School</h3>
+                        <p>Expanded academic ranges up to High School levels, recruiting specialist subject mentors to scale textbook output and prepare kids for state boards.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Block 3 -->
+                <div class="timeline-block timeline-block-left" data-aos="fade-right">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-badge">Modern Infrastructure</span>
+                    <div class="timeline-card">
+                        <h3>Upgraded Active Spaces</h3>
+                        <p>Reconstructed physical structures to integrate science work decks, security surveillance arrays, and expanded assembly court compound spaces.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Block 4 -->
+                <div class="timeline-block timeline-block-right" data-aos="fade-left">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-badge">25+ Years Legacy</span>
+                    <div class="timeline-card">
+                        <h3>A Quarter Century of Trust</h3>
+                        <p>Celebrating over two and a half decades of excellent state board standards, launching responsible, ethical alumni serving local organizations globally.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 PRINCIPAL MESSAGE -->
+    <section class="principal-section">
+        <div class="wide-container">
+            <div class="principal-card" data-aos="fade-up">
+                <!-- Mobile Heading, hidden on desktop -->
+                <h2 class="principal-mobile-heading">Principal's Message</h2>
+
+                <!-- Principal Message Column (Left on Desktop, 2nd on Mobile) -->
+                <div class="principal-msg-col">
+                    <span class="principal-mini-label">Leadership Voice</span>
+                    <h2 class="principal-sec-title">Principal's Message</h2>
+                    
+                    <div class="principal-quote-box">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="principal-quote">
+                            "It is my honor to lead Majestic School, where we create balanced learners who are bold, kind, and ready to make a positive impact."
+                        </p>
+                    </div>
+
+                    <p class="principal-body-text">
+                        At Majestic School, we nurture every student’s unique talents and build a culture of respect, resilience, and lifelong learning. Our mission is to prepare our students not just for exams, but for life itself, equipping them with the tools they need to succeed in a rapidly changing world while staying rooted in their values.
+                    </p>
+                    <p class="principal-body-text">
+                        We maintain high levels of academic discipline, prompt feedback, and teacher-parent synchronization. Our gates remain open to every learner looking to expand their limits and build high-quality moral credentials.
+                    </p>
+
+                    <div class="principal-signature-mobile">
+                        <h4>— Farzana Banu</h4>
+                        <p>Principal, MA, B.Ed, LL.B</p>
+                    </div>
+                </div>
+
+                <!-- Principal Photo Column (Right on Desktop) -->
+                <div class="principal-photo-col">
+                    <img src="assets/Principal_Photo.png" alt="Principal Farzana Banu" class="principal-img">
+                    <div class="principal-signature-desktop">
+                        <h4>Farzana Banu</h4>
+                        <p>Principal, MA, B.Ed, LL.B</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 WHY MAJESTIC? VALUE PILLARS -->
+    <section class="why-majestic-sec">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Our Value Pillars</span>
+                <h2 class="fancy-section-title">Why Majestic?</h2>
+            </div>
+            
+            <div class="why-majestic-grid">
+                <!-- Card 1: Holistic Education -->
+                <div class="why-majestic-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-majestic-icon blue-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Holistic Learning</h3>
+                    <p>Balancing textbook studies with rhythmic assembly drills, athletic runs, and community responsibility exercises.</p>
+                </div>
+                <!-- Card 2: Discipline -->
+                <div class="why-majestic-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-majestic-icon green-icon"><i class="fas fa-gavel"></i></div>
+                    <h3>Value-Based Education</h3>
+                    <p>Immersing boys and girls in ethical guides, parent respect lessons, and helpful social behaviors regularly.</p>
+                </div>
+                <!-- Card 3: Safe Environment -->
+                <div class="why-majestic-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-majestic-icon yellow-icon"><i class="fas fa-shield-halved"></i></div>
+                    <h3>Discipline & Honor</h3>
+                    <p>Cultivating strict punctuality habits, dress code pride, and general peer courtesy at a foundational stage.</p>
+                </div>
+                <!-- Card 4: Quality Teaching -->
+                <div class="why-majestic-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="why-majestic-icon blue-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>Teacher Guidance</h3>
+                    <p>Empathetic tutors with strong state program backgrounds assisting slower learners with patient desk lessons.</p>
+                </div>
+                <!-- Card 5: Character Building -->
+                <div class="why-majestic-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="why-majestic-icon green-icon"><i class="fas fa-heart"></i></div>
+                    <h3>Student Development</h3>
+                    <p>Fostering active leadership roles, school prefect tasks, and debate drills to build public expression confidence.</p>
+                </div>
+                <!-- Card 6: Positive Environment -->
+                <div class="why-majestic-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="why-majestic-icon yellow-icon"><i class="fas fa-sun"></i></div>
+                    <h3>Positive Learning Space</h3>
+                    <p>Clean classrooms, walled boundaries, and vigilant security to ensure a safe learning environment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 STUDENT LIFE & CULTURE -->
+    <section class="student-life-sec">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Beyond the Classroom</span>
+                <h2 class="fancy-section-title">Student Life & Culture</h2>
+            </div>
+
+            <div class="student-life-grid">
+                <!-- Academic Life -->
+                <div class="life-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="life-img-box">
+                        <img src="assets/slider-6.jpg" alt="Students writing in class" class="life-img" onerror="this.src='assets/slider-6.png';">
+                    </div>
+                    <div class="life-content">
+                        <span class="life-tag">Academic Focus</span>
+                        <h3>Classroom Rigor</h3>
+                        <p>Prompt assignments, writing routines, and blackboard interaction prepare students for excellent conceptual understanding and state test readiness.</p>
+                    </div>
+                </div>
+
+                <!-- Co-curricular Activities -->
+                <div class="life-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="life-img-box">
+                        <img src="assets/slider-5.png" alt="Student activity setup" class="life-img">
+                    </div>
+                    <div class="life-content">
+                        <span class="life-tag">Moral Lessons</span>
+                        <h3>School Assemblies</h3>
+                        <p>Morning prayers, public quiz sessions, values recitation, and national celebrations establish peer teamwork and community service awareness.</p>
+                    </div>
+                </div>
+
+                <!-- Sports & Recreation -->
+                <div class="life-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="life-img-box">
+                        <img src="assets/slider-7.png" alt="Students in play area" class="life-img">
+                    </div>
+                    <div class="life-content">
+                        <span class="life-tag">Athletic Stride</span>
+                        <h3>Sports & Games</h3>
+                        <p>Morning physical training drills, track challenges, volleyball play, and sports tournaments teach sportsmanship, endurance, and healthy physical habits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 🌟 OUR CORE VALUES -->
+    <section class="values-sec">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Character Development</span>
+                <h2 class="fancy-section-title">Our Core Values</h2>
+            </div>
+
+            <div class="values-grid">
+                <!-- Value 1 -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-icon-wrapper"><i class="fas fa-scale-balanced"></i></div>
+                    <div class="value-info">
+                        <h3>Discipline</h3>
+                        <p>Instilling prompt timing routines, neat outfits, and respect for orderly systems daily.</p>
+                    </div>
+                </div>
+                <!-- Value 2 -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-icon-wrapper"><i class="fas fa-handshake"></i></div>
+                    <div class="value-info">
+                        <h3>Respect</h3>
+                        <p>Nurturing genuine gratitude for elders, positive manners with peers, and care for community paths.</p>
+                    </div>
+                </div>
+                <!-- Value 3 -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-icon-wrapper"><i class="fas fa-user-check"></i></div>
+                    <div class="value-info">
+                        <h3>Responsibility</h3>
+                        <p>Fostering ownership of individual school marks, notebook cleanliness, and class service tasks.</p>
+                    </div>
+                </div>
+                <!-- Value 4 -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-icon-wrapper"><i class="fas fa-shield-heart"></i></div>
+                    <div class="value-info">
+                        <h3>Integrity</h3>
+                        <p>Practicing pure intentions, truthful homework presentation, and constant fairness on playground yards.</p>
+                    </div>
+                </div>
+                <!-- Value 5 -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-icon-wrapper"><i class="fas fa-crown"></i></div>
+                    <div class="value-info">
+                        <h3>Leadership</h3>
+                        <p>Encouraging classroom assembly moderation, public presentation delivery, and group coordination skills.</p>
+                    </div>
+                </div>
+                <!-- Value 6 -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-icon-wrapper"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div class="value-info">
+                        <h3>Compassion</h3>
+                        <p>Inspiring helpful peer coaching, charitable community donations, and deep consideration for others.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 CALL TO ACTION -->
+    <section class="cta-strip" data-aos="fade-up">
+        <div class="wide-container">
+            <div class="cta-content">
+                <h2>Join Us in Shaping Young Minds for a Better Tomorrow</h2>
+                <p>Limited seats are available for the 2026–27 academic year (Classes 1 to 9). Partner with Mysore's trusted school of discipline and holistic development.</p>
+                <div class="cta-buttons">
+                    <a href="admissions.html" class="cta-btn cta-btn-primary"><i class="fas fa-paper-plane"></i> Apply Online</a>
+                    <a href="contact.html" class="cta-btn cta-btn-secondary"><i class="fas fa-phone"></i> Inquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="wide-container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+
+        const animate = (counter) => {
+            const value = +counter.getAttribute('data-target');
+            const data = +counter.innerText;
+            const time = value / speed;
+            if (data < value) {
+                counter.innerText = Math.ceil(data + time);
+                setTimeout(() => animate(counter), 1);
+            } else {
+                counter.innerText = value;
+            }
+        };
+
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animate(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(counter => observer.observe(counter));
+    </script>
+</body>
+
+</html>

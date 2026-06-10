@@ -1,0 +1,2700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admissions open for 2026-27 at Majestic Primary and High School, Mysore. Apply now for Classes 1-9. Learn about our admission process and requirements.">
+    <meta name="keywords" content="admissions Majestic School Mysore, school admission, apply online, classes 1-9, admission process">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/admissions.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Admissions | Majestic Primary and High School</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0f1f3f;
+            --secondary-green: #059669;
+            --accent-yellow: #dcaa0a;
+            --text-grey: #475569;
+            --light-bg: #f8fafc;
+            --border-radius-lg: 24px;
+        }
+
+        body {
+            font-family: 'Outfit', 'Poppins', sans-serif;
+            background: #ffffff;
+            color: var(--text-grey);
+            overflow-x: hidden;
+        }
+
+        /* Ensure content is visible even if AOS takes time to load */
+        .aos-init:not(.aos-animate) {
+            opacity: 1 !important;
+        }
+
+        /* 🌟 SCROLL PROGRESS INDICATOR */
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            z-index: 99999;
+            background: transparent;
+            pointer-events: none;
+        }
+        .scroll-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--secondary-green), var(--accent-yellow));
+            transition: width 0.1s ease-out;
+        }
+
+
+        /* --- WIDE CONTAINER --- */
+        .wide-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 991px) {
+            .wide-container {
+                padding: 0 20px;
+            }
+        }
+
+        /* --- ADMISSIONS HERO --- */
+        .admissions-hero {
+            height: 45vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(15, 31, 63, 0.8), rgba(15, 31, 63, 0.95)), url('assets/school_building.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .admissions-hero h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin: 0 0 20px 0;
+            text-transform: uppercase;
+            line-height: 1.15;
+        }
+
+        .admissions-hero p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            letter-spacing: 2.5px;
+            margin-bottom: 12px;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-cta-btn {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            font-size: 0.92rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(220, 170, 10, 0.35);
+        }
+
+        .hero-cta-btn:hover {
+            background-color: #ffffff;
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
+        }
+
+        /* --- SECTION HEADERS --- */
+        .fancy-section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .fancy-section-subtitle {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-green);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: 3px;
+        }
+        
+        .fancy-section-title {
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- COMMON SECTIONS --- */
+        .admissions-sec {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .admissions-sec-alt {
+            padding: 100px 0;
+            background: var(--light-bg);
+            border-top: 1px solid rgba(15, 23, 42, 0.05);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        @media (max-width: 991px) {
+            .admissions-sec, .admissions-sec-alt {
+                padding: 60px 0;
+            }
+        }
+
+        /* --- WHY CHOOSE CARDS --- */
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .why-card-premium {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.35s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .why-card-premium:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+
+        .why-icon-wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background-color: rgba(5, 150, 105, 0.06);
+            color: var(--secondary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            transition: all 0.3s ease;
+        }
+
+        .why-card-premium:hover .why-icon-wrapper {
+            background-color: var(--secondary-green);
+            color: #ffffff;
+        }
+
+        .why-card-premium h3 {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 12px 0;
+        }
+
+        .why-card-premium p {
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 991px) {
+            .why-choose-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .why-choose-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* --- ADMISSION JOURNEY TIMELINE --- */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .journey-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px 25px;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.35s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+
+        .journey-step-num {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(15, 31, 63, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .journey-card:hover .journey-step-num {
+            background-color: var(--secondary-green);
+        }
+
+        .journey-card h3 {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 12px 0;
+        }
+
+        .journey-card p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 991px) {
+            .journey-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .journey-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* --- ELIGIBILITY SECTION --- */
+        .eligibility-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .eligibility-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px 30px;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.35s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .eligibility-class-icon {
+            font-size: 2rem;
+            color: var(--secondary-green);
+            margin-bottom: 15px;
+        }
+
+        .eligibility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+            border-bottom: 4px solid var(--accent-yellow);
+        }
+
+        .eligibility-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .eligibility-card .class-range {
+            display: inline-block;
+            background: rgba(15, 31, 63, 0.05);
+            color: var(--primary-blue);
+            padding: 4px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .eligibility-card p {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin: 0;
+            color: var(--text-grey);
+        }
+
+        @media (max-width: 991px) {
+            .eligibility-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .eligibility-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* --- REQUIRED DOCUMENTS --- */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .document-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.015);
+            border: 1px solid rgba(15, 23, 42, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .document-item:hover {
+            transform: translateX(3px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+
+        .document-check {
+            color: var(--secondary-green);
+            background: rgba(5, 150, 105, 0.08);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .document-text h4 {
+            font-size: 1.05rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin: 0 0 6px 0;
+        }
+
+        .document-text p {
+            font-size: 0.88rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 991px) {
+            .documents-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .documents-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* --- TRUST GRID --- */
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .trust-item-box {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            gap: 20px;
+            border: 1px solid rgba(15, 23, 42, 0.03);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.3s;
+        }
+
+        .trust-item-box:hover {
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+            border-color: rgba(220, 170, 10, 0.2);
+        }
+
+        .trust-icon {
+            font-size: 2rem;
+            color: var(--accent-yellow);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .trust-info h4 {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 8px 0;
+        }
+
+        .trust-info p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .trust-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .trust-item-box {
+                padding: 24px;
+            }
+        }
+
+        /* --- ADMISSION FORM --- */
+        .form-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .form-container-box {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            box-shadow: 0 20px 50px rgba(15, 31, 63, 0.06);
+            padding: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .form-container-box {
+                padding: 40px 20px;
+            }
+        }
+
+        .form-title-area {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-title-area h2 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .form-title-area p {
+            font-size: 1rem;
+            color: var(--text-grey);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .admission-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .col-span-2 {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            color: var(--primary-blue);
+            background: #ffffff;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: #94a3b8;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            border-color: var(--secondary-green);
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            background-color: var(--secondary-green);
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 18px !important;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+            margin-top: 15px;
+        }
+
+        .form-submit-btn:hover {
+            background-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(15, 31, 63, 0.2);
+        }
+
+        /* VERY IMPORTANT MOBILE FORM FIX */
+        @media (max-width: 767px) {
+            .admission-form-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+            .col-span-2 {
+                grid-column: span 1 !important;
+            }
+        }
+
+        /* --- CONTACT CARDS --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .contact-card-premium {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-card-premium:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+            border-color: rgba(220, 170, 10, 0.2);
+        }
+
+        .contact-card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(220, 170, 10, 0.08);
+            color: var(--accent-yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .contact-card-premium:hover .contact-card-icon {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+        }
+
+        .contact-card-premium h3 {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 10px 0;
+        }
+
+        .contact-card-premium p {
+            font-size: 0.88rem;
+            color: var(--text-grey);
+            margin: 0 0 15px 0;
+            line-height: 1.5;
+        }
+
+        .contact-card-link {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--secondary-green);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card-link:hover {
+            color: var(--primary-blue);
+        }
+
+        @media (max-width: 991px) {
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* --- PREMIUM TIMELINE STYLE FOR ADMISSION PROCESS --- */
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 40px 0;
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 32px;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--secondary-green), var(--accent-yellow));
+            border-radius: 99px;
+        }
+        @media (min-width: 768px) {
+            .timeline-container::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        .timeline-badge {
+            position: absolute;
+            left: 12px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(15, 31, 63, 0.15);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        @media (min-width: 768px) {
+            .timeline-badge {
+                left: 50%;
+                transform: translateX(-50%);
+                margin-left: 0;
+            }
+        }
+        .timeline-panel {
+            width: calc(100% - 70px);
+            margin-left: auto;
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            position: relative;
+            transition: all 0.35s ease;
+        }
+        .timeline-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.06);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+        @media (min-width: 768px) {
+            .timeline-panel {
+                width: 44%;
+                margin-left: 0;
+            }
+            .timeline-item:nth-child(even) .timeline-panel {
+                margin-left: auto;
+            }
+            .timeline-item:nth-child(odd) .timeline-panel {
+                margin-right: auto;
+            }
+        }
+        .timeline-panel h3 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .timeline-panel p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-grey);
+            margin: 0;
+        }
+        
+        .timeline-panel::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-style: solid;
+            display: block;
+            width: 0;
+            height: 0;
+            left: -12px;
+            border-width: 12px 12px 12px 0;
+            border-color: transparent #ffffff transparent transparent;
+            z-index: 5;
+            filter: drop-shadow(-1px 0px 0.5px rgba(15, 23, 42, 0.04));
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item:nth-child(odd) .timeline-panel::before {
+                left: auto;
+                right: -12px;
+                border-width: 12px 0 12px 12px;
+                border-color: transparent transparent transparent #ffffff;
+                filter: drop-shadow(1px 0px 0.5px rgba(15, 23, 42, 0.04));
+            }
+            .timeline-item:nth-child(even) .timeline-panel::before {
+                right: auto;
+                left: -12px;
+                border-width: 12px 12px 12px 0;
+                border-color: transparent #ffffff transparent transparent;
+                filter: drop-shadow(-1px 0px 0.5px rgba(15, 23, 42, 0.04));
+            }
+        }
+
+        /* --- PREMIUM FAQ ACCORDION --- */
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #ffffff;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(15, 23, 42, 0.05);
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.01);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+            border-color: rgba(5, 150, 105, 0.1);
+        }
+        .faq-header {
+            width: 100%;
+            padding: 22px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .faq-question {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin: 0;
+            padding-right: 20px;
+        }
+        .faq-icon-indicator {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            background: rgba(15, 31, 63, 0.05);
+            border-radius: 50%;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .faq-header.active .faq-icon-indicator {
+            transform: rotate(180deg);
+            background: var(--secondary-green);
+            color: #ffffff;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            background: #ffffff;
+        }
+        .faq-answer {
+            padding: 0 28px 24px 28px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-grey);
+        }
+        .faq-answer p {
+            margin: 0;
+        }
+
+        /* --- PREMIUM FINAL CTA SECTION --- */
+        .admission-final-cta-sec {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1e3a8a 100%);
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .admission-final-cta-sec::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .final-cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .final-cta-box h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+        }
+        .final-cta-box p {
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        .final-cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .btn-cta-primary {
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            font-weight: 800;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(220, 170, 10, 0.3);
+        }
+        .btn-cta-primary:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
+        }
+        .btn-cta-secondary {
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 14px 34px;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .btn-cta-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: #ffffff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 💫 SCROLL PROGRESS BAR -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- ✦ NEWS TICKER -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>✦ ADMISSIONS OPEN 2026–27 (CLASSES 1–9) ✦</span>
+            <span>Shaping Minds for a Better Tomorrow</span>
+            <span>✦ Secure Your Child's Future Today ✦</span>
+        </div>
+    </div>
+
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="center-text">
+                <i class="fas fa-bullhorn"></i>
+                ADMISSIONS OPEN 2026–27 (LIMITED SEATS)
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR -->
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class="active">
+                    <a href="admissions.html">ADMISSIONS</a>
+                </li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🌟 HERO -->
+    <header class="admissions-hero">
+        <div class="wide-container">
+            <div class="admissions-hero-content" data-aos="zoom-out">
+                <p>Shape Your Child's Future</p>
+                <h1>Admissions Open 2026–27</h1>
+                <p class="hero-tagline">Nurturing academic excellence, moral discipline, and holistic talent discovery under the expert guidance of qualified mentors in Mysuru.</p>
+                <a href="#apply-now" class="hero-cta-btn">Begin Online Application</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🌟 WHY CHOOSE US -->
+    <section class="admissions-sec">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Our Distinctions</span>
+                <h2 class="fancy-section-title">Why Choose Majestic School?</h2>
+            </div>
+            
+            <div class="why-choose-grid">
+                <!-- Card 1 -->
+                <div class="why-card-premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-icon-wrapper"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Academic Excellence</h3>
+                    <p>Standardized, modern curriculum focusing on critical thinking, concept clarity, and legendary 100% SSLC board passing track record.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="why-card-premium" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon-wrapper"><i class="fas fa-users-gear"></i></div>
+                    <h3>Value-Based Education</h3>
+                    <p>Blending rigorous learning with moral values, respect, and character to prepare ethical future leaders of society.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="why-card-premium" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-icon-wrapper"><i class="fas fa-shield-heart"></i></div>
+                    <h3>Safe & Caring Environment</h3>
+                    <p>A strictly secure environment, CCTV monitoring, caring local staff, and positive peer encouragement for absolute peace of mind.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="why-card-premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-icon-wrapper"><i class="fas fa-child"></i></div>
+                    <h3>Holistic Development</h3>
+                    <p>Regular weekly sports programs, hobby guilds, public speech exercises, fine arts, and active co-curricular schedules.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="why-card-premium" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-icon-wrapper"><i class="fas fa-chalkboard-user"></i></div>
+                    <h3>Experienced Faculty</h3>
+                    <p>Passionate, highly qualified teachers and mentors who focus on individual growth speeds and positive reinforcement systems.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="why-card-premium" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-icon-wrapper"><i class="fas fa-user-shield"></i></div>
+                    <h3>Student Support</h3>
+                    <p>Custom remedial coaching, diagnostic mentoring trackers, and close counselor support to make entry adaptation seamless.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 EARLY YEARS SPOTLIGHT SECTION -->
+    <section class="ey-spotlight-section">
+        <style>
+            .ey-spotlight-section {
+                padding: 100px 0;
+                background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 50%, #fefce8 100%);
+                border-top: 1px solid rgba(15,23,42,0.05);
+                border-bottom: 1px solid rgba(15,23,42,0.05);
+                position: relative;
+                overflow: hidden;
+            }
+            .ey-spotlight-grid {
+                display: grid;
+                grid-template-columns: 1.15fr 0.85fr;
+                gap: 50px;
+                align-items: center;
+            }
+            .ey-spotlight-subtitle {
+                font-size: 0.82rem;
+                font-weight: 850;
+                text-transform: uppercase;
+                letter-spacing: 1.5px;
+                color: #0284c7;
+                margin-bottom: 15px;
+                display: inline-block;
+                background-color: #e0f2fe;
+                padding: 6px 14px;
+                border-radius: 50px;
+            }
+            .ey-spotlight-title {
+                font-size: 2.2rem;
+                font-weight: 850;
+                color: var(--primary-blue);
+                line-height: 1.25;
+                margin-bottom: 20px;
+                letter-spacing: -0.5px;
+            }
+            .ey-spotlight-intro {
+                font-size: 1.1rem;
+                color: var(--text-grey);
+                line-height: 1.65;
+                margin-bottom: 30px;
+            }
+            .ey-quote-box {
+                border-left: 4px solid #ca8a04;
+                padding: 15px 25px;
+                background-color: rgba(254, 252, 232, 0.6);
+                border-radius: 0 var(--border-radius) var(--border-radius) 0;
+                margin-bottom: 30px;
+            }
+            .ey-quote-text {
+                font-style: italic;
+                font-weight: 700;
+                color: #854d0e;
+                font-size: 1.15rem;
+                margin: 0;
+            }
+            .ey-bullets-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            .ey-bullet-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px 18px;
+                background: #ffffff;
+                border-radius: 12px;
+                box-shadow: 0 4px 15px rgba(15,23,42,0.02);
+                border-left: 4px solid var(--bullet-color);
+            }
+            .ey-bullet-icon {
+                font-size: 1.1rem;
+                color: var(--bullet-color);
+            }
+            .ey-bullet-text {
+                font-size: 0.95rem;
+                font-weight: 700;
+                color: var(--primary-blue);
+                margin: 0;
+            }
+            
+            /* Visual Art / Collage Grid inside admissions */
+            .ey-collage-wrapper {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .ey-collage-photo-card {
+                background: #ffffff;
+                border-radius: 16px;
+                padding: 12px;
+                box-shadow: 0 10px 30px rgba(15,23,42,0.03);
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+                border: 1px solid rgba(15, 23, 42, 0.04);
+            }
+            .ey-collage-photo-card:hover {
+                transform: translateY(-5px) scale(1.02);
+                box-shadow: 0 15px 40px rgba(15,23,42,0.07);
+            }
+            .ey-photo-inner {
+                width: 100%;
+                height: 130px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                color: var(--card-txt);
+                padding: 15px;
+            }
+            .ey-photo-inner i {
+                font-size: 1.8rem;
+                margin-bottom: 8px;
+                color: var(--icon-col);
+                opacity: 0.85;
+            }
+            .ey-photo-inner h4 {
+                font-size: 1.05rem;
+                font-weight: 800;
+                margin-bottom: 4px;
+            }
+            .ey-photo-inner p {
+                font-size: 0.82rem;
+                margin: 0;
+                opacity: 0.9;
+            }
+
+            @media (max-width: 992px) {
+                .ey-spotlight-grid {
+                    grid-template-columns: 1fr;
+                    gap: 40px;
+                }
+            }
+            @media (max-width: 576px) {
+                .ey-bullets-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+
+        <div class="wide-container">
+            <div class="ey-spotlight-grid">
+                <!-- Left Hand Text Content -->
+                <div class="ey-spotlight-left" data-aos="fade-right">
+                    <span class="ey-spotlight-subtitle">Spotlight Program</span>
+                    <h2 class="ey-spotlight-title">Admissions Open for PRE-KG, LKG & UKG</h2>
+                    <p class="ey-spotlight-intro">
+                        Give your child a playful, safe, and academically sound kickoff in our prestigious Early Years facility. Designed with dynamic interest circles and active learning milestones, we nurture primary cognition alongside beautiful personal values.
+                    </p>
+                    
+                    <div class="ey-quote-box">
+                        <p class="ey-quote-text">"Building Strong Foundations for Lifelong Learning"</p>
+                    </div>
+
+                    <div class="ey-bullets-grid">
+                        <!-- Bullet 1 -->
+                        <div class="ey-bullet-item" style="--bullet-color: #38bdf8;">
+                            <i class="fas fa-shield-alt ey-bullet-icon"></i>
+                            <p class="ey-bullet-text">Safe Learning Environment</p>
+                        </div>
+                        <!-- Bullet 2 -->
+                        <div class="ey-bullet-item" style="--bullet-color: #facc15;">
+                            <i class="fas fa-heart ey-bullet-icon"></i>
+                            <p class="ey-bullet-text">Caring & Experienced Teachers</p>
+                        </div>
+                        <!-- Bullet 3 -->
+                        <div class="ey-bullet-item" style="--bullet-color: #4ade80;">
+                            <i class="fas fa-puzzle-piece ey-bullet-icon"></i>
+                            <p class="ey-bullet-text">Play-Based Learning</p>
+                        </div>
+                        <!-- Bullet 4 -->
+                        <div class="ey-bullet-item" style="--bullet-color: #fb923c;">
+                            <i class="fas fa-window-restore ey-bullet-icon"></i>
+                            <p class="ey-bullet-text">Interactive Classrooms</p>
+                        </div>
+                        <!-- Bullet 5 -->
+                        <div class="ey-bullet-item" style="--bullet-color: #c084fc;">
+                            <i class="fas fa-graduation-cap ey-bullet-icon"></i>
+                            <p class="ey-bullet-text">Strong School Readiness</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hand Design Visual Board -->
+                <div class="ey-collage-wrapper" data-aos="fade-left" data-aos-delay="200">
+                    <!-- Space Card -->
+                    <div class="ey-collage-photo-card">
+                        <div class="ey-photo-inner" style="background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%); --card-txt: #14532d; --icon-col: #15803d;">
+                            <i class="fas fa-shapes"></i>
+                            <h4>Interactive Play Spaces</h4>
+                            <p>Equipped with safe tactile sensory play items for motor control.</p>
+                        </div>
+                    </div>
+
+                    <!-- Storytime Card -->
+                    <div class="ey-collage-photo-card">
+                        <div class="ey-photo-inner" style="background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%); --card-txt: #7c2d12; --icon-col: #c2410c;">
+                            <i class="fas fa-book-reader"></i>
+                            <h4>Creative Storytelling Hours</h4>
+                            <p>Phonetic circle gatherings triggering language confidence drills.</p>
+                        </div>
+                    </div>
+
+                    <!-- Sensory Card -->
+                    <div class="ey-collage-photo-card">
+                        <div class="ey-photo-inner" style="background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%); --card-txt: #0c4a6e; --icon-col: #0284c7;">
+                            <i class="fas fa-palette"></i>
+                            <h4>Art & Sensory Activities</h4>
+                            <p>Clay carving, safe color crafts, and hand-eye coordination play.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. ADMISSION PROCESS (TIMELINE STYLE) -->
+    <section class="admissions-sec-alt" id="admission-process" style="background-color: var(--light-bg); border-top: 1px solid rgba(15,23,42,0.05); border-bottom: 1px solid rgba(15,23,42,0.05); padding: 100px 0;">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Enrollment Roadmap</span>
+                <h2 class="fancy-section-title">Admission Process</h2>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Timeline Step 1 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-badge"><i class="fas fa-file-signature"></i></div>
+                    <div class="timeline-panel">
+                        <h3><span style="color: var(--secondary-green); font-weight: 800; font-family: 'Poppins', sans-serif;">Step 1:</span> Enquiry & Registration</h3>
+                        <p>Submit basic parent details via our online application form below or visit the school campus helpdesk to obtain a physical prospectus kit.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Step 2 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-badge"><i class="fas fa-folder-open"></i></div>
+                    <div class="timeline-panel">
+                        <h3><span style="color: var(--secondary-green); font-weight: 800; font-family: 'Poppins', sans-serif;">Step 2:</span> Document Submission</h3>
+                        <p>Furnish essential verification certificates including official birth certificate, Aadhaar card copies, photographs, and previous class transcripts.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Step 3 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-badge"><i class="fas fa-comments"></i></div>
+                    <div class="timeline-panel">
+                        <h3><span style="color: var(--secondary-green); font-weight: 800; font-family: 'Poppins', sans-serif;">Step 3:</span> Parent & Student Interaction</h3>
+                        <p>A warm, welcoming, and friendly interaction cycle to understand the student's unique learning styles, habits, and developmental potential.</p>
+                    </div>
+                </div>
+
+                <!-- Timeline Step 4 -->
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-badge"><i class="fas fa-check-circle"></i></div>
+                    <div class="timeline-panel">
+                        <h3><span style="color: var(--secondary-green); font-weight: 800; font-family: 'Poppins', sans-serif;">Step 4:</span> Admission Confirmation</h3>
+                        <p>Receive our official selection notification, settle the first enrollment fee installment, secure the roll card, and obtain the text syllabus papers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ELIGIBILITY CRITERIA -->
+    <section class="admissions-sec" id="eligibility" style="padding: 100px 0;">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Scope Of Study</span>
+                <h2 class="fancy-section-title">Eligibility Criteria</h2>
+            </div>
+
+            <div class="eligibility-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Class 1 -->
+                <div class="eligibility-card">
+                    <div class="eligibility-class-icon"><i class="fa-solid fa-star-and-crescent"></i></div>
+                    <h3>Primary School</h3>
+                    <div class="class-range">Classes 1 to 4</div>
+                    <p>Focusing on basic literacy, calculations, speaking clarity, moral habits, and fine-motor coordination skills.</p>
+                </div>
+
+                <!-- Class 2 -->
+                <div class="eligibility-card">
+                    <div class="eligibility-class-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Middle School</h3>
+                    <div class="class-range">Classes 5 to 7</div>
+                    <p>Expanding into systematic science modules, social sciences, computer basics, active sports club operations, and languages.</p>
+                </div>
+
+                <!-- Class 3 -->
+                <div class="eligibility-card">
+                    <div class="eligibility-class-icon"><i class="fa-solid fa-flask"></i></div>
+                    <h3>High School</h3>
+                    <div class="class-range">Classes 8 to 9</div>
+                    <p>Preparing structural foundations for SSLC state board examinations, scientific projects, structured debate competitions, and civic leadership roles.</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; font-size: 0.95rem; color: var(--text-grey); font-weight: 600;" data-aos="fade-up">
+                <i class="fas fa-circle-info" style="color: var(--accent-yellow); margin-right: 8px;"></i>
+                Note: Admissions are strictly based on vacant seat availability and our structured parent guidance interaction process.
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. REQUIRED DOCUMENTS -->
+    <section class="admissions-sec-alt" id="required-documents" style="background-color: var(--light-bg); border-top: 1px solid rgba(15,23,42,0.05); border-bottom: 1px solid rgba(15,23,42,0.05); padding: 100px 0;">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Verification Checklist</span>
+                <h2 class="fancy-section-title">Required Documents</h2>
+            </div>
+
+            <div class="documents-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Doc 1 -->
+                <div class="document-item">
+                    <div class="document-check"><i class="fas fa-check"></i></div>
+                    <div class="document-text">
+                        <h4>Birth Certificate</h4>
+                        <p>Official birth certificate duplicate authenticated by government municipal authorities.</p>
+                    </div>
+                </div>
+                <!-- Doc 2 -->
+                <div class="document-item">
+                    <div class="document-check"><i class="fas fa-check"></i></div>
+                    <div class="document-text">
+                        <h4>Previous Academic Records</h4>
+                        <p>Academic performance scorecards or official progress sheets from the previous class.</p>
+                    </div>
+                </div>
+                <!-- Doc 3 -->
+                <div class="document-item">
+                    <div class="document-check"><i class="fas fa-check"></i></div>
+                    <div class="document-text">
+                        <h4>Passport-size Photos</h4>
+                        <p>3 recent color photograph files of the student and 2 of parent/guardian.</p>
+                    </div>
+                </div>
+                <!-- Doc 4 -->
+                <div class="document-item">
+                    <div class="document-check"><i class="fas fa-check"></i></div>
+                    <div class="document-text">
+                        <h4>Transfer Certificate</h4>
+                        <p>Original Transfer Certificate (T.C.) countersigned by state authorities (if applicable).</p>
+                    </div>
+                </div>
+                <!-- Doc 5 -->
+                <div class="document-item">
+                    <div class="document-check"><i class="fas fa-check"></i></div>
+                    <div class="document-text">
+                        <h4>Aadhaar Card Copy</h4>
+                        <p>Government identification card copy of student as well as parent.</p>
+                    </div>
+                </div>
+                <!-- Doc 6 -->
+                <div class="document-item">
+                    <div class="document-check"><i class="fas fa-check"></i></div>
+                    <div class="document-text">
+                        <h4>Parent Contact details</h4>
+                        <p>Valid residential proof, phone contacts, and active email address credentials.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 PREMIUM ADMISSIONS FINANCE SECTION -->
+    <section class="admissions-finance-sec" id="fee-structure">
+        <style>
+            .admissions-finance-sec {
+                padding: 100px 0;
+                background-color: #f8fafc;
+                position: relative;
+                overflow: hidden;
+            }
+            .finance-title-badge {
+                display: inline-block;
+                color: var(--secondary-green);
+                background-color: rgba(5, 150, 105, 0.08);
+                padding: 6px 16px;
+                border-radius: 50px;
+                font-size: 0.8rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                margin-bottom: 20px;
+            }
+            .finance-header {
+                max-width: 800px;
+                margin: 0 auto 50px auto;
+                text-align: center;
+            }
+            .finance-heading {
+                color: var(--primary-blue);
+                font-size: clamp(2.2rem, 4vw, 3.2rem);
+                font-weight: 800;
+                letter-spacing: -0.5px;
+                margin-bottom: 20px;
+                line-height: 1.2;
+            }
+            .finance-sub {
+                font-size: 1.15rem;
+                color: var(--text-grey);
+                line-height: 1.6;
+                margin-bottom: 25px;
+            }
+            .finance-divider {
+                width: 80px;
+                height: 4px;
+                background: linear-gradient(90deg, var(--accent-yellow) 0%, #ca8a04 100%);
+                margin: 0 auto;
+                border-radius: 2px;
+            }
+            
+            /* Glassmorphism Table Wrapper */
+            .premium-table-wrapper {
+                max-width: 1000px;
+                margin: 0 auto;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(12px);
+                border: 1px solid rgba(226, 232, 240, 0.8);
+                border-radius: 24px;
+                padding: 40px;
+                box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.08);
+            }
+            
+            /* Responsive scroll area */
+            .table-responsive-container {
+                width: 100%;
+                overflow-x: auto;
+                border-radius: 16px;
+                border: 1px solid #e2e8f0;
+                background-color: #ffffff;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+                margin-bottom: 40px;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .premium-fee-table {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                text-align: left;
+                font-size: 0.95rem;
+                color: var(--primary-blue);
+                min-width: 750px; /* Force minimum width to prevent squeezed rows on mobile */
+            }
+            
+            .premium-fee-table th {
+                background-color: var(--primary-blue);
+                color: #ffffff;
+                font-weight: 750;
+                padding: 18px 24px;
+                font-size: 0.88rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border: none;
+                top: 0;
+                position: sticky;
+                z-index: 10;
+            }
+            
+            .premium-fee-table th:first-child {
+                border-top-left-radius: 15px;
+            }
+            .premium-fee-table th:last-child {
+                border-top-right-radius: 15px;
+            }
+            
+            .premium-fee-table td {
+                padding: 16px 24px;
+                border-bottom: 1px solid #f1f5f9;
+                transition: all 0.2s ease;
+            }
+            
+            .premium-fee-table tbody tr {
+                transition: background-color 0.2s ease;
+            }
+            
+            .premium-fee-table tbody tr:nth-child(even) {
+                background-color: #f8fafc;
+            }
+            
+            .premium-fee-table tbody tr:hover {
+                background-color: rgba(250, 204, 21, 0.05);
+            }
+            
+            /* Highlight row styling */
+            .premium-fee-table tr.highlight-grade-row {
+                background: linear-gradient(90deg, rgba(250, 204, 21, 0.07) 0%, rgba(250, 204, 21, 0.12) 100%) !important;
+                font-weight: 700;
+            }
+            .premium-fee-table tr.highlight-grade-row td {
+                border-bottom: 1px solid rgba(250, 204, 21, 0.3);
+            }
+            .premium-fee-table tr.highlight-grade-row td:first-child {
+                border-left: 4px solid var(--accent-yellow);
+            }
+            
+            /* Bullet indicator for highlight */
+            .highlight-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                background-color: var(--accent-yellow);
+                color: var(--primary-blue);
+                font-size: 0.72rem;
+                font-weight: 850;
+                padding: 3px 8px;
+                border-radius: 4px;
+                margin-left: 10px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .total-fee-col {
+                font-weight: 800;
+                color: #1e3a8a; /* Deep blue highlight */
+            }
+            
+            /* CTA Buttons */
+            .finance-ctas {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                margin-bottom: 40px;
+                flex-wrap: wrap;
+            }
+            .btn-finance-primary, .admissions-finance-sec .btn.btn-primary {
+                background: linear-gradient(135deg, var(--accent-yellow) 0%, #dcaa10 100%);
+                color: var(--primary-blue) !important;
+                font-weight: 800;
+                padding: 16px 36px;
+                border-radius: 50px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                box-shadow: 0 10px 25px rgba(220, 170, 10, 0.35);
+                transition: all 0.3s ease;
+                border: none;
+            }
+            .btn-finance-primary:hover, .admissions-finance-sec .btn.btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 15px 35px rgba(220, 170, 10, 0.5);
+                background: linear-gradient(135deg, #ffffff 0%, var(--accent-yellow) 100%);
+            }
+            .btn-finance-secondary, .admissions-finance-sec .btn.btn-outline {
+                border: 2px solid var(--primary-blue);
+                color: var(--primary-blue) !important;
+                font-weight: 800;
+                padding: 14px 34px;
+                border-radius: 50px;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.95rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: all 0.3s ease;
+                background: #ffffff;
+            }
+            .btn-finance-secondary:hover, .admissions-finance-sec .btn.btn-outline:hover {
+                transform: translateY(-3px);
+                background-color: var(--primary-blue);
+                color: #ffffff !important;
+                box-shadow: 0 10px 25px rgba(15, 31, 63, 0.15);
+            }
+            
+            /* Premium Fee Structure PDF Card block */
+            .fee-structure-pdf-card {
+                max-width: 800px;
+                margin: 40px auto;
+                background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+                border: 2px solid var(--secondary-green);
+                border-radius: 20px;
+                padding: 40px;
+                text-align: center;
+                box-shadow: 0 15px 40px rgba(5, 150, 105, 0.08);
+                position: relative;
+                overflow: hidden;
+            }
+            .fee-structure-pdf-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 5px;
+                background: var(--secondary-green);
+            }
+            .pdf-card-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                font-size: 0.75rem;
+                font-weight: 800;
+                color: var(--secondary-green);
+                background: rgba(5, 150, 105, 0.08);
+                padding: 6px 16px;
+                border-radius: 99px;
+                letter-spacing: 1.5px;
+                margin-bottom: 20px;
+                text-transform: uppercase;
+            }
+            .fee-structure-pdf-card h3 {
+                color: var(--primary-blue);
+                font-size: 1.75rem;
+                font-weight: 800;
+                margin-bottom: 12px;
+                letter-spacing: -0.5px;
+            }
+            .pdf-card-desc {
+                font-size: 1rem;
+                color: var(--text-grey);
+                max-width: 600px;
+                margin: 0 auto 30px auto;
+                line-height: 1.6;
+            }
+            .pdf-fallback-note {
+                margin-top: 25px;
+                padding-top: 20px;
+                border-top: 1px dashed rgba(148, 163, 184, 0.3);
+            }
+            .fallback-text {
+                font-size: 0.9rem;
+                color: var(--text-grey);
+                margin: 0;
+            }
+            .fallback-link {
+                color: var(--secondary-green);
+                font-weight: 700;
+                text-decoration: underline;
+                transition: color 0.2s ease;
+            }
+            .fallback-link:hover {
+                color: var(--primary-blue);
+            }
+            
+            /* Note */
+            .finance-note-card {
+                background: rgba(220, 170, 10, 0.05);
+                border: 1px solid var(--accent-yellow);
+                border-radius: 12px;
+                padding: 18px 24px;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                max-width: 800px;
+                margin: 0 auto 50px auto;
+                text-align: left;
+            }
+            .finance-note-icon {
+                font-size: 1.5rem;
+                color: #dcaa10;
+                flex-shrink: 0;
+            }
+            .finance-note-text {
+                font-size: 0.95rem;
+                font-weight: 600;
+                color: var(--primary-blue);
+                margin: 0;
+                line-height: 1.5;
+            }
+            
+            /* Value / Trust Card Grid */
+            .finance-trust-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 24px;
+                margin-top: 50px;
+            }
+            .trust-card {
+                background: #ffffff;
+                border-radius: 16px;
+                padding: 24px;
+                text-align: left;
+                box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+                border: 1px solid rgba(226, 232, 240, 0.8);
+                transition: all 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            .trust-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 35px rgba(15, 23, 42, 0.06);
+                border-color: rgba(5, 150, 105, 0.3);
+            }
+            .trust-card-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                background: rgba(5, 150, 105, 0.08);
+                color: var(--secondary-green);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.25rem;
+                margin-bottom: 18px;
+            }
+            .trust-card h4 {
+                font-weight: 750;
+                color: var(--primary-blue);
+                font-size: 1.05rem;
+                margin: 0 0 10px 0;
+            }
+            .trust-card p {
+                font-size: 0.88rem;
+                color: var(--text-grey);
+                line-height: 1.5;
+                margin: 0;
+            }
+
+            @media (max-width: 991px) {
+                .finance-trust-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+            }
+            @media (max-width: 600px) {
+                .admissions-finance-sec {
+                    padding: 65px 0;
+                }
+                .premium-table-wrapper {
+                    padding: 20px;
+                }
+                .finance-trust-grid {
+                    grid-template-columns: 1fr;
+                    gap: 15px;
+                }
+                .finance-ctas {
+                    flex-direction: column;
+                    gap: 12px;
+                }
+                .btn-finance-primary, .btn-finance-secondary {
+                    width: 100%;
+                    justify-content: center;
+                    padding: 14px 24px;
+                }
+                .finance-note-card {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 10px;
+                    padding: 15px;
+                }
+            }
+        </style>
+
+        <div class="wide-container">
+            <!-- 🌟 SECTION HEADER -->
+            <div class="finance-header" data-aos="fade-up">
+                <span class="finance-title-badge">Admissions & Finance</span>
+                <h2 class="finance-heading">Fee Structure 2026–27</h2>
+                <p class="finance-sub">Transparent and flexible installment plans designed for quality education.</p>
+                <div class="finance-divider"></div>
+            </div>
+
+            <!-- 🌟 PREMIUM GLASS CARD CONTAINER WITH TABULAR FEE DETAILS -->
+            <div class="premium-table-wrapper" data-aos="fade-up" data-aos-delay="100">
+                
+                <!-- 🌟 DETAILED FEE SCHEDULE TABLE -->
+                <div class="table-responsive-container">
+                    <table class="premium-fee-table">
+                        <thead>
+                            <tr>
+                                <th>Grades / Standard</th>
+                                <th>Total Fee (Annual)</th>
+                                <th>1st Installment (Admission)</th>
+                                <th>2nd Installment (Oct)</th>
+                                <th>3rd Installment (Jan)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Highlighted row for Pre-KG -->
+                            <tr class="highlight-grade-row">
+                                <td>PRE-KG <span class="highlight-badge"><i class="fas fa-star"></i> Entry</span></td>
+                                <td class="total-fee-col">₹11,000</td>
+                                <td>₹6,000</td>
+                                <td>₹2,500</td>
+                                <td>₹2,500</td>
+                            </tr>
+                            <tr>
+                                <td>L.K.G</td>
+                                <td class="total-fee-col">₹14,000</td>
+                                <td>₹8,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <tr>
+                                <td>U.K.G</td>
+                                <td class="total-fee-col">₹14,000</td>
+                                <td>₹8,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Class I</td>
+                                <td class="total-fee-col">₹16,000</td>
+                                <td>₹10,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Class II</td>
+                                <td class="total-fee-col">₹16,000</td>
+                                <td>₹10,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Class III</td>
+                                <td class="total-fee-col">₹16,000</td>
+                                <td>₹10,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Class IV</td>
+                                <td class="total-fee-col">₹16,000</td>
+                                <td>₹10,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Class V</td>
+                                <td class="total-fee-col">₹16,000</td>
+                                <td>₹10,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Class VI</td>
+                                <td class="total-fee-col">₹17,000</td>
+                                <td>₹12,000</td>
+                                <td>₹2,500</td>
+                                <td>₹2,500</td>
+                            </tr>
+                            <tr>
+                                <td>Class VII</td>
+                                <td class="total-fee-col">₹17,000</td>
+                                <td>₹12,000</td>
+                                <td>₹2,500</td>
+                                <td>₹2,500</td>
+                            </tr>
+                            <tr>
+                                <td>Class VIII</td>
+                                <td class="total-fee-col">₹18,000</td>
+                                <td>₹12,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <tr>
+                                <td>Class IX</td>
+                                <td class="total-fee-col">₹18,000</td>
+                                <td>₹12,000</td>
+                                <td>₹3,000</td>
+                                <td>₹3,000</td>
+                            </tr>
+                            <!-- Highlighted row for X Standard -->
+                            <tr class="highlight-grade-row">
+                                <td>Class X (Standard) <span class="highlight-badge"><i class="fas fa-award"></i> Board</span></td>
+                                <td class="total-fee-col">₹20,000</td>
+                                <td>₹12,000</td>
+                                <td>₹4,000</td>
+                                <td>₹4,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 🌟 PREMIUM PDF ACTION SECTION -->
+                <div class="fee-structure-pdf-card" data-aos="fade-up">
+                    <div class="pdf-card-badge">
+                        <i class="fas fa-file-pdf"></i> OFFICIAL DOCUMENT
+                    </div>
+                    <h3>Official Fee Structure 2026–27</h3>
+                    <p class="pdf-card-desc">Download the official fee structure for detailed fee, installment schedules, and guidelines information.</p>
+                    
+                    <div class="finance-ctas">
+                        <a href="assets/fee-structure-2026.pdf?download=true"
+                           download="Majestic-Fee-Structure-2026.pdf"
+                           class="btn btn-primary btn-finance-primary">
+                            <i class="fas fa-file-download"></i> Download Fee Structure PDF
+                        </a>
+                        
+                        <a href="assets/fee-structure-2026.pdf"
+                           target="_blank"
+                           rel="noopener"
+                           class="btn btn-outline btn-finance-secondary">
+                            <i class="fas fa-eye"></i> View Full PDF
+                        </a>
+                    </div>
+                    
+                    <!-- Graceful Fallback style -->
+                    <div class="pdf-fallback-note">
+                        <p class="fallback-text">
+                            Having trouble opening or viewing the PDF? 
+                            <a href="assets/fee-structure-2026.pdf?download=true" class="fallback-link">
+                                Click here to download directly.
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 🌟 IMPORTANT UNDERTAKING NOTE -->
+                <div class="finance-note-card" data-aos="fade-up">
+                    <div class="finance-note-icon">
+                        <i class="fas fa-shield-halved"></i>
+                    </div>
+                    <p class="finance-note-text">
+                        “Installments must be paid within prescribed dates as notified by the school administration.”
+                    </p>
+                </div>
+
+                <!-- 🌟 TRUST VALUE CARDS -->
+                <div class="finance-trust-grid">
+                    <!-- Card 1 -->
+                    <div class="trust-card" data-aos="fade-up" data-aos-delay="100">
+                        <div>
+                            <div class="trust-card-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h4>Flexible Installments</h4>
+                            <p>Convenient split schedules across three quarters to guarantee ease of payments under zero financial burden.</p>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="trust-card" data-aos="fade-up" data-aos-delay="200">
+                        <div>
+                            <div class="trust-card-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <h4>Transparent Fee Policy</h4>
+                            <p>Complete ledger breakdowns with absolute zero hidden costs or unannounced middle-term operations levies.</p>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="trust-card" data-aos="fade-up" data-aos-delay="300">
+                        <div>
+                            <div class="trust-card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>Affordable Quality Education</h4>
+                            <p>Enabling elite educational practices, top teacher pools, and interactive tools at competitive public prices.</p>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="trust-card" data-aos="fade-up" data-aos-delay="400">
+                        <div>
+                            <div class="trust-card-icon">
+                                <i class="fas fa-building-shield"></i>
+                            </div>
+                            <h4>Trusted Learning Environment</h4>
+                            <p>Decades of scholastic commitment in Karnataka, supporting thousands of students into thriving futures.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FREQUENTLY ASKED QUESTIONS (FAQs) -->
+    <section class="admissions-sec-alt" id="faqs" style="background-color: var(--light-bg); border-top: 1px solid rgba(15,23,42,0.05); border-bottom: 1px solid rgba(15,23,42,0.05); padding: 100px 0;">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Got Questions?</span>
+                <h2 class="fancy-section-title">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="faq-container">
+                <!-- FAQ 1 -->
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-header">
+                        <span class="faq-question">What is the curriculum pattern followed at Majestic School?</span>
+                        <span class="faq-icon-indicator"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>Majestic School follows the Karnataka State Board (SSLC) curriculum with modern enriched pedagogies, continuous co-curricular worksheets, diagnostic academic mentors, and solved board workbook strategies for superior academic outcomes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <button class="faq-header">
+                        <span class="faq-question">Can the annual fee be paid in installment terms?</span>
+                        <span class="faq-icon-indicator"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>Absolutely. To maintain transparency and convenience, all academic grade fees are split into three convenient installment periods: the 1st installment during actual registration admissions, the 2nd during October, and the final 3rd term during January.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <button class="faq-header">
+                        <span class="faq-question">What is the age requirement criteria for primary admissions?</span>
+                        <span class="faq-icon-indicator"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>For Class 1 entry, children must satisfy standard age criteria guidelines as established by State Government Education guidelines. Our admissions team at the helpdesk will verify this along with government municipal birth certificate copies during screening.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <button class="faq-header">
+                        <span class="faq-question">Is there a dedicated transport facility option available?</span>
+                        <span class="faq-icon-indicator"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>Yes, Majestic School operates safe and strictly managed school transport vans and buses that cover major geographic neighborhoods of Mysuru City. Route coordinates, timings, and transport pass splits can be coordinated from the finance counselor desk.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <button class="faq-header">
+                        <span class="faq-question">How does Majestic School support low-scoring or slow-learning students?</span>
+                        <span class="faq-icon-indicator"><i class="fas fa-chevron-down"></i></span>
+                    </button>
+                    <div class="faq-content">
+                        <div class="faq-answer">
+                            <p>We are passionately committed to democratic student growth. Our teachers operate free, focused high school evening revision hours, compile custom remedial math and writing guides, and deliver close diagnostic mentorship to assist slow-learning pupils.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ONLINE APPLICATION -->
+    <section id="apply-now" class="admissions-sec-alt">
+        <div class="wide-container">
+            <div class="form-container-box" data-aos="fade-up">
+                <div class="form-title-area">
+                    <h2>Online Registration Enquiry</h2>
+                    <p>Initiate your student admission process for the 2026-27 session. Complete the registration form details below and our team will get in touch shortly.</p>
+                </div>
+
+                <form id="admissionForm">
+                    <div class="admission-form-grid">
+                        <!-- Student Name -->
+                        <div class="form-group">
+                            <label for="studentName">Student Full Name *</label>
+                            <input id="studentName" type="text" placeholder="Enter student's full name" required class="form-input">
+                        </div>
+
+                        <!-- Class Selection -->
+                        <div class="form-group">
+                            <label for="applyingClass">Applying for Class *</label>
+                            <select id="applyingClass" required class="form-select">
+                                <option value="" disabled selected>Select Target Class</option>
+                                <option value="PRE-KG">PRE-KG</option>
+                                <option value="LKG">LKG</option>
+                                <option value="UKG">UKG</option>
+                                <option value="Class I">Class 1</option>
+                                <option value="Class II">Class 2</option>
+                                <option value="Class III">Class 3</option>
+                                <option value="Class IV">Class 4</option>
+                                <option value="Class V">Class 5</option>
+                                <option value="Class VI">Class 6</option>
+                                <option value="Class VII">Class 7</option>
+                                <option value="Class VIII">Class 8</option>
+                                <option value="Class IX">Class 9</option>
+                            </select>
+                        </div>
+
+                        <!-- Date of Birth -->
+                        <div class="form-group">
+                            <label for="studentDob">Student Date of Birth (Optional)</label>
+                            <input id="studentDob" type="date" class="form-input">
+                        </div>
+
+                        <!-- Parent Name -->
+                        <div class="form-group">
+                            <label for="parentName">Parent/Guardian Name *</label>
+                            <input id="parentName" type="text" placeholder="Enter primary guardian name" required class="form-input">
+                        </div>
+
+                        <!-- Contact Phone -->
+                        <div class="form-group">
+                            <label for="contactPhone">Contact Mobile Number *</label>
+                            <input id="contactPhone" type="tel" placeholder="Enter 10-digit mobile phone" required class="form-input">
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address *</label>
+                            <input id="emailAddress" type="email" placeholder="Enter parent's email address" required class="form-input">
+                        </div>
+
+                        <!-- Previous School -->
+                        <div class="form-group col-span-2">
+                            <label for="prevSchool">Previous School Attended (Optional)</label>
+                            <input id="prevSchool" type="text" placeholder="Previous school name & city location" class="form-input">
+                        </div>
+
+                        <!-- Residential Address -->
+                        <div class="form-group col-span-2">
+                            <label for="resAddress">Residential Address (Optional)</label>
+                            <textarea id="resAddress" placeholder="Enter full present postal address" class="form-textarea"></textarea>
+                        </div>
+
+                        <!-- Student Photo (JPEG, PNG) -->
+                        <div class="form-group">
+                            <label for="student_photo" style="font-weight: 700;">Student Passport Photo (JPEG/PNG) *</label>
+                            <input id="student_photo" name="student_photo" type="file" accept="image/jpeg,image/png" required class="form-input" style="padding: 8px;">
+                        </div>
+
+                        <!-- Aadhaar Card (JPEG, PNG, PDF) -->
+                        <div class="form-group">
+                            <label for="aadhaar_card" style="font-weight: 700;">Aadhaar Card Copy (JPEG/PNG/PDF) *</label>
+                            <input id="aadhaar_card" name="aadhaar_card" type="file" accept="image/jpeg,image/png,application/pdf" required class="form-input" style="padding: 8px;">
+                        </div>
+
+                        <!-- Transfer Certificate (JPEG, PNG, PDF) -->
+                        <div class="form-group">
+                            <label for="transfer_certificate" style="font-weight: 700;">Transfer Certificate - TC (Optional, PDF/Image)</label>
+                            <input id="transfer_certificate" name="transfer_certificate" type="file" accept="image/jpeg,image/png,application/pdf" class="form-input" style="padding: 8px;">
+                        </div>
+
+                        <!-- Marks Card (JPEG, PNG, PDF) -->
+                        <div class="form-group">
+                            <label for="marks_card" style="font-weight: 700;">Previous Marks Card (Optional, PDF/Image)</label>
+                            <input id="marks_card" name="marks_card" type="file" accept="image/jpeg,image/png,application/pdf" class="form-input" style="padding: 8px;">
+                        </div>
+
+                        <!-- Remarks/Notes -->
+                        <div class="form-group col-span-2">
+                            <label for="remarks" style="font-weight: 700;">Special Instructions or Remarks (Optional)</label>
+                            <input id="remarks" type="text" placeholder="Please write any medical history, sports talents, or sibling connections here..." class="form-input">
+                        </div>
+                    </div>
+
+                    <div id="admissionsFormError" style="color: #ef4444; font-weight: 700; margin-bottom: 20px; display: none; text-align: center;"></div>
+                    <button type="submit" class="form-submit-btn" id="admissionsSubmitBtn">Submit My Registration</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. FINAL CTA -->
+    <section class="admission-final-cta-sec" id="admission-cta">
+        <div class="wide-container">
+            <div class="final-cta-box" data-aos="zoom-in">
+                <h2>Secure Your Child's Spot for 2026–27</h2>
+                <p>Equip your student with the academic discipline, robust ethical values, and holistic co-curricular talents nurtured everyday at Majestic School Mysuru. Limited seats are available across classes 1-9.</p>
+                <div class="final-cta-btns">
+                    <a href="#apply-now" class="btn-cta-primary"><i class="fas fa-file-invoice"></i> Apply Online Now</a>
+                    <a href="#admission-helpdesk" class="btn-cta-secondary"><i class="fas fa-headset"></i> Contact Helpline</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HELPDESK assistance -->
+    <section class="admissions-sec-alt" id="admission-helpdesk" style="background: var(--light-bg); padding: 100px 0; border-top: 1px solid rgba(15,23,42,0.05);">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Dedicated Assistance</span>
+                <h2 class="fancy-section-title">Admission Helpdesk</h2>
+            </div>
+
+            <div class="contact-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Phone -->
+                <div class="contact-card-premium">
+                    <div class="contact-card-icon"><i class="fas fa-phone-volume"></i></div>
+                    <h3>Phone Enquiries</h3>
+                    <p>Speak directly to our admissions counselor at Mysuru desk.</p>
+                    <a href="tel:+917892053860" class="contact-card-link">+91 78920 53860</a>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-card-premium">
+                    <div class="contact-card-icon"><i class="fas fa-envelope-open-text"></i></div>
+                    <h3>Email Support</h3>
+                    <p>Send our desk questions regarding fee layouts or papers.</p>
+                    <a href="mailto:majestichps@gmail.com" class="contact-card-link">majestichps@gmail.com</a>
+                </div>
+
+                <!-- Visit -->
+                <div class="contact-card-premium">
+                    <div class="contact-card-icon"><i class="fas fa-map-location-dot"></i></div>
+                    <h3>Visit Counselors</h3>
+                    <p>We invite parents to visit campus corridors for offline tours.</p>
+                    <a href="contact.html" class="contact-card-link">Find Our Coordinates</a>
+                </div>
+
+                <!-- Timing -->
+                <div class="contact-card-premium">
+                    <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+                    <h3>Helpdesk Timings</h3>
+                    <p>Counselors are available during working school timings.</p>
+                    <span style="font-size: 0.82rem; font-weight: 700; color: var(--primary-blue);">Mon - Sat: 9:00 AM - 4:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="wide-container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/error-handler.js"></script>
+    <script src="js/api-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // 🌟 FAQ Accordion Toggle Support
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqHeaders = document.querySelectorAll('.faq-header');
+            faqHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const content = item.querySelector('.faq-content');
+                    const isActive = this.classList.contains('active');
+                    
+                    // Close other active FAQs
+                    document.querySelectorAll('.faq-header').forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            otherHeader.classList.remove('active');
+                            const otherContent = otherHeader.parentElement.querySelector('.faq-content');
+                            if (otherContent) otherContent.style.maxHeight = null;
+                        }
+                    });
+                    
+                    if (isActive) {
+                        this.classList.remove('active');
+                        content.style.maxHeight = null;
+                    } else {
+                        this.classList.add('active');
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                    }
+                });
+            });
+        });
+
+
+
+        document.getElementById('admissionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const form = this;
+            const submitBtn = document.getElementById('admissionsSubmitBtn');
+            const errorDiv = document.getElementById('admissionsFormError');
+
+            // Validate all fields
+            let isValid = true;
+            
+            const requiredFields = [
+                'studentName', 'parentName', 'contactPhone', 'emailAddress', 'applyingClass', 'student_photo', 'aadhaar_card'
+            ];
+
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value || (field.type === 'file' && !field.files.length)) {
+                    isValid = false;
+                    if (field.type === 'text' || field.type === 'email' || field.type === 'tel' || field.tagName === 'SELECT') {
+                        ErrorHandler.showFieldError(field, 'This field is required');
+                    }
+                }
+            });
+
+            // Validate email format
+            const emailField = document.getElementById('emailAddress');
+            if (emailField.value && !ErrorHandler.isValidEmail(emailField.value)) {
+                ErrorHandler.showFieldError(emailField, 'Please enter a valid email');
+                isValid = false;
+            }
+
+            // Validate phone format
+            const phoneField = document.getElementById('contactPhone');
+            if (phoneField.value && !ErrorHandler.isValidPhone(phoneField.value)) {
+                ErrorHandler.showFieldError(phoneField, 'Please enter a valid 10-digit phone number');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                ErrorHandler.showErrorToast('Please fix all errors before submitting');
+                return;
+            }
+
+            ErrorHandler.setFormLoading(form, true);
+            errorDiv.style.display = 'none';
+
+            try {
+                const formData = new FormData();
+                formData.append('student_name', document.getElementById('studentName').value.trim());
+                formData.append('parent_name', document.getElementById('parentName').value.trim());
+                formData.append('mobile', document.getElementById('contactPhone').value.trim());
+                formData.append('email', document.getElementById('emailAddress').value.trim());
+                formData.append('class_applied', document.getElementById('applyingClass').value);
+                formData.append('previous_school', document.getElementById('prevSchool').value.trim());
+                formData.append('address', document.getElementById('resAddress').value.trim());
+                formData.append('remarks', document.getElementById('remarks').value.trim());
+
+                // Files insertion
+                const photoInput = document.getElementById('student_photo');
+                const aadhaarInput = document.getElementById('aadhaar_card');
+                const tcInput = document.getElementById('transfer_certificate');
+                const marksInput = document.getElementById('marks_card');
+
+                if (photoInput.files[0]) formData.append('student_photo', photoInput.files[0]);
+                if (aadhaarInput.files[0]) formData.append('aadhaar_card', aadhaarInput.files[0]);
+                if (tcInput.files[0]) formData.append('transfer_certificate', tcInput.files[0]);
+                if (marksInput.files[0]) formData.append('marks_card', marksInput.files[0]);
+
+                const url = apiUrl('/api/admissions');
+                console.log("REQUEST URL:", url);
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    const admissionId = result.id;
+                    
+                    // Upload files with admission ID
+                    const token = localStorage.getItem('jwt_token');
+                    const fileFields = ['student_photo', 'aadhaar_card', 'transfer_certificate', 'marks_card'];
+                    
+                    for (const fieldId of fileFields) {
+                        const fileInput = document.getElementById(fieldId);
+                        if (fileInput && fileInput.files.length > 0) {
+                            const uploadFormData = new FormData();
+                            uploadFormData.append('file', fileInput.files[0]);
+                            uploadFormData.append('admission_id', admissionId);
+                            if (token) uploadFormData.append('token', token);
+
+                            try {
+                                const uploadResponse = await fetch(apiUrl('/api/uploads'), {
+                                    method: 'POST',
+                                    body: uploadFormData
+                                });
+                                if (!uploadResponse.ok) {
+                                    console.warn(`Failed to upload ${fieldId}`);
+                                }
+                            } catch (uploadErr) {
+                                console.warn(`Upload error for ${fieldId}:`, uploadErr);
+                            }
+                        }
+                    }
+
+                    ErrorHandler.showSuccessToast('Application submitted successfully!');
+                    ErrorHandler.setFormLoading(form, false);
+
+                    const formContainer = form.parentElement;
+                    formContainer.style.transition = 'opacity 0.4s ease';
+                    formContainer.style.opacity = '0';
+                    setTimeout(() => {
+                        formContainer.innerHTML = `
+                            <div class="success-box" style="text-align: center; padding: 40px 10px; animation: fadeIn 0.8s ease forwards;">
+                                <i class="fas fa-check-circle" style="font-size: 5rem; color: var(--secondary-green); margin-bottom: 25px;"></i>
+                                <h3 style="font-size: 2rem; color: var(--primary-blue); margin-bottom: 15px; font-weight: 800;">Application Received!</h3>
+                                <p style="color: var(--text-grey); font-size: 1.1rem; max-width: 600px; margin: 0 auto 30px; line-height: 1.8;">
+                                    Thank you for your interest in Majestic School. Your admission application and uploaded files have been securely saved. Our admissions counselor will review your materials and contact you shortly.
+                                </p>
+                                <a href="index.html" class="btn btn-primary" style="padding: 12px 30px; border-radius: 50px; text-decoration: none; display: inline-block;">Return Home</a>
+                            </div>
+                        `;
+                        formContainer.style.opacity = '1';
+                    }, 400);
+                } else {
+                    const err = await response.json();
+                    const errorMessage = err.detail || 'Failed to submit application. Please try again.';
+                    ErrorHandler.showErrorToast(errorMessage);
+                    errorDiv.textContent = errorMessage;
+                    errorDiv.style.display = 'block';
+                }
+            } catch (err) {
+                console.error('Admissions submission error:', err);
+                ErrorHandler.showErrorToast('Error submitting application. Please check your connection.');
+                errorDiv.textContent = err.message || 'Communication failure. Please try again.';
+                errorDiv.style.display = 'block';
+            } finally {
+                ErrorHandler.setFormLoading(form, false);
+            }
+        });
+    </script>
+</body>
+
+</html>

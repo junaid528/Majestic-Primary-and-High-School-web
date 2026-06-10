@@ -1,0 +1,3026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majestic School Command Center - Admin ERP Dashboard</title>
+    
+    <!-- Inline Frontend Admin Auth Guard Protection -->
+    <script>
+        (function() {
+            const token = localStorage.getItem('auth_token');
+            console.log('RAW JWT token:', token);
+
+            const redirect = (reason, destination) => {
+                console.log('REDIRECT TRIGGERED');
+                console.log('SOURCE FILE: admin-dashboard.html');
+                console.log('TARGET:', destination);
+                console.log('REASON:', reason);
+                window.location.replace(destination);
+            };
+
+            if (!token) {
+                redirect('TOKEN_MISSING', 'admin-login.html');
+                return;
+            }
+
+            const base64UrlDecode = (input) => {
+                const normalized = input.replace(/-/g, '+').replace(/_/g, '/');
+                const pad = normalized.length % 4;
+                const padded = pad ? normalized + '='.repeat(4 - pad) : normalized;
+                return window.atob(padded);
+            };
+
+            try {
+                const parts = token.split('.');
+                if (parts.length !== 3) {
+                    console.log('JWT_STRUCTURE_INVALID: token must have 3 segments', parts.length);
+                    return redirect('JWT_STRUCTURE_INVALID', 'admin-login.html');
+                }
+
+                const payload = JSON.parse(base64UrlDecode(parts[1]));
+                console.log('Decoded JWT payload:', payload);
+                console.log('EXP:', payload.exp);
+                const now = Math.floor(Date.now() / 1000);
+                console.log('NOW:', now);
+
+                const role = String(payload.role || '').toLowerCase().replace(/\s+/g, '');
+                console.log('role value:', payload.role);
+                console.log('normalized role:', role);
+
+                if (typeof payload.exp !== 'number') {
+                    return redirect('JWT_STRUCTURE_INVALID', 'admin-login.html');
+                }
+
+                if (payload.exp < now) {
+                    localStorage.removeItem('auth_token');
+                    localStorage.removeItem('user_role');
+                    localStorage.removeItem('user_name');
+                    return redirect('TOKEN_EXPIRED', 'admin-login.html');
+                }
+
+                if (role !== 'superadmin' && role !== 'staff' && role !== 'admin') {
+                    localStorage.removeItem('auth_token');
+                    localStorage.removeItem('user_role');
+                    localStorage.removeItem('user_name');
+                    return redirect('ROLE_INVALID', 'admin-login.html');
+                }
+
+                console.log('[GUARD] Admin Authenticated successfully. Welcome:', payload.email);
+            } catch (err) {
+                console.warn('[GUARD] Error parsing or validating storage token:', err);
+                localStorage.removeItem('auth_token');
+                localStorage.removeItem('user_role');
+                localStorage.removeItem('user_name');
+                return redirect('TOKEN_PARSE_FAILED', 'admin-login.html');
+            }
+        })();
+    </script>
+
+    <!-- FontAwesome & Premium Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Premium Custom Styles -->
+    <style>
+        :root {
+            /* 🎨 Premium Corporate ERP Palette - Modern High-Contrast Light Workspace with Slate-Navy Accents */
+            --primary-navy: #0f172a;    /* Deep Slate Navy for Sidebar/Navbar/Identity */
+            --navy-light: #1e293b;
+            --accent-gold: #d97706;    /* Amber/Gold Accent representing school dignity */
+            --accent-gold-light: #fef3c7;
+            --primary-emerald: #059669; /* Emerald Green */
+            --primary-blue: #2563eb;    /* Deep Blue Accent */
+            --primary-rose: #dc2626;    /* Soft Red Accent */
+            
+            --bg-workspace: #f1f5f9;   /* Off-white light gray workspace canvas */
+            --bg-card: #ffffff;        /* Pure white card backgrounds */
+            --border-soft: #e2e8f0;    /* Muted gray border tint */
+            
+            --text-dark: #0f172a;      /* Deep contrast gray for high-readability text */
+            --text-slate: #334155;     /* Medium contrast text */
+            --text-grey: #64748b;      /* Grey details */
+            --text-muted: #94a3b8;     /* Fine details labels */
+
+            --shadow-card: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.03);
+            --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.03);
+            --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-workspace);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 📦 ERP Main Wrap grid */
+        .erp-container {
+            display: flex;
+            width: 100vw;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* 🏛️ GORGEOUS SIDEBAR - Prestigious Dark Navy Brand styling */
+        .erp-sidebar {
+            width: 270px;
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 50;
+            box-shadow: 4px 0 20px rgba(15, 23, 42, 0.15);
+            transition: var(--transition-smooth);
+        }
+
+        .sidebar-brand {
+            padding: 24px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sidebar-brand img {
+            border-radius: 6px;
+            background: #ffffff;
+            padding: 4px;
+        }
+
+        .brand-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .brand-subtitle {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .sidebar-menu {
+            flex: 1;
+            padding: 20px 12px;
+            overflow-y: auto;
+        }
+
+        .menu-category {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 18px 0 10px 14px;
+        }
+
+        .sidebar-link-ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .erp-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .erp-nav-item i {
+            font-size: 1.05rem;
+            width: 20px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+            transition: var(--transition-smooth);
+        }
+
+        .erp-nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: #ffffff;
+        }
+
+        .erp-nav-item:hover i {
+            color: var(--accent-gold);
+        }
+
+        .erp-nav-item.active {
+            background-color: var(--accent-gold);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+        }
+
+        .erp-nav-item.active i {
+            color: #ffffff;
+        }
+
+        .sidebar-footer {
+            padding: 18px 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
+        .logout-btn-wrapper {
+            background-color: rgba(220, 38, 38, 0.15);
+            border: 1px solid rgba(220, 38, 38, 0.25);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .logout-btn-wrapper:hover {
+            background-color: rgba(220, 38, 38, 0.3);
+            border-color: rgba(220, 38, 38, 0.5);
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 14px;
+            color: #fca5a5;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .logout-btn i {
+            font-size: 1rem;
+        }
+
+        /* 💻 MAIN CONTENT WORKSPACE Area */
+        .workspace {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        /* 顶部控制栏 NAVBAR */
+        .erp-navbar {
+            background-color: #ffffff;
+            height: 75px;
+            border-bottom: 1px solid var(--border-soft);
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.35rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        .navbar-search {
+            position: relative;
+            width: 250px;
+        }
+
+        .navbar-search input {
+            width: 100%;
+            padding: 8px 12px 8px 36px;
+            border-radius: 8px;
+            border: 1px solid var(--border-soft);
+            font-size: 0.85rem;
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .navbar-search input:focus {
+            border-color: var(--primary-blue);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .navbar-search i {
+            position: absolute;
+            left: 12px;
+            top: 11px;
+            color: var(--text-grey);
+            font-size: 0.85rem;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .system-status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f8fafc;
+            border: 1px solid var(--border-soft);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--primary-emerald);
+            animation: pulse-green 2s infinite;
+        }
+
+        .nav-user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 1px solid var(--border-soft);
+            padding-left: 15px;
+        }
+
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent-gold-light);
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: 1px solid var(--accent-gold);
+        }
+
+        .user-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .user-role-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            margin-top: 1px;
+        }
+
+        /* 📊 WORKSPACE CONTAINER */
+        .workspace-content {
+            padding: 30px;
+            flex: 1;
+        }
+
+        /* 🌟 MODERN CARD CONTAINER */
+        .dash-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+
+        .dash-card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .card-title-flex {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.12rem;
+            font-weight: 800;
+            color: var(--primary-navy);
+        }
+
+        .card-title-flex i {
+            font-size: 1.25rem;
+        }
+
+        /* 📊 SNAPSHOT METRICS ROSTER (6 CARDS LIST) */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .metric-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+        }
+
+        .metric-card.color-blue::before { background-color: var(--primary-blue); }
+        .metric-card.color-amber::before { background-color: var(--accent-gold); }
+        .metric-card.color-emerald::before { background-color: var(--primary-emerald); }
+        .metric-card.color-sky::before { background-color: #06b6d4; }
+        .metric-card.color-indigo::before { background-color: #6366f1; }
+        .metric-card.color-rose::before { background-color: var(--primary-rose); }
+
+        .metric-card-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-card-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-grey);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-card-value {
+            font-size: 1.85rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-top: 6px;
+            line-height: 1;
+        }
+
+        .metric-card-sub {
+            font-size: 0.75rem;
+            margin-top: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .text-green { color: var(--primary-emerald); }
+        .text-amber { color: var(--accent-gold); }
+        .text-blue { color: var(--primary-blue); }
+        .text-rose { color: var(--primary-rose); }
+
+        .metric-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .bg-blue-pastel { background-color: rgba(37, 99, 235, 0.08); color: var(--primary-blue); }
+        .bg-amber-pastel { background-color: rgba(217, 119, 6, 0.08); color: var(--accent-gold); }
+        .bg-emerald-pastel { background-color: rgba(5, 150, 105, 0.08); color: var(--primary-emerald); }
+        .bg-sky-pastel { background-color: rgba(6, 182, 212, 0.08); color: #06b6d4; }
+        .bg-indigo-pastel { background-color: rgba(99, 102, 241, 0.08); color: #6366f1; }
+        .bg-rose-pastel { background-color: rgba(220, 38, 38, 0.08); color: var(--primary-rose); }
+
+        /* 📋 COMMERCIAL DATA TABLES */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .erp-data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        .erp-data-table th {
+            background-color: #f8fafc;
+            color: var(--text-slate);
+            font-weight: 700;
+            padding: 14px 18px;
+            border-bottom: 2px solid var(--border-soft);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .erp-data-table td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-soft);
+            color: var(--text-dark);
+            vertical-align: middle;
+            font-size: 0.88rem;
+        }
+
+        .erp-data-table tbody tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        /* 🏷️ ER BRAND BADGES */
+        .erp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-pending { background-color: #fef3c7; color: #d97706; border: 1px solid #fde047; }
+        .badge-approved { background-color: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+        .badge-rejected { background-color: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+        .badge-info { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+        .badge-staff { background-color: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+        .badge-student { background-color: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+        .badge-super { background-color: #fef2f2; color: #991b1b; border: 1px solid #fee2e2; }
+
+        /* 📋 DOUBLE FRAME GRID FOR OVERVIEW */
+        .grid-split-2 {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 1100px) {
+            .grid-split-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 🚀 FORM & CONTROLS STYLING */
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .form-group-full {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 600px) {
+            .form-group-full {
+                grid-column: span 1;
+            }
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-slate);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .erp-input, .erp-select, .erp-textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border-soft);
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition-smooth);
+        }
+
+        .erp-input:focus, .erp-select:focus, .erp-textarea:focus {
+            background-color: #ffffff;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        /* 🔘 SYSTEM OPERATIONAL BUTTONS */
+        .erp-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition-smooth);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            height: 38px;
+        }
+
+        .btn-fill-blue { background-color: var(--primary-blue); color: #ffffff; }
+        .btn-fill-blue:hover { background-color: #1d4ed8; }
+        
+        .btn-fill-amber { background-color: var(--accent-gold); color: #ffffff; }
+        .btn-fill-amber:hover { background-color: #b45309; }
+
+        .btn-fill-green { background-color: var(--primary-emerald); color: #ffffff; }
+        .btn-fill-green:hover { background-color: #047857; }
+
+        .btn-fill-rose { background-color: var(--primary-rose); color: #ffffff; }
+        .btn-fill-rose:hover { background-color: #b91c1c; }
+
+        .btn-outline { background-color: transparent; color: var(--text-slate); border: 1px solid var(--border-soft); }
+        .btn-outline:hover { background-color: #f8fafc; border-color: var(--text-grey); color: var(--text-dark); }
+
+        .action-tool-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-soft);
+            background-color: #ffffff;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            color: var(--text-slate);
+        }
+
+        .action-tool-btn:hover {
+            color: #ffffff;
+        }
+
+        .hover-blue:hover { background-color: var(--primary-blue); border-color: var(--primary-blue); }
+        .hover-green:hover { background-color: var(--primary-emerald); border-color: var(--primary-emerald); }
+        .hover-rose:hover { background-color: var(--primary-rose); border-color: var(--primary-rose); }
+        .hover-amber:hover { background-color: var(--accent-gold); border-color: var(--accent-gold); }
+
+        /* 📋 TABS VIEWS SWITCH SECTION CAPABILITY */
+        .tab-section {
+            display: none;
+            animation: erpFadeIn 0.3s ease-out;
+        }
+
+        @keyframes erpFadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 🚨 SECURITY VETTING HIGHLIGHT BOX */
+        .alert-box-warn {
+            background-color: rgba(217, 119, 6, 0.05);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+            border-left: 4px solid var(--accent-gold);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .alert-box-warn i {
+            color: var(--accent-gold);
+            font-size: 1.15rem;
+            margin-top: 1px;
+            animation: pulse-green 1.5s infinite;
+        }
+
+        /* 📡 LIVE CLOCK EVENT PULSE ANIMATIONS */
+        @keyframes pulse-green {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* 🕒 TIMELINE LAYOUT SYSTEM */
+        .audit-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .audit-timeline::before {
+            content: '';
+            position: absolute;
+            left: 4px;
+            top: 5px;
+            bottom: 5px;
+            width: 2px;
+            background-color: var(--border-soft);
+        }
+
+        .timeline-item-erp {
+            position: relative;
+        }
+
+        .timeline-item-erp::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background-color: var(--bg-card);
+            border: 2.5px solid var(--primary-blue);
+            border-radius: 50%;
+            z-index: 5;
+        }
+
+        .timeline-item-erp.color-emerald::before { border-color: var(--primary-emerald); }
+        .timeline-item-erp.color-rose::before { border-color: var(--primary-rose); }
+        .timeline-item-erp.color-amber::before { border-color: var(--accent-gold); }
+
+        .timeline-erp-date {
+            font-size: 0.7rem;
+            color: var(--text-grey);
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .timeline-erp-caption {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-top: 2px;
+        }
+
+        .timeline-erp-detail {
+            font-size: 0.72rem;
+            color: var(--text-grey);
+            margin-top: 1px;
+        }
+
+        /* 🖥️ DIALOG / MODAL CONTAINERS MODAL */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            inset: 0;
+            background-color: rgba(15, 23, 42, 0.45);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content-styled {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid var(--border-soft);
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+            animation: modalScaleUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalScaleUp {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-header-styled {
+            padding: 20px 24px;
+            background-color: var(--primary-navy);
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header-styled h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin: 0;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-close-icon {
+            font-size: 1.35rem;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition-smooth);
+        }
+
+        .modal-close-icon:hover {
+            color: #ffffff;
+        }
+
+        .modal-form-styled {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* 📱 RESPONSIVE ADJUSTMENTS */
+        @media (max-width: 992px) {
+            .erp-sidebar {
+                position: fixed;
+                left: -270px;
+                top: 0;
+                bottom: 0;
+                height: 100vh;
+            }
+
+            .erp-sidebar.active {
+                left: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .navbar-search {
+                width: 180px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .workspace-content {
+                padding: 16px;
+            }
+            .erp-navbar {
+                padding: 0 16px;
+            }
+            .nav-user-profile {
+                padding-left: 8px;
+            }
+            .user-info {
+                display: none;
+            }
+            .system-status-indicator {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="erp-container">
+        
+        <!-- ==============================================
+             1. 🏛️ SYSTEM VISIBLE SIDEBAR (REDESIGNED ERP)
+             ============================================== -->
+        <aside class="erp-sidebar" id="main-sidebar">
+            <div class="sidebar-brand">
+                <img src="assets/logo.png" referrerPolicy="no-referrer" alt="Logo" height="38">
+                <div class="brand-details">
+                    <span class="brand-title">Majestic High</span>
+                    <span class="brand-subtitle">School ERP Pro</span>
+                </div>
+            </div>
+
+            <div class="sidebar-menu">
+                
+                <div class="menu-category">Command center</div>
+                <ul class="sidebar-link-ul">
+                    <li>
+                        <span class="erp-nav-item active" id="vn-overview" onclick="handleNav('overview')">
+                            <i class="fas fa-chart-line"></i> Dashboard
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="menu-category">Academics registry</div>
+                <ul class="sidebar-link-ul">
+                    <li>
+                        <span class="erp-nav-item" id="vn-students" onclick="handleNav('students')">
+                            <i class="fas fa-user-graduate"></i> Students Directory
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-parents" onclick="handleNav('parents')">
+                            <i class="fas fa-user-friends"></i> Parents Registry
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-users-Staff" onclick="handleNav('users', 'Staff')">
+                            <i class="fas fa-users-cog"></i> Educational Staff
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-teachers" onclick="handleNav('teachers')">
+                            <i class="fas fa-chalkboard-teacher"></i> Teacher Directory
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-classes" onclick="switchTabToShowSpec('classes')">
+                            <i class="fas fa-school"></i> Classroom Slots
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-subjects" onclick="switchTabToShowSpec('subjects')">
+                            <i class="fas fa-book-open"></i> Subjects Outline
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="menu-category">Enrollments</div>
+                <ul class="sidebar-link-ul">
+                    <li>
+                        <span class="erp-nav-item" id="vn-admissions" onclick="handleNav('admissions')">
+                            <i class="fas fa-file-signature"></i> Admissions Desk
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="menu-category">Student Welfare</div>
+                <ul class="sidebar-link-ul">
+                    <li>
+                        <span class="erp-nav-item" id="vn-attendance" onclick="switchTabToShowSpec('attendance')">
+                            <i class="fas fa-id-card-clip"></i> Daily Attendance
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-examinations" onclick="switchTabToShowSpec('examinations')">
+                            <i class="fas fa-file-invoice"></i> Examination Hub
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-results" onclick="switchTabToShowSpec('results')">
+                            <i class="fas fa-square-poll-vertical"></i> Academic Results
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="menu-category">Internal dispatch</div>
+                <ul class="sidebar-link-ul">
+                    <li>
+                        <span class="erp-nav-item" id="vn-messages" onclick="handleNav('messages')">
+                            <i class="fas fa-envelope-open-text"></i> Contact Mailbox
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-announcements" onclick="handleNav('announcements')">
+                            <i class="fas fa-bullhorn"></i> Notice Broadcasts
+                        </span>
+                    </li>
+                </ul>
+
+                <div class="menu-category">Security & Accounting</div>
+                <ul class="sidebar-link-ul">
+                    <li>
+                        <span class="erp-nav-item" id="vn-fees" onclick="handleNav('reports')">
+                            <i class="fas fa-file-invoice-dollar"></i> Tuition Fees Desk
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-reports" onclick="handleNav('reports')">
+                            <i class="fas fa-chart-pie"></i> Exports & Reports
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-audits" onclick="handleNav('audits')">
+                            <i class="fas fa-shield-halved"></i> Action Audit trail
+                        </span>
+                    </li>
+                    <li>
+                        <span class="erp-nav-item" id="vn-settings" onclick="handleNav('settings')">
+                            <i class="fas fa-sliders"></i> School Parameters
+                        </span>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="logout-btn-wrapper">
+                    <!-- Clones logout behavior to legacy button -->
+                    <span class="logout-btn" onclick="document.getElementById('logoutBtn').click()">
+                        <i class="fas fa-sign-out-alt"></i> Clean Logout
+                    </span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==============================================
+             2. 🧭 SYSTEM LEGACY SIDEBAR (ACCESSIBILITY COMPATIBILITY LAYER)
+             ============================================== -->
+        <ul class="side-links" style="display: none !important; visibility: hidden !important; width:0; height:0; overflow:hidden;">
+            <li class="active"><a href="#" id="nav-overview"><i class="fas fa-chart-line"></i> <span>Overview</span></a></li>
+            <li><a href="#" id="nav-users"><i class="fas fa-user-graduate"></i> <span>Students & Staff</span></a></li>
+            <li><a href="#" id="nav-admissions"><i class="fas fa-file-signature"></i> <span>Admissions Queue</span></a></li>
+            <li><a href="#" id="nav-announcements"><i class="fas fa-bullhorn"></i> <span>Notices & Events</span></a></li>
+            <li><a href="#" id="nav-messages"><i class="fas fa-envelope-open-text"></i> <span>Contact Inbox</span></a></li>
+            <li><a href="#" id="nav-reports"><i class="fas fa-file-invoice-dollar"></i> <span>Reports & PDF</span></a></li>
+            <li><a href="#" id="nav-audits"><i class="fas fa-history"></i> <span>Audit Center</span></a></li>
+            <li><a href="#" id="nav-settings"><i class="fas fa-sliders-h"></i> <span>School Settings</span></a></li>
+            <li><a href="#" id="nav-teachers"><i class="fas fa-chalkboard-teacher"></i> <span>Teachers Directory</span></a></li>
+            <li><a href="#" id="nav-students"><i class="fas fa-user-graduate"></i> <span>Students Directory</span></a></li>
+            <li><a href="#" id="nav-parents"><i class="fas fa-user-friends"></i> <span>Parents Registry</span></a></li>
+            <li class="logout"><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+        </ul>
+
+        <!-- ==============================================
+             3. 💻 PRODUCTION WORKSPACE CONTAINER
+             ============================================== -->
+        <main class="workspace">
+            
+            <!-- Navbar Header row -->
+            <header class="erp-navbar">
+                <div class="nav-left">
+                    <button class="mobile-toggle" onclick="toggleMobileSidebar()" id="sidebarToggleButton">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div>
+                        <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                            Command Hub <span style="font-size:0.75rem; background: rgba(37,99,235,0.08); padding:3px 8px; border-radius:5px; color:var(--primary-blue); font-weight:700;">PRO v1.8</span>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="nav-right">
+                    
+                    <!-- Dynamic Live UTC clock -->
+                    <div class="system-status-indicator">
+                        <span class="status-dot"></span>
+                        <span style="color: var(--text-grey); font-weight:600;">ERP CONNECTED &bull; UTC:</span>
+                        <span id="erpSystemClock" style="color: var(--text-dark); font-weight: 700;">00:00:00 UTC</span>
+                    </div>
+
+                    <!-- Administrator details metadata updated by dashboard.js -->
+                    <div class="nav-user-profile">
+                        <div class="user-avatar" id="avatarBadgePlaceholder">A</div>
+                        <div class="user-info">
+                            <span class="user-name" id="userNameDisplay">Admin Operator</span>
+                            <span class="user-role-badge">Super Systems Marshal</span>
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+
+            <div class="workspace-content">
+                
+                <!-- ==============================================
+                     4. 📊 SCHOOL SUMMARY OVERVIEW STRIP (6 LIVE METRIC CARDS)
+                     ============================================== -->
+                <div class="metrics-grid" id="sec-snapshot-container">
+                    
+                    <!-- Total Students Card -->
+                    <div class="metric-card color-blue">
+                        <div class="metric-card-info">
+                            <span class="metric-card-title">Active Students</span>
+                            <span class="metric-card-value" id="totalStudentsIndicator">0</span>
+                            <span class="metric-card-sub text-blue"><i class="fas fa-circle-check"></i> Enrolled active</span>
+                        </div>
+                        <div class="metric-card-icon bg-blue-pastel">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Parents Card -->
+                    <div class="metric-card color-amber">
+                        <div class="metric-card-info">
+                            <span class="metric-card-title">Verified Parents</span>
+                            <span class="metric-card-value" id="totalParentsIndicator">0</span>
+                            <span class="metric-card-sub text-amber"><i class="fas fa-handshake"></i> Verified guardians</span>
+                        </div>
+                        <div class="metric-card-icon bg-amber-pastel">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Staff Card -->
+                    <div class="metric-card color-emerald">
+                        <div class="metric-card-info">
+                            <span class="metric-card-title">Educational Staff</span>
+                            <span class="metric-card-value" id="totalStaffIndicator">0</span>
+                            <span class="metric-card-sub text-green"><i class="fas fa-shield"></i> Systems Marshall</span>
+                        </div>
+                        <div class="metric-card-icon bg-emerald-pastel">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Admissions Card -->
+                    <div class="metric-card color-sky">
+                        <div class="metric-card-info">
+                            <span class="metric-card-title">Admissions Index</span>
+                            <span class="metric-card-value" id="totalAdmissionsIndicator">0</span>
+                            <span class="metric-card-sub text-blue" style="color: #06b6d4;"><i class="fas fa-id-card"></i> Intake registry</span>
+                        </div>
+                        <div class="metric-card-icon bg-sky-pastel">
+                            <i class="fas fa-signature"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Inquiries Card -->
+                    <div class="metric-card color-indigo">
+                        <div class="metric-card-info">
+                            <span class="metric-card-title">Support Queries</span>
+                            <span class="metric-card-value" id="totalQueriesIndicator">0</span>
+                            <span class="metric-card-sub text-blue" style="color:#6366f1;"><i class="fas fa-envelope-open-text"></i> Pending response</span>
+                        </div>
+                        <div class="metric-card-icon bg-indigo-pastel">
+                            <i class="fas fa-envelope-open"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Notice Updates Card -->
+                    <div class="metric-card color-rose">
+                        <div class="metric-card-info">
+                            <span class="metric-card-title">Public Notices</span>
+                            <span class="metric-card-value" id="totalNotificationsIndicator">0</span>
+                            <span class="metric-card-sub text-rose"><i class="fas fa-bullhorn"></i> Broadcasters</span>
+                        </div>
+                        <div class="metric-card-icon bg-rose-pastel">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Accessibility Legacy values container safely hidden -->
+                <div style="display: none !important; visibility: hidden !important; width:0; height:0; overflow:hidden;">
+                    <div id="totalUsersIndicator">0</div>
+                    <div id="pendingAdmissionsIndicator">0 Pending</div>
+                    <div id="messagesIndicator">0</div>
+                    <div id="todayRegistrationsIndicator">0</div>
+                    <div id="approvedAdmissionsIndicator">0</div>
+                </div>
+
+                <!-- ==============================================
+                     5. 📊 HOOKING LIVE INTERACTIVE WORKPLACES (TABS)
+                     ============================================== -->
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 0]: OVERVIEW COMMAND CENTER
+                     ══════════════════════════════════════════ -->
+                <div id="sec-overview" class="tab-section" style="display: block;">
+                    
+                    <!-- Vetting Alert center -->
+                    <div class="alert-box-warn">
+                        <i class="fas fa-circle-exclamation"></i>
+                        <div style="flex:1;">
+                            <strong style="color: #b45309; font-size: 0.92rem; display:block;">Active Vetting Center Routine Alert</strong>
+                            <p style="color: #78350f; font-size: 0.85rem; margin-top:2px; line-height:1.4;">
+                                There are active enrollment student records in the vetting queue mapping pipeline. Please confirm criteria parameters before approving applications.
+                            </p>
+                            <span onclick="handleNav('admissions')" style="display: inline-block; cursor: pointer; color: var(--primary-blue); font-weight: 700; font-size: 0.8rem; margin-top: 8px; text-decoration: underline;">
+                                Review Admissions Queue &rarr;
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="grid-split-2">
+                        
+                        <!-- Enrollment Graph metrics & Activity Center -->
+                        <div>
+                            <div class="dash-card">
+                                <div class="card-header-flex" style="margin-bottom:15px;">
+                                    <div class="card-title-flex">
+                                        <i class="fas fa-chart-line" style="color: var(--primary-blue);"></i> Annual Intake Enrollment Streams
+                                    </div>
+                                    <span class="erp-badge badge-info" style="font-size:0.65rem;">ACADEMIC INTENDS</span>
+                                </div>
+                                <p style="font-size:0.8rem; color:var(--text-grey); margin-bottom:20px; margin-top:-5px;">Cumulative Student volume trendline across primary & secondary high-school levels:</p>
+                                
+                                <div style="height: 140px; display: flex; align-items: flex-end; gap: 12px; padding: 10px 5px 0;">
+                                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                                        <div style="background: linear-gradient(to top, rgba(37,99,235,0.05), var(--primary-blue)); width: 100%; height: 35%; border-radius: 4px; transition: height 0.3s;"></div>
+                                        <span style="font-size: 0.72rem; color: var(--text-grey); margin-top: 8px; font-weight:600;">Grade 1-4</span>
+                                    </div>
+                                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                                        <div style="background: linear-gradient(to top, rgba(37,99,235,0.05), var(--primary-blue)); width: 100%; height: 55%; border-radius: 4px;"></div>
+                                        <span style="font-size: 0.72rem; color: var(--text-grey); margin-top: 8px; font-weight:600;">Grade 5-7</span>
+                                    </div>
+                                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                                        <div style="background: linear-gradient(to top, rgba(37,99,235,0.05), var(--primary-blue)); width: 100%; height: 85%; border-radius: 4px;"></div>
+                                        <span style="font-size: 0.72rem; color: var(--text-grey); margin-top: 8px; font-weight:600;">Grade 8-10</span>
+                                    </div>
+                                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%;">
+                                        <div style="background: linear-gradient(to top, rgba(217,119,6,0.05), var(--accent-gold)); width: 100%; height: 98%; border-radius: 4px; box-shadow: 0 0 10px rgba(217,119,6,0.15);"></div>
+                                        <span style="font-size: 0.72rem; color: var(--text-dark); margin-top: 8px; font-weight: 700;">Admissions</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dash-card">
+                                <div class="card-header-flex">
+                                    <div class="card-title-flex">
+                                        <i class="fas fa-layer-group" style="color: var(--accent-gold);"></i> Quick Action Operations Panel
+                                    </div>
+                                </div>
+                                <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap:12px;">
+                                    <button onclick="openAddUserModal()" class="erp-btn btn-outline" style="height:auto; padding:12px; flex-direction:column; gap:8px;">
+                                        <i class="fas fa-user-plus" style="font-size:1.2rem; color:var(--primary-blue);"></i>
+                                        <span style="font-size:0.75rem;">Create User</span>
+                                    </button>
+                                    <button onclick="handleNav('announcements')" class="erp-btn btn-outline" style="height:auto; padding:12px; flex-direction:column; gap:8px;">
+                                        <i class="fas fa-bullhorn" style="font-size:1.2rem; color:var(--accent-gold);"></i>
+                                        <span style="font-size:0.75rem;">Public Roster</span>
+                                    </button>
+                                    <button onclick="exportCurrentDirectoryCSV()" class="erp-btn btn-outline" style="height:auto; padding:12px; flex-direction:column; gap:8px;">
+                                        <i class="fas fa-file-csv" style="font-size:1.2rem; color:var(--primary-emerald);"></i>
+                                        <span style="font-size:0.75rem;">Export Users</span>
+                                    </button>
+                                    <button onclick="downloadOfficialFeePDF()" class="erp-btn btn-outline" style="height:auto; padding:12px; flex-direction:column; gap:8px;">
+                                        <i class="fas fa-file-pdf" style="font-size:1.2rem; color:var(--primary-rose);"></i>
+                                        <span style="font-size:0.75rem;">Fees Prospectus</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Timeline summary columns -->
+                        <div style="display:flex; flex-direction:column; gap:25px;">
+                            <div class="dash-card" style="margin-bottom:0; flex:1;">
+                                <div class="card-header-flex" style="margin-bottom:15px;">
+                                    <div class="card-title-flex">
+                                        <i class="fas fa-bolt" style="color: var(--accent-gold);"></i> Real-Time Activity Streams
+                                    </div>
+                                </div>
+                                
+                                <div class="audit-timeline">
+                                    <div class="timeline-item-erp">
+                                        <span class="timeline-erp-date">TODAY &bull; 08:30 AM</span>
+                                        <span class="timeline-erp-caption">Academic notice broadcasted</span>
+                                        <p class="timeline-erp-detail">Subject outline sessional guidelines updated on notice board</p>
+                                    </div>
+                                    <div class="timeline-item-erp color-emerald">
+                                        <span class="timeline-erp-date">TODAY &bull; 07:15 AM</span>
+                                        <span class="timeline-erp-caption">Admin security rotation checked</span>
+                                        <p class="timeline-erp-detail">Middle SQL route validation checking finished without leaks</p>
+                                    </div>
+                                    <div class="timeline-item-erp color-rose">
+                                        <span class="timeline-erp-date">YESTERDAY &bull; 03:40 PM</span>
+                                        <span class="timeline-erp-caption">Student admission application approved</span>
+                                        <p class="timeline-erp-detail">Vetted document maps approved for Ananya Deshpande Grade 8</p>
+                                    </div>
+                                    <div class="timeline-item-erp color-amber">
+                                        <span class="timeline-erp-date">JUNE 05 &bull; 11:20 AM</span>
+                                        <span class="timeline-erp-caption">Roster details modified by Operator</span>
+                                        <p class="timeline-erp-detail">Educator profile generated in database cluster</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Double horizontal split panels -->
+                    <div class="grid-split-2">
+                        
+                        <!-- Public announcements list preview -->
+                        <div class="dash-card">
+                            <div class="card-header-flex">
+                                <span class="card-title-flex"><i class="fas fa-bullhorn" style="color: var(--primary-blue);"></i> Active Notices & Broadcasters</span>
+                                <span onclick="handleNav('announcements')" style="font-size:0.75rem; color:var(--primary-blue); font-weight:700; cursor:pointer; text-decoration:underline;">Manage Notices</span>
+                            </div>
+                            <div id="announcementsList" style="max-height: 250px; overflow-y: auto; display:flex; flex-direction:column; gap:12px; padding-right:5px;">
+                                <!-- Managed dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Calendar upcoming events listings -->
+                        <div class="dash-card">
+                            <div class="card-header-flex">
+                                <span class="card-title-flex"><i class="fas fa-calendar-days" style="color: var(--accent-gold);"></i> Academic Events Planner</span>
+                                <span onclick="handleNav('announcements')" style="font-size:0.75rem; color:var(--accent-gold); font-weight:700; cursor:pointer; text-decoration:underline;">Schedule Event</span>
+                            </div>
+                            <div id="eventsList" style="max-height: 250px; overflow-y: auto; display:flex; flex-direction:column; gap:12px; padding-right:5px;">
+                                <!-- Managed dynamically -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 1]: STUDENTS & USERS DIRECTORY VIEWPORT
+                     ══════════════════════════════════════════ -->
+                <div id="sec-users" class="tab-section">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-users" style="color: var(--primary-blue);"></i> System Registry Index
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Database register of active student logins, parents maps, and staff administrators profiles.</p>
+                            </div>
+                            
+                            <!-- Filter tools & buttons row -->
+                            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                
+                                <select id="roleFilterSelector" onchange="filterUserDirectoryByRole(this.value)" class="erp-select" style="width: auto; height:38px; padding: 4px 12px; font-weight: 600;">
+                                    <option value="ALL">All Categories Register</option>
+                                    <option value="Student">Students / Parents</option>
+                                    <option value="Staff">Educational Staff</option>
+                                    <option value="Super Admin">System Administrators</option>
+                                </select>
+
+                                <button onclick="openAddUserModal()" class="erp-btn btn-fill-blue">
+                                    <i class="fas fa-plus"></i> Create Profile
+                                </button>
+                                
+                                <div style="position: relative;">
+                                    <input type="text" id="searchInput" placeholder="Search directory list..." class="erp-input" style="width: 200px; padding-left: 36px; height:38px;">
+                                    <i class="fas fa-search" style="position: absolute; left: 12px; top: 12px; color: var(--text-grey); font-size: 0.85rem;"></i>
+                                </div>
+
+                                <button onclick="exportCurrentDirectoryCSV()" class="erp-btn btn-outline" style="padding: 10px 12px; width: 40px;" title="Extract CSV">
+                                    <i class="fas fa-download"></i>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- Data Table -->
+                        <div class="table-responsive">
+                            <table class="erp-data-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 80px;">UID</th>
+                                        <th>Registered Name</th>
+                                        <th>Email Address</th>
+                                        <th>Mobile Number</th>
+                                        <th>Privilege Map</th>
+                                        <th>Date Created</th>
+                                        <th style="text-align: right; width: 120px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTableBody">
+                                    <!-- Populated dynamically via fetchUsers() in dashboard.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 1.5]: TEACHERS DIRECTORY VIEWPORT
+                     ══════════════════════════════════════════ -->
+                <div id="sec-teachers" class="tab-section" style="display: none;">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-chalkboard-teacher" style="color: var(--primary-blue);"></i> Teacher Directory System
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Manage certified school instructors, assign qualifications, roster subjects, and track profiles.</p>
+                            </div>
+                            
+                            <!-- Filter & Command Bar -->
+                            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                
+                                <select id="teacherStatusFilter" onchange="filterTeachers()" class="erp-select" style="width: auto; height:38px; padding: 4px 12px; font-weight: 600;">
+                                    <option value="ALL">All Statuses</option>
+                                    <option value="Active">Active On Duty</option>
+                                    <option value="Inactive">On Leave / Suspended</option>
+                                </select>
+
+                                <select id="teacherSubjectFilter" onchange="filterTeachers()" class="erp-select" style="width: auto; height:38px; padding: 4px 12px; font-weight: 600;">
+                                    <option value="ALL">All Subjects</option>
+                                    <option value="Mathematics">Mathematics</option>
+                                    <option value="English">English</option>
+                                    <option value="Science">Science</option>
+                                    <option value="Social Studies">Social Studies</option>
+                                </select>
+
+                                <button onclick="openAddTeacherModal()" class="erp-btn btn-fill-blue">
+                                    <i class="fas fa-user-plus"></i> Add Teacher
+                                </button>
+                                
+                                <div style="position: relative;">
+                                    <input type="text" id="teacherSearchInput" oninput="filterTeachers()" placeholder="Search teachers..." class="erp-input" style="width: 200px; padding-left: 36px; height:38px;">
+                                    <i class="fas fa-search" style="position: absolute; left: 12px; top: 12px; color: var(--text-grey); font-size: 0.85rem;"></i>
+                                </div>
+
+                                <button onclick="exportTeachersCSV()" class="erp-btn btn-outline" style="padding: 10px 12px; width: 40px;" title="Extract CSV">
+                                    <i class="fas fa-download"></i>
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <!-- Data Table -->
+                        <div class="table-responsive">
+                            <table class="erp-data-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 90px;">Tch ID</th>
+                                        <th>Registered Name</th>
+                                        <th>Qualifications</th>
+                                        <th>Contact Email</th>
+                                        <th>Rostered Class / Subject</th>
+                                        <th>Salary (₹)</th>
+                                        <th>Status Map</th>
+                                        <th style="text-align: right; width: 180px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="teacherTableBody">
+                                    <!-- Populated dynamically via fetchTeachers() in dashboard.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 1.6]: STUDENTS DIRECTORY VIEWPORT
+                     ══════════════════════════════════════════ -->
+                <div id="sec-students" class="tab-section" style="display: none;">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-user-graduate" style="color: var(--primary-blue);"></i> Student Registry Hub
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Manage dynamic student rosters, track enrollment details, update sections, and export records.</p>
+                            </div>
+                            
+                            <!-- Filter & Action Controls -->
+                            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                <select id="studentClassFilter" onchange="filterStudents()" class="erp-select" style="width: auto; height:38px; padding: 4px 12px; font-weight: 600;">
+                                    <option value="ALL">All Classes</option>
+                                    <option value="Class VI">Class VI</option>
+                                    <option value="Class VII">Class VII</option>
+                                    <option value="Class VIII">Class VIII</option>
+                                    <option value="Class IX">Class IX</option>
+                                    <option value="Class X">Class X</option>
+                                </select>
+
+                                <select id="studentStatusFilter" onchange="filterStudents()" class="erp-select" style="width: auto; height:38px; padding: 4px 12px; font-weight: 600;">
+                                    <option value="ALL">All Statuses</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Inactive">Inactive</option>
+                                    <option value="Suspended">Suspended</option>
+                                </select>
+
+                                <button onclick="openAddStudentModal()" class="erp-btn btn-fill-blue">
+                                    <i class="fas fa-user-plus"></i> Add Student
+                                </button>
+                                
+                                <div style="position: relative;">
+                                    <input type="text" id="studentSearchInput" oninput="filterStudents()" placeholder="Search students..." class="erp-input" style="width: 200px; padding-left: 36px; height:38px;">
+                                    <i class="fas fa-search" style="position: absolute; left: 12px; top: 12px; color: var(--text-grey); font-size: 0.85rem;"></i>
+                                </div>
+
+                                <button onclick="exportStudentsCSV()" class="erp-btn btn-outline" style="padding: 10px 12px; width: 40px;" title="Extract CSV">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Data Table -->
+                        <div class="table-responsive">
+                            <table class="erp-data-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 100px;">Student ID</th>
+                                        <th>Admission Number</th>
+                                        <th>Full Name</th>
+                                        <th>Class & Section</th>
+                                        <th>Gender</th>
+                                        <th>Birth Date</th>
+                                        <th>Parent Contact</th>
+                                        <th>Status Map</th>
+                                        <th style="text-align: right; width: 140px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="studentTableBody">
+                                    <!-- Populated dynamically via fetchStudents() -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 1.7]: PARENTS DIRECTORY VIEWPORT
+                     ══════════════════════════════════════════ -->
+                <div id="sec-parents" class="tab-section" style="display: none;">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-user-friends" style="color: var(--primary-blue);"></i> Parent Directories Desk
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Maintain parental profiles, track home addresses, linked children data, and emergency contact details.</p>
+                            </div>
+                            
+                            <!-- Search & Action -->
+                            <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                <button onclick="openAddParentModal()" class="erp-btn btn-fill-blue">
+                                    <i class="fas fa-plus"></i> Add Parent
+                                </button>
+                                
+                                <div style="position: relative;">
+                                    <input type="text" id="parentSearchInput" oninput="filterParents()" placeholder="Search parents..." class="erp-input" style="width: 200px; padding-left: 36px; height:38px;">
+                                    <i class="fas fa-search" style="position: absolute; left: 12px; top: 12px; color: var(--text-grey); font-size: 0.85rem;"></i>
+                                </div>
+
+                                <button onclick="exportParentsCSV()" class="erp-btn btn-outline" style="padding: 10px 12px; width: 40px;" title="Extract CSV">
+                                    <i class="fas fa-download"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Data Table -->
+                        <div class="table-responsive">
+                            <table class="erp-data-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 100px;">Parent ID</th>
+                                        <th>Father Name</th>
+                                        <th>Mother Name</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Address Info</th>
+                                        <th>Linked Student Profiles</th>
+                                        <th style="text-align: right; width: 140px;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="parentTableBody">
+                                    <!-- Populated dynamically via fetchParents() -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 2]: ADMISSIONS Anwendungen Queue
+                     ══════════════════════════════════════════ -->
+                <div id="sec-admissions" class="tab-section">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-file-signature" style="color: var(--accent-gold);"></i> Admissions Enrolment Desk
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Dynamic vetting register for the active academic season intake applications term.</p>
+                            </div>
+                            
+                            <div style="display:flex; gap:10px;">
+                                <span class="erp-badge badge-approved"><i class="fas fa-lock"></i> SECURE CLOUD SYNC</span>
+                                <button onclick="exportAdmissionsCSV()" class="erp-btn btn-outline" style="height:32px; padding:0 12px; font-size:0.75rem;">
+                                    <i class="fas fa-file-invoice"></i> Export CSV register
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="erp-data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Student Details</th>
+                                        <th>Parent / Guardian Information</th>
+                                        <th>Target Class</th>
+                                        <th>Verification Documents</th>
+                                        <th>Applications Status</th>
+                                        <th style="text-align: right; width: 140px;">Vetting Process</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="admissionsTableBody">
+                                    <!-- Populated dynamically via fetchAdmissions() -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 3]: ANNOUNCEMENTS & EVENTS MANAGEMENT
+                     ══════════════════════════════════════════ -->
+                <div id="sec-announcements" class="tab-section">
+                    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:25px;">
+                        
+                        <!-- Broadcast announcer -->
+                        <div class="dash-card">
+                            <div class="card-header-flex" style="margin-bottom:15px;">
+                                <span class="card-title-flex"><i class="fas fa-bullhorn" style="color: var(--primary-blue);"></i> Broadcast Advisory Announcement</span>
+                            </div>
+                            
+                            <form id="addNoticeForm" style="display: flex; flex-direction: column; gap:15px;">
+                                <div>
+                                    <label>Header Title</label>
+                                    <input type="text" id="noticeTitle" required placeholder="e.g. Sessional Term Holiday Break Schedule" class="erp-input">
+                                </div>
+                                <div>
+                                    <label>Public Category Channel</label>
+                                    <select id="noticeCategory" class="erp-select">
+                                        <option value="General">General Broadcast Notice</option>
+                                        <option value="Academic">Academics Curriculum Alert</option>
+                                        <option value="Holiday">Campus Holiday Notice</option>
+                                        <option value="Admission">Admissions Desk Notice</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label>Advisory Description Body</label>
+                                    <textarea id="noticeDesc" required rows="4" placeholder="Brief detailed constraints outlines..." class="erp-textarea"></textarea>
+                                </div>
+                                <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%; margin-top:5px;">
+                                    <i class="fas fa-paper-plane"></i> Publish Broadcast Board
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- Event register launcher -->
+                        <div class="dash-card">
+                            <div class="card-header-flex" style="margin-bottom:15px;">
+                                <span class="card-title-flex"><i class="fas fa-calendar-plus" style="color: var(--accent-gold);"></i> Map Academic Calendar Reminder</span>
+                            </div>
+                            
+                            <form id="addEventForm" style="display: flex; flex-direction: column; gap:15px;">
+                                <div>
+                                    <label>Calendar Event Header</label>
+                                    <input type="text" id="eventTitle" required placeholder="e.g. Annual Roster Athletics Gala 2026" class="erp-input">
+                                </div>
+                                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                                    <div>
+                                        <label>Schedule Target Date</label>
+                                        <input type="date" id="eventDate" required class="erp-input">
+                                    </div>
+                                    <div>
+                                        <label>School Location Venue</label>
+                                        <input type="text" id="eventLocation" value="Main Campus Arenas" required class="erp-input">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label>Reminders Description Details</label>
+                                    <textarea id="eventDesc" required rows="3" placeholder="Schedules details, checkin details outline..." class="erp-textarea"></textarea>
+                                </div>
+                                <button type="submit" class="erp-btn btn-fill-amber" style="width: 100%; margin-top:5px;">
+                                    <i class="fas fa-calendar-check"></i> Register Schedule Event
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 4]: CONTACT INCOMING FEEDBACK MAILBOX
+                     ══════════════════════════════════════════ -->
+                <div id="sec-messages" class="tab-section">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-envelope-open-text" style="color: var(--primary-blue);"></i> Parent Incoming Inbox Desk
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Dynamic messages mailbox syncing emails received via public campus feedback forms.</p>
+                            </div>
+                            
+                            <button onclick="exportContactQueriesCSV()" class="erp-btn btn-outline" style="height:32px; padding:0 12px; font-size:0.75rem;">
+                                <i class="fas fa-file-excel"></i> Extract Queries CSV Log
+                            </button>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="erp-data-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width:160px;">Sender Author</th>
+                                        <th style="width:200px;">Reference Email</th>
+                                        <th>Inquiries Description Text Payload</th>
+                                        <th style="width:120px;">Vetting Status</th>
+                                        <th style="text-align: right; width: 140px;">Roster Operations</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="messagesTableBody">
+                                    <!-- Populated dynamically via fetchMessages() -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 5]: CSV DATA PORT EXPORT & REPORTS
+                     ══════════════════════════════════════════ -->
+                <div id="sec-reports" class="tab-section">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-print" style="color: var(--primary-blue);"></i> Academic Reports & PDF Generator
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Download CSV spreadsheets and official documents pre-vetted from production data tables.</p>
+                            </div>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:20px; margin-top:15px;">
+                            
+                            <div style="background:#ffffff; border:1px solid var(--border-soft); border-radius:10px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; height:180px;">
+                                <div>
+                                    <span style="font-weight:700; color:var(--primary-navy); font-size:0.95rem; display:block;"><i class="fas fa-users-viewfinder" style="color:var(--primary-blue); margin-right:6px;"></i> Students & Staff Registry</span>
+                                    <span style="font-size:0.75rem; color:var(--text-grey); display:block; margin-top:6px; line-height:1.4;">Extracts user profiles schema records, logins list, role maps, and active identifiers.</span>
+                                </div>
+                                <button onclick="exportCurrentDirectoryCSV()" class="erp-btn btn-fill-blue" style="width:100%;">
+                                    <i class="fas fa-file-csv"></i> Download CSV Spreadsheet
+                                </button>
+                            </div>
+
+                            <div style="background:#ffffff; border:1px solid var(--border-soft); border-radius:10px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; height:180px;">
+                                <div>
+                                    <span style="font-weight:700; color:var(--primary-navy); font-size:0.95rem; display:block;"><i class="fas fa-file-circle-check" style="color:var(--accent-gold); margin-right:6px;"></i> Admissions Enrollment Queue</span>
+                                    <span style="font-size:0.75rem; color:var(--text-grey); display:block; margin-top:6px; line-height:1.4;">Extracts all applicant metrics databases, parent data fields, and vetting status details.</span>
+                                </div>
+                                <button onclick="exportAdmissionsCSV()" class="erp-btn btn-fill-amber" style="width:100%;">
+                                    <i class="fas fa-file-excel"></i> Download Admissions Log
+                                </button>
+                            </div>
+
+                            <div style="background:#ffffff; border:1px solid var(--border-soft); border-radius:10px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; height:180px;">
+                                <div>
+                                    <span style="font-weight:700; color:var(--primary-navy); font-size:0.95rem; display:block;"><i class="fas fa-comments" style="color:var(--primary-emerald); margin-right:6px;"></i> Support Mail records</span>
+                                    <span style="font-size:0.75rem; color:var(--text-grey); display:block; margin-top:6px; line-height:1.4;">Extracts emails addresses register details and complete message query texts records.</span>
+                                </div>
+                                <button onclick="exportContactQueriesCSV()" class="erp-btn btn-fill-green" style="width:100%;">
+                                    <i class="fas fa-envelope-open-text"></i> Download Queries Log
+                                </button>
+                            </div>
+
+                            <div style="background:#ffffff; border:1px solid var(--border-soft); border-radius:10px; padding:20px; display:flex; flex-direction:column; justify-content:space-between; height:180px;">
+                                <div>
+                                    <span style="font-weight:700; color:var(--primary-navy); font-size:0.95rem; display:block;"><i class="fas fa-file-pdf" style="color:var(--primary-rose); margin-right:6px;"></i> Fees Installment Map Prospectus</span>
+                                    <span style="font-size:0.75rem; color:var(--text-grey); display:block; margin-top:6px; line-height:1.4;">Active fees installments structures, sports center charges prospectus in preformatted printable PDF.</span>
+                                </div>
+                                <button onclick="downloadOfficialFeePDF()" class="erp-btn btn-fill-rose" style="width:100%;">
+                                    <i class="fas fa-file-pdf"></i> Pre-render print prospectus
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 6]: AUDITS TRACKER / TRANSACTIONS ALERTS
+                     ══════════════════════════════════════════ -->
+                <div id="sec-audits" class="tab-section">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-history" style="color:#6366f1;"></i> Security Audit Control Desk
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Monitor database transactions logs, login sessions details, and dynamic system audit notices streams.</p>
+                            </div>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:25px; margin-top:15px; align-items:start;">
+                            
+                            <!-- Dynamic system notifications -->
+                            <div style="background-color:#f8fafc; padding:20px; border-radius:10px; border:1px solid var(--border-soft); max-height: 400px; overflow-y: auto;">
+                                <h4 style="font-size:0.9rem; font-weight:800; margin-bottom:15px; display:flex; align-items:center; gap:6px; color:var(--primary-navy);">
+                                    <i class="fas fa-bell-concierge" style="color:var(--accent-gold);"></i> Broadcaster Notification Live Stream
+                                </h4>
+                                <div id="securityAlertsLogStream" style="display:flex; flex-direction:column; gap:12px;">
+                                    <!-- Populated dynamically via notifications endpoint -->
+                                </div>
+                            </div>
+
+                            <!-- Hardened mock event transactions audits -->
+                            <div style="background-color:#f8fafc; padding:20px; border-radius:10px; border:1px solid var(--border-soft);">
+                                <h4 style="font-size:0.9rem; font-weight:800; margin-bottom:15px; display:flex; align-items:center; gap:6px; color:var(--primary-navy);">
+                                    <i class="fas fa-shield" style="color:var(--primary-blue);"></i> PostgreSQL Sync Audit logs Trail
+                                </h4>
+                                <div style="display:flex; flex-direction:column; gap:14px;">
+                                    <div style="border-left: 2px solid var(--primary-rose); padding-left:12px;">
+                                        <span style="font-size:0.68rem; font-family:'JetBrains Mono', monospace; color:var(--text-grey);">2026-06-07 09:12 UTC</span>
+                                        <strong style="font-size:0.78rem; display:block; color:var(--primary-rose); margin-top:2px;">Bypassed Guardian Alert Blocked</strong>
+                                        <p style="font-size:0.72rem; color:var(--text-grey); margin-top:1px;">Unidentified route credentials attempted socket check sync. Connection barred.</p>
+                                    </div>
+                                    <div style="border-left: 2px solid var(--primary-emerald); padding-left:12px;">
+                                        <span style="font-size:0.68rem; font-family:'JetBrains Mono', monospace; color:var(--text-grey);">2026-06-07 08:30 UTC</span>
+                                        <strong style="font-size:0.78rem; display:block; color:var(--primary-emerald); margin-top:2px;">Metadata tables Decryption complete</strong>
+                                        <p style="font-size:0.72rem; color:var(--text-grey); margin-top:1px;">Superuser successfully validated local keys. High school registers maps initialized.</p>
+                                    </div>
+                                    <div style="border-left: 2px solid var(--primary-blue); padding-left:12px;">
+                                        <span style="font-size:0.68rem; font-family:'JetBrains Mono', monospace; color:var(--text-grey);">2026-06-07 06:15 UTC</span>
+                                        <strong style="font-size:0.78rem; display:block; color:var(--primary-blue); margin-top:2px;">Postgres Routine autovacuum finished</strong>
+                                        <p style="font-size:0.72rem; color:var(--text-grey); margin-top:1px;">Autoregressive stats indexes rebuilt dynamically without locks.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════
+                     [TAB 7]: CAMPUS OPERATIONS PARAMETERS CONFIG
+                     ══════════════════════════════════════════ -->
+                <div id="sec-settings" class="tab-section">
+                    <div class="dash-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--primary-navy); margin: 0; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-sliders" style="color: var(--accent-gold);"></i> Majestic Campus Parameters
+                                </h3>
+                                <p style="color: var(--text-grey); font-size: 0.82rem; margin-top: 4px;">Adjust institution labels, active academic periods, and system configuration records persisted locally.</p>
+                            </div>
+                        </div>
+
+                        <form id="schoolSettingsConfigForm" style="display:flex; flex-direction:column; gap:18px; margin-top:15px; max-width:640px;">
+                            <div class="form-row">
+                                <div>
+                                    <label>Institution Official Name</label>
+                                    <input type="text" id="configSchoolName" required class="erp-input">
+                                </div>
+                                <div>
+                                    <label>School Motto Slogan</label>
+                                    <input type="text" id="configSchoolMotto" required class="erp-input">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div>
+                                    <label>Active Intake Academic Year</label>
+                                    <select id="configSchoolYear" class="erp-select">
+                                        <option value="2026/27">Enrollment Term (2026/27)</option>
+                                        <option value="2027/28">Future Term (2027/28)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <!-- Keeps compatibility with setting listener inputs -->
+                                    <label>Support Desk Alert bells</label>
+                                    <select id="configAlertsSound" class="erp-select">
+                                        <option value="ENABLED">Chime alert on Inbound Messages</option>
+                                        <option value="DISABLED">Full Silent Log Mode</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label>School Campus Venue Address details</label>
+                                <input type="text" id="configSchoolAddress" class="erp-input">
+                            </div>
+
+                            <button type="submit" class="erp-btn btn-fill-amber" style="width: 100%; max-width: 250px;">
+                                <i class="fas fa-database"></i> Save Settings
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     🖥️ SECTION B: DEVELOPER REST API INTEGRATION SPECS CONSOLE (v2.0)
+                     ============================================== -->
+                <div id="sec-apispecs" class="tab-section">
+                    <div class="dash-card">
+                        
+                        <div style="border-bottom: 2px solid var(--accent-gold); padding-bottom: 15px; margin-bottom: 25px;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                <span class="badge" style="background: rgba(217,119,6,0.1); color: var(--accent-gold); padding: 4px 10px; font-weight: 700; font-size: 0.72rem; border-radius:4px;"><i class="fas fa-lock"></i> SYSTEM SPECIFICATION v2.0</span>
+                                <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--text-grey);">API INTEGRATION STAGE</span>
+                            </div>
+                            <h3 id="spec-module-title" style="margin: 0; font-size: 1.35rem; font-weight: 800; color: var(--primary-navy);"><i class="fas fa-network-wired" style="color: var(--primary-blue); margin-right: 8px;"></i> Integrated Attendance Modules</h3>
+                            <p style="color: var(--text-grey); margin-top: 6px; font-size: 0.85rem; line-height: 1.4;">
+                                This module serves as an interactive engineering specification dashboard. Implement the database persistence models and mapped routes under the backend folder to connect this module live.
+                            </p>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px;">
+                            
+                            <!-- Expected SQL schema -->
+                            <div style="background: #f8fafc; border: 1px solid var(--border-soft); padding: 20px; border-radius: 10px;">
+                                <h4 style="margin-top: 0; color: var(--primary-navy); font-size: 0.9rem; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-database" style="color: var(--primary-blue);"></i> Required PostgreSQL Table Schema
+                                </h4>
+                                <p style="font-size: 0.78rem; color: var(--text-slate); line-height: 1.4; margin-top:4px;">Deploy this structure in your database to hold transaction rows securely:</p>
+                                <div style="background: var(--primary-navy); padding: 15px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #38bdf8; overflow-x: auto; margin-top: 12px; max-height: 250px;">
+                                    <pre id="spec-schema-code">-- SQL code</pre>
+                                </div>
+                            </div>
+
+                            <!-- FastAPI router snippet -->
+                            <div style="background: #f8fafc; border: 1px solid var(--border-soft); padding: 20px; border-radius: 10px;">
+                                <h4 style="margin-top: 0; color: var(--primary-navy); font-size: 0.9rem; display:flex; align-items:center; gap:8px;">
+                                    <i class="fas fa-code-branch" style="color: var(--primary-emerald);"></i> FastAPI Routes Handlers Method
+                                </h4>
+                                <p style="font-size: 0.78rem; color: var(--text-slate); line-height: 1.4; margin-top:4px;">Define this controller schema in `/backend/app/routes/api.py` to route data:</p>
+                                <div style="background: var(--primary-navy); padding: 15px; border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #34d399; overflow-x: auto; margin-top: 12px; max-height: 250px;">
+                                    <pre id="spec-api-code"># Python code</pre>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Info tip -->
+                        <div style="background: rgba(37,99,235,0.05); border: 1px solid rgba(37,99,235,0.15); padding: 16px; border-radius: 8px; margin-top: 25px; display: flex; gap: 12px; align-items: start;">
+                            <i class="fas fa-info-circle" style="color: var(--primary-blue); font-size: 1.2rem; margin-top: 2px;"></i>
+                            <div>
+                                <strong style="color: var(--primary-navy); font-size: 0.85rem; display: block;">Developer Integration Assistance Recommendation</strong>
+                                <span style="color: var(--text-slate); font-size: 0.78rem; line-height: 1.4; display: block; margin-top: 4px;">
+                                    This interactive playground allows simulation clicks to verify view models. Implement the endpoint routes shown above on the backend code when ready to finalize production.
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div> <!-- End of .workspace-content -->
+
+            <!-- Form scripts and UTILITY actions inside -->
+            <script>
+                // Live system UTC clock sync routine
+                setInterval(() => {
+                    const clockSpan = document.getElementById("erpSystemClock");
+                    if (clockSpan) {
+                        const localTime = new Date().toISOString().replace('T', ' ').slice(0, 19).replace(/-/g, '-') + ' UTC';
+                        clockSpan.textContent = localTime;
+                    }
+                }, 1000);
+
+                // Sidebar controls for smaller media views
+                function toggleMobileSidebar() {
+                    const sidebar = document.getElementById('main-sidebar');
+                    if (sidebar) sidebar.classList.toggle('active');
+                }
+
+                // Specs dataset logic lookup
+                const specDatabase = {
+                    'attendance': {
+                        title: 'Academic Daily Attendance Tracker',
+                        icon: 'fas fa-id-card-clip',
+                        schema: `CREATE TABLE student_attendance (
+    id SERIAL PRIMARY KEY,
+    student_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    attendance_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    status VARCHAR(15) CHECK (status IN ('Present', 'Absent', 'Late', 'Excused')),
+    recorded_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    operator_id INTEGER REFERENCES users(id)
+);
+CREATE UNIQUE INDEX idx_student_date ON student_attendance(student_id, attendance_date);`,
+                        api: `@router.get("/api/attendance", tags=["Attendance"])
+async def get_attendance(grade: str = None, section: str = None, current_user = Depends(get_current_admin)):
+    # Query database records by student classroom mapping
+    records = db.query(StudentAttendance).all()
+    return {"status": "success", "data": records}
+
+@router.post("/api/attendance", tags=["Attendance"])
+async def record_attendance(payload: AttendanceSchema, current_user = Depends(get_current_admin)):
+    # Stream biometric entry or roster update
+    db.add(new_record)
+    db.commit()
+    return {"status": "success", "message": "Attendance roster updated successfully!"}`
+                    },
+                    'classes': {
+                        title: 'Academics Classroom slots & Grade Streams',
+                        icon: 'fas fa-school',
+                        schema: `CREATE TABLE classrooms (
+    id SERIAL PRIMARY KEY,
+    grade_name VARCHAR(50) NOT NULL, -- e.g. 'Grade 8'
+    section_name VARCHAR(10) NOT NULL, -- e.g. 'A'
+    class_teacher_id INTEGER REFERENCES users(id),
+    max_capacity INTEGER DEFAULT 40,
+    room_number VARCHAR(15),
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);`,
+                        api: `@router.get("/api/classes", tags=["Academics"])
+async def get_classrooms(current_user = Depends(get_current_admin)):
+    classes = db.query(Classroom).all()
+    return {"status": "success", "data": classes}
+
+@router.post("/api/classes", tags=["Academics"])
+async def create_classroom(payload: ClassroomCreate, current_user = Depends(get_current_admin)):
+    # Provision new student intake classroom segment
+    db.add(new_class)
+    db.commit()
+    return {"status": "success", "data": new_class}`
+                    },
+                    'subjects': {
+                        title: 'Subjects Syllabus & Curriculum Catalog Mapping',
+                        icon: 'fas fa-book-open',
+                        schema: `CREATE TABLE subjects (
+    id SERIAL PRIMARY KEY,
+    subject_code VARCHAR(15) UNIQUE NOT NULL, -- e.g. 'MATH-08'
+    subject_name VARCHAR(100) NOT NULL,
+    grade_level VARCHAR(30) NOT NULL,
+    syllabus_description TEXT,
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);`,
+                        api: `@router.get("/api/subjects", tags=["Academics"])
+async def get_curriculum(grade_level: str = None):
+    # Query subjects catalog linked to lesson maps
+    records = db.query(Subject).all()
+    return {"status": "success", "data": records}`
+                    },
+                    'examinations': {
+                        title: 'Sessional Examinations Planner & Hub',
+                        icon: 'fas fa-file-invoice',
+                        schema: `CREATE TABLE exam_schedules (
+    id SERIAL PRIMARY KEY,
+    exam_name VARCHAR(100) NOT NULL, -- e.g. 'First Term Mid-Sessional'
+    classroom_id INTEGER REFERENCES classrooms(id),
+    subject_id INTEGER REFERENCES subjects(id),
+    exam_date DATE NOT NULL,
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    max_marks INTEGER DEFAULT 100,
+    created_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);`,
+                        api: `@router.get("/api/exams", tags=["Examinations"])
+async def get_exam_rosters(current_user = Depends(get_current_admin)):
+    exams = db.query(ExamSchedule).all()
+    return {"status": "success", "data": exams}`
+                    },
+                    'results': {
+                        title: 'Academic Results Performance & Publishing',
+                        icon: 'fas fa-square-poll-vertical',
+                        schema: `CREATE TABLE student_results (
+    id SERIAL PRIMARY KEY,
+    student_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    exam_id INTEGER REFERENCES exam_schedules(id) ON DELETE CASCADE,
+    marks_obtained DECIMAL(5,2) NOT NULL,
+    grade_achieved VARCHAR(5) NOT NULL, -- e.g. 'A+', 'B'
+    remarks TEXT,
+    published BOOLEAN DEFAULT FALSE,
+    updated_at TIMESTAMP WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);`,
+                        api: `@router.post("/api/results/publish", tags=["Examinations"])
+async def publish_gradesheet(payload: ResultPublishSchema, current_user = Depends(get_current_admin)):
+    # Commits exam results to active parent portals
+    db.query(StudentResult).filter_by(exam_id=payload.exam_id).update({"published": True})
+    db.commit()
+    return {"status": "success", "message": "Grades published to parent accounts!"}`
+                    }
+                };
+
+                // Triggers interactive Specifications module rendering
+                function switchTabToShowSpec(moduleKey) {
+                    // Hide other elements
+                    const actualSections = ['sec-overview', 'sec-users', 'sec-admissions', 'sec-announcements', 'sec-messages', 'sec-reports', 'sec-audits', 'sec-settings'];
+                    actualSections.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el) el.style.display = 'none';
+                    });
+
+                    // Build specifications template view
+                    const key = moduleKey.toLowerCase();
+                    const item = specDatabase[key];
+                    if (item) {
+                        document.getElementById('spec-module-title').innerHTML = `<i class="${item.icon}" style="margin-right: 12px; color: var(--primary-blue);"></i> ${item.title}`;
+                        document.getElementById('spec-schema-code').textContent = item.schema;
+                        document.getElementById('spec-api-code').textContent = item.api;
+                    }
+
+                    // Show specs view
+                    const targetDiv = document.getElementById('sec-apispecs');
+                    if (targetDiv) targetDiv.style.display = 'block';
+
+                    // Switch active navigation visual classes
+                    document.querySelectorAll('.erp-nav-item').forEach(el => el.classList.remove('active'));
+                    const visItem = document.getElementById(`vn-${key}`);
+                    if (visItem) visItem.classList.add('active');
+
+                    // If mobile sidebar drawer is active, expand close
+                    const sidebar = document.getElementById('main-sidebar');
+                    if (sidebar) sidebar.classList.remove('active');
+                }
+
+                // Orchestrs connection visual route to legacy click lists
+                function handleNav(tabName, roleFilter = null) {
+                    
+                    // First hide developer specification module
+                    const specsContainer = document.getElementById('sec-apispecs');
+                    if (specsContainer) specsContainer.style.display = 'none';
+
+                    const indexMap = { 
+                        'overview': 0, 
+                        'users': 1, 
+                        'admissions': 2, 
+                        'announcements': 3, 
+                        'messages': 4, 
+                        'reports': 5, 
+                        'audits': 6, 
+                        'settings': 7,
+                        'teachers': 8,
+                        'students': 9,
+                        'parents': 10
+                    };
+                    const idx = indexMap[tabName];
+                    const sideNavList = document.querySelectorAll('.side-links li:not(.logout)');
+                    
+                    // Click the hidden accessibility controller in dashboard.js
+                    if (sideNavList && sideNavList[idx]) {
+                        sideNavList[idx].click();
+                    }
+
+                    // Handle specific group sub-filtering automatically
+                    const selectEl = document.getElementById('roleFilterSelector');
+                    if (roleFilter && selectEl) {
+                        selectEl.value = roleFilter;
+                        if (typeof window.filterUserDirectoryByRole === 'function') {
+                            window.filterUserDirectoryByRole(roleFilter);
+                        }
+                    } else if (tabName === 'users' && selectEl) {
+                        selectEl.value = 'ALL';
+                        if (typeof window.filterUserDirectoryByRole === 'function') {
+                            window.filterUserDirectoryByRole('ALL');
+                        }
+                    }
+
+                    // Highlight visual menu
+                    document.querySelectorAll('.erp-nav-item').forEach(el => el.classList.remove('active'));
+                    const targetVisualId = roleFilter ? `vn-users-${roleFilter}` : `vn-${tabName}`;
+                    const targetVisualEl = document.getElementById(targetVisualId);
+                    if (targetVisualEl) {
+                        targetVisualEl.classList.add('active');
+                    } else {
+                        // Fallback
+                        const fallbackEl = document.getElementById(`vn-${tabName}`);
+                        if (fallbackEl) fallbackEl.classList.add('active');
+                    }
+
+                    // If mobile drawer active, close on interaction
+                    const sidebar = document.getElementById('main-sidebar');
+                    if (sidebar) sidebar.classList.remove('active');
+                }
+            </script>
+        </main>
+    </div>
+
+    <!-- ==============================================
+         6. 🖥️ POPUP DIALOGS (REDESIGNED LUXURY MODALS)
+         ============================================== -->
+
+    <!-- Edit User Modal Container -->
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content-styled">
+            <div class="modal-header-styled">
+                <h3><i class="fas fa-pen-nib"></i> Update Profile Record</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('editModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="editForm" class="modal-form-styled">
+                <!-- Keep inputs pristine as expected by dashboard.js bindings -->
+                <input type="hidden" id="editId">
+                <div>
+                    <label>Full Roster Name</label>
+                    <input type="text" id="editName" required class="erp-input">
+                </div>
+                <div>
+                    <label>Assigned Contact Email</label>
+                    <input type="email" id="editEmail" required class="erp-input">
+                </div>
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="text" id="editMobile" class="erp-input">
+                </div>
+                <div>
+                    <label>System Privilege Role</label>
+                    <select id="editRole" class="erp-select">
+                        <option value="Student">Student/Parent</option>
+                        <option value="Staff">Educational Staff</option>
+                        <option value="Super Admin">Super Administrator</option>
+                    </select>
+                </div>
+                <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%; margin-top:5px;">
+                    Apply Profile Updates
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register User Modal Container -->
+    <div id="addModal" class="modal" style="display: none;">
+        <div class="modal-content-styled">
+            <div class="modal-header-styled" style="background-color: var(--primary-emerald);">
+                <h3><i class="fas fa-plus-circle"></i> Create User Profile</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('addModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="addUserForm" class="modal-form-styled">
+                <!-- Keep IDs intact for registration handler -->
+                <div>
+                    <label>Full Registered Name</label>
+                    <input type="text" id="addName" required placeholder="e.g. Rahul Sharma" class="erp-input">
+                </div>
+                <div>
+                    <label>Assigned Roster Email</label>
+                    <input type="email" id="addEmail" required placeholder="username@school.edu" class="erp-input">
+                </div>
+                <div>
+                    <label>Account Password</label>
+                    <input type="password" id="addPassword" required placeholder="Choose tight password record..." class="erp-input">
+                </div>
+                <div>
+                    <label>Active Handset Number</label>
+                    <input type="text" id="addMobile" placeholder="e.g. +91 99XXXXXX" class="erp-input">
+                </div>
+                <div>
+                    <label>Roster Privilege Role</label>
+                    <select id="addRole" class="erp-select">
+                        <option value="Student">Student/Parent</option>
+                        <option value="Staff">Educational Staff</option>
+                        <option value="Super Admin">Super Administrator</option>
+                    </select>
+                </div>
+                <button type="submit" class="erp-btn btn-fill-green" style="width: 100%; margin-top:5px;">
+                    Register Profile Account
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Teacher Modal -->
+    <div id="addTeacherModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 650px;">
+            <div class="modal-header-styled" style="background-color: var(--primary-blue);">
+                <h3><i class="fas fa-user-plus"></i> Add New Certified Instructor</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('addTeacherModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="addTeacherForm" class="modal-form-styled" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div style="grid-column: span 2; margin-bottom: 5px;">
+                    <label>Profile Image Url / Avatar</label>
+                    <input type="text" id="addTchPhoto" placeholder="https://unsplash.com/..." class="erp-input">
+                </div>
+                <div>
+                    <label>Teacher ID *</label>
+                    <input type="text" id="addTchId" required placeholder="e.g. TCH003" class="erp-input">
+                </div>
+                <div>
+                    <label>Employee Code *</label>
+                    <input type="text" id="addTchEmpCode" required placeholder="e.g. EMP203" class="erp-input">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Full Roster Name *</label>
+                    <input type="text" id="addTchName" required placeholder="e.g. Dr. Ramesh Rao" class="erp-input">
+                </div>
+                <div>
+                    <label>Email Address *</label>
+                    <input type="email" id="addTchEmail" required placeholder="instructor@school.edu" class="erp-input">
+                </div>
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="text" id="addTchMobile" placeholder="e.g. 9876543212" class="erp-input">
+                </div>
+                <div>
+                    <label>Gender</label>
+                    <select id="addTchGender" class="erp-select">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Date of Birth</label>
+                    <input type="date" id="addTchDob" class="erp-input">
+                </div>
+                <div>
+                    <label>Qualifications</label>
+                    <input type="text" id="addTchQual" placeholder="e.g. Ph.D in Physics, B.Ed" class="erp-input">
+                </div>
+                <div>
+                    <label>Experience duration</label>
+                    <input type="text" id="addTchExp" placeholder="e.g. 5 Years" class="erp-input">
+                </div>
+                <div>
+                    <label>Rostered Subject</label>
+                    <input type="text" id="addTchSub" placeholder="e.g. Physics" class="erp-input">
+                </div>
+                <div>
+                    <label>Assigned Classroom</label>
+                    <input type="text" id="addTchClass" placeholder="e.g. Class IX" class="erp-input">
+                </div>
+                <div>
+                    <label>Date of Joining</label>
+                    <input type="date" id="addTchJoining" class="erp-input">
+                </div>
+                <div>
+                    <label>Monthly Salary (₹)</label>
+                    <input type="number" id="addTchSalary" placeholder="e.g. 48000" class="erp-input">
+                </div>
+                <div>
+                    <label>Aadhaar Number (12 Digit)</label>
+                    <input type="text" id="addTchAadhaar" placeholder="e.g. 112233445566" class="erp-input">
+                </div>
+                <div>
+                    <label>Authentication Username</label>
+                    <input type="text" id="addTchUsername" placeholder="e.g. ramesh_phys" class="erp-input">
+                </div>
+                <div>
+                    <label>Roster Password</label>
+                    <input type="password" id="addTchPassword" placeholder="Default login password..." class="erp-input">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Address Details</label>
+                    <textarea id="addTchAddress" class="erp-input" style="height: 60px;" placeholder="Full residence layout fields..."></textarea>
+                </div>
+                <div style="grid-column: span 2; margin-top: 10px;">
+                    <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%;">
+                        Register Professional Teacher Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Teacher Modal -->
+    <div id="editTeacherModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 650px;">
+            <div class="modal-header-styled" style="background-color: var(--primary-indigo);">
+                <h3><i class="fas fa-user-edit"></i> Edit Teacher Profile Details</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('editTeacherModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="editTeacherForm" class="modal-form-styled" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <input type="hidden" id="editTchIdKey">
+                <div style="grid-column: span 2; margin-bottom: 5px;">
+                    <label>Profile Image Url / Avatar</label>
+                    <input type="text" id="editTchPhoto" class="erp-input">
+                </div>
+                <div>
+                    <label>Teacher ID *</label>
+                    <input type="text" id="editTchId" required readonly class="erp-input" style="background-color:#e2e8f0;">
+                </div>
+                <div>
+                    <label>Employee Code *</label>
+                    <input type="text" id="editTchEmpCode" required readonly class="erp-input" style="background-color:#e2e8f0;">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Full Roster Name *</label>
+                    <input type="text" id="editTchName" required class="erp-input">
+                </div>
+                <div>
+                    <label>Email Address *</label>
+                    <input type="email" id="editTchEmail" required class="erp-input">
+                </div>
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="text" id="editTchMobile" class="erp-input">
+                </div>
+                <div>
+                    <label>Gender</label>
+                    <select id="editTchGender" class="erp-select">
+                        <option value="Female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Date of Birth</label>
+                    <input type="date" id="editTchDob" class="erp-input">
+                </div>
+                <div>
+                    <label>Qualifications</label>
+                    <input type="text" id="editTchQual" class="erp-input">
+                </div>
+                <div>
+                    <label>Experience duration</label>
+                    <input type="text" id="editTchExp" class="erp-input">
+                </div>
+                <div>
+                    <label>Rostered Subject</label>
+                    <input type="text" id="editTchSub" class="erp-input">
+                </div>
+                <div>
+                    <label>Assigned Classroom</label>
+                    <input type="text" id="editTchClass" class="erp-input">
+                </div>
+                <div>
+                    <label>Date of Joining</label>
+                    <input type="date" id="editTchJoining" class="erp-input">
+                </div>
+                <div>
+                    <label>Monthly Salary (₹)</label>
+                    <input type="number" id="editTchSalary" class="erp-input">
+                </div>
+                <div>
+                    <label>Aadhaar Number</label>
+                    <input type="text" id="editTchAadhaar" class="erp-input">
+                </div>
+                <div>
+                    <label>Authentication Username</label>
+                    <input type="text" id="editTchUsername" class="erp-input">
+                </div>
+                <div>
+                    <label>New Password (leave blank to keep)</label>
+                    <input type="password" id="editTchPassword" placeholder="Keep current password..." class="erp-input">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Address Details</label>
+                    <textarea id="editTchAddress" class="erp-input" style="height: 60px;"></textarea>
+                </div>
+                <div style="grid-column: span 2; margin-top: 10px;">
+                    <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%;">
+                        Apply Profile Updates
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Teacher Modal -->
+    <div id="viewTeacherModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 600px; padding: 0;">
+            <div class="modal-header-styled" style="background-color: var(--primary-navy); padding: 20px;">
+                <h3><i class="fas fa-id-badge"></i> Certified Instructor Profile Card</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('viewTeacherModal').style.display = 'none';">&times;</span>
+            </div>
+            
+            <div id="viewTchPrintArea" style="padding: 25px; color:#1e293b; background-color: #ffffff;">
+                <!-- Header Card Header -->
+                <div style="display: flex; gap: 20px; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 20px;">
+                    <img id="viewTchPhoto" src="" alt="Teacher Photo" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-blue);">
+                    <div>
+                        <h2 id="viewTchNameLabel" style="margin: 0; font-size: 1.5rem; font-weight: 800; color: var(--primary-navy);">Ananya Sharma</h2>
+                        <p id="viewTchIdAndCode" style="margin: 4px 0 0; color: var(--text-grey); font-family: monospace; font-size: 0.85rem;">TCH001 | EMP201</p>
+                        <span id="viewTchStatus" style="display: inline-block; background-color: #d1fae5; color: #065f46; font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; margin-top: 8px; text-transform: uppercase;">Active</span>
+                    </div>
+                </div>
+
+                <!-- Fields Grid -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.88rem;">
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Gender</strong>
+                        <span id="viewTchGender">Female</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Date of Birth</strong>
+                        <span id="viewTchDob">1988-04-12</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Qualifications</strong>
+                        <span id="viewTchQual" style="font-weight: 600;">M.Sc in Mathematics</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Experience</strong>
+                        <span id="viewTchExp">8 Years</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Rostered Subject</strong>
+                        <span id="viewTchSub" style="color: var(--primary-emerald); font-weight:700;">Mathematics</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Assigned Class</strong>
+                        <span id="viewTchClass" style="color: var(--primary-blue); font-weight:700;">Class X</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Mobile Number</strong>
+                        <span id="viewTchMobile">9876543210</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Contact Email</strong>
+                        <span id="viewTchEmail" style="font-family: monospace;">ananya.math@school.edu</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Joining Date</strong>
+                        <span id="viewTchJoining">2019-06-01</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Aadhaar Number</strong>
+                        <span id="viewTchAadhaar">123456789012</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Monthly Salary Stream</strong>
+                        <span id="viewTchSalary">₹ 45,000</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Active Username</strong>
+                        <span id="viewTchUsername" style="font-weight: 600;">ananya_math</span>
+                    </div>
+                    <div style="grid-column: span 2;">
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Full Address Details</strong>
+                        <span id="viewTchAddress">#24, Springdale Layout, Mysore</span>
+                    </div>
+                    <div style="grid-column: span 2;">
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Uploaded Documents Registry</strong>
+                        <span id="viewTchDocs" style="display: flex; gap:8px; flex-wrap:wrap; margin-top:4px;">
+                            <!-- Dynamic File Icons -->
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Action Footer Buttons -->
+            <div style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 15px 20px; display: flex; justify-content: flex-end; gap: 10px; border-radius: 0 0 12px 12px;">
+                <button type="button" onclick="printTeacherProfile()" class="erp-btn btn-outline">
+                    <i class="fas fa-print"></i> Print Profile
+                </button>
+                <button type="button" onclick="downloadTeacherPDF()" class="erp-btn btn-fill-blue">
+                    <i class="fas fa-file-pdf"></i> Download PDF
+                </button>
+                <button type="button" onclick="document.getElementById('viewTeacherModal').style.display = 'none';" class="erp-btn btn-outline">
+                    Close Card
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assign Class Modal -->
+    <div id="assignClassModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 400px;">
+            <div class="modal-header-styled" style="background-color: var(--primary-indigo);">
+                <h3><i class="fas fa-school"></i> Assign Classroom Stream</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('assignClassModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="assignClassForm" class="modal-form-styled">
+                <input type="hidden" id="assignClassTchId">
+                <div>
+                    <label>Select Target Classroom Section</label>
+                    <select id="assignClassValue" class="erp-select">
+                        <option value="Class VI">Class VI</option>
+                        <option value="Class VII">Class VII</option>
+                        <option value="Class VIII">Class VIII</option>
+                        <option value="Class IX">Class IX</option>
+                        <option value="Class X">Class X</option>
+                        <option value="None">De-assign (None)</option>
+                    </select>
+                </div>
+                <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%; margin-top: 15px;">
+                    Update Classroom Assignment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Assign Subject Modal -->
+    <div id="assignSubjectModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 400px;">
+            <div class="modal-header-styled" style="background-color: var(--primary-indigo);">
+                <h3><i class="fas fa-book-open"></i> Assign Subject Outline</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('assignSubjectModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="assignSubjectForm" class="modal-form-styled">
+                <input type="hidden" id="assignSubjectTchId">
+                <div>
+                    <label>Select Primary Subject Domain</label>
+                    <select id="assignSubjectValue" class="erp-select">
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="English">English</option>
+                        <option value="Science">Science</option>
+                        <option value="Social Studies">Social Studies</option>
+                        <option value="Physical Education">Physical Education</option>
+                        <option value="None">De-assign (None)</option>
+                    </select>
+                </div>
+                <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%; margin-top: 15px;">
+                    Update Academic Subject Assignment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Student Modal -->
+    <div id="addStudentModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 600px;">
+            <div class="modal-header-styled" style="background-color: var(--primary-blue);">
+                <h3><i class="fas fa-user-plus"></i> Add New Student Profile</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('addStudentModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="addStudentForm" class="modal-form-styled" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <div>
+                    <label>Student ID *</label>
+                    <input type="text" id="addStdId" required placeholder="e.g. STU1001" class="erp-input">
+                </div>
+                <div>
+                    <label>Admission Number *</label>
+                    <input type="text" id="addStdAdmissionNumber" required placeholder="e.g. ADM202609" class="erp-input">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Full Name *</label>
+                    <input type="text" id="addStdFullName" required placeholder="e.g. Advait Sharma" class="erp-input">
+                </div>
+                <div>
+                    <label>Academic Class *</label>
+                    <select id="addStdClass" class="erp-select">
+                        <option value="Class VI">Class VI</option>
+                        <option value="Class VII">Class VII</option>
+                        <option value="Class VIII">Class VIII</option>
+                        <option value="Class IX">Class IX</option>
+                        <option value="Class X">Class X</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Section *</label>
+                    <input type="text" id="addStdSection" required placeholder="e.g. A" class="erp-input">
+                </div>
+                <div>
+                    <label>Gender *</label>
+                    <select id="addStdGender" class="erp-select">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Date of Birth *</label>
+                    <input type="date" id="addStdDob" required class="erp-input">
+                </div>
+                <div>
+                    <label>Parent Name *</label>
+                    <input type="text" id="addStdParentName" required placeholder="e.g. Rajesh Sharma" class="erp-input">
+                </div>
+                <div>
+                    <label>Parent Contact Phone *</label>
+                    <input type="text" id="addStdPhone" required placeholder="e.g. 9876543210" class="erp-input">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Parent Email *</label>
+                    <input type="email" id="addStdEmail" required placeholder="parent@school.edu" class="erp-input">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Residential Address *</label>
+                    <textarea id="addStdAddress" required placeholder="Full residential layout info..." class="erp-input" style="height: 60px;"></textarea>
+                </div>
+                <div>
+                    <label>Status Map</label>
+                    <select id="addStdStatus" class="erp-select">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Suspended">Suspended</option>
+                    </select>
+                </div>
+                <div style="grid-column: span 2; margin-top: 10px;">
+                    <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%;">
+                        Save Student Record
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Student Modal -->
+    <div id="editStudentModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 600px;">
+            <div class="modal-header-styled" style="background-color: var(--primary-indigo);">
+                <h3><i class="fas fa-edit"></i> Edit Student Profile Details</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('editStudentModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="editStudentForm" class="modal-form-styled" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                <input type="hidden" id="editStdDbId">
+                <input type="hidden" id="editStdUserId">
+                <input type="hidden" id="editStdAdmissionId">
+                <input type="hidden" id="editStdAcademicYear">
+                <div>
+                    <label>Student ID *</label>
+                    <input type="text" id="editStdId" readonly class="erp-input" style="background-color:#e2e8f0;">
+                </div>
+                <div>
+                    <label>Admission Number *</label>
+                    <input type="text" id="editStdAdmissionNumber" readonly class="erp-input" style="background-color:#e2e8f0;">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Full Name *</label>
+                    <input type="text" id="editStdFullName" required class="erp-input">
+                </div>
+                <div>
+                    <label>Academic Class *</label>
+                    <select id="editStdClass" class="erp-select">
+                        <option value="Class VI">Class VI</option>
+                        <option value="Class VII">Class VII</option>
+                        <option value="Class VIII">Class VIII</option>
+                        <option value="Class IX">Class IX</option>
+                        <option value="Class X">Class X</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Section *</label>
+                    <input type="text" id="editStdSection" required class="erp-input">
+                </div>
+                <div>
+                    <label>Gender *</label>
+                    <select id="editStdGender" class="erp-select">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Date of Birth *</label>
+                    <input type="date" id="editStdDob" required class="erp-input">
+                </div>
+                <div>
+                    <label>Parent Name *</label>
+                    <input type="text" id="editStdParentName" required class="erp-input">
+                </div>
+                <div>
+                    <label>Parent Contact Phone *</label>
+                    <input type="text" id="editStdPhone" required class="erp-input">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Parent Email *</label>
+                    <input type="email" id="editStdEmail" required class="erp-input">
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Residential Address *</label>
+                    <textarea id="editStdAddress" required class="erp-input" style="height: 60px;"></textarea>
+                </div>
+                <div>
+                    <label>Status Map</label>
+                    <select id="editStdStatus" class="erp-select">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                        <option value="Suspended">Suspended</option>
+                    </select>
+                </div>
+                <div style="grid-column: span 2; margin-top: 10px;">
+                    <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%;">
+                        Save Student Record
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Student Modal Card -->
+    <div id="viewStudentModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 600px; padding: 0;">
+            <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-indigo)); color: white; padding: 25px; border-radius: 12px 12px 0 0; position: relative;">
+                <span class="modal-close-icon" onclick="document.getElementById('viewStudentModal').style.display = 'none';" style="color: white; position: absolute; right: 20px; top: 20px;">&times;</span>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div style="width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 2px solid white; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800;">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <h2 id="viewStdNameLabel" style="margin: 0; font-size: 1.5rem; font-weight: 800;">Student Name</h2>
+                        <p id="viewStdIdAndCode" style="margin: 5px 0 0; font-family: monospace; opacity: 0.9; font-size: 0.9rem;">STU001 • ADM99</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding: 25px; background-color: white;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; background: #f8fafc; padding: 15px; border-radius: 8px;">
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Academic Class</strong>
+                        <span id="viewStdClass" style="color: var(--primary-blue); font-weight:700;">Class IX</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Class Section</strong>
+                        <span id="viewStdSection" style="font-weight: 700;">A</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Gender</strong>
+                        <span id="viewStdGender">Male</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Date of Birth</strong>
+                        <span id="viewStdDob">2012-05-18</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Parent/Guardian Name</strong>
+                        <span id="viewStdParentName" style="font-weight: 600;">Rajesh Sharma</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Parent Phone Contact</strong>
+                        <span id="viewStdPhone">9876543210</span>
+                    </div>
+                    <div style="grid-column: span 2;">
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Family Email Address</strong>
+                        <span id="viewStdEmail" style="font-family: monospace;">parent@school.edu</span>
+                    </div>
+                    <div style="grid-column: span 2;">
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">System Status Map</strong>
+                        <span id="viewStdStatus" style="font-weight:700;">Active</span>
+                    </div>
+                    <div style="grid-column: span 2;">
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Full Residence Address</strong>
+                        <span id="viewStdAddress">Karnataka, India</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 15px 20px; display: flex; justify-content: flex-end; gap: 10px; border-radius: 0 0 12px 12px;">
+                <button type="button" onclick="printStudentProfile()" class="erp-btn btn-outline">
+                    <i class="fas fa-print"></i> Print Card
+                </button>
+                <button type="button" onclick="document.getElementById('viewStudentModal').style.display = 'none';" class="erp-btn btn-outline">
+                    Close Profile
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Add Parent Modal -->
+    <div id="addParentModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 500px;">
+            <div class="modal-header-styled" style="background-color: var(--primary-blue);">
+                <h3><i class="fas fa-user-friends"></i> Add Parent Profile</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('addParentModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="addParentForm" class="modal-form-styled">
+                <div>
+                    <label>Parent ID *</label>
+                    <input type="text" id="addParId" required placeholder="e.g. PRN1001" class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Father Name *</label>
+                    <input type="text" id="addParFatherName" required placeholder="e.g. Ramesh Kumar" class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Mother Name</label>
+                    <input type="text" id="addParMotherName" placeholder="e.g. Sita Devi" class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Emergency Contact Phone *</label>
+                    <input type="text" id="addParPhone" required placeholder="e.g. 9876543210" class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Contact Email *</label>
+                    <input type="email" id="addParEmail" required placeholder="parent@school.edu" class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Residential Address</label>
+                    <textarea id="addParAddress" placeholder="Full residential layout info..." class="erp-input" style="height: 60px;"></textarea>
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Linked Students IDs (Comma separated)</label>
+                    <input type="text" id="addParLinkedStudents" placeholder="e.g. STU1001, STU1002" class="erp-input">
+                </div>
+                <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%; margin-top: 15px;">
+                    Save Parent Profile
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Parent Modal -->
+    <div id="editParentModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 500px;">
+            <div class="modal-header-styled" style="background-color: var(--primary-indigo);">
+                <h3><i class="fas fa-edit"></i> Edit Parent Profile details</h3>
+                <span class="modal-close-icon" onclick="document.getElementById('editParentModal').style.display = 'none';">&times;</span>
+            </div>
+            <form id="editParentForm" class="modal-form-styled">
+                <input type="hidden" id="editParDbId">
+                <div>
+                    <label>Parent ID *</label>
+                    <input type="text" id="editParId" readonly class="erp-input" style="background-color:#e2e8f0;">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Father Name *</label>
+                    <input type="text" id="editParFatherName" required class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Mother Name</label>
+                    <input type="text" id="editParMotherName" class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Contact Phone *</label>
+                    <input type="text" id="editParPhone" required class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Contact Email *</label>
+                    <input type="email" id="editParEmail" required class="erp-input">
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Residential Address</label>
+                    <textarea id="editParAddress" class="erp-input" style="height: 60px;"></textarea>
+                </div>
+                <div style="margin-top:12px;">
+                    <label>Linked Students IDs</label>
+                    <input type="text" id="editParLinkedStudents" class="erp-input">
+                </div>
+                <button type="submit" class="erp-btn btn-fill-blue" style="width: 100%; margin-top: 15px;">
+                    Save Parent Profile
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Parent Modal Card -->
+    <div id="viewParentModal" class="modal" style="display: none;">
+        <div class="modal-content-styled" style="max-width: 550px; padding: 0;">
+            <div style="background: linear-gradient(135deg, var(--primary-blue), var(--primary-indigo)); color: white; padding: 25px; border-radius: 12px 12px 0 0; position: relative;">
+                <span class="modal-close-icon" onclick="document.getElementById('viewParentModal').style.display = 'none';" style="color: white; position: absolute; right: 20px; top: 20px;">&times;</span>
+                <div style="display: flex; gap: 20px; align-items: center;">
+                    <div style="width: 70px; height: 70px; border-radius: 50%; background: rgba(255,255,255,0.2); border: 2px solid white; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 800;">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div>
+                        <h2 id="viewParNameLabel" style="margin: 0; font-size: 1.5rem; font-weight: 800;">Parent Profile</h2>
+                        <p id="viewParIdLabel" style="margin: 5px 0 0; font-family: monospace; opacity: 0.9; font-size: 0.9rem;">PRN1001</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding: 25px; background-color: white;">
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px; background: #f8fafc; padding: 15px; border-radius: 8px;">
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Father's Name</strong>
+                        <span id="viewParFather" style="font-weight: 700;">Ramesh Kumar</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Mother's Name</strong>
+                        <span id="viewParMother" style="font-weight: 700;">Sita Devi</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Contact Phone Number</strong>
+                        <span id="viewParPhone" style="font-weight: 600;">9876543210</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Contact Email Address</strong>
+                        <span id="viewParEmail" style="font-family: monospace;">parent@school.edu</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Linked Children Student IDs</strong>
+                        <span id="viewParLinked" style="font-weight: 700; color:var(--primary-emerald);">STU1001</span>
+                    </div>
+                    <div>
+                        <strong style="color:var(--text-grey); display:block; font-size:0.75rem; text-transform:uppercase;">Residential Address Info</strong>
+                        <span id="viewParAddress">Karnataka, India</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; padding: 15px 20px; display: flex; justify-content: flex-end; gap: 10px; border-radius: 0 0 12px 12px;">
+                <button type="button" onclick="document.getElementById('viewParentModal').style.display = 'none';" class="erp-btn btn-outline" style="width: 100%;">
+                    Close Profile Card
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         7. 📑 HYDRATE DYNAMIC CLIENT OPERATIONS
+         ============================================== -->
+    <script src="js/api-config.js"></script>
+    <script src="js/dashboard.js"></script>
+    
+    <script>
+        // Custom hook: updates local administrator initial avatar first-letter on complete load
+        window.addEventListener('load', () => {
+            const operatorText = document.getElementById('userNameDisplay');
+            const avatarBox = document.getElementById('avatarBadgePlaceholder');
+            if (operatorText && avatarBox) {
+                const text = operatorText.textContent.trim();
+                avatarBox.textContent = text ? text.charAt(0).toUpperCase() : 'A';
+            }
+        });
+    </script>
+</body>
+</html>

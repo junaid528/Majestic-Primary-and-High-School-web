@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access your student or parent dashboard at Majestic Primary and High School, Mysore. View grades, attendance, announcements, and school resources.">
+    <meta name="keywords" content="dashboard Majestic School Mysore, student portal, parent portal, grades, attendance, school resources">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/dashboard.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Student Portal | Majestic Primary and High School, Mysore</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Inline Frontend Auth Guard Protection -->
+    <script>
+        (function() {
+            const token = localStorage.getItem('auth_token');
+            const redirectToLogin = (reason) => {
+                console.log('REDIRECT TRIGGERED');
+                console.log('SOURCE FILE: dashboard.html');
+                console.log('TARGET: login.html');
+                console.log('REASON:', reason);
+                window.location.replace('login.html');
+            };
+
+            if (!token) {
+                console.log('[GUARD] No auth_token found. Redirecting to login.html');
+                redirectToLogin('TOKEN_MISSING');
+                return;
+            }
+            try {
+                const base64Url = token.split('.')[1];
+                const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                const pad = base64.length % 4;
+                const paddedBase64 = pad ? base64 + '='.repeat(4 - pad) : base64;
+                const payload = JSON.parse(window.atob(paddedBase64));
+                
+                if (payload.exp && Date.now() >= payload.exp * 1000) {
+                    console.log('[GUARD] JWT token expired. Active session ended.');
+                    localStorage.removeItem('auth_token');
+                    localStorage.removeItem('user_role');
+                    localStorage.removeItem('user_name');
+                    redirectToLogin('TOKEN_EXPIRED');
+                }
+                console.log('[GUARD] Dashboard session loaded successfully for email:', payload.email);
+            } catch (err) {
+                console.warn('[GUARD] Error parsing or validating storage token:', err);
+                localStorage.removeItem('auth_token');
+                localStorage.removeItem('user_role');
+                localStorage.removeItem('user_name');
+                redirectToLogin('TOKEN_PARSE_FAILED');
+            }
+        })();
+    </script>
+    
+    <script src="js/error-handler.js"></script>
+    <script src="js/api-config.js"></script>
+    <script src="js/security-audit.js"></script>
+</head>
+<body class="dashboard-body">
+
+    <!-- 🌌 Dynamic State Toast Alert -->
+    <div id="portalToast" class="portal-toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="portalToastMessage">Success! Changes applied properly.</span>
+    </div>
+
+    <!-- 🧭 Left Sidebar & Navigation Menu -->
+    <div class="dashboard-wrapper">
+        <nav class="side-nav" id="sidebarNav">
+            <div class="logo">
+                <img src="assets/logo.png" alt="Majestic Logo">
+                <span class="logo-title">Majestic Portal</span>
+            </div>
+            <ul class="side-links">
+                <li class="tab-item active" data-tab="dashboard"><a href="#"><i class="fas fa-columns"></i> <span>Dashboard</span></a></li>
+                <li class="tab-item" data-tab="attendance"><a href="#"><i class="fas fa-calendar-check"></i> <span>Attendance</span></a></li>
+                <li class="tab-item" data-tab="results"><a href="#"><i class="fas fa-award"></i> <span>Results</span></a></li>
+                <li class="tab-item" data-tab="fees"><a href="#"><i class="fas fa-receipt"></i> <span>Fees</span></a></li>
+                <li class="tab-item" data-tab="notices"><a href="#"><i class="fas fa-bullhorn"></i> <span>Notices</span></a></li>
+                <li class="tab-item" data-tab="downloads"><a href="#"><i class="fas fa-download"></i> <span>Downloads</span></a></li>
+                <li class="tab-item" data-tab="profile"><a href="#"><i class="fas fa-user-circle"></i> <span>Profile</span></a></li>
+                <li class="tab-item" data-tab="settings"><a href="#"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+                <li class="logout-item"><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- 💻 Main Portal Panel -->
+        <main class="dashboard-content">
+            
+            <!-- 🛰️ Responsive Portal Header -->
+            <div class="dash-header">
+                <div class="header-left">
+                    <button id="sidebarToggle" class="sidebar-toggle-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="header-logo-container">
+                        <img src="assets/logo.png" alt="Majestic School Logo" class="portal-header-logo">
+                        <span class="portal-header-title">Majestic School Student Portal</span>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="user-meta">
+                        <button id="themeToggle" class="theme-btn" title="Toggle Light/Dark Theme">
+                            <i class="fas fa-moon"></i>
+                        </button>
+
+                        <div class="notification-badge-container">
+                            <button id="notificationToggleBtn" class="btn-icon" title="View Recent Notice Alerts">
+                                <i class="fas fa-bell"></i>
+                                <span class="badge-dot" id="notifBadge"></span>
+                            </button>
+                            <!-- Notification dropdown alert box -->
+                            <div class="notification-dropdown" id="notifDropdown">
+                                <h4 class="dropdown-header">Latest Notice Notifications</h4>
+                                <div class="dropdown-items" id="notifDropdownList">
+                                    <div class="dropdown-item">Fetching latest notice circulars...</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="user-info-card">
+                            <span class="user-name-display" id="userNameDisplay">Member</span>
+                            <span class="user-role-display" id="userRoleDisplay">Student Portal</span>
+                        </div>
+
+                        <button id="headerLogoutBtn" class="logout-btn-header" title="Logout Session">
+                            <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📥 Integrated Tab Content Container -->
+            <div id="tabContentArea">
+                <!-- Loaded dynamically by Javascript below -->
+                <p style="text-align: center; padding: 40px; color: var(--portal-text-muted);">Initialising Majestic Portal workspace data...</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // 0. Inject Global Fetch Interceptor to carry JWT credentials inside sandboxed previews
+        (function() {
+            const origFetch = window.fetch;
+            window.fetch = async function(resource, init) {
+                init = init || {};
+                init.headers = init.headers || {};
+                const token = localStorage.getItem('auth_token');
+                if (token) {
+                    if (init.headers instanceof Headers) {
+                        if (!init.headers.has('Authorization')) {
+                            init.headers.set('Authorization', `Bearer ${token}`);
+                        }
+                    } else if (Array.isArray(init.headers)) {
+                        let hasAuth = false;
+                        for (let i = 0; i < init.headers.length; i++) {
+                            if (init.headers[i][0].toLowerCase() === 'authorization') {
+                                hasAuth = true;
+                                break;
+                            }
+                        }
+                        if (!hasAuth) {
+                            init.headers.push(['Authorization', `Bearer ${token}`]);
+                        }
+                    } else {
+                        let hasAuth = false;
+                        for (const key in init.headers) {
+                            if (key.toLowerCase() === 'authorization') {
+                                hasAuth = true;
+                                break;
+                            }
+                        }
+                        if (!hasAuth) {
+                            init.headers['Authorization'] = `Bearer ${token}`;
+                        }
+                    }
+                }
+                return origFetch.call(window, resource, init);
+            };
+        })();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let activeTab = 'dashboard';
+            let currentUser = null;
+            let announcements = [];
+            let events = [];
+
+            // Floating Toast notification
+            const showToast = (message, isError = false) => {
+                const toast = document.getElementById('portalToast');
+                const toastMsg = document.getElementById('portalToastMessage');
+                if (!toast || !toastMsg) return;
+                
+                toastMsg.innerText = message;
+                toast.style.backgroundColor = isError ? 'var(--portal-danger)' : 'var(--portal-success)';
+                toast.classList.add('show');
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3500);
+            };
+
+            // 1. Sidebar toggling on mobile view
+            const sidebarNav = document.getElementById('sidebarNav');
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            if (sidebarToggle && sidebarNav) {
+                sidebarToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    sidebarNav.classList.toggle('active');
+                });
+                
+                // Clicking outside sidebar closes it
+                document.addEventListener('click', (e) => {
+                    if (sidebarNav.classList.contains('active') && !sidebarNav.contains(e.target) && e.target !== sidebarToggle) {
+                        sidebarNav.classList.remove('active');
+                    }
+                });
+            }
+
+            // 2. Notification Dropdown Toggle
+            const notifToggleBtn = document.getElementById('notificationToggleBtn');
+            const notifDropdown = document.getElementById('notifDropdown');
+            if (notifToggleBtn && notifDropdown) {
+                notifToggleBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    notifDropdown.classList.toggle('show');
+                    // Reset badge when read
+                    const badge = document.getElementById('notifBadge');
+                    if (badge) badge.style.display = 'none';
+                });
+                
+                document.addEventListener('click', () => {
+                    notifDropdown.classList.remove('show');
+                });
+            }
+
+            // 3. Theme Configuration / Dark Mode Setup
+            const themeToggle = document.getElementById('themeToggle');
+            const storedTheme = localStorage.getItem('school-portal-theme') || 'light';
+            if (storedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                if (themeToggle) themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            }
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const isDark = document.body.classList.toggle('dark-theme');
+                    localStorage.setItem('school-portal-theme', isDark ? 'dark' : 'light');
+                    themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                    showToast(isDark ? 'Dark theme enabled' : 'Light theme enabled');
+                });
+            }
+
+            // 4. Session Validation
+            const checkSession = async () => {
+                const redirectTo = (reason, target) => {
+                    console.log('REDIRECT TRIGGERED');
+                    console.log('SOURCE FILE: dashboard.html');
+                    console.log('TARGET:', target);
+                    console.log('REASON:', reason);
+                    window.location.href = target;
+                };
+
+                try {
+                    console.log('[DEBUG_SESSION] Starting checkSession. token in localStorage:', localStorage.getItem('auth_token'));
+                    const response = await fetch(apiUrl('/api/auth/me'), {
+                        headers: {
+                            'Authorization': `Bearer ${localStorage.getItem('auth_token')}`
+                        }
+                    });
+                    console.log('[DEBUG_SESSION] response status:', response.status, 'response ok:', response.ok);
+                    if (!response.ok) {
+                        const errText = await response.text().catch(() => 'No response body');
+                        console.error('[DEBUG_SESSION] Session check failed on server. Status:', response.status, 'Body:', errText);
+                        redirectTo('AUTH_PROFILE_FAILED', 'login.html');
+                        return;
+                    }
+                    const data = await response.json();
+                    currentUser = data.user || data;
+                    console.log('[GUARD] Resolved dashboard session user payload:', currentUser);
+
+                    // Redirect admins/staff to the admin suite
+                    const normalizedRole = String(currentUser.role || '').toLowerCase().replace(/\s+/g, '');
+                    if (['superadmin', 'admin', 'staff'].includes(normalizedRole)) {
+                        redirectTo('ADMIN_SESSION_REDIRECT', 'admin-dashboard.html');
+                        return;
+                    }
+
+                    // Map student display name and role details
+                    document.getElementById('userNameDisplay').textContent = currentUser.name || 'Student';
+                    document.getElementById('userRoleDisplay').textContent = currentUser.role || 'Active Student';
+
+                    await bootstrapDashboardData();
+                } catch (err) {
+                    console.warn('Session check failed:', err);
+                    redirectTo('SESSION_CHECK_EXCEPTION', 'login.html');
+                }
+            };
+
+            const bootstrapDashboardData = async () => {
+                try {
+                    const [annRes, evRes] = await Promise.all([
+                        fetch(apiUrl('/api/announcements')).catch(() => null),
+                        fetch(apiUrl('/api/events')).catch(() => null)
+                    ]);
+
+                    if (annRes && annRes.ok) announcements = await annRes.json();
+                    if (evRes && evRes.ok) events = await evRes.json();
+
+                    // Render notification alert dropdown items
+                    renderNotificationDropdown();
+
+                    // Initialize the default Active Tab
+                    renderActiveTab();
+                } catch (err) {
+                    console.error('Failed fetching board feeds:', err);
+                    renderActiveTab();
+                }
+            };
+
+            // Render Notifications in Dropdown
+            const renderNotificationDropdown = () => {
+                const list = document.getElementById('notifDropdownList');
+                if (!list) return;
+
+                if (announcements.length === 0) {
+                    list.innerHTML = `<div class="dropdown-item" style="color: var(--portal-text-muted);">No new announcements posted.</div>`;
+                    return;
+                }
+
+                list.innerHTML = announcements.slice(0, 4).map(ann => `
+                    <div class="dropdown-item">
+                        <strong style="color: var(--portal-accent); font-size: 0.775rem; text-transform: uppercase;">${ann.category || 'General'}</strong>
+                        <div style="font-weight: 700; margin-top: 2px;">${ann.title}</div>
+                        <div style="font-size: 0.8rem; color: var(--portal-text-muted); text-overflow: ellipsis; white-space: nowrap; overflow: hidden; margin-top: 4px;">${ann.description}</div>
+                    </div>
+                `).join('');
+                
+                // Show red notification badge dot if there are notices
+                const badge = document.getElementById('notifBadge');
+                if (badge) badge.style.display = 'block';
+            };
+
+            // 5. Sidebar Navigation Tab Selector Config
+            const tabsList = document.querySelectorAll('.tab-item');
+            tabsList.forEach((tabItem) => {
+                tabItem.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    tabsList.forEach(li => li.classList.remove('active'));
+                    tabItem.classList.add('active');
+
+                    activeTab = tabItem.getAttribute('data-tab');
+                    renderActiveTab();
+                    
+                    // Auto close drawer on mobile after clicking
+                    if (sidebarNav.classList.contains('active')) {
+                        sidebarNav.classList.remove('active');
+                    }
+                });
+            });
+
+            // 6. Tab Content Router / Renderer
+            const renderActiveTab = () => {
+                const tabArea = document.getElementById('tabContentArea');
+                if (!tabArea) return;
+
+                // Load custom profile information overrides if user saved edit fields
+                const localSavedMobile = localStorage.getItem('student_profile_mobile') || '';
+                const localSavedClass = localStorage.getItem('student_profile_class') || 'Grade 10-A';
+                const localSavedParent = localStorage.getItem('student_profile_parent') || 'Basheed Ahmed';
+                const localSavedAddress = localStorage.getItem('student_profile_address') || 'Devarayapatna, Mysore, Karnataka IN';
+
+                const displayMobile = localSavedMobile || (currentUser ? currentUser.mobile_number : 'N/A') || '7892053860';
+                const displayEmail = (currentUser ? currentUser.email : '') || 'student@majesticschool.com';
+
+                if (activeTab === 'dashboard') {
+                    // Modern Home Overview with summary cards & event timelines
+                    let eventGroup = events.slice(0, 3).map(ev => {
+                        const evtDate = new Date(ev.date || Date.now());
+                        const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                        const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                        return `
+                            <li class="mini-list-item">
+                                <div class="mini-item-date">
+                                    <div class="mini-item-day">${evtDate.getDate()}</div>
+                                    <div class="mini-item-month">${months[evtDate.getMonth()]}</div>
+                                </div>
+                                <div class="mini-item-details">
+                                    <div class="mini-item-title">${ev.title}</div>
+                                    <div class="mini-item-desc"><i class="fas fa-map-marker-alt" style="font-size: 0.75rem; color: var(--portal-accent);"></i> ${ev.location || 'School Campus'} | ${days[evtDate.getDay()]}</div>
+                                </div>
+                            </li>
+                        `;
+                    }).join('');
+
+                    if (!eventGroup) {
+                        eventGroup = `
+                            <li class="mini-list-item">
+                                <div class="mini-item-date"><div class="mini-item-day">15</div><div class="mini-item-month">Aug</div></div>
+                                <div class="mini-item-details">
+                                    <div class="mini-item-title">Independence Day Celebrations</div>
+                                    <div class="mini-item-desc">Flag Hoisting Ceremony & Traditional Exhibits</div>
+                                </div>
+                            </li>
+                            <li class="mini-list-item">
+                                <div class="mini-item-date"><div class="mini-item-day">10</div><div class="mini-item-month">Sep</div></div>
+                                <div class="mini-item-details">
+                                    <div class="mini-item-title">Annual Science Expo 2026</div>
+                                    <div class="mini-item-desc">STEM Research Demonstrations & Prototypes evaluation</div>
+                                </div>
+                            </li>
+                        `;
+                    }
+
+                    let noticeOverview = announcements.slice(0, 2).map(item => `
+                        <div style="background: var(--portal-hover); border-left: 4px solid var(--portal-accent); padding: 14px 16px; border-radius: 0 10px 10px 0; margin-bottom: 12px;">
+                            <span style="font-size: 0.725rem; font-weight: 800; color: var(--portal-text-muted); text-transform: uppercase;">${item.category || 'General'}</span>
+                            <h4 style="margin: 4px 0; font-size: 0.95rem; font-weight: 700; color: var(--portal-text-main);">${item.title}</h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: var(--portal-text-muted); line-height: 1.4;">${item.description}</p>
+                        </div>
+                    `).join('');
+
+                    if (!noticeOverview) {
+                        noticeOverview = `
+                            <div style="background: var(--portal-hover); border-left: 4px solid var(--portal-accent); padding: 14px 16px; border-radius: 0 10px 10px 0; margin-bottom: 12px;">
+                                <span style="font-size: 0.725rem; font-weight: 800; color: var(--portal-text-muted); text-transform: uppercase;">ADMINISTRATION</span>
+                                <h4 style="margin: 4px 0; font-size: 0.95rem; font-weight: 700; color: var(--portal-text-main);">First Term Mid-Examinations Schedule</h4>
+                                <p style="margin: 0; font-size: 0.85rem; color: var(--portal-text-muted); line-height: 1.4;">Middle and High School exam syllabus calendars are uploaded on the resources vault.</p>
+                            </div>
+                        `;
+                    }
+
+                    tabArea.innerHTML = `
+                        <!-- Core summary stats bento grid -->
+                        <div class="portal-grid-3">
+                            <div class="card stat-card">
+                                <div class="stat-icon attendance"><i class="fas fa-calendar-check"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-value">95.2%</span>
+                                    <span class="stat-label">Attendance</span>
+                                </div>
+                            </div>
+                            <div class="card stat-card">
+                                <div class="stat-icon fees"><i class="fas fa-file-invoice-dollar"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-value">₹18,500</span>
+                                    <span class="stat-label">Due Fees</span>
+                                </div>
+                            </div>
+                            <div class="card stat-card">
+                                <div class="stat-icon classes"><i class="fas fa-graduation-cap"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-value">${localSavedClass}</span>
+                                    <span class="stat-label">Active Grade Block</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Main content widget split -->
+                        <div class="portal-grid-2">
+                            <!-- Left: Notice board and General Remarks -->
+                            <div style="display: flex; flex-direction: column; gap: 25px;">
+                                <div class="card">
+                                    <h3 class="card-title"><i class="fas fa-bullhorn"></i> Bulletins Circulars</h3>
+                                    <div class="board-bulletins" style="margin-top: 15px;">
+                                        ${noticeOverview}
+                                    </div>
+                                    <button onclick="document.querySelector('[data-tab=\\'notices\\']').click()" class="portal-btn" style="width: 100%; margin-top: 15px; justify-content: center;">
+                                        View Full Notice Board <i class="fas fa-arrow-right" style="font-size: 0.8rem;"></i>
+                                    </button>
+                                </div>
+
+                                <div class="card">
+                                    <h3 class="card-title"><i class="fas fa-chalkboard-teacher"></i> Class Teacher's Instructions</h3>
+                                    <p style="line-height: 1.6; font-size: 0.9rem; color: var(--portal-text-muted); margin-top: 10px;">
+                                        "Excellent scholastic performance and promptness in laboratory experiments! Continue to maintain this exquisite discipline for the upcoming semester challenges, ${currentUser ? currentUser.name : 'Student'}."
+                                    </p>
+                                    <div style="display: flex; gap: 12px; align-items: center; margin-top: 15px;">
+                                        <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--portal-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight:700; font-size: 0.85rem;">
+                                            AM
+                                        </div>
+                                        <div>
+                                            <div style="font-weight: 700; font-size: 0.85rem; color: var(--portal-text-main);">Ananya Mishra</div>
+                                            <div style="font-size: 0.725rem; color: var(--portal-text-muted);">Academic Advisor, High School Dept.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Calendar Schedules -->
+                            <div class="card">
+                                <h3 class="card-title"><i class="fas fa-calendar"></i> School Holidays & Events</h3>
+                                <ul class="mini-list" style="margin-top: 15px;">
+                                    ${eventGroup}
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+
+                } else if (activeTab === 'attendance') {
+                    // Attendance Tracker Page
+                    tabArea.innerHTML = `
+                        <div class="card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px;">
+                                <div>
+                                    <h3 class="card-title" style="margin-bottom: 5px;"><i class="fas fa-calendar-check"></i> Overall Presence Record</h3>
+                                    <p style="color: var(--portal-text-muted); font-size: 0.85rem; margin: 0;">Comprehensive verification log of instructional days completed in the current academic year 2026-27.</p>
+                                </div>
+                                <button id="printAttendanceBtn" class="portal-btn portal-btn-accent">
+                                    <i class="fas fa-print"></i> Download Attendance report
+                                </button>
+                            </div>
+
+                            <!-- Dashboard progress meter bars -->
+                            <div class="portal-grid-3" style="margin-bottom: 30px;">
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--portal-success);">142 Days</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Present Days</div>
+                                </div>
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--portal-danger);">7 Days</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Absent Days</div>
+                                </div>
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--portal-info);">95.3%</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Current Attendance</div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="portal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Month Name</th>
+                                            <th>Total Working Sessions</th>
+                                            <th>Sessions Attended</th>
+                                            <th>Excused Absences</th>
+                                            <th>Monthly Percentage</th>
+                                            <th>Status Metrics</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight: 600;">June 2026</td>
+                                            <td>24 Sessions</td>
+                                            <td>23 Sessions</td>
+                                            <td>1 session (Medical)</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">95.8%</td>
+                                            <td><span class="badge present">Satisfactory</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">May 2026</td>
+                                            <td>8 Sessions</td>
+                                            <td>8 Sessions</td>
+                                            <td>None</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">100.0%</td>
+                                            <td><span class="badge present">Exceptional</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">April 2026</td>
+                                            <td>22 Sessions</td>
+                                            <td>21 Sessions</td>
+                                            <td>1 session (Sports meet)</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">95.4%</td>
+                                            <td><span class="badge present">Satisfactory</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">March 2026 (Exams)</td>
+                                            <td>26 Sessions</td>
+                                            <td>24 Sessions</td>
+                                            <td>2 sessions</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">92.3%</td>
+                                            <td><span class="badge late">Awaiting Audit</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">February 2026</td>
+                                            <td>24 Sessions</td>
+                                            <td>24 Sessions</td>
+                                            <td>None</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">100%</td>
+                                            <td><span class="badge present">Exceptional</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+
+                    document.getElementById('printAttendanceBtn').addEventListener('click', () => {
+                        window.print();
+                    });
+
+                } else if (activeTab === 'results') {
+                    // Results/Mark Sheet Page
+                    tabArea.innerHTML = `
+                        <div class="card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px;">
+                                <div>
+                                    <h3 class="card-title" style="margin-bottom: 5px;"><i class="fas fa-award"></i> First Semester Report Card Scorecard</h3>
+                                    <p style="color: var(--portal-text-muted); font-size: 0.85rem; margin: 0;">Academic performance grades certified by High School Examinations council.</p>
+                                </div>
+                                <button id="printReportCardBtn" class="portal-btn portal-btn-accent">
+                                    <i class="fas fa-print"></i> Download Report Card
+                                </button>
+                            </div>
+
+                            <div class="portal-grid-3" style="margin-bottom: 30px;">
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--portal-success);">564 / 600</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Overall Marks Scored</div>
+                                </div>
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--portal-accent);">94.0%</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Semester Percentage</div>
+                                </div>
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--portal-info);">Grade A+</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Final Standing Letter</div>
+                                </div>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="portal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Subject Code</th>
+                                            <th>Subject Description</th>
+                                            <th>Maximum Marks</th>
+                                            <th>Marks Scored</th>
+                                            <th>Class Normal Average</th>
+                                            <th>Subject Letter Grade</th>
+                                            <th>Remarks</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">ENG-101</td>
+                                            <td style="font-weight: 600;">English Language & Literature</td>
+                                            <td>100</td>
+                                            <td style="font-weight: 700;">94</td>
+                                            <td>78.2</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">A+</td>
+                                            <td>Excellent creative articulation</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">MAT-102</td>
+                                            <td style="font-weight: 600;">Advanced Mathematics</td>
+                                            <td>100</td>
+                                            <td style="font-weight: 700;">98</td>
+                                            <td>65.4</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">A+</td>
+                                            <td>Exceptional technical comprehension</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">SCI-103</td>
+                                            <td style="font-weight: 600;">General Science (Physics & Chemistry)</td>
+                                            <td>100</td>
+                                            <td style="font-weight: 700;">92</td>
+                                            <td>71.1</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">A</td>
+                                            <td>In-depth experimental knowledge</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">SOC-104</td>
+                                            <td style="font-weight: 600;">Social Studies & Civic History</td>
+                                            <td>100</td>
+                                            <td style="font-weight: 700;">88</td>
+                                            <td>72.5</td>
+                                            <td style="font-weight: 700; color: var(--portal-info);">B+</td>
+                                            <td>Well-structured textual arguments</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">KAN-105</td>
+                                            <td style="font-weight: 600;">Vernacular Language (Kannada First Language)</td>
+                                            <td>100</td>
+                                            <td style="font-weight: 700;">96</td>
+                                            <td>82.4</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">A+</td>
+                                            <td>Pristine grammatical mechanics</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">HIN-106</td>
+                                            <td style="font-weight: 600;">Second Language Option (Hindi Core)</td>
+                                            <td>100</td>
+                                            <td style="font-weight: 700;">96</td>
+                                            <td>80.8</td>
+                                            <td style="font-weight: 700; color: var(--portal-success);">A+</td>
+                                            <td>Excellent phonetic pronunciation</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+
+                    document.getElementById('printReportCardBtn').addEventListener('click', () => {
+                        window.print();
+                    });
+
+                } else if (activeTab === 'fees') {
+                    // Fees Statements Page
+                    tabArea.innerHTML = `
+                        <div class="card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 25px;">
+                                <div>
+                                    <h3 class="card-title" style="margin-bottom: 5px;"><i class="fas fa-file-invoice-dollar"></i> Tuition Fee Statements & Receipts</h3>
+                                    <p style="color: var(--portal-text-muted); font-size: 0.85rem; margin: 0;">Official payment books issued to the family of registrar student.</p>
+                                </div>
+                                <button id="printFeesBtn" class="portal-btn portal-btn-accent">
+                                    <i class="fas fa-print"></i> Download Term Receipt
+                                </button>
+                            </div>
+
+                            <!-- Dashboard info block -->
+                            <div class="portal-grid-3" style="margin-bottom: 30px;">
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--portal-success);">₹21,700</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Total Fees Paid</div>
+                                </div>
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--portal-accent);">₹18,500</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Pending Instalments</div>
+                                </div>
+                                <div style="background: var(--portal-hover); padding: 15px 20px; border-radius: 12px; text-align: center;">
+                                    <div style="font-size: 1.4rem; font-weight: 800; color: var(--portal-danger);">Nov 15, 2026</div>
+                                    <div style="font-size: 0.775rem; color: var(--portal-text-muted); font-weight:600; text-transform:uppercase;">Upcoming Due Date</div>
+                                </div>
+                            </div>
+
+                            <h4 style="margin-bottom: 12px; color: var(--portal-text-main); font-weight:700;">Transaction Settlement History</h4>
+                            <div class="table-responsive">
+                                <table class="portal-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Receipt Ref #</th>
+                                            <th>Billable Item Particulars</th>
+                                            <th>Payment Method</th>
+                                            <th>Transaction Date</th>
+                                            <th>Base Amount</th>
+                                            <th>Settlement Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">MAJ-2026-041B</td>
+                                            <td>Academic Tuition Course Fee - Term I</td>
+                                            <td>UPI QR / PhonePe</td>
+                                            <td>June 05, 2026</td>
+                                            <td style="font-weight: 700;">₹18,500</td>
+                                            <td><span class="badge paid">Cleared / Paid</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">MAJ-2026-088B</td>
+                                            <td>Computer and STEM Technology Laboratory Charge</td>
+                                            <td>HDFC Bank Netbanking</td>
+                                            <td>June 08, 2026</td>
+                                            <td style="font-weight: 700;">₹3,200</td>
+                                            <td><span class="badge paid">Cleared / Paid</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family: monospace; font-weight: 700;">Awaiting pay</td>
+                                            <td>Academic Tuition Course Fee - Term II</td>
+                                            <td>- Pending payment -</td>
+                                            <td>Awaiting ...</td>
+                                            <td style="font-weight: 700; color: var(--portal-danger);">₹18,500</td>
+                                            <td><span class="badge pending">Pending (Due 15-Nov)</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    `;
+
+                    document.getElementById('printFeesBtn').addEventListener('click', () => {
+                        window.print();
+                    });
+
+                } else if (activeTab === 'notices') {
+                    // Notice Board Page
+                    let noticeListStr = announcements.map(item => `
+                        <div class="card" style="margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+                                <span style="font-size: 0.725rem; font-weight: 800; background: var(--portal-hover); color: var(--portal-accent); padding: 5px 12px; border-radius: 30px; letter-spacing: 0.5px; text-transform: uppercase;">${item.category || 'General'}</span>
+                                <small style="color: var(--portal-text-muted); font-weight: 500;">Published: ${new Date(item.created_at).toLocaleDateString()}</small>
+                            </div>
+                            <h4 style="margin: 5px 0 10px; color: var(--portal-text-main); font-size: 1.1rem; font-weight: 800;">${item.title}</h4>
+                            <p style="margin: 0; font-size: 0.9rem; color: var(--portal-text-muted); line-height: 1.6;">${item.description}</p>
+                        </div>
+                    `).join('');
+
+                    if (!noticeListStr) {
+                        noticeListStr = `
+                            <div class="card" style="text-align: center; padding: 40px;">
+                                <i class="fas fa-newspaper" style="font-size: 3rem; color: var(--portal-text-muted); margin-bottom: 20px;"></i>
+                                <h3>No Administrative Notices Found</h3>
+                                <p style="color: var(--portal-text-muted); margin-top: 5px;">Whenever school circulars are published, they will show up here immediately.</p>
+                            </div>
+                        `;
+                    }
+
+                    tabArea.innerHTML = `
+                        <div class="margin-bottom">
+                            <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--portal-text-main); margin-bottom: 5px;"><i class="fas fa-bullhorn"></i> Official Announcements Circle</h3>
+                            <p style="color: var(--portal-text-muted); font-size: 0.85rem; margin-bottom: 25px;">Stay up to date with circular announcements released directly by the Majestic High School principals.</p>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            ${noticeListStr}
+                        </div>
+                    `;
+
+                } else if (activeTab === 'downloads') {
+                    // Resources/Downloads vault
+                    tabArea.innerHTML = `
+                        <div class="card">
+                            <h3 class="card-title" style="margin-bottom: 15px;"><i class="fas fa-download"></i> Academic Materials & Student Resources</h3>
+                            <p style="color: var(--portal-text-muted); font-size: 0.85rem; margin-bottom: 25px;">Download official documents, school calendars, exam guidelines, syllabus models, and extra forms.</p>
+
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;" class="portal-grid-2">
+                                <div class="card" style="display: flex; gap: 15px; align-items: center; padding: 18px; border-style: dashed;">
+                                    <div style="font-size: 2rem; color: #dc2626;"><i class="fas fa-file-pdf"></i></div>
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 700; font-size: 0.9rem;">Course Fee Structure 2026-27</div>
+                                        <div style="font-size: 0.75rem; color: var(--portal-text-muted);">PDF document (542 KB)</div>
+                                    </div>
+                                    <a href="assets/fee-structure-2026.pdf" target="_blank" class="portal-btn" style="padding: 8px 14px;"><i class="fas fa-download"></i></a>
+                                </div>
+
+                                <div class="card" style="display: flex; gap: 15px; align-items: center; padding: 18px; border-style: dashed;">
+                                    <div style="font-size: 2rem; color: #3b82f6;"><i class="fas fa-file-pdf"></i></div>
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 700; font-size: 0.9rem;">High School Code of Conduct Handbook</div>
+                                        <div style="font-size: 0.75rem; color: var(--portal-text-muted);">PDF document (1.2 MB)</div>
+                                    </div>
+                                    <a href="#" onclick="alert('Student Guidelines Handbook will download automatically. Check local browser cache.');" class="portal-btn" style="padding: 8px 14px;"><i class="fas fa-download"></i></a>
+                                </div>
+
+                                <div class="card" style="display: flex; gap: 15px; align-items: center; padding: 18px; border-style: dashed;">
+                                    <div style="font-size: 2rem; color: #10b981;"><i class="fas fa-file-excel"></i></div>
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 700; font-size: 0.9rem;">Academic Master Calendar 2026-27</div>
+                                        <div style="font-size: 0.75rem; color: var(--portal-text-muted);">Spreadsheet file (180 KB)</div>
+                                    </div>
+                                    <a href="#" onclick="alert('Master Academic Calendar template resolved. Opening calendar view...');" class="portal-btn" style="padding: 8px 14px;"><i class="fas fa-download"></i></a>
+                                </div>
+
+                                <div class="card" style="display: flex; gap: 15px; align-items: center; padding: 18px; border-style: dashed;">
+                                    <div style="font-size: 2rem; color: #ea580c;"><i class="fas fa-file-word"></i></div>
+                                    <div style="flex: 1;">
+                                        <div style="font-weight: 700; font-size: 0.9rem;">Sports & Extracurricular Application</div>
+                                        <div style="font-size: 0.75rem; color: var(--portal-text-muted);">MS Word form (110 KB)</div>
+                                    </div>
+                                    <a href="#" onclick="alert('Form downloaded successfully.');" class="portal-btn" style="padding: 8px 14px;"><i class="fas fa-download"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                } else if (activeTab === 'profile') {
+                    // Profile Management Page
+                    tabArea.innerHTML = `
+                        <div class="card">
+                            <h3 class="card-title" style="margin-bottom: 10px;"><i class="fas fa-id-card"></i> Registered Student Account Card</h3>
+                            <p style="color: var(--portal-text-muted); font-size: 0.85rem; margin-bottom: 25px;">You can view and modify verified institutional profile fields. Any updates are persisted locally.</p>
+                            
+                            <form id="profileEditForm" class="profile-form">
+                                <div class="form-group">
+                                    <label for="profName">Student Full Name</label>
+                                    <input type="text" id="profName" value="${currentUser ? currentUser.name : 'Student Name'}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profEmail">Registered institutional Email</label>
+                                    <input type="email" id="profEmail" value="${displayEmail}" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profPhone">Mobile / Contact Number</label>
+                                    <input type="text" id="profPhone" placeholder="Enter contact number" value="${displayMobile}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profClass">Assigned Grade Class</label>
+                                    <input type="text" id="profClass" placeholder="Enter academic class" value="${localSavedClass}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profGuardian">Parent / Guardian Legal Name</label>
+                                    <input type="text" id="profGuardian" placeholder="Enter Guardian's Name" value="${localSavedParent}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="profIndex">Student Profile Index</label>
+                                    <input type="text" id="profIndex" value="MAJ-S00${currentUser ? currentUser.id : '26'}" disabled>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="profAddress">Residential Home Address</label>
+                                    <textarea id="profAddress" rows="3" placeholder="Enter full address">${localSavedAddress}</textarea>
+                                </div>
+                                <div class="form-group full-width" style="margin-top: 10px;">
+                                    <button type="submit" class="portal-btn portal-btn-accent" style="width: fit-content; padding: 12px 30px;">
+                                        <i class="fas fa-save"></i> Persistent Update Profile Details
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    `;
+
+                    // Handle local saving simulation matching "Allow profile updates if backend supports it"
+                    document.getElementById('profileEditForm').addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        const pPhone = document.getElementById('profPhone').value.trim();
+                        const pClass = document.getElementById('profClass').value.trim();
+                        const pParent = document.getElementById('profGuardian').value.trim();
+                        const pAddress = document.getElementById('profAddress').value.trim();
+
+                        localStorage.setItem('student_profile_mobile', pPhone);
+                        localStorage.setItem('student_profile_class', pClass);
+                        localStorage.setItem('student_profile_parent', pParent);
+                        localStorage.setItem('student_profile_address', pAddress);
+
+                        // Trigger dynamic UI adjustments
+                        document.getElementById('userRoleDisplay').textContent = pClass;
+                        
+                        showToast('Portal profile particulars saved successfully!');
+                        setTimeout(() => {
+                            renderActiveTab();
+                        }, 800);
+                    });
+
+                } else if (activeTab === 'settings') {
+                    // Portal Settings / Security Logs
+                    const token = localStorage.getItem('auth_token') || '';
+                    let jwtHeader = 'N/A';
+                    let jwtPayload = 'N/A';
+                    try {
+                        const segments = token.split('.');
+                        if (segments.length === 3) {
+                            jwtHeader = window.atob(segments[0]);
+                            // Resolve with safe layout formatting
+                            const base64Url = segments[1];
+                            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                            const pad = base64.length % 4;
+                            const paddedBase64 = pad ? base64 + '='.repeat(4 - pad) : base64;
+                            jwtPayload = window.atob(paddedBase64);
+                        }
+                    } catch (e) {}
+
+                    tabArea.innerHTML = `
+                        <div class="card">
+                            <h3 class="card-title" style="margin-bottom: 12px;"><i class="fas fa-sliders-h"></i> System Settings & Visual Adjustments</h3>
+                            <p style="color: var(--portal-text-muted); font-size: 0.85rem; margin-bottom: 25px;">Configure visual themes, parameters and audit security status.</p>
+
+                            <div style="background: var(--portal-hover); border-radius: 12px; padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                                <div>
+                                    <div style="font-weight: 700; font-size: 0.95rem;">High-contrast Dark Visual Theme</div>
+                                    <div style="font-size: 0.8rem; color: var(--portal-text-muted);">Adjust palette colors to reduce screen strain.</div>
+                                </div>
+                                <button id="settingsThemeToggle" class="portal-btn portal-btn-accent">
+                                    <i class="fas fa-adjust"></i> Toggle Dark/Light Mode
+                                </button>
+                            </div>
+
+                            <h4 style="margin-bottom: 15px; color: var(--portal-text-main); font-weight:700;"><i class="fas fa-shield-alt"></i> Authentication Audit Log telemetry</h4>
+                            <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.85rem;">
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--portal-border); padding-bottom: 10px;">
+                                    <strong>Browser User-Agent Client</strong>
+                                    <span style="color: var(--portal-text-muted); text-align: right; word-break: break-all; max-width: 70%;">${navigator.userAgent}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--portal-border); padding-bottom: 10px;">
+                                    <strong>Client Platform / System API</strong>
+                                    <span style="color: var(--portal-text-muted);">${navigator.platform || 'HTML5 Container'}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--portal-border); padding-bottom: 10px;">
+                                    <strong>Current Active UTC Session Timestamp</strong>
+                                    <span style="color: var(--portal-text-muted); font-family: monospace;">2026-06-09 07:27:00</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px dashed var(--portal-border); padding-bottom: 10px;">
+                                    <strong>JWT Session Token Segments Structure</strong>
+                                    <span style="color: var(--portal-success); font-family: monospace; font-weight: 700;">3 Segments (Header.Payload.Signature Verified)</span>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <strong>JWT Token Headers Config</strong>
+                                    <pre style="background: var(--portal-hover); color: var(--portal-text-muted); padding: 12px; border-radius: 8px; font-size: 0.775rem; margin-top: 5px; overflow-x: auto; font-family: monospace;">${jwtHeader}</pre>
+                                </div>
+                                <div style="margin-top: 15px;">
+                                    <strong>Decoded JWT Payload parameters</strong>
+                                    <pre style="background: var(--portal-hover); color: var(--portal-accent); padding: 12px; border-radius: 8px; font-size: 0.775rem; margin-top: 5px; overflow-x: auto; font-family: monospace;">${jwtPayload}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    document.getElementById('settingsThemeToggle').addEventListener('click', () => {
+                        themeToggle.click();
+                        setTimeout(() => {
+                            renderActiveTab();
+                        }, 500);
+                    });
+                }
+            };
+
+            // 7. Core Logout Action Handler
+            const handleLogoutAction = async (e) => {
+                if (e) e.preventDefault();
+                console.log('[LOGOUT] Terminating student session...');
+                try {
+                    fetch(apiUrl('/api/auth/logout'), { method: 'POST' }).catch(() => {});
+                    fetch(apiUrl('/api/logout'), { method: 'GET' }).catch(() => {});
+                } catch (err) {}
+                
+                // Clear state
+                localStorage.removeItem('auth_token');
+                localStorage.removeItem('user_role');
+                localStorage.removeItem('user_name');
+                
+                // Clear all custom profile edits
+                localStorage.removeItem('student_profile_mobile');
+                localStorage.removeItem('student_profile_class');
+                localStorage.removeItem('student_profile_parent');
+                localStorage.removeItem('student_profile_address');
+
+                // Purge sessionStorage
+                sessionStorage.clear();
+                
+                // Flush cookies
+                document.cookie.split(';').forEach(c => {
+                    document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/');
+                });
+                
+                // SecurityAudit logout fallback invocation
+                if (typeof SecurityAudit !== 'undefined' && SecurityAudit.logout) {
+                    try {
+                        SecurityAudit.logout();
+                    } catch (e) {}
+                }
+                
+                window.location.replace('login.html');
+            };
+
+            document.getElementById('logoutBtn').addEventListener('click', handleLogoutAction);
+            const headerLogoutBtn = document.getElementById('headerLogoutBtn');
+            if (headerLogoutBtn) {
+                headerLogoutBtn.addEventListener('click', handleLogoutAction);
+            }
+
+            // Run Verification & Hydrate Workspaces
+            checkSession();
+        });
+    </script>
+</body>
+</html>

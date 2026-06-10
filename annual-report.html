@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official Annual Insights Report of Majestic Primary and High School, Mysore. A deep dive into our academic growth, leadership milestones, and infrastructure progress.">
+    <meta name="keywords" content="Majestic School Mysore report, annual insights, academic performance, school growth metrics">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/annual-report.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Annual Insights Report | Majestic Primary and High School</title>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0f1f3f;
+            --secondary-green: #059669;
+            --accent-yellow: #dcaa0a;
+            --text-grey: #475569;
+            --light-bg: #f8fafc;
+            --report-blue: #0f1f3f;
+            --report-gold: #dcaa0a;
+            --report-green: #059669;
+            --report-bg: #f8fafc;
+            --border-radius-lg: 24px;
+        }
+
+        body {
+            font-family: 'Outfit', 'Poppins', sans-serif;
+            background: var(--report-bg);
+            color: var(--text-grey);
+            overflow-x: hidden;
+        }
+
+        /* --- WIDE CONTAINER --- */
+        .annual-wide-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 991px) {
+            .annual-wide-container {
+                padding: 0 20px;
+            }
+        }
+
+        /* --- SECTION STRUCTURES --- */
+        .annual-section-padding {
+            padding: 100px 0;
+        }
+        @media (max-width: 768px) {
+            .annual-section-padding {
+                padding: 60px 0;
+            }
+        }
+
+        /* --- EXECUTIVE HERO --- */
+        .report-hero {
+            height: 45vh;
+            min-height: 380px;
+            background: linear-gradient(rgba(15, 31, 63, 0.9), rgba(15, 31, 63, 0.95)), url('assets/school_building.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .report-hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .report-hero p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            letter-spacing: 2.5px;
+            margin-bottom: 12px;
+        }
+
+        /* --- STATS OVERLAY --- */
+        .stats-overlay {
+            max-width: 1320px;
+            margin: -60px auto 40px;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            position: relative;
+            z-index: 20;
+        }
+
+        .stat-card-pro {
+            background: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.05);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card-pro::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-blue);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card-pro:hover::after {
+            transform: scaleX(1);
+        }
+
+        .stat-card-pro:nth-child(2)::after { background: var(--accent-yellow); }
+        .stat-card-pro:nth-child(3)::after { background: var(--secondary-green); }
+        .stat-card-pro:nth-child(4)::after { background: var(--secondary-green); }
+
+        .stat-card-pro:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.1);
+        }
+
+        .stat-card-pro h2 {
+            font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+            color: var(--primary-blue);
+            margin: 0 0 8px 0;
+            font-weight: 850;
+            line-height: 1;
+        }
+
+        .stat-card-pro p {
+            font-size: 0.85rem;
+            color: var(--text-grey);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        @media (max-width: 991px) {
+            .stats-overlay {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 20px;
+                margin-top: -40px;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .stats-overlay {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* --- FANCY SECTION HEADERS --- */
+        .fancy-section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .fancy-section-header.left-aligned {
+            text-align: left;
+        }
+        .fancy-section-subtitle {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-green);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: 3px;
+        }
+        .fancy-section-title {
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- PREMIUM CARD GRIDS --- */
+        .premium-reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        @media (max-width: 768px) {
+            .premium-reports-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        .report-card-premium {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.35s ease;
+            position: relative;
+        }
+        .report-card-premium:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+        .report-icon-container {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background-color: rgba(5, 150, 105, 0.06);
+            color: var(--secondary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            transition: all 0.3s ease;
+        }
+        .report-card-premium:hover .report-icon-container {
+            background-color: var(--secondary-green);
+            color: #ffffff;
+        }
+        .report-card-premium h3 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 10px 0;
+        }
+        .report-card-premium p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- YEAR IN REVIEW / INSIGHT BOXES --- */
+        .insights-section {
+            padding: 100px 0;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 991px) {
+            .insights-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        .insight-box {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            gap: 25px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.35s ease;
+        }
+
+        .insight-box:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(15, 23, 42, 0.04);
+        }
+
+        .insight-icon {
+            width: 65px;
+            height: 65px;
+            background: rgba(15, 31, 63, 0.03);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .insight-box:hover .insight-icon {
+            background: var(--primary-blue);
+            color: #ffffff;
+        }
+
+        .insight-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 12px 0;
+        }
+
+        .insight-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-grey);
+            margin: 0;
+        }
+
+        /* --- SPLIT GRID FOR INITIATIVES --- */
+        .annual-split-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+        }
+        @media (max-width: 991px) {
+            .annual-split-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .annual-split-grid.reverse-on-mobile {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        }
+
+        .initiative-list-item {
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background: rgba(15, 31, 63, 0.02);
+            border-left: 5px solid var(--accent-yellow);
+            border-radius: 0 12px 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: all 0.25s ease;
+        }
+        .initiative-list-item:hover {
+            transform: translateX(4px);
+            background: rgba(15, 23, 42, 0.04);
+        }
+        .initiative-list-item i {
+            color: var(--secondary-green);
+            font-size: 1.15rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        .initiative-list-item div {
+            font-size: 0.96rem;
+            line-height: 1.5;
+            color: var(--primary-blue);
+        }
+
+        /* --- CAMPUS DEVELOPMENT BLOCKS --- */
+        .campus-dev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .campus-dev-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        .campus-dev-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            border-top: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+        }
+        .campus-dev-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.05);
+        }
+        .campus-dev-card.yellow-border { border-top-color: var(--accent-yellow); }
+        .campus-dev-card.green-border { border-top-color: var(--secondary-green); }
+
+        .campus-dev-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        .campus-dev-title i {
+            font-size: 1.35rem;
+            color: var(--primary-blue);
+        }
+        .campus-dev-card.yellow-border .campus-dev-title i { color: var(--accent-yellow); }
+        .campus-dev-card.green-border .campus-dev-title i { color: var(--secondary-green); }
+
+        .campus-dev-title h3 {
+            font-size: 1.22rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0;
+        }
+        .campus-dev-card p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- COMMITMENT MESSAGE --- */
+        .commitment-card {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 60px;
+            box-shadow: 0 12px 40px rgba(15, 31, 63, 0.08);
+            position: relative;
+            z-index: 10;
+            border-left: 6px solid var(--accent-yellow);
+        }
+        @media (max-width: 768px) {
+            .commitment-card {
+                padding: 40px 25px;
+            }
+        }
+        .commitment-card h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 850;
+            color: #ffffff;
+            margin: 0 0 15px 0;
+        }
+        .commitment-card p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+        .commitment-points-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .commitment-point-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .commitment-point-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-yellow);
+        }
+        .commitment-point-item h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            margin: 0 0 6px 0;
+        }
+        .commitment-point-item p {
+            font-size: 0.86rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* --- DOWNLOAD PREVIEW SECTION --- */
+        .download-report-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue), #0b1329);
+            text-align: center;
+            color: white;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .download-card {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            padding: 60px 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        @media (max-width: 550px) {
+            .download-card {
+                padding: 40px 20px;
+            }
+        }
+
+        .download-card h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: #ffffff;
+            font-weight: 850;
+            margin-bottom: 15px;
+        }
+
+        .download-btn-premium {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(220, 170, 10, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-btn-premium:hover {
+            background: #ffffff;
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Modal Styles for Download Disclaimer */
+        .disclaimer-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 31, 63, 0.85);
+            backdrop-filter: blur(6px);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+        .disclaimer-modal-content {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 550px;
+            width: 90%;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            border: 1px solid rgba(15,23,42,0.1);
+            position: relative;
+            text-align: center;
+        }
+        .disclaimer-modal-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            font-size: 1.4rem;
+            color: var(--text-grey);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .disclaimer-modal-close:hover { color: var(--primary-blue); }
+    </style>
+</head>
+<body>
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="center-text">
+                <i class="fas fa-bullhorn"></i>
+                ADMISSIONS OPEN 2026–27 (LIMITED SEATS)
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR -->
+    <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class=""><a href="admissions.html">ADMISSIONS</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🌟 HERO -->
+    <header class="report-hero">
+        <div class="hero-content" data-aos="fade-down">
+            <p>Transparency & Progress</p>
+            <h1>Annual Insights Report</h1>
+        </div>
+    </header>
+
+    <!-- 🌟 STATS OVERLAY -->
+    <div class="stats-overlay">
+        <div class="stat-card-pro" data-aos="fade-up" data-aos-delay="100">
+            <h2>500+</h2>
+            <p>Student Strength</p>
+        </div>
+        <div class="stat-card-pro" data-aos="fade-up" data-aos-delay="200">
+            <h2>95%</h2>
+            <p>Academic Growth</p>
+        </div>
+        <div class="stat-card-pro" data-aos="fade-up" data-aos-delay="300">
+            <h2>20+</h2>
+            <p>Events Conducted</p>
+        </div>
+        <div class="stat-card-pro" data-aos="fade-up" data-aos-delay="400">
+            <h2>100%</h2>
+            <p>Support Focus</p>
+        </div>
+    </div>
+
+    <!-- 🌟 ADDITION: ACADEMIC YEAR HIGHLIGHTS -->
+    <section id="academic-highlights" class="annual-section-padding" style="background: #ffffff;">
+        <div class="annual-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Yearly Milestones</span>
+                <h2 class="fancy-section-title">Academic Year Highlights</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    We stand proud of the milestones reached across standard metrics of institutional, academic, and community progress.
+                </p>
+            </div>
+            
+            <div class="premium-reports-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Card 1 -->
+                <div class="report-card-premium">
+                    <div class="report-icon-container"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Academic Improvement</h3>
+                    <p>Consistent elevation of term score sheets with deep classroom coaching focus, leading to stellar marks improvements across all grades.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="report-card-premium">
+                    <div class="report-icon-container"><i class="fa-solid fa-trophy"></i></div>
+                    <h3>Student Achievements</h3>
+                    <p>State-level science honors, Mysore divisional debate placements, and sports tournament victories highlight our year.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="report-card-premium">
+                    <div class="report-icon-container"><i class="fa-solid fa-masks-theater"></i></div>
+                    <h3>Co-Curricular Participation</h3>
+                    <p>100% enrollment of children across secondary bands in physical sports leagues, dramatic acts, visual arts, and social events.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="report-card-premium">
+                    <div class="report-icon-container"><i class="fa-solid fa-user-check"></i></div>
+                    <h3>Attendance Improvements</h3>
+                    <p>Interactive attendance trackers paired with home support dialogs minimized classroom absences to an absolute low.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="report-card-premium">
+                    <div class="report-icon-container"><i class="fa-solid fa-school"></i></div>
+                    <h3>Classroom Development</h3>
+                    <p>Expanding desk assets, library reading shelves, and safety fences across the campus to support relaxed learning hours.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="report-card-premium">
+                    <div class="report-icon-container"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3>Learning Innovation</h3>
+                    <p>Integrating visual learning modules, interactive board diagrams, and logic puzzles to make studying joyous.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 YEAR IN REVIEW (Enhanced & Meaningful School-Style Summaries) -->
+    <section class="insights-section" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="annual-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Comprehensive Review</span>
+                <h2 class="fancy-section-title">Year in Review</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    A deep-dive review of our core dimensions, highlighting our educational commitment and institutional transparency.
+                </p>
+            </div>
+
+            <div class="insights-grid">
+                <!-- Academic -->
+                <div class="insight-box" data-aos="fade-up">
+                    <div class="insight-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="insight-content">
+                        <h3>Academic Performance</h3>
+                        <p>Our students consistently outperform Mysore educational board benchmarks, obtaining exceptional passing rates with clear progress in Mathematics and Science.</p>
+                    </div>
+                </div>
+
+                <!-- Student Development -->
+                <div class="insight-box" data-aos="fade-up" data-aos-delay="50">
+                    <div class="insight-icon"><i class="fas fa-child"></i></div>
+                    <div class="insight-content">
+                        <h3>Student Development</h3>
+                        <p>We nurture personal growth, active communication habits, leadership training, and critical problem solving inside multi-disciplinary activities.</p>
+                    </div>
+                </div>
+
+                <!-- Infrastructure -->
+                <div class="insight-box" data-aos="fade-up" data-aos-delay="100">
+                    <div class="insight-icon"><i class="fas fa-city"></i></div>
+                    <div class="insight-content">
+                        <h3>Infrastructure Progress</h3>
+                        <p>Successful physical upgrades including advanced library resource expansion, modern science apparatus units, and visual smart board installations.</p>
+                    </div>
+                </div>
+
+                <!-- Teacher Development -->
+                <div class="insight-box" data-aos="fade-up" data-aos-delay="150">
+                    <div class="insight-icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="insight-content">
+                        <h3>Teacher Development</h3>
+                        <p>Mandatory training modules focusing on empathetic classroom speech, interactive modern technologies, child psychology, and updated syllabus trackers.</p>
+                    </div>
+                </div>
+
+                <!-- Parent-School Collaboration -->
+                <div class="insight-box" data-aos="fade-up" data-aos-delay="200">
+                    <div class="insight-icon"><i class="fas fa-handshake"></i></div>
+                    <div class="insight-content">
+                        <h3>Parent-School Collaboration</h3>
+                        <p>Setting frequent Parent-Teacher Association meets, personalized offline review files, and homework tracking systems to coordinate mentoring circles.</p>
+                    </div>
+                </div>
+
+                <!-- Community Outreach -->
+                <div class="insight-box" data-aos="fade-up" data-aos-delay="250">
+                    <div class="insight-icon"><i class="fas fa-hands-helping"></i></div>
+                    <div class="insight-content">
+                        <h3>Community Outreach</h3>
+                        <p>Nurturing active civic values, blood donation support camps, environment cleaning exercises, and food sharing modules with neighboring homes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ADDITION: MAJOR SCHOOL INITIATIVES -->
+    <section id="school-initiatives" class="annual-section-padding" style="background: #ffffff; border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="annual-wide-container">
+            <div class="annual-split-grid reverse-on-mobile">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="assets/classroom.jpeg" alt="Majestic Classroom Initiatives" style="width: 100%; max-width: 550px; object-fit: cover; border-radius: var(--border-radius-lg); box-shadow: 0 10px 40px rgba(15, 23, 42, 0.05); border: 1px solid rgba(15, 23, 42, 0.03); margin: 0 auto; display: block;">
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <div class="fancy-section-header left-aligned" style="margin-bottom: 25px;">
+                        <span class="fancy-section-subtitle">Yearly Improvements</span>
+                        <h2 class="fancy-section-title">Major School Initiatives</h2>
+                    </div>
+                    <p style="color: var(--text-grey); font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">
+                        Key systematic actions implemented this academic session to constantly heighten the quality scale of instruction and security:
+                    </p>
+                    <div class="initiative-list">
+                        <!-- Item 1 -->
+                        <div class="initiative-list-item">
+                           <i class="fas fa-check-circle"></i>
+                           <div>
+                               <strong style="color: var(--primary-blue);">Smart Learning Improvement:</strong><br>
+                               <span>Deploying visual teaching devices, math kits, and interactive logic screens.</span>
+                           </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="initiative-list-item">
+                           <i class="fas fa-check-circle"></i>
+                           <div>
+                               <strong style="color: var(--primary-blue);">Student Discipline Programs:</strong><br>
+                               <span>A highly structured diary check routine, honoring neat conduct, punctuality, and peer politeness.</span>
+                           </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="initiative-list-item">
+                           <i class="fas fa-check-circle"></i>
+                           <div>
+                               <strong style="color: var(--primary-blue);">Parent Engagement Frameworks:</strong><br>
+                               <span>Opening real-time chat links, offline review files, and weekly syllabus update channels.</span>
+                           </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="initiative-list-item">
+                           <i class="fas fa-check-circle"></i>
+                           <div>
+                               <strong style="color: var(--primary-blue);">Safety Reinforcement:</strong><br>
+                               <span>Upgraded perimeter gates, active CCTV monitors, and strict visitor pass systems.</span>
+                           </div>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="initiative-list-item">
+                           <i class="fas fa-check-circle"></i>
+                           <div>
+                               <strong style="color: var(--primary-blue);">Cultural & Sports Growth:</strong><br>
+                               <span>Adding inter-house competition leagues for indoor chess, volleyball, classical drama, and poetry.</span>
+                           </div>
+                        </div>
+                        <!-- Item 6 -->
+                        <div class="initiative-list-item">
+                           <i class="fas fa-check-circle"></i>
+                           <div>
+                               <strong style="color: var(--primary-blue);">Moral & Leadership Development:</strong><br>
+                               <span>Establishing student assemblies, prefect-hosted councils, and social charity actions.</span>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ADDITION: STUDENT & CAMPUS DEVELOPMENT -->
+    <section id="campus-development" class="annual-section-padding" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="annual-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Nurturing Youth</span>
+                <h2 class="fancy-section-title">Student & Campus Development</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    Comprehensive physical and psychological care maps configured to ensure students feel healthy, safe, and academically encouraged.
+                </p>
+            </div>
+            
+            <div class="campus-dev-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Card 1 -->
+                <div class="campus-dev-card">
+                    <div class="campus-dev-title">
+                        <i class="fa-solid fa-dna"></i>
+                        <h3>Holistic Growth</h3>
+                    </div>
+                    <p>Unlocking potential through balanced daily schedules of rigorous reading exercises, physical sports drills, and ethical conversation hours.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="campus-dev-card yellow-border">
+                    <div class="campus-dev-title">
+                        <i class="fa-solid fa-bullhorn"></i>
+                        <h3>Confidence Building</h3>
+                    </div>
+                    <p>Encouraging self-esteem by conducting mandatory weekly stage appearances, public reading sessions, and speech contests.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="campus-dev-card green-border">
+                    <div class="campus-dev-title">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>Leadership Training</h3>
+                    </div>
+                    <p>Providing real school-wide responsibility roles like assembly hosting, library managers, class prefect guides, and safety monitors.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="campus-dev-card green-border">
+                    <div class="campus-dev-title">
+                        <i class="fa-solid fa-user-graduate"></i>
+                        <h3>Academic Mentoring</h3>
+                    </div>
+                    <p>Targeted mentoring strategies, providing customized worksheets and quiet review hours for children needing extra assistance.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="campus-dev-card">
+                    <div class="campus-dev-title">
+                        <i class="fa-solid fa-briefcase-medical"></i>
+                        <h3>Health & Safety</h3>
+                    </div>
+                    <p>Periodic physical health surveys, eye and dental checks, and hygienic water filter controls implemented campus-wide.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="campus-dev-card yellow-border">
+                    <div class="campus-dev-title">
+                        <i class="fa-solid fa-shield"></i>
+                        <h3>Better Learning Environment</h3>
+                    </div>
+                    <p>Spacious, clean classroom arrangements with optimal lighting setup, fresh wall paintings, and neat recreational desks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 ADDITION: MESSAGE OF CONTINUOUS IMPROVEMENT -->
+    <section id="continuous-improvement" class="annual-section-padding" style="background: #ffffff; border-top: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="annual-wide-container">
+            <div class="commitment-card" data-aos="fade-up">
+                <h2>Message of Continuous Improvement</h2>
+                <p>
+                    At Majestic Primary & High School, our vision is not static. We are deeply committed to elevating all indices of academic merit, physical assets, and moral guidance year after year. We consistently plan future expansion goals to secure an elite learning infrastructure for the Mysore community.
+                </p>
+                <div class="commitment-points-grid">
+                    <div class="commitment-point-item">
+                        <h4>Better Education</h4>
+                        <p>Adopting advanced syllabi models, smart assessment software, and modern visual learning tools.</p>
+                    </div>
+                    <div class="commitment-point-item">
+                        <h4>Better Infrastructure</h4>
+                        <p>Expanding the school library space, improving playing courts, and building modern technology laboratories.</p>
+                    </div>
+                    <div class="commitment-point-item">
+                        <h4>Better Student Support</h4>
+                        <p>Offering specialized personal mentoring classes and custom evaluation programs for every child's growth path.</p>
+                    </div>
+                    <div class="commitment-point-item">
+                        <h4>Ethical Values</h4>
+                        <p>Reinforcing classic moral education codes, daily counseling hours, and helpful neighbor programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 DOWNLOAD SECTION -->
+    <section class="download-report-section" data-aos="fade-up">
+        <div class="annual-wide-container">
+            <div class="download-card">
+                <i class="fa-regular fa-file-pdf" style="font-size: 4rem; color: var(--accent-yellow); margin-bottom: 25px; display: block;"></i>
+                <h2>Download Institutional Annual Report</h2>
+                <p style="margin-top: 15px; opacity: 0.9; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+                    For complete physical accounting transparency, future planning details, and operational structures, access the consolidated review.
+                </p>
+                <button onclick="openDisclaimerModal()" class="download-btn-premium" style="border: none;">
+                    <i class="fas fa-cloud-download-alt"></i> Access Analytics Document
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🌟 DOWNLOAD DISCLAIMER MODAL -->
+    <div id="disclaimerModal" class="disclaimer-modal" onclick="closeDisclaimerModalOnBg(event)">
+        <div class="disclaimer-modal-content">
+            <span class="disclaimer-modal-close" onclick="closeDisclaimerModal()">&times;</span>
+            <i class="fa-solid fa-circle-info" style="font-size: 3.5rem; color: var(--accent-yellow); margin-bottom: 20px; display: block;"></i>
+            <h3 style="color: var(--primary-blue); font-size: 1.6rem; font-weight: 800; margin-bottom: 12px;">Institutional Document Archive</h3>
+            <p style="color: var(--text-grey); font-size: 1rem; line-height: 1.6; margin-bottom: 25px;">
+                The consolidated <strong>Annual Insights Report (2025–26)</strong> is currently being formatted for public digital release by the school board. 
+            </p>
+            <p style="color: var(--text-grey); font-size: 0.92rem; line-height: 1.5; margin-bottom: 30px; padding: 15px; background: rgba(15, 31, 63, 0.03); border-radius: 12px; border-left: 4px solid var(--accent-yellow); text-align: left;">
+                <i class="fa-solid fa-location-dot" style="color: var(--accent-yellow); margin-right: 5px;"></i> <strong>Note:</strong> A complete print physical copy of this report is available for personal reading at our main desk (Reception Counter, Majestic Primary & High School, Aziz Sait Road, Mysuru).
+            </p>
+            <button onclick="closeDisclaimerModal()" class="download-btn-premium" style="margin-top: 0; padding: 12px 35px; font-size: 0.95rem; border: none;">Acknowledge & Close</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        function openDisclaimerModal() {
+            document.getElementById('disclaimerModal').style.display = 'flex';
+        }
+        function closeDisclaimerModal() {
+            document.getElementById('disclaimerModal').style.display = 'none';
+        }
+        function closeDisclaimerModalOnBg(e) {
+            if (e.target.id === 'disclaimerModal') {
+                closeDisclaimerModal();
+            }
+        }
+    </script>
+</body>
+</html>
+

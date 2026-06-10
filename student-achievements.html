@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Celebrate student achievements at Majestic Primary and High School, Mysore. Awards, competitions, and recognition of outstanding student performance.">
+    <meta name="keywords" content="student achievements Majestic School Mysore, awards, competitions, student recognition, academic awards">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/student-achievements.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Student Achievements | Majestic Primary and High School, Mysore</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0f1f3f;
+            --secondary-green: #059669;
+            --accent-yellow: #dcaa0a;
+            --text-grey: #475569;
+            --light-bg: #f8fafc;
+            --border-radius-lg: 24px;
+        }
+
+        body {
+            font-family: 'Outfit', 'Poppins', sans-serif;
+            background: #ffffff;
+            color: var(--text-grey);
+            overflow-x: hidden;
+        }
+
+        /* --- WIDE CONTAINER --- */
+        .wide-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 991px) {
+            .wide-container {
+                padding: 0 20px;
+            }
+        }
+
+        /* --- HERO SECTION --- */
+        .achievements-hero {
+            height: 45vh;
+            min-height: 380px;
+            background: linear-gradient(rgba(15, 31, 63, 0.85), rgba(15, 31, 63, 0.95)), url('assets/school_building.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .achievements-hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .achievements-hero p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            letter-spacing: 2.5px;
+            margin-bottom: 12px;
+        }
+
+        /* --- SECTION HEADERS --- */
+        .fancy-section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .fancy-section-subtitle {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-green);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: 3px;
+        }
+        
+        .fancy-section-title {
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- BEYOND ACADEMICS BLOCK --- */
+        .beyond-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .beyond-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .beyond-info h2 {
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 15px;
+            border-left: 5px solid var(--secondary-green);
+        }
+
+        .beyond-info p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-grey);
+            margin-bottom: 20px;
+        }
+
+        .beyond-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .stat-card-premium {
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-green);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.35s ease;
+        }
+
+        .stat-card-premium:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+            border-color: var(--accent-yellow);
+        }
+
+        .stat-card-premium h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat-card-premium p {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--text-grey);
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        @media (max-width: 991px) {
+            .beyond-section {
+                padding: 60px 0;
+            }
+            .beyond-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* --- AREAS OF ACHIEVEMENT (NEW) --- */
+        .areas-section {
+            padding: 100px 0;
+            background: var(--light-bg);
+            border-top: 1px solid rgba(15, 23, 42, 0.05);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .area-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 35px 30px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.35s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .area-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+
+        .area-icon-wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background-color: rgba(5, 150, 105, 0.06);
+            color: var(--secondary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            transition: all 0.3s ease;
+        }
+
+        .area-card:hover .area-icon-wrapper {
+            background-color: var(--secondary-green);
+            color: #ffffff;
+        }
+
+        .area-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 12px 0;
+        }
+
+        .area-card p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 991px) {
+            .areas-section {
+                padding: 60px 0;
+            }
+            .areas-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .areas-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        /* --- HOLISTIC SUCCESS BANNER --- */
+        .holistic-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .holistic-box {
+            background: linear-gradient(rgba(15, 31, 63, 0.95), rgba(15, 31, 63, 0.95)), url('assets/school_building.jpeg') center/cover no-repeat;
+            border-radius: 24px;
+            padding: 60px;
+            color: #ffffff;
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .holistic-box h2 {
+            color: #ffffff;
+            font-size: clamp(1.8rem, 3vw, 2.4rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .holistic-box h2 i {
+            color: var(--accent-yellow);
+        }
+
+        .holistic-box p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
+        }
+
+        .holistic-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .holistic-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .feat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent-yellow);
+            padding: 20px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .feat-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .feat-item h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .feat-item p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.86rem;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 991px) {
+            .holistic-section {
+                padding: 60px 0;
+            }
+            .holistic-box {
+                grid-template-columns: 1fr;
+                padding: 40px 25px;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .holistic-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* --- PROUD MOMENTS --- */
+        .proud-section {
+            padding: 100px 0;
+            background: var(--light-bg);
+            border-top: 1px solid rgba(15, 23, 42, 0.05);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+        }
+
+        .proud-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .proud-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .proud-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(15, 23, 42, 0.08);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+
+        .proud-banner {
+            background: linear-gradient(135deg, var(--primary-blue), #1e3a8a);
+            color: #ffffff;
+            padding: 18px 25px;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .proud-banner span.year {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+
+        .proud-body {
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .proud-body h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 12px 0;
+            line-height: 1.3;
+        }
+
+        .proud-body p {
+            font-size: 0.95rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 991px) {
+            .proud-section {
+                padding: 60px 0;
+            }
+            .proud-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* --- HOW WE NURTURE TALENT --- */
+        .nurture-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .nurture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .nurture-card {
+            background: var(--light-bg);
+            border-radius: 24px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .nurture-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 45px rgba(15, 23, 42, 0.08);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+
+        .nurture-card-top h3 {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 15px 0;
+        }
+
+        .nurture-card-top p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--text-grey);
+            margin: 0;
+        }
+
+        .nurture-footer-num {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary-green);
+            opacity: 0.12;
+            text-align: right;
+            line-height: 1;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 991px) {
+            .nurture-section {
+                padding: 60px 0;
+            }
+            .nurture-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* --- OUR COMMITMENT --- */
+        .commitment-section {
+            padding: 80px 0;
+            background: var(--primary-blue);
+            color: #ffffff;
+            position: relative;
+            text-align: center;
+        }
+
+        .commitment-box {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .commitment-badge {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-yellow);
+            letter-spacing: 2.5px;
+            margin-bottom: 20px;
+        }
+
+        .commitment-box h2 {
+            color: #ffffff;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 800;
+            line-height: 1.3;
+            margin: 0 0 25px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .commitment-box p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0 0 35px 0;
+            font-style: italic;
+        }
+
+        .commitment-btn {
+            display: inline-block;
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(220, 170, 10, 0.3);
+        }
+
+        .commitment-btn:hover {
+            background-color: #ffffff;
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .commitment-section {
+                padding: 60px 20px;
+            }
+            .commitment-box p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ✦ NEWS TICKER -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>✦ ADMISSIONS OPEN 2026–27 (CLASSES 1–9) ✦</span>
+            <span>Shaping Minds for a Better Tomorrow</span>
+            <span>✦ 100% SSLC Results Record ✦</span>
+        </div>
+    </div>
+
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR -->
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class=""><a href="admissions.html">ADMISSIONS</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown active">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🌟 HERO -->
+    <header class="achievements-hero">
+        <div class="hero-content" data-aos="zoom-out">
+            <p>Rising Stars of Mysore</p>
+            <h1>Student Achievements</h1>
+        </div>
+    </header>
+
+    <!-- 🌟 BEYOND ACADEMICS SECTION -->
+    <section class="beyond-section">
+        <div class="wide-container">
+            <div class="beyond-grid">
+                
+                <!-- Info Column -->
+                <div class="beyond-info" data-aos="fade-right">
+                    <h2>Beyond Academics</h2>
+                    <p>At Majestic Primary and High School, we celebrate every single developmental milestone. Our students consistently push scholastic and physical boundaries, showcasing the immense potential they possess under dedicated guidance.</p>
+                    <p>From conquering inter-school English and Kannada debating shields to bringing home medals in athletic meets, we provide the platform for active talent exploration and self-governing growth.</p>
+                    <p>True success comes from a perfect harmony of rigorous academic execution, cultural appreciation, persistent sports practice, and real leadership roles.</p>
+                </div>
+
+                <!-- Stats Grid Column -->
+                <div class="beyond-stats" data-aos="fade-left">
+                    <!-- Stat Card 1 -->
+                    <div class="stat-card-premium">
+                        <h3>450+</h3>
+                        <p>Merit Awards</p>
+                    </div>
+                    <!-- Stat Card 2 -->
+                    <div class="stat-card-premium">
+                        <h3>15+</h3>
+                        <p>Inter-school Shields</p>
+                    </div>
+                    <!-- Stat Card 3 -->
+                    <div class="stat-card-premium">
+                        <h3>35+</h3>
+                        <p>Sports Medals</p>
+                    </div>
+                    <!-- Stat Card 4 -->
+                    <div class="stat-card-premium">
+                        <h3>100%</h3>
+                        <p>Pupil Involvement</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 AREAS OF ACHIEVEMENT SECTION -->
+    <section class="areas-section">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Avenues Of Excellence</span>
+                <h2 class="fancy-section-title">Areas of Student Achievement</h2>
+            </div>
+
+            <div class="areas-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Card 1 -->
+                <div class="area-card">
+                    <div class="area-icon-wrapper"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Academic Laurels</h3>
+                    <p>Consistently securing top ranks in KSEEB Board examinations, district level quiz events, and regional Science fairs with excellent marks.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="area-card">
+                    <div class="area-icon-wrapper"><i class="fa-solid fa-running"></i></div>
+                    <h3>Sports Excellence</h3>
+                    <p>Representing Majestic School in high school athletic tournaments, shuttle badminton, kho-kho, football, and traditional events.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="area-card">
+                    <div class="area-icon-wrapper"><i class="fa-solid fa-comments"></i></div>
+                    <h3>Debate & Communication</h3>
+                    <p>Fostering powerful self-confidence, linguistic clarity, and structured logic in English and local languages declamation matches.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="area-card">
+                    <div class="area-icon-wrapper"><i class="fa-solid fa-masks-theater"></i></div>
+                    <h3>Cultural Performance</h3>
+                    <p>Celebrating classical values through street plays, traditional dance forms, moral skits, and folk musical programs.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="area-card">
+                    <div class="area-icon-wrapper"><i class="fa-solid fa-palette"></i></div>
+                    <h3>Creative Arts</h3>
+                    <p>Discovering artistic expression via fine drawings, complex craft designs, tailoring guilds, and wall-magazine contributions.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="area-card">
+                    <div class="area-icon-wrapper"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Cabinet & Leadership</h3>
+                    <p>Nurturing active governance, peer monitors, school cabinet duties, and civic responsibility to guide school discipline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 PROUD MOMENTS SECTION -->
+    <section class="proud-section">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Excellence Timeline</span>
+                <h2 class="fancy-section-title">Our Proud Moments</h2>
+            </div>
+
+            <div class="proud-grid">
+                <!-- Highlight 1 -->
+                <div class="proud-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="proud-banner">
+                        <span>Academic Excellence</span>
+                        <span class="year">2025–26</span>
+                    </div>
+                    <div class="proud-body">
+                        <h3>KSEEB SSLC Distinctions</h3>
+                        <p>Over 88% of our graduating batch obtained First Classes and Distinctions in the State Boards, maintaining our legendary 100% absolute pass record.</p>
+                    </div>
+                </div>
+
+                <!-- Highlight 2 -->
+                <div class="proud-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="proud-banner">
+                        <span>Inter-School Debate</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="proud-body">
+                        <h3>District Declamation Shield</h3>
+                        <p>Our junior speakers clinched first and second positions at the Annual District-Level Hindi & English Declamation meet held in Mysuru.</p>
+                    </div>
+                </div>
+
+                <!-- Highlight 3 -->
+                <div class="proud-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="proud-banner">
+                        <span>Sports participation</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="proud-body">
+                        <h3>Taluk-Level Athletic Sweep</h3>
+                        <p>Under-16 track squad won the overall runner-up trophy in relay events, capturing 3 clean individual Gold Medals in 100m, high jump, and shot put.</p>
+                    </div>
+                </div>
+
+                <!-- Highlight 4 -->
+                <div class="proud-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="proud-banner">
+                        <span>Community Service</span>
+                        <span class="year">2025</span>
+                    </div>
+                    <div class="proud-body">
+                        <h3>Active Civic Leadership Citation</h3>
+                        <p>Our student council was honored by local authorities for executing Mysuru's cleanest and most systematic health-awareness canvas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 HOLISTIC SUCCESS SECTION -->
+    <section class="holistic-section">
+        <div class="wide-container">
+            <div class="holistic-box" data-aos="fade-up">
+                <div>
+                    <h2><i class="fas fa-star"></i> Holistic Success</h2>
+                    <p>At Majestic Primary and High School, we strongly believe that high metrics and grades represent only a tiny portion of true maturity. Solid achievement lives in positive habits, team collaboration, character, and mental clarity.</p>
+                    <p>Every single competition, assignment, and co-curricular hours are carefully engineered to build positive self-esteem and responsible life actions.</p>
+                </div>
+
+                <!-- Features Side -->
+                <div class="holistic-features">
+                    <!-- Item 1 -->
+                    <div class="feat-item">
+                        <h4>Individuality & Confidence</h4>
+                        <p>Teaching students to project speech and personality with extreme self-reliance.</p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="feat-item">
+                        <h4>Empathetic Teamwork</h4>
+                        <p>Encouraging positive peer interaction, cooperative study groups, and team plays.</p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="feat-item">
+                        <h4>Uncompromising Integrity</h4>
+                        <p>Ensuring school rules translate into lifelong moral discipline and professional honor.</p>
+                    </div>
+                    <!-- Item 4 -->
+                    <div class="feat-item">
+                        <h4>Responsibility & Care</h4>
+                        <p>Structuring clean civic duty models, local care, and environment guidelines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 HOW WE NURTURE TALENT SECTION -->
+    <section class="nurture-section">
+        <div class="wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Our Methodology</span>
+                <h2 class="fancy-section-title">How We Nurture Talent</h2>
+            </div>
+
+            <div class="nurture-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Column 1 -->
+                <div class="nurture-card">
+                    <div class="nurture-card-top">
+                        <h3>Diagnostic Mentoring</h3>
+                        <p>Qualified teachers evaluate students' personal talents and learning speeds, offering customized workloads and worksheets to expand hidden potentials.</p>
+                    </div>
+                    <div class="nurture-footer-num">01</div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="nurture-card">
+                    <div class="nurture-card-top">
+                        <h3>Co-Curricular Exposure</h3>
+                        <p>Integrating diverse weekly clubs, science labs, play hours, speech drills, and moral values training directly into mainstream schedules.</p>
+                    </div>
+                    <div class="nurture-footer-num">02</div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="nurture-card">
+                    <div class="nurture-card-top">
+                        <h3>Recognition Culture</h3>
+                        <p>Recognizing small efforts in assemblies, rewarding medals, publishing star achievements, and granting scholarships to maintain top motivation.</p>
+                    </div>
+                    <div class="nurture-footer-num">03</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 COMMITMENT TO EVERY STUDENT SECTION -->
+    <section class="commitment-section">
+        <div class="wide-container">
+            <div class="commitment-box" data-aos="zoom-in">
+                <span class="commitment-badge">Our Guiding Promise</span>
+                <h2>Our Commitment to Every Student</h2>
+                <p>"Every child carries a unique light. Some shine in academic clarity, some on coordinates of sports grounds, some on creative canvases, and others through administrative leadership. Majestic School ensures no light remains hidden."</p>
+                <a href="guiding-philosophy.html" class="commitment-btn">Learn Our Guiding Philosophy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="wide-container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+
+</html>

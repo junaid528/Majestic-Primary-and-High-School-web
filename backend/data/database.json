@@ -1,0 +1,294 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Super Admin",
+      "email": "majestichps@gmail.com",
+      "mobileNumber": "7892053860",
+      "password": "$2a$10$P4sUbo1rTevPc4A0SBKKFelenXfW4anGi/MlGopI7.E.xVuXBqWcW",
+      "role": "Super Admin",
+      "created_at": "2026-05-29T16:28:00.967Z"
+    },
+    {
+      "id": 2,
+      "name": "Test Student",
+      "email": "student_test@example.com",
+      "mobile_number": "1234567890",
+      "password": "$2a$10$bfvDZdU8YqGZ7WsQ6otNTO7O7TpSm58lUEZMEWBbr/QVKnyONXspO",
+      "role": "Student",
+      "created_at": "2026-05-29T16:28:02.702Z"
+    },
+    {
+      "id": 3,
+      "name": "Jane Doe",
+      "email": "janedoe@example.com",
+      "mobile_number": "9876543210",
+      "password": "$2a$10$4Lh8vMPl.fcv6yDsMOL0X.rMZYSUhtubHf2WgLUD94nhgxOJRUBde",
+      "role": "Student",
+      "created_at": "2026-05-30T12:41:52.194Z"
+    },
+    {
+      "id": 4,
+      "name": "Mohammed Junaid Khan",
+      "email": "junaid@gmail.com",
+      "mobile_number": "9916413594",
+      "password": "$2a$10$eDCFYCqGGBHozoXeV559qu/LkYQkMS9Owv/zAnWqwymN7ISFhgRVy",
+      "role": "Student",
+      "created_at": "2026-06-04T19:21:41.657Z"
+    }
+  ],
+  "students": [],
+  "admissions": [
+    {
+      "id": 1,
+      "student_name": "Aadhavan Kumar",
+      "parent_name": "Kumaran Selvaraj",
+      "mobile": "9845123456",
+      "email": "aadhavan.kumar@gmail.com",
+      "class_applied": "PRE-KG",
+      "address": "42, Sunset Boulevard, Mysuru",
+      "previous_school": "Greenwood Kindergarten",
+      "remarks": "Sports enthusiast, loves painting.",
+      "status": "Pending",
+      "student_photo": "/uploads/photos/1780158092099-462915913-aadhavan_profile.png",
+      "aadhaar": "/uploads/aadhaar/1780158092100-667594465-aadhavan_aadhaar.pdf",
+      "transfer_certificate": "/uploads/tc/1780158092100-746426748-aadhavan_tc.pdf",
+      "marks_card": "/uploads/marks/1780158092100-421367704-aadhavan_marks_card.jpg",
+      "created_at": "2026-05-30T16:21:32.103Z"
+    },
+    {
+      "id": 2,
+      "student_name": "Aadhavan Kumar",
+      "parent_name": "Kumaran Selvaraj",
+      "mobile": "9845123456",
+      "email": "aadhavan.kumar@gmail.com",
+      "class_applied": "PRE-KG",
+      "address": "42, Sunset Boulevard, Mysuru",
+      "previous_school": "Greenwood Kindergarten",
+      "remarks": "Sports enthusiast, loves painting.",
+      "status": "Pending",
+      "student_photo": "/uploads/photos/1780158114232-499767145-aadhavan_profile.png",
+      "aadhaar": "/uploads/aadhaar/1780158114232-967203962-aadhavan_aadhaar.pdf",
+      "transfer_certificate": "/uploads/tc/1780158114232-600329884-aadhavan_tc.pdf",
+      "marks_card": "/uploads/marks/1780158114232-894356077-aadhavan_marks_card.jpg",
+      "created_at": "2026-05-30T16:21:54.234Z"
+    },
+    {
+      "id": 3,
+      "student_name": "Aadhavan Kumar",
+      "parent_name": "Kumaran Selvaraj",
+      "mobile": "9845123456",
+      "email": "aadhavan.kumar@gmail.com",
+      "class_applied": "PRE-KG",
+      "address": "42, Sunset Boulevard, Mysuru",
+      "previous_school": "Greenwood Kindergarten",
+      "remarks": "Sports enthusiast, loves painting.",
+      "status": "Pending",
+      "student_photo": "/uploads/photos/1780158151173-300425898-aadhavan_profile.png",
+      "aadhaar": "/uploads/aadhaar/1780158151174-347767782-aadhavan_aadhaar.pdf",
+      "transfer_certificate": "/uploads/tc/1780158151174-731328807-aadhavan_tc.pdf",
+      "marks_card": "/uploads/marks/1780158151174-587389643-aadhavan_marks_card.jpg",
+      "created_at": "2026-05-30T16:22:31.178Z"
+    },
+    {
+      "id": 4,
+      "student_name": "Aadhavan Kumar",
+      "parent_name": "Kumaran Selvaraj",
+      "mobile": "9845123456",
+      "email": "aadhavan.kumar@gmail.com",
+      "class_applied": "PRE-KG",
+      "address": "42, Sunset Boulevard, Mysuru",
+      "previous_school": "Greenwood Kindergarten",
+      "remarks": "Sports enthusiast, loves painting.",
+      "status": "Pending",
+      "student_photo": "/uploads/photos/1780158211033-358789926-aadhavan_profile.png",
+      "aadhaar": "/uploads/aadhaar/1780158211034-960999137-aadhavan_aadhaar.pdf",
+      "transfer_certificate": "/uploads/tc/1780158211034-479982119-aadhavan_tc.pdf",
+      "marks_card": "/uploads/marks/1780158211034-620716699-aadhavan_marks_card.jpg",
+      "created_at": "2026-05-30T16:23:31.038Z"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "subject": "Test Subject",
+      "message": "Hello, this is a test inquiry message.",
+      "is_read": false,
+      "reply_message": null,
+      "created_at": "2026-05-29T16:28:02.591Z"
+    },
+    {
+      "id": 2,
+      "name": "Praneetha Hegde",
+      "email": "praneetha.hegde@outlook.com",
+      "subject": "Enquiry of Nursery Transport Routes",
+      "message": "Hello, please let us know if there is a bus available near Kuvempunagar for early batch nursery.",
+      "is_read": false,
+      "reply_message": null,
+      "created_at": "2026-05-30T16:21:32.119Z"
+    },
+    {
+      "id": 3,
+      "name": "Praneetha Hegde",
+      "email": "praneetha.hegde@outlook.com",
+      "subject": "Enquiry of Nursery Transport Routes",
+      "message": "Hello, please let us know if there is a bus available near Kuvempunagar for early batch nursery.",
+      "is_read": false,
+      "reply_message": null,
+      "created_at": "2026-05-30T16:21:54.242Z"
+    },
+    {
+      "id": 4,
+      "name": "Praneetha Hegde",
+      "email": "praneetha.hegde@outlook.com",
+      "subject": "Enquiry of Nursery Transport Routes",
+      "message": "Hello, please let us know if there is a bus available near Kuvempunagar for early batch nursery.",
+      "is_read": false,
+      "reply_message": null,
+      "created_at": "2026-05-30T16:22:31.191Z"
+    },
+    {
+      "id": 5,
+      "name": "Praneetha Hegde",
+      "email": "praneetha.hegde@outlook.com",
+      "subject": "Enquiry of Nursery Transport Routes",
+      "message": "Hello, please let us know if there is a bus available near Kuvempunagar for early batch nursery.",
+      "is_read": false,
+      "reply_message": null,
+      "created_at": "2026-05-30T16:23:31.050Z"
+    },
+    {
+      "id": 6,
+      "name": "Junaid",
+      "email": "junaid@gmail.com",
+      "subject": "admission",
+      "message": "more time is",
+      "is_read": false,
+      "reply_message": null,
+      "created_at": "2026-06-04T19:23:07.928Z"
+    }
+  ],
+  "announcements": [
+    {
+      "id": 1,
+      "title": "Admissions Open for Academic Year 2026-27",
+      "description": "Online registration and prospectus kits are available for Nursery to Class IX intake cycles.",
+      "category": "Admissions",
+      "created_at": "2026-05-29T16:28:00.967Z"
+    },
+    {
+      "id": 2,
+      "title": "SSLC 100% Results Celebration",
+      "description": "Congratulations to our outstanding students and educators for securing 100% passes with highest score 599/625.",
+      "category": "Academic",
+      "created_at": "2026-05-29T16:28:00.967Z"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Annual Sports Meet 2026",
+      "date": "2026-06-15",
+      "location": "Main School Grounds",
+      "description": "Inter-house athletic meets and award ceremonies to foster sportsmanship.",
+      "created_at": "2026-05-29T16:28:00.967Z"
+    }
+  ],
+  "uploads": [],
+  "admin_logs": [],
+  "notifications": [
+    {
+      "id": 1,
+      "type": "NEW_MESSAGE",
+      "message": "New inquiry message received from John Doe of subject: \"Test Subject\"",
+      "is_read": false,
+      "created_at": "2026-05-29T16:28:02.591Z"
+    },
+    {
+      "id": 2,
+      "type": "USER_REGISTERED",
+      "message": "New Student/Parent account registered: Test Student (student_test@example.com)",
+      "is_read": false,
+      "created_at": "2026-05-29T16:28:02.703Z"
+    },
+    {
+      "id": 3,
+      "type": "USER_REGISTERED",
+      "message": "New Student/Parent account registered: Jane Doe (janedoe@example.com)",
+      "is_read": false,
+      "created_at": "2026-05-30T12:41:52.195Z"
+    },
+    {
+      "id": 4,
+      "type": "NEW_ADMISSION",
+      "message": "New Admissions Application: Aadhavan Kumar applied for PRE-KG",
+      "is_read": false,
+      "created_at": "2026-05-30T16:21:32.104Z"
+    },
+    {
+      "id": 5,
+      "type": "NEW_MESSAGE",
+      "message": "New inquiry message received from Praneetha Hegde of subject: \"Enquiry of Nursery Transport Routes\"",
+      "is_read": false,
+      "created_at": "2026-05-30T16:21:32.120Z"
+    },
+    {
+      "id": 6,
+      "type": "NEW_ADMISSION",
+      "message": "New Admissions Application: Aadhavan Kumar applied for PRE-KG",
+      "is_read": false,
+      "created_at": "2026-05-30T16:21:54.234Z"
+    },
+    {
+      "id": 7,
+      "type": "NEW_MESSAGE",
+      "message": "New inquiry message received from Praneetha Hegde of subject: \"Enquiry of Nursery Transport Routes\"",
+      "is_read": false,
+      "created_at": "2026-05-30T16:21:54.243Z"
+    },
+    {
+      "id": 8,
+      "type": "NEW_ADMISSION",
+      "message": "New Admissions Application: Aadhavan Kumar applied for PRE-KG",
+      "is_read": false,
+      "created_at": "2026-05-30T16:22:31.179Z"
+    },
+    {
+      "id": 9,
+      "type": "NEW_MESSAGE",
+      "message": "New inquiry message received from Praneetha Hegde of subject: \"Enquiry of Nursery Transport Routes\"",
+      "is_read": false,
+      "created_at": "2026-05-30T16:22:31.191Z"
+    },
+    {
+      "id": 10,
+      "type": "NEW_ADMISSION",
+      "message": "New Admissions Application: Aadhavan Kumar applied for PRE-KG",
+      "is_read": false,
+      "created_at": "2026-05-30T16:23:31.038Z"
+    },
+    {
+      "id": 11,
+      "type": "NEW_MESSAGE",
+      "message": "New inquiry message received from Praneetha Hegde of subject: \"Enquiry of Nursery Transport Routes\"",
+      "is_read": false,
+      "created_at": "2026-05-30T16:23:31.050Z"
+    },
+    {
+      "id": 12,
+      "type": "USER_REGISTERED",
+      "message": "New Student/Parent account registered: Mohammed Junaid Khan (junaid@gmail.com)",
+      "is_read": false,
+      "created_at": "2026-06-04T19:21:41.674Z"
+    },
+    {
+      "id": 13,
+      "type": "NEW_MESSAGE",
+      "message": "New inquiry message received from Junaid of subject: \"admission\"",
+      "is_read": false,
+      "created_at": "2026-06-04T19:23:07.933Z"
+    }
+  ]
+}

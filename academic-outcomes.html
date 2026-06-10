@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore academic outcomes, performance statistics, and student development records at Majestic Primary and High School, Mysore. Track record of board exam success and holistic education.">
+    <meta name="keywords" content="academic outcomes Majestic School Mysore, exam results, board performance, student achievements, academic excellence, SSLC Mysore results">
+    <meta name="author" content="Majestic Primary and High School">
+    <link rel="canonical" href="https://www.majesticschoolmysore.com/academic-outcomes.html">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <title>Academic Outcomes & Performance | Majestic Primary and High School</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #0f1f3f;
+            --secondary-green: #059669;
+            --accent-yellow: #dcaa0a;
+            --text-grey: #475569;
+            --light-bg: #f8fafc;
+            --edu-blue: #0f1f3f;
+            --edu-gold: #dcaa0a;
+            --edu-green: #059669;
+            --edu-bg: #f8fafc;
+            --border-radius-lg: 24px;
+        }
+
+        body {
+            font-family: 'Outfit', 'Poppins', sans-serif;
+            background: var(--edu-bg);
+            color: var(--text-grey);
+            overflow-x: hidden;
+        }
+
+        /* --- WIDE CONTAINER --- */
+        .outcomes-wide-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 991px) {
+            .outcomes-wide-container {
+                padding: 0 20px;
+            }
+        }
+
+        /* --- SECTION STRUCTURES --- */
+        .outcomes-section-padding {
+            padding: 100px 0;
+        }
+        @media (max-width: 768px) {
+            .outcomes-section-padding {
+                padding: 60px 0;
+            }
+        }
+
+        /* --- OUTCOMES HERO --- */
+        .outcomes-hero {
+            height: 45vh;
+            min-height: 380px;
+            background: linear-gradient(rgba(15, 31, 63, 0.9), rgba(15, 31, 63, 0.95)), url('assets/school_building.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .outcomes-hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .outcomes-hero p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            letter-spacing: 2.5px;
+            margin-bottom: 12px;
+        }
+
+        /* --- FANCY SECTION HEADERS --- */
+        .fancy-section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .fancy-section-header.left-aligned {
+            text-align: left;
+        }
+        .fancy-section-subtitle {
+            display: inline-block;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-green);
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            border-bottom: 2px solid var(--accent-yellow);
+            padding-bottom: 3px;
+        }
+        .fancy-section-title {
+            font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- STUFF ABOUT STATS --- */
+        .stats-grid-premium {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+        @media (max-width: 991px) {
+            .stats-grid-premium {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+        @media (max-width: 600px) {
+            .stats-grid-premium {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        .stat-card-premium {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.35s ease;
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+        .stat-card-premium:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+        .stat-val {
+            font-size: clamp(2.5rem, 4vw, 3.2rem);
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        .stat-card-premium:hover .stat-val {
+            color: var(--secondary-green);
+        }
+        .stat-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--secondary-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .stat-card-premium:hover .stat-title {
+            color: var(--primary-blue);
+        }
+        .stat-desc {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* --- PREMIUM GRID FOR HIGHLIGHTS & BEYOND --- */
+        .premium-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        @media (max-width: 768px) {
+            .premium-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        .card-premium-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 35px 30px;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            transition: all 0.35s ease;
+            position: relative;
+        }
+        .card-premium-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.06);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+        .card-icon-wrapper {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background-color: rgba(5, 150, 105, 0.06);
+            color: var(--secondary-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+            transition: all 0.3s ease;
+        }
+        .card-premium-box:hover .card-icon-wrapper {
+            background-color: var(--secondary-green);
+            color: #ffffff;
+        }
+        .card-premium-box h3 {
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 12px 0;
+        }
+        .card-premium-box p {
+            font-size: 0.92rem;
+            color: var(--text-grey);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- GROWTH SPLIT SECTION --- */
+        .growth-split-layout {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .growth-visual {
+            background: linear-gradient(135deg, var(--primary-blue), #0b1329);
+            border-radius: 24px;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
+        }
+
+        .growth-visual::after {
+            content: 'MEASURED \A PROGRESS \A OUTCOMES';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2.2rem;
+            font-weight: 850;
+            text-align: center;
+            white-space: pre-wrap;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            opacity: 0.95;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .growth-visual i {
+            font-size: 15rem;
+            opacity: 0.04;
+            color: white;
+            position: absolute;
+        }
+
+        @media (max-width: 991px) {
+            .growth-split-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .growth-visual {
+                height: 280px;
+            }
+            .growth-visual::after {
+                font-size: 1.8rem;
+            }
+        }
+
+        .growth-list {
+            margin-top: 30px;
+            padding: 0;
+        }
+
+        .growth-list li {
+            list-style: none;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            font-size: 12.8px;
+            font-size: 0.98rem;
+            color: var(--text-grey);
+            line-height: 1.6;
+        }
+
+        .growth-list i {
+            color: var(--secondary-green);
+            font-size: 1.25rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        /* --- STACKED STAGES --- */
+        .stage-stack {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        @media (max-width: 991px) {
+            .stage-stack {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        .stage-box {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid rgba(15, 23, 42, 0.04);
+            box-shadow: 0 5px 25px rgba(15, 23, 42, 0.01);
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+        .stage-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+            border-color: rgba(5, 150, 105, 0.15);
+        }
+        .stage-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: rgba(15, 31, 63, 0.04);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        .stage-box:hover .stage-icon {
+            background: var(--primary-blue);
+            color: #ffffff;
+        }
+        .stage-details h4 {
+            font-size: 1.15rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            margin: 0 0 6px 0;
+        }
+        .stage-details p {
+            font-size: 0.9rem;
+            color: var(--text-grey);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* --- FUTURE LEARNING COMMITMENT --- */
+        .future-commitment-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-blue), #0b1329);
+            text-align: center;
+            color: white;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .commitment-box-premium {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            padding: 60px 45px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        @media (max-width: 550px) {
+            .commitment-box-premium {
+                padding: 40px 20px;
+            }
+        }
+        .commitment-box-premium h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: #ffffff;
+            font-weight: 855;
+            margin: 0 0 20px 0;
+            letter-spacing: -0.5px;
+        }
+        .commitment-quote {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: var(--accent-yellow);
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+        .commitment-box-premium p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+        .btn-commitment-premium {
+            background: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 18px 45px;
+            border-radius: 50px;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(220, 170, 10, 0.3);
+            border: none;
+        }
+        .btn-commitment-premium:hover {
+            background: #ffffff;
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- SSLC SHOWCASE SECTION --- */
+        .sslc-showcase-sec {
+            background: radial-gradient(circle at top right, #132247 0%, #081125 100%);
+            padding: 90px 0 80px 0;
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--accent-yellow);
+        }
+
+        /* Ambient elements */
+        .sslc-showcase-sec::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(220, 170, 10, 0.08) 0%, rgba(220, 170, 10, 0) 70%);
+            pointer-events: none;
+        }
+
+        .sslc-showcase-sec::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            right: -10%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(5, 150, 105, 0.08) 0%, rgba(5, 150, 105, 0) 70%);
+            pointer-events: none;
+        }
+
+        .glow-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(220, 170, 10, 0.05) 0%, rgba(220, 170, 10, 0) 75%);
+            filter: blur(20px);
+            pointer-events: none;
+        }
+
+        .sslc-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 55px auto;
+        }
+
+        .sslc-subtitle {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--accent-yellow);
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            background: rgba(220, 170, 10, 0.15);
+            padding: 6px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(220, 170, 10, 0.25);
+            text-shadow: 0 0 10px rgba(220, 170, 10, 0.2);
+        }
+
+        .sslc-title {
+            font-size: clamp(2rem, 3.8vw, 2.8rem);
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 18px 0;
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+            text-transform: uppercase;
+        }
+
+        .sslc-desc {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Modern split layout */
+        .sslc-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 50px;
+            align-items: stretch;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 991px) {
+            .sslc-split-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* Left Side: Animated Display */
+        .sslc-left-display {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            padding: 50px 40px;
+            backdrop-filter: blur(12px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01), 
+                        0 15px 35px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .sslc-left-display:hover {
+            border-color: rgba(220, 170, 10, 0.3);
+            box-shadow: inset 0 0 30px rgba(220, 170, 10, 0.03), 
+                        0 20px 45px rgba(220, 170, 10, 0.12);
+            transform: translateY(-5px);
+        }
+
+        /* Golden Trophy */
+        .sslc-trophy-container {
+            position: relative;
+            margin-bottom: 25px;
+            animation: pulse-gold 3s infinite alternate ease-in-out;
+        }
+
+        .trophy-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 110px;
+            height: 110px;
+            background: radial-gradient(circle, rgba(220, 170, 10, 0.25) 0%, rgba(220, 170, 10, 0) 70%);
+            border-radius: 50%;
+            filter: blur(5px);
+            z-index: 1;
+        }
+
+        .sslc-trophy-icon {
+            font-size: 4.5rem;
+            color: #dcaa0a;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 0 20px rgba(220, 170, 10, 0.4);
+        }
+
+        /* Success badge */
+        .sslc-pass-badge {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 50px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(5, 150, 105, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Massive 100% Counter styles */
+        .sslc-counter-digits {
+            font-size: clamp(4.5rem, 8vw, 6.5rem);
+            font-weight: 800;
+            line-height: 0.95;
+            background: linear-gradient(135deg, #ffffff 30%, #fef08a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .sslc-counter-label {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-transform: uppercase;
+            margin-top: 5px;
+            letter-spacing: 1.5px;
+        }
+
+        .sslc-counter-caption {
+            font-size: 0.95rem;
+            color: #94a3b8;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* Right Side: Premium Spotlight */
+        .sslc-right-card {
+            background: linear-gradient(135deg, rgba(15, 31, 63, 0.45) 0%, rgba(11, 22, 45, 0.65) 100%);
+            border: 1px solid rgba(220, 170, 10, 0.18);
+            border-radius: 24px;
+            padding: 50px;
+            backdrop-filter: blur(12px);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.3),
+                        inset 0 0 30px rgba(220, 170, 10, 0.02);
+            transition: all 0.4s ease;
+        }
+
+        .sslc-right-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, rgba(220, 170, 10, 0.1) 0%, rgba(220, 170, 10, 0) 60%);
+            border-top-right-radius: 24px;
+            pointer-events: none;
+        }
+
+        .sslc-right-card:hover {
+            border-color: rgba(220, 170, 10, 0.4);
+            box-shadow: 0 25px 50px rgba(220, 170, 10, 0.15),
+                        inset 0 0 40px rgba(220, 170, 10, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .sslc-right-card h4 {
+            color: var(--accent-yellow);
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Large Score Highlight styling */
+        .sslc-score-box {
+            display: inline-flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(220, 170, 10, 0.3);
+            border-radius: 16px;
+            padding: 20px 30px;
+            margin: 10px 0 25px 0;
+            max-width: max-content;
+            transition: all 0.3s ease;
+        }
+
+        .sslc-right-card:hover .sslc-score-box {
+            background: rgba(220, 170, 10, 0.05);
+            border-style: solid;
+            border-color: rgba(220, 170, 10, 0.5);
+            transform: scale(1.02);
+        }
+
+        .sslc-score-digits {
+            font-size: clamp(3rem, 5vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1;
+            color: #ffffff;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            align-items: baseline;
+            gap: 5px;
+        }
+
+        .sslc-score-digits span.gold {
+            color: var(--accent-yellow);
+            text-shadow: 0 0 15px rgba(220, 170, 10, 0.3);
+        }
+
+        .sslc-score-digits span.slash {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 2.2rem;
+            font-weight: 400;
+        }
+
+        .sslc-score-digits span.total {
+            color: #94a3b8;
+            font-size: 1.8rem;
+        }
+
+        .sslc-score-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 5px;
+        }
+
+        .sslc-score-text {
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* Achievement Strip Styles */
+        .sslc-strip-container {
+            margin-top: 50px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .sslc-strip {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: linear-gradient(90deg, rgba(15, 31, 63, 0.85) 0%, rgba(220, 170, 10, 0.18) 50%, rgba(15, 31, 63, 0.85) 100%);
+            border: 1px solid rgba(220, 170, 10, 0.25);
+            border-radius: 100px;
+            padding: 20px 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+        }
+
+        .sslc-strip:hover {
+            border-color: rgba(220, 170, 10, 0.4);
+            box-shadow: 0 15px 40px rgba(220, 170, 10, 0.12);
+        }
+
+        .sslc-strip-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: #ffffff;
+            font-size: 0.92rem;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s ease;
+        }
+
+        .sslc-strip-item:hover {
+            transform: scale(1.05);
+        }
+
+        .sslc-strip-item i {
+            font-size: 1.2rem;
+            color: var(--accent-yellow);
+            text-shadow: 0 0 8px rgba(220, 170, 10, 0.5);
+        }
+
+        /* Keyframes */
+        @keyframes pulse-gold {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.04);
+            }
+        }
+
+        /* Responsive strip and general layouts */
+        @media (max-width: 991px) {
+            .sslc-strip {
+                border-radius: 20px;
+                padding: 25px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .sslc-right-card {
+                padding: 40px 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sslc-strip {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 20px;
+            }
+            .sslc-left-display {
+                padding: 40px 20px;
+            }
+            .sslc-right-card {
+                padding: 35px 20px;
+            }
+            .sslc-showcase-sec {
+                padding: 70px 0 50px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ✦ NEWS TICKER -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>✦ ADMISSIONS OPEN 2026–27 (CLASSES 1–9) ✦</span>
+            <span>Shaping Minds for a Better Tomorrow</span>
+            <span>✦ 100% SSLC Results Record ✦</span>
+        </div>
+    </div>
+
+    <!-- 🌟 TOP INFO BAR -->
+    <div class="top-info-bar">
+        <div class="top-info-container">
+            <div class="top-info-left">
+                <a href="tel:+917892053860" id="top-phone-link" title="Call Majestic School">
+                    <i class="fas fa-phone"></i>
+                </a>
+                <a href="mailto:majestichps@gmail.com" id="top-email-link" title="Email Majestic School">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+
+            <div class="top-info-right">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✦ SCHOOL BRANDING STRIP -->
+    <div class="school-branding-strip">
+        <div class="branding-container">
+            <div class="branding-text">
+                <h1 class="branding-title">MAJESTIC PRIMARY & HIGH SCHOOL</h1>
+                <p class="branding-subtitle">Shaping Minds for a Better Tomorrow</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🌟 MAIN NAVBAR -->
+    <nav class="main-navbar">
+        <div class="nav-container">
+            <!-- MOBILE LOGO -->
+            <div class="mobile-logo">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo" style="height: 44px; width: auto; object-fit: contain;">
+                </a>
+            </div>
+
+            <!-- LEFT MENU -->
+            <ul class="nav-left">
+                <li class=""><a href="index.html">HOME</a></li>
+                <li class="dropdown">
+                    <a href="about.html">ABOUT <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about.html">About the Institution</a></li>
+                        <li><a href="vision-values.html">Vision & Core Values</a></li>
+                        <li><a href="guiding-philosophy.html">Guiding Philosophy</a></li>
+                        <li><a href="annual-report.html">Annual Insights Report</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="chairman.html">CHAIRMAN</a></li>
+                <li class="dropdown">
+                    <a href="#">GENERAL INFO <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="school-timings.html">School Timings</a></li>
+                        <li><a href="parent-guidelines.html">Parent Guidelines</a></li>
+                        <li><a href="student-guidelines.html">Student Guidelines</a></li>
+                        <li><a href="safety-security.html">Safety & Security</a></li>
+                        <li><a href="handbook-downloads.html">School Handbook / Downloads</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- CENTER LOGO -->
+            <div class="logo-center">
+                <a href="index.html">
+                    <img src="assets/logo.png" alt="Majestic School Logo">
+                </a>
+            </div>
+
+            <!-- RIGHT MENU -->
+            <ul class="nav-right">
+                <li class=""><a href="admissions.html">ADMISSIONS</a></li>
+                <li class="dropdown">
+                    <a href="academics.html">ACADEMICS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academics.html">Academic Programs</a></li>
+                        <li><a href="faculty-mentors.html">Faculty & Mentors</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="achievements.html">ACHIEVEMENTS <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="academic-outcomes.html">Academic Outcomes</a></li>
+                        <li><a href="student-achievements.html">Student Achievements</a></li>
+                        <li><a href="excellence-gallery.html">Excellence Gallery</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="contact.html">CONTACT</a></li>
+                <li><a href="login.html" class="login-btn">LOGIN</a></li>
+            </ul>
+
+            <!-- HAMBURGER -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 🌟 HERO -->
+    <header class="outcomes-hero">
+        <div class="hero-content" data-aos="zoom-out">
+            <p>Track Record of Excellence</p>
+            <h1>Academic Outcomes</h1>
+        </div>
+    </header>
+
+    <!-- 🌟 SSLC EXCELLENCE SHOWCASE (PREMIUM SPLIT & OUTCOMES showcase) -->
+    <section class="sslc-showcase-sec" id="sslc-showcase">
+        <div class="glow-circle"></div>
+        <div class="outcomes-wide-container">
+            <!-- Section Header -->
+            <div class="sslc-header" data-aos="fade-up">
+                <span class="sslc-subtitle">ACADEMIC EXCELLENCE</span>
+                <h2 class="sslc-title">100% SSLC RESULTS – A LEGACY OF SUCCESS</h2>
+                <p class="sslc-desc">
+                    Majestic Primary & High School proudly maintains a consistent 100% SSLC Results record, reflecting our unwavering commitment to academic excellence, disciplined learning, and student success.
+                </p>
+            </div>
+
+            <!-- Modern Split Layout -->
+            <div class="sslc-split-layout">
+                <!-- Left Side: Interactive Progress & Record -->
+                <div class="sslc-left-display" data-aos="fade-right" data-aos-delay="100">
+                    <div class="sslc-trophy-container">
+                        <div class="trophy-glow"></div>
+                        <i class="fa-solid fa-trophy sslc-trophy-icon"></i>
+                    </div>
+                    <div class="sslc-pass-badge">
+                        <i class="fa-solid fa-ribbon"></i> Board Record
+                    </div>
+                    <div class="sslc-counter-digits" id="sslc-pass-counter">100%</div>
+                    <div class="sslc-counter-label">SSLC PASS RESULTS</div>
+                    <p class="sslc-counter-caption">Consistent Academic Excellence Year After Year</p>
+                </div>
+
+                <!-- Right Side: Spotlight Card -->
+                <div class="sslc-right-card" data-aos="fade-left" data-aos-delay="200">
+                    <div>
+                        <h4><i class="fa-solid fa-medal"></i> Top Academic Achievement – 2026</h4>
+                        <div class="sslc-score-box">
+                            <div class="sslc-score-digits">
+                                <span class="gold">599</span>
+                                <span class="slash">/</span>
+                                <span class="total">625</span>
+                            </div>
+                            <div class="sslc-score-title">Student Performance Excellence</div>
+                        </div>
+                        <p class="sslc-score-text">
+                            One of our outstanding students secured an exceptional score of 599 out of 625 in the SSLC Board Examination, bringing pride and recognition to the institution.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horizontal Achievement Strip -->
+            <div class="sslc-strip-container" data-aos="fade-up" data-aos-delay="300">
+                <div class="sslc-strip">
+                    <div class="sslc-strip-item">
+                        <i class="fa-solid fa-trophy"></i>
+                        <span>100% SSLC Results</span>
+                    </div>
+                    <div class="sslc-strip-item">
+                        <i class="fa-solid fa-medal"></i>
+                        <span>Outstanding Academic Performance</span>
+                    </div>
+                    <div class="sslc-strip-item">
+                        <i class="fa-solid fa-book-open"></i>
+                        <span>Excellence in Board Examinations</span>
+                    </div>
+                    <div class="sslc-strip-item">
+                        <i class="fa-solid fa-star"></i>
+                        <span>599/625 Highest Achievement</span>
+                    </div>
+                    <div class="sslc-strip-item">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Consistent Student Success</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 SECTION: COMMITMENT TO EXCELLENCE -->
+    <section class="outcomes-section-padding" style="background: #ffffff;">
+        <div class="outcomes-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Scholastic Records</span>
+                <h2 class="fancy-section-title">Commitment to Excellence</h2>
+                <p style="color: var(--text-grey); max-width: 900px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.8;">
+                    Our academic outcomes reflect a deep-rooted commitment to scholastic excellence. We nurture rigorous academic discipline, instill profound concept clarity across STEM and languages, offer personalized mentorship, and actively guide kids towards top performance in examinations.
+                </p>
+            </div>
+
+            <!-- Expanded Stats Block into 6 Premium Cards -->
+            <div class="stats-grid-premium" data-aos="fade-up" data-aos-delay="100">
+                <!-- Card 1 -->
+                <div class="stat-card-premium">
+                    <div>
+                        <div class="stat-val">100%</div>
+                        <h4 class="stat-title">SSLC Board Success</h4>
+                    </div>
+                    <p class="stat-desc">Magnificent track record of full pass rates in KSEEB Public Examinations, showcasing premium preparation efforts.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="stat-card-premium">
+                    <div>
+                        <div class="stat-val">90%+</div>
+                        <h4 class="stat-title">Distinction Holders</h4>
+                    </div>
+                    <p class="stat-desc">More than 9 out of 10 students consistently secure Distinction & First Class marks through rigorous subject analysis.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="stat-card-premium">
+                    <div>
+                        <div class="stat-val">98%</div>
+                        <h4 class="stat-title">Student Progress Rate</h4>
+                    </div>
+                    <p class="stat-desc">Almost every pupil demonstrates incremental score improvements in quarterly assessments through custom remedial assistance.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="stat-card-premium">
+                    <div>
+                        <div class="stat-val">95%+</div>
+                        <h4 class="stat-title">Attendance Focus</h4>
+                    </div>
+                    <p class="stat-desc">High classroom participation percentages driven by an engaging learning environment and parent-teacher collaboration.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="stat-card-premium">
+                    <div>
+                        <div class="stat-val">Top 5</div>
+                        <h4 class="stat-title">Competitive Placement</h4>
+                    </div>
+                    <p class="stat-desc">Regular podium layouts of school students in inter-school exams, olympiads, and taluk level matches.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="stat-card-premium">
+                    <div>
+                        <div class="stat-val">1:18</div>
+                        <h4 class="stat-title">Learning Support</h4>
+                    </div>
+                    <p class="stat-desc">Low teacher-student ratio layout ensuring personalized diagnostic checks and customized worksheet evaluations daily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 SECTION: ACADEMIC PERFORMANCE HIGHLIGHTS (NEW) -->
+    <section id="performance-highlights" class="outcomes-section-padding" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05); border-bottom: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="outcomes-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Syllabus Merits</span>
+                <h2 class="fancy-section-title">Academic Performance Highlights</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    Discover our primary systems designed to guide students towards deep knowledge comprehension and institutional board records.
+                </p>
+            </div>
+
+            <div class="premium-cards-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Highlight 1 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>Board Exam Performance</h3>
+                    <p>Meticulous KSEEB preparation utilizing preparatory mock test loops, physical board handbook archives, and strict timing exercises.</p>
+                </div>
+                <!-- Highlight 2 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3>Classroom Progress</h3>
+                    <p>Continuous monitoring structures that shift focus away from plain competitive stress to conceptual mastery and daily active learning.</p>
+                </div>
+                <!-- Highlight 3 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-language"></i></div>
+                    <h3>Language Development</h3>
+                    <p>Unlocks rich speaking flow and correct writing habits in English, Urdu, Kannada, and Hindi via creative poetry and reading workshops.</p>
+                </div>
+                <!-- Highlight 4 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-flask"></i></div>
+                    <h3>STEM Learning Growth</h3>
+                    <p>Abstract chemistry, physics, and arithmetic ideas are validated practically using innovative classroom kits and tactile models.</p>
+                </div>
+                <!-- Highlight 5 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-hands-holding-child"></i></div>
+                    <h3>Skill Development</h3>
+                    <p>Cultivating problem-solving capabilities, logical flow, digital computer operation basic studies, and library research habits.</p>
+                </div>
+                <!-- Highlight 6 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <h3>Confidence Building</h3>
+                    <p>Stage training through structured assembly events, annual inter-house debates, and school drama roles that dissolve anxiety.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 SECTION: CONTINUOUS GROWTH -->
+    <section class="outcomes-section-padding" style="background: #ffffff;">
+        <div class="outcomes-wide-container">
+            <div class="growth-split-layout">
+                <div class="growth-info" data-aos="fade-right">
+                    <span class="fancy-section-subtitle">Realist Progression</span>
+                    <h2 class="fancy-section-title" style="margin-top: 10px;">Continuous Growth Engine</h2>
+                    <p style="margin-top: 20px; line-height: 1.8; color: var(--text-grey);">
+                        Through systematic and analytical assessment tracks, we record every child's performance trajectory, preventing learning blocks from forming. Our data-driven approach combines with physical safety and a clean moral framework to guarantee growth year after year.
+                    </p>
+                    
+                    <ul class="growth-list">
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Systematic Assessments:</strong> Regular, low-stress class diagnostics to identify individual developmental levels instantly.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Empathetic Teacher Feedback:</strong> Prompt corrections on handbook exercises with direct constructive advice.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Remedial Assistance Hour:</strong> Specialized explanation slots for slower learning tracks to match curriculum speed.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Honest Progress Tracking:</strong> Detailed performance sheets stored systematically for yearly metrics comparison.</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span><strong>Proactive Parent Cooperation:</strong> Frequent PT sessions to maintain a helpful learning workspace at home.</span></li>
+                    </ul>
+                </div>
+                <div class="growth-visual" data-aos="fade-left" data-aos-delay="100">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 SECTION: HOW WE TRACK STUDENT SUCCESS (NEW) -->
+    <section id="tracking-student-success" class="outcomes-section-padding" style="background: var(--light-bg); border-top: 1px solid rgba(15, 23, 42, 0.05); border-bottom: 1px solid rgba(15, 23, 42, 0.05);">
+        <div class="outcomes-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Outcome Assurance</span>
+                <h2 class="fancy-section-title">How We Track Student Success</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    Providing robust and professional diagnostic systems to keep parents informed and secure continuous progress.
+                </p>
+            </div>
+
+            <div class="stage-stack" data-aos="fade-up">
+                <!-- Point 1 -->
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+                    <div class="stage-details">
+                        <h4>Regular Class Assessments</h4>
+                        <p>We break large boards syllabus expectations down into short, monthly diagnostic reviews to measure memory outcomes without stress.</p>
+                    </div>
+                </div>
+                <!-- Point 2 -->
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="stage-details">
+                        <h4>Teacher Mentoring Circuits</h4>
+                        <p>One-on-one reviews where school educators sit with individual students, reviewing spelling errors, arithmetic issues, and study methods.</p>
+                    </div>
+                </div>
+                <!-- Point 3 -->
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-medal"></i></div>
+                    <div class="stage-details">
+                        <h4>Practice-Based Revision</h4>
+                        <p>Our educators construct special practice booklets focusing on handwriting patterns, KSEEB model archives, and drawing accuracy.</p>
+                    </div>
+                </div>
+                <!-- Point 4 -->
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                    <div class="stage-details">
+                        <h4>Continuous Progress Reviews</h4>
+                        <p>Holistic records evaluating test marks, notebook neatness, speaking fluency, respect cycles, and sports behaviors.</p>
+                    </div>
+                </div>
+                <!-- Point 5 -->
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-users-rectangle"></i></div>
+                    <div class="stage-details">
+                        <h4>Parent Coordination Update</h4>
+                        <p>Formal feedback meetings offering real score maps and diagnostic records, securing an aligned, helpful study schedule at home.</p>
+                    </div>
+                </div>
+                <!-- Point 6 -->
+                <div class="stage-box">
+                    <div class="stage-icon"><i class="fa-solid fa-compass"></i></div>
+                    <div class="stage-details">
+                        <h4>Targeted Performance Guidance</h4>
+                        <p>Tailored coaching plans containing custom-paced explanations, simplified concept definitions, and easy boards study guides.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 SECTION: BEYOND EXAM RESULTS (NEW) -->
+    <section id="beyond-exam-results" class="outcomes-section-padding" style="background: #ffffff;">
+        <div class="outcomes-wide-container">
+            <div class="fancy-section-header" data-aos="fade-up">
+                <span class="fancy-section-subtitle">Holistic Expansion</span>
+                <h2 class="fancy-section-title">Beyond Exam Results</h2>
+                <p style="color: var(--text-grey); max-width: 700px; margin: 15px auto 0 auto; font-size: 1.1rem; line-height: 1.6;">
+                    Developing young minds into socially responsible, ethical, and highly confident leaders of tomorrow.
+                </p>
+            </div>
+
+            <div class="premium-cards-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Box 1 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-clock"></i></div>
+                    <h3>Polite Discipline</h3>
+                    <p>Instilling consistent daily routines, absolute uniform code neatness, punctuality, and respectful speech patterns with seniors.</p>
+                </div>
+                <!-- Box 2 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-handshake"></i></div>
+                    <h3>Active Leadership</h3>
+                    <p>Class captains, house monitors, library helpers, and peer study mentoring tasks to build civic responsibility from early grades.</p>
+                </div>
+                <!-- Box 3 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-comments"></i></div>
+                    <h3>Fluent Communication</h3>
+                    <p>Removing stage hesitation by training students in correct pronunciation, formal response patterns, and group discussions.</p>
+                </div>
+                <!-- Box 4 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-volume-high"></i></div>
+                    <h3>Stage Confidence</h3>
+                    <p>Direct opportunities to present speeches, address gatherings during morning assemblies, and recite poetry during cultural events.</p>
+                </div>
+                <!-- Box 5 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-people-group"></i></div>
+                    <h3>Team Collaboration</h3>
+                    <p>Fostering lasting traits of collaboration, mutual respect, and friendly support during group projects and playground hours.</p>
+                </div>
+                <!-- Box 6 -->
+                <div class="card-premium-box">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-heart"></i></div>
+                    <h3>Ethical Social Values</h3>
+                    <p>Encouraging daily politeness, empathy, community helper initiatives, environmental neatness, and civic standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 SECTION: FUTURE LEARNING COMMITMENT (NEW CTA) -->
+    <section class="future-commitment-section">
+        <div class="outcomes-wide-container">
+            <div class="commitment-box-premium" data-aos="zoom-in">
+                <h2>Our Future Commitment</h2>
+                <div class="commitment-quote">
+                    "academic excellence, holistic growth, and value-based moral education."
+                </div>
+                <p>
+                    Majestic Primary and High School is deeply dedicated to sculpting future leaders who stand academically secure, morally upright, possessing supreme analytical confidence, and capable of innovating lifelong learning. Explore admission paths for the upcoming 2026-27 batch.
+                </p>
+                <a href="admissions.html" class="btn-commitment-premium">Learn About Admissions <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🌟 FOOTER -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid-premium">
+                <!-- COLUMN 1: GET IN TOUCH -->
+                <div class="footer-col-premium" id="footer-get-in-touch">
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-text"><a href="https://www.google.com/maps?q=Majestic+Primary+%26+High+School,+Mysore" target="_blank" rel="noopener noreferrer" class="contact-link footer-location-link">Aziz Sait Road, Mysuru, Karnataka</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-text"><a href="tel:+917892053860" class="contact-link">+91 78920 53860</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-text"><a href="mailto:majestichps@gmail.com" class="contact-link">majestichps@gmail.com</a></span>
+                        </li>
+                    </ul>
+                    <div class="footer-social-section">
+                        <div class="social-icons-premium">
+                            <a href="https://facebook.com" target="_blank" class="social-icon-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com" target="_blank" class="social-icon-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://youtube.com" target="_blank" class="social-icon-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="social-icon-btn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMN 2: MAIN MENU -->
+                <div class="footer-col-premium" id="footer-main-menu">
+                    <h4 class="footer-heading">Main Menu</h4>
+                    <ul class="footer-menu-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right link-arrow"></i>Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right link-arrow"></i>About Us</a></li>
+                        <li><a href="chairman.html"><i class="fas fa-chevron-right link-arrow"></i>Chairman</a></li>
+                        <li><a href="academics.html"><i class="fas fa-chevron-right link-arrow"></i>Academics</a></li>
+                        <li><a href="admissions.html"><i class="fas fa-chevron-right link-arrow"></i>Admissions</a></li>
+                        <li><a href="achievements.html"><i class="fas fa-chevron-right link-arrow"></i>Achievements</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right link-arrow"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUMN 3: CONNECT WITH US -->
+                <div class="footer-col-premium" id="footer-connect-with-us">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <p class="footer-tagline">Empowering Young Minds for a Better Tomorrow</p>
+                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for connecting with us!'); this.reset();">
+                        <div class="newsletter-wrapper">
+                            <input type="email" placeholder="Your Email Address" required class="newsletter-input" aria-label="Your Email Address">
+                            <button type="submit" class="newsletter-btn btn-click-action" id="footer-connect-submit">Connect</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- BOTTOM FOOTER BAR -->
+            <div class="footer-bottom-bar">
+                <div class="footer-bottom-left">
+                    <p class="copyright-text">&copy; 2026 Majestic Primary & High School. All Rights Reserved.</p>
+                </div>
+                <div class="footer-bottom-center">
+                    <ul class="bottom-policy-links">
+                        <li><a href="#" class="policy-link">Privacy Policy</a></li>
+                        <li><a href="#" class="policy-link">Terms of Service</a></li>
+                        <li><a href="#" class="policy-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom-right">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="scroll-to-top-btn" aria-label="Scroll to top" id="scroll-to-top-button">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth Counter Animation for 100% SSLC results
+        document.addEventListener('DOMContentLoaded', () => {
+            const counterEl = document.getElementById('sslc-pass-counter');
+            if (counterEl) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            let start = 0;
+                            const end = 100;
+                            const duration = 1600; // ms
+                            const startTime = performance.now();
+                            
+                            function updateCounter(currentTime) {
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / duration, 1);
+                                // Easing curve: easeOutExpo for premium fluid look
+                                const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+                                const currentVal = Math.floor(start + (end - start) * easeProgress);
+                                counterEl.textContent = currentVal + '%';
+                                
+                                if (progress < 1) {
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counterEl.textContent = '100%';
+                                }
+                            }
+                            requestAnimationFrame(updateCounter);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                observer.observe(counterEl);
+            }
+        });
+    </script>
+</body>
+
+</html>
