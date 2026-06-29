@@ -1,0 +1,1270 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Super Admin",
+      "email": "mohammedjunaidk01@gmail.com",
+      "mobileNumber": "7892053860",
+      "password": "$2a$10$P4sUbo1rTevPc4A0SBKKFelenXfW4anGi/MlGopI7.E.xVuXBqWcW",
+      "role": "Super Admin",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.513Z"
+    },
+    {
+      "id": 2,
+      "name": "Majestic Admin",
+      "email": "majestichps@gmail.com",
+      "mobileNumber": "7892053861",
+      "password": "$2a$10$P4sUbo1rTevPc4A0SBKKFelenXfW4anGi/MlGopI7.E.xVuXBqWcW",
+      "role": "Super Admin",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 3,
+      "name": "AAdmission Stud 9387",
+      "email": "admission_stud_9387@majestichps.com",
+      "mobile_number": "9888877777",
+      "password": "$2a$10$P4sUbo1rTevPc4A0SBKKFelenXfW4anGi/MlGopI7.E.xVuXBqWcW",
+      "role": "Student",
+      "status": "Active",
+      "created_at": "2026-06-29T06:49:40.222Z"
+    },
+    {
+      "id": 4,
+      "name": "AAdmission Stud 1363",
+      "email": "admission_stud_1363@majestichps.com",
+      "mobile_number": "9888877777",
+      "password": "$2a$10$P4sUbo1rTevPc4A0SBKKFelenXfW4anGi/MlGopI7.E.xVuXBqWcW",
+      "role": "Student",
+      "status": "Active",
+      "created_at": "2026-06-29T06:54:53.088Z"
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "user_id": 3,
+      "admission_id": 1,
+      "academic_year": "2026-27",
+      "class": "Class V",
+      "section": "Mixed",
+      "status": "Active",
+      "parent_name": "Admission Parent 9387",
+      "student_id": "STU9850",
+      "admission_number": "ADM5385",
+      "full_name": "AAdmission Stud 9387",
+      "gender": "Not Specified",
+      "dob": "Not Specified",
+      "phone": "9888877777",
+      "email": "admission_stud_9387@majestichps.com",
+      "address": "123 school lane, mysore",
+      "created_at": "2026-06-29T06:49:40.222Z"
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "admission_id": "1",
+      "academic_year": "Class V",
+      "class": "Admission Parent 9387",
+      "status": "STU3384",
+      "parent_name": "ADM6429",
+      "student_id": "AAdmission Stud 9387",
+      "admission_number": "Mixed",
+      "full_name": "Not Specified",
+      "section": "9888877777",
+      "gender": "admission_stud_9387@majestichps.com",
+      "dob": "123 school lane, mysore",
+      "phone": null,
+      "email": null,
+      "address": null,
+      "roll_number": null,
+      "remarks": null,
+      "created_at": "2026-06-29T06:49:40.224Z"
+    },
+    {
+      "id": 3,
+      "user_id": 4,
+      "admission_id": "1",
+      "academic_year": "Class V",
+      "class": "Admission Parent 1363",
+      "status": "STU3538",
+      "parent_name": "ADM7787",
+      "student_id": "AAdmission Stud 1363",
+      "admission_number": "Mixed",
+      "full_name": "Not Specified",
+      "section": "9888877777",
+      "gender": "admission_stud_1363@majestichps.com",
+      "dob": "123 school lane, mysore",
+      "phone": null,
+      "email": null,
+      "address": null,
+      "roll_number": null,
+      "remarks": null,
+      "created_at": "2026-06-29T06:54:53.089Z"
+    }
+  ],
+  "admissions": [],
+  "messages": [],
+  "announcements": [
+    {
+      "id": 1,
+      "title": "Admissions Open for Academic Year 2026-27",
+      "description": "Online registration and prospectus kits are available for Nursery to Class IX intake cycles.",
+      "category": "Admissions",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "title": "SSLC 100% Results Celebration",
+      "description": "Congratulations to our outstanding students and educators for securing 100% passes with highest score 599/625.",
+      "category": "Academic",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Annual Sports Meet 2026",
+      "date": "2026-06-15",
+      "location": "Main School Grounds",
+      "description": "Inter-house athletic meets and award ceremonies to foster sportsmanship.",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "uploads": [],
+  "admin_logs": [],
+  "notifications": [
+    {
+      "id": 1,
+      "type": "USER_REGISTERED",
+      "message": "New Student/Parent account registered: Test Registrant 6778 (registrant_6778@majestichps.com)",
+      "is_read": false,
+      "created_at": "2026-06-29T06:49:40.062Z"
+    },
+    {
+      "id": 2,
+      "type": "NEW_ADMISSION",
+      "message": "New Admissions Application: AAdmission Stud 9387 applied for Class V",
+      "is_read": false,
+      "created_at": "2026-06-29T06:49:40.212Z"
+    },
+    {
+      "id": 3,
+      "type": "ADMISSION_UPDATED",
+      "message": "Admissions ID 1 is marked as 'Approved' for student AAdmission Stud 9387",
+      "is_read": false,
+      "created_at": "2026-06-29T06:49:40.226Z"
+    },
+    {
+      "id": 4,
+      "type": "NEW_MESSAGE",
+      "message": "New inquiry message received from Test Inquirer 6364 of subject: \"School bus timings question\"",
+      "is_read": false,
+      "created_at": "2026-06-29T06:49:40.237Z"
+    },
+    {
+      "id": 5,
+      "type": "USER_REGISTERED",
+      "message": "New Student/Parent account registered: Test Registrant 4356 (registrant_4356@majestichps.com)",
+      "is_read": false,
+      "created_at": "2026-06-29T06:54:52.943Z"
+    },
+    {
+      "id": 6,
+      "type": "NEW_ADMISSION",
+      "message": "New Admissions Application: AAdmission Stud 1363 applied for Class V",
+      "is_read": false,
+      "created_at": "2026-06-29T06:54:53.075Z"
+    },
+    {
+      "id": 7,
+      "type": "ADMISSION_UPDATED",
+      "message": "Admissions ID 1 is marked as 'Approved' for student AAdmission Stud 1363",
+      "is_read": false,
+      "created_at": "2026-06-29T06:54:53.091Z"
+    },
+    {
+      "id": 8,
+      "type": "NEW_MESSAGE",
+      "message": "New inquiry message received from Test Inquirer 7127 of subject: \"School bus timings question\"",
+      "is_read": false,
+      "created_at": "2026-06-29T06:54:53.103Z"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "teacher_id": "TCH001",
+      "employee_code": "EMP201",
+      "full_name": "Ananya Sharma",
+      "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120",
+      "gender": "Female",
+      "dob": "1988-04-12",
+      "qualification": "M.Sc in Mathematics, B.Ed",
+      "experience": "8 Years",
+      "subject": "Mathematics",
+      "assigned_class": "Class X",
+      "mobile_number": "9876543210",
+      "email": "ananya.math@school.edu",
+      "address": "#24, Springdale Layout, Mysore",
+      "joining_date": "2019-06-01",
+      "salary": "45000",
+      "aadhaar_number": "123456789012",
+      "status": "Active",
+      "username": "ananya_math",
+      "password": "$2a$10$P4sUbo1rTevPc4A0SBKKFelenXfW4anGi/MlGopI7.E.xVuXBqWcW",
+      "documents": "[\"Aadhaar_Card.pdf\",\"Degree_Certificate.pdf\"]",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "teacher_id": "TCH002",
+      "employee_code": "EMP202",
+      "full_name": "Rajesh Kumar",
+      "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=120",
+      "gender": "Male",
+      "dob": "1984-09-23",
+      "qualification": "M.A in English, M.Ed",
+      "experience": "12 Years",
+      "subject": "English",
+      "assigned_class": "Class IX",
+      "mobile_number": "9876543211",
+      "email": "rajesh.eng@school.edu",
+      "address": "#105, Hebbal Industrial Area, Mysore",
+      "joining_date": "2016-11-15",
+      "salary": "52000",
+      "aadhaar_number": "234567890123",
+      "status": "Active",
+      "username": "rajesh_eng",
+      "password": "$2a$10$P4sUbo1rTevPc4A0SBKKFelenXfW4anGi/MlGopI7.E.xVuXBqWcW",
+      "documents": "[\"Degree_Certificate.pdf\"]",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "classrooms": [
+    {
+      "id": 1,
+      "class_name": "PRE-KG",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room P1",
+      "capacity": 25,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "class_name": "LKG",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room L1",
+      "capacity": 30,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 3,
+      "class_name": "UKG",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room U1",
+      "capacity": 30,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 4,
+      "class_name": "Class I",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room 101",
+      "capacity": 35,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 5,
+      "class_name": "Class II",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room 102",
+      "capacity": 35,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 6,
+      "class_name": "Class III",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room 103",
+      "capacity": 35,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 7,
+      "class_name": "Class IV",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room 104",
+      "capacity": 35,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 8,
+      "class_name": "Class V",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room 105",
+      "capacity": 35,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 9,
+      "class_name": "Class VI",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room 106",
+      "capacity": 40,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 10,
+      "class_name": "Class VII",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room 107",
+      "capacity": 40,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 11,
+      "class_name": "Class VIII",
+      "section": "A",
+      "class_teacher": "None",
+      "room_number": "Room 108",
+      "capacity": 40,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 12,
+      "class_name": "Class IX",
+      "section": "B",
+      "class_teacher": "Rajesh Kumar",
+      "room_number": "Room 102",
+      "capacity": 40,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 13,
+      "class_name": "Class X",
+      "section": "A",
+      "class_teacher": "Ananya Sharma",
+      "room_number": "Room 101",
+      "capacity": 40,
+      "academic_year": "2026-27",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "subjects": [
+    {
+      "id": 1,
+      "subject_name": "Mathematics",
+      "subject_code": "MATH101",
+      "class_name": "Class X",
+      "teacher_assigned": "Ananya Sharma",
+      "weekly_hours": 6,
+      "description": "Advanced algebraic calculations and geometry theorems.",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "subject_name": "English",
+      "subject_code": "ENG102",
+      "class_name": "Class IX",
+      "teacher_assigned": "Rajesh Kumar",
+      "weekly_hours": 4,
+      "description": "English literature, prose comprehension and grammar outlines.",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "attendance": [
+    {
+      "id": 1,
+      "student_name": "Rohan Gupta",
+      "class_name": "Class X",
+      "section": "A",
+      "attendance_date": "2026-06-16",
+      "status": "Present",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "student_name": "Neha Roy",
+      "class_name": "Class IX",
+      "section": "B",
+      "attendance_date": "2026-06-16",
+      "status": "Present",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "exams": [
+    {
+      "id": 1,
+      "exam_name": "Mid-Term Mathematics",
+      "class_name": "Class X",
+      "subject_name": "Mathematics",
+      "exam_date": "2026-09-18",
+      "start_time": "10:00",
+      "end_time": "13:00",
+      "max_marks": 100,
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "exam_name": "Quarterly English Exam",
+      "class_name": "Class IX",
+      "subject_name": "English",
+      "exam_date": "2026-09-20",
+      "start_time": "09:30",
+      "end_time": "12:30",
+      "max_marks": 100,
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "results": [
+    {
+      "id": 1,
+      "student_name": "Rohan Gupta",
+      "class_name": "Class X",
+      "subject_name": "Mathematics",
+      "marks_obtained": 88,
+      "max_marks": 100,
+      "percentage": 88,
+      "grade": "A",
+      "remarks": "Exceptional visual logic and calculation optimization skills.",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "student_name": "Neha Roy",
+      "class_name": "Class IX",
+      "subject_name": "English",
+      "marks_obtained": 92,
+      "max_marks": 100,
+      "percentage": 92,
+      "grade": "A",
+      "remarks": "Outstanding comprehension, critical interpretation, and grammar skills.",
+      "created_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "timetables": [
+    {
+      "id": 1,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Assembly",
+      "start_time": "09:45 AM",
+      "end_time": "10:00 AM",
+      "subject_name": "Morning Prayer",
+      "teacher_name": "Archana S."
+    },
+    {
+      "id": 2,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 1",
+      "start_time": "10:00 AM",
+      "end_time": "10:40 AM",
+      "subject_name": "English Literature",
+      "teacher_name": "Ananya Mishra"
+    },
+    {
+      "id": 3,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 2",
+      "start_time": "10:40 AM",
+      "end_time": "11:20 AM",
+      "subject_name": "Mathematics",
+      "teacher_name": "Vikram Dev"
+    },
+    {
+      "id": 4,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 3",
+      "start_time": "11:20 AM",
+      "end_time": "12:00 PM",
+      "subject_name": "EVS Foundation",
+      "teacher_name": "Kiran Kumar"
+    },
+    {
+      "id": 5,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 4",
+      "start_time": "12:00 PM",
+      "end_time": "12:40 PM",
+      "subject_name": "Kannada Language",
+      "teacher_name": "Shashikala R."
+    },
+    {
+      "id": 6,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Lunch Break",
+      "start_time": "12:40 PM",
+      "end_time": "01:20 PM",
+      "subject_name": "Mid-day Break",
+      "teacher_name": "Duty Teacher"
+    },
+    {
+      "id": 7,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 5",
+      "start_time": "01:20 PM",
+      "end_time": "02:00 PM",
+      "subject_name": "Art & Craft",
+      "teacher_name": "Sneha M."
+    },
+    {
+      "id": 8,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 6",
+      "start_time": "02:00 PM",
+      "end_time": "02:40 PM",
+      "subject_name": "Hindi Language",
+      "teacher_name": "Rekha Vyas"
+    },
+    {
+      "id": 9,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 7",
+      "start_time": "02:40 PM",
+      "end_time": "03:20 PM",
+      "subject_name": "Physical Education",
+      "teacher_name": "Ramesh Prasad"
+    },
+    {
+      "id": 10,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 8",
+      "start_time": "03:20 PM",
+      "end_time": "04:00 PM",
+      "subject_name": "Mental Aptitude",
+      "teacher_name": "Ananya Mishra"
+    },
+    {
+      "id": 11,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 1",
+      "start_time": "08:45 AM",
+      "end_time": "09:00 AM",
+      "subject_name": "Class Reading",
+      "teacher_name": "Ananya Mishra"
+    },
+    {
+      "id": 12,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 2",
+      "start_time": "09:00 AM",
+      "end_time": "09:40 AM",
+      "subject_name": "Mathematics Review",
+      "teacher_name": "Vikram Dev"
+    },
+    {
+      "id": 13,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 3",
+      "start_time": "09:40 AM",
+      "end_time": "10:20 AM",
+      "subject_name": "Computer Skills",
+      "teacher_name": "Sneha M."
+    },
+    {
+      "id": 14,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 4",
+      "start_time": "10:20 AM",
+      "end_time": "11:00 AM",
+      "subject_name": "English Drama",
+      "teacher_name": "Ananya Mishra"
+    },
+    {
+      "id": 15,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 5",
+      "start_time": "11:00 AM",
+      "end_time": "11:40 AM",
+      "subject_name": "Moral Stories",
+      "teacher_name": "Kiran Kumar"
+    },
+    {
+      "id": 16,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 6",
+      "start_time": "11:40 AM",
+      "end_time": "12:20 PM",
+      "subject_name": "Weekly Assessment",
+      "teacher_name": "Ananya Mishra"
+    },
+    {
+      "id": 17,
+      "class_name": "Class 1",
+      "section": "A",
+      "day_of_week": "Saturday",
+      "period_name": "Assembly",
+      "start_time": "09:00 AM",
+      "end_time": "10:00 AM",
+      "subject_name": "General Assembly & Yoga",
+      "teacher_name": "Archana S."
+    },
+    {
+      "id": 18,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Assembly",
+      "start_time": "09:45 AM",
+      "end_time": "10:00 AM",
+      "subject_name": "Assembly & News",
+      "teacher_name": "Principal"
+    },
+    {
+      "id": 19,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 1",
+      "start_time": "10:00 AM",
+      "end_time": "10:40 AM",
+      "subject_name": "Advanced Physics",
+      "teacher_name": "Rajesh Gowda"
+    },
+    {
+      "id": 20,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 2",
+      "start_time": "10:40 AM",
+      "end_time": "11:20 AM",
+      "subject_name": "Chemistry Theory",
+      "teacher_name": "Meera Nair"
+    },
+    {
+      "id": 21,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 3",
+      "start_time": "11:20 AM",
+      "end_time": "12:00 PM",
+      "subject_name": "Algebra & Geometry",
+      "teacher_name": "Vikram Dev"
+    },
+    {
+      "id": 22,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 4",
+      "start_time": "12:00 PM",
+      "end_time": "12:40 PM",
+      "subject_name": "English Literature",
+      "teacher_name": "Ananya Mishra"
+    },
+    {
+      "id": 23,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Lunch Break",
+      "start_time": "12:40 PM",
+      "end_time": "01:20 PM",
+      "subject_name": "Recess",
+      "teacher_name": "Campus Duty"
+    },
+    {
+      "id": 24,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 5",
+      "start_time": "01:20 PM",
+      "end_time": "02:00 PM",
+      "subject_name": "Biology Lab",
+      "teacher_name": "Meera Nair"
+    },
+    {
+      "id": 25,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 6",
+      "start_time": "02:00 PM",
+      "end_time": "02:40 PM",
+      "subject_name": "Social Science",
+      "teacher_name": "Kiran Kumar"
+    },
+    {
+      "id": 26,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 7",
+      "start_time": "02:40 PM",
+      "end_time": "03:20 PM",
+      "subject_name": "Computer Programming",
+      "teacher_name": "Rajesh Gowda"
+    },
+    {
+      "id": 27,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Monday",
+      "period_name": "Period 8",
+      "start_time": "03:20 PM",
+      "end_time": "04:00 PM",
+      "subject_name": "Physical Training",
+      "teacher_name": "Ramesh Prasad"
+    },
+    {
+      "id": 28,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 1",
+      "start_time": "08:45 AM",
+      "end_time": "09:00 AM",
+      "subject_name": "Current Affairs Quiz",
+      "teacher_name": "Kiran Kumar"
+    },
+    {
+      "id": 29,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 2",
+      "start_time": "09:00 AM",
+      "end_time": "09:40 AM",
+      "subject_name": "Advanced Algebra",
+      "teacher_name": "Vikram Dev"
+    },
+    {
+      "id": 30,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 3",
+      "start_time": "09:40 AM",
+      "end_time": "10:20 AM",
+      "subject_name": "Physics Laboratory",
+      "teacher_name": "Rajesh Gowda"
+    },
+    {
+      "id": 31,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 4",
+      "start_time": "10:20 AM",
+      "end_time": "11:00 AM",
+      "subject_name": "Social Science Study",
+      "teacher_name": "Kiran Kumar"
+    },
+    {
+      "id": 32,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 5",
+      "start_time": "11:00 AM",
+      "end_time": "11:40 AM",
+      "subject_name": "Chemistry Practical",
+      "teacher_name": "Meera Nair"
+    },
+    {
+      "id": 33,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Friday",
+      "period_name": "Period 6",
+      "start_time": "11:40 AM",
+      "end_time": "12:20 PM",
+      "subject_name": "Weekly Mock Test",
+      "teacher_name": "Rajesh Gowda"
+    },
+    {
+      "id": 34,
+      "class_name": "Class 9",
+      "section": "A",
+      "day_of_week": "Saturday",
+      "period_name": "Assembly",
+      "start_time": "09:00 AM",
+      "end_time": "10:00 AM",
+      "subject_name": "Special Guidance Forum",
+      "teacher_name": "Principal"
+    }
+  ],
+  "academic_results": [
+    {
+      "id": 1,
+      "academic_year": "2025-26",
+      "class_name": "Class 1",
+      "section": "A",
+      "total_students": 40,
+      "students_present": 38,
+      "students_absent": 2,
+      "students_passed": 36,
+      "students_failed": 4,
+      "pass_percentage": 90,
+      "distinction_count": 12,
+      "first_class_count": 15,
+      "second_class_count": 9,
+      "grade_A_count": 12,
+      "grade_B_count": 15,
+      "grade_C_count": 9,
+      "grade_D_count": 0,
+      "grade_F_count": 4,
+      "topper_name": "Advait Sharma",
+      "topper_marks": 98.2,
+      "average_marks": 78.5,
+      "remarks": "Excellent mathematical computation. High participation in moral classes."
+    },
+    {
+      "id": 2,
+      "academic_year": "2025-26",
+      "class_name": "Class 5",
+      "section": "A",
+      "total_students": 35,
+      "students_present": 35,
+      "students_absent": 0,
+      "students_passed": 34,
+      "students_failed": 1,
+      "pass_percentage": 97.14,
+      "distinction_count": 15,
+      "first_class_count": 12,
+      "second_class_count": 7,
+      "grade_A_count": 15,
+      "grade_B_count": 12,
+      "grade_C_count": 7,
+      "grade_D_count": 0,
+      "grade_F_count": 1,
+      "topper_name": "Priyanshu Sen",
+      "topper_marks": 99,
+      "average_marks": 84.1,
+      "remarks": "Scientific experimentation and environmental studies projects are highly graded."
+    },
+    {
+      "id": 3,
+      "academic_year": "2025-26",
+      "class_name": "Class 9",
+      "section": "A",
+      "total_students": 45,
+      "students_present": 45,
+      "students_absent": 0,
+      "students_passed": 42,
+      "students_failed": 3,
+      "pass_percentage": 93.33,
+      "distinction_count": 10,
+      "first_class_count": 22,
+      "second_class_count": 10,
+      "grade_A_count": 10,
+      "grade_B_count": 22,
+      "grade_C_count": 10,
+      "grade_D_count": 0,
+      "grade_F_count": 3,
+      "topper_name": "Deepisree R.",
+      "topper_marks": 96.5,
+      "average_marks": 76.2,
+      "remarks": "ICT programming performance is exemplary. Science labs need support."
+    }
+  ],
+  "school_timings": [
+    {
+      "id": 1,
+      "period_name": "Assembly",
+      "start_time": "08:30 AM",
+      "end_time": "08:45 AM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "period_name": "Period 1",
+      "start_time": "08:45 AM",
+      "end_time": "09:30 AM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 3,
+      "period_name": "Period 2",
+      "start_time": "09:30 AM",
+      "end_time": "10:15 AM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 4,
+      "period_name": "Period 3",
+      "start_time": "10:15 AM",
+      "end_time": "11:00 AM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 5,
+      "period_name": "Period 4",
+      "start_time": "11:00 AM",
+      "end_time": "11:45 AM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 6,
+      "period_name": "Lunch Break",
+      "start_time": "11:45 AM",
+      "end_time": "12:30 PM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 7,
+      "period_name": "Period 5",
+      "start_time": "12:30 PM",
+      "end_time": "01:15 PM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 8,
+      "period_name": "Period 6",
+      "start_time": "01:15 PM",
+      "end_time": "02:00 PM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 9,
+      "period_name": "Period 7",
+      "start_time": "02:00 PM",
+      "end_time": "02:45 PM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 10,
+      "period_name": "Period 8",
+      "start_time": "02:45 PM",
+      "end_time": "03:30 PM",
+      "day_type": "Regular",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "settings": [
+    {
+      "id": 1,
+      "key": "school_name",
+      "value": "Majestic Primary & High School",
+      "updated_at": "2026-06-29T05:26:44.514Z",
+      "updated_by": "System"
+    },
+    {
+      "id": 2,
+      "key": "academic_year",
+      "value": "2026-27",
+      "updated_at": "2026-06-29T05:26:44.514Z",
+      "updated_by": "System"
+    },
+    {
+      "id": 3,
+      "key": "grade_low_attendance_threshold",
+      "value": "75.00",
+      "updated_at": "2026-06-29T05:26:44.514Z",
+      "updated_by": "System"
+    },
+    {
+      "id": 4,
+      "key": "grade_distinction_threshold",
+      "value": "85.00",
+      "updated_at": "2026-06-29T05:26:44.514Z",
+      "updated_by": "System"
+    },
+    {
+      "id": 5,
+      "key": "grade_pass_threshold",
+      "value": "35.00",
+      "updated_at": "2026-06-29T05:26:44.514Z",
+      "updated_by": "System"
+    },
+    {
+      "id": 6,
+      "key": "logo_url",
+      "value": "assets/logo.png",
+      "updated_at": "2026-06-29T05:26:44.514Z",
+      "updated_by": "System"
+    }
+  ],
+  "staff": [
+    {
+      "id": 1,
+      "employee_code": "STF001",
+      "first_name": "Anil",
+      "last_name": "Prasad",
+      "role": "Staff",
+      "department": "Finance",
+      "designation": "Finance Officer",
+      "qualification": "MBA in Finance",
+      "joining_date": "2020-05-10",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 2,
+      "employee_code": "STF002",
+      "first_name": "Sunita",
+      "last_name": "Rao",
+      "role": "Staff",
+      "department": "HR",
+      "designation": "HR Manager",
+      "qualification": "MBA in HR",
+      "joining_date": "2021-03-15",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 3,
+      "employee_code": "STF003",
+      "first_name": "John",
+      "last_name": "Danie",
+      "role": "Staff",
+      "department": "Admissions",
+      "designation": "Head of Admissions",
+      "qualification": "M.Com",
+      "joining_date": "2019-11-01",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 4,
+      "employee_code": "STF004",
+      "first_name": "Mary",
+      "last_name": "Dsa",
+      "role": "Staff",
+      "department": "Operations",
+      "designation": "General Clerk",
+      "qualification": "B.A.",
+      "joining_date": "2022-01-20",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 5,
+      "employee_code": "STF005",
+      "first_name": "Srinivas",
+      "last_name": "Murthy",
+      "role": "Staff",
+      "department": "IT",
+      "designation": "IT Administrator",
+      "qualification": "B.E. in CS",
+      "joining_date": "2018-08-12",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 6,
+      "employee_code": "STF006",
+      "first_name": "Kavitha",
+      "last_name": "Sharma",
+      "role": "Staff",
+      "department": "Library",
+      "designation": "Librarian",
+      "qualification": "M.Lib.Sc",
+      "joining_date": "2017-06-01",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 7,
+      "employee_code": "STF007",
+      "first_name": "Peter",
+      "last_name": "Rego",
+      "role": "Staff",
+      "department": "Administration",
+      "designation": "Vice Principal",
+      "qualification": "M.A., B.Ed",
+      "joining_date": "2015-04-01",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    },
+    {
+      "id": 8,
+      "employee_code": "STF008",
+      "first_name": "Rupa",
+      "last_name": "Sen",
+      "role": "Staff",
+      "department": "Reception",
+      "designation": "Front Desk Officer",
+      "qualification": "B.Sc.",
+      "joining_date": "2023-09-01",
+      "status": "Active",
+      "created_at": "2026-06-29T05:26:44.514Z",
+      "updated_at": "2026-06-29T05:26:44.514Z"
+    }
+  ],
+  "assignments": [],
+  "assignment_submissions": [],
+  "substitutions": [],
+  "parents": [
+    {
+      "id": 1,
+      "parent_id": "PAR6265",
+      "father_name": "Admission Parent 9387",
+      "mother_name": "Not Specified",
+      "phone": "9888877777",
+      "email": "admission_stud_9387@majestichps.com",
+      "address": "123 school lane, mysore",
+      "linked_students": "[\"STU9850\"]",
+      "created_at": "2026-06-29T06:49:40.223Z"
+    },
+    {
+      "id": 2,
+      "parent_id": "PAR4666",
+      "father_name": "Admission Parent 9387",
+      "mother_name": "Not Specified",
+      "phone": "9888877777",
+      "email": "admission_stud_9387@majestichps.com",
+      "address": "123 school lane, mysore",
+      "linked_students": "[\"STU3384\"]",
+      "created_at": "2026-06-29T06:49:40.225Z"
+    },
+    {
+      "id": 3,
+      "parent_id": "PAR8816",
+      "father_name": "Admission Parent 1363",
+      "mother_name": "Not Specified",
+      "phone": "9888877777",
+      "email": "admission_stud_1363@majestichps.com",
+      "address": "123 school lane, mysore",
+      "linked_students": "[\"STU9850\"]",
+      "created_at": "2026-06-29T06:54:53.088Z"
+    },
+    {
+      "id": 4,
+      "parent_id": "PAR4418",
+      "father_name": "Admission Parent 1363",
+      "mother_name": "Not Specified",
+      "phone": "9888877777",
+      "email": "admission_stud_1363@majestichps.com",
+      "address": "123 school lane, mysore",
+      "linked_students": "[\"STU3538\"]",
+      "created_at": "2026-06-29T06:54:53.090Z"
+    }
+  ],
+  "campus_settings": [
+    {
+      "id": 1,
+      "school_name": "Majestic Primary & High School",
+      "school_motto": "Shaping Minds for a Better Tomorrow",
+      "academic_year": "2026/27",
+      "support_email": "support@majesticschool.edu",
+      "support_phone": "+91 7892053861",
+      "campus_address": "Majestic Campus, Bangalore, India",
+      "website_url": "https://majesticschool.edu",
+      "logo_url": "assets/logo.png",
+      "theme_settings": "light",
+      "created_at": "2026-06-29T06:40:03.209Z"
+    }
+  ],
+  "attendance_summary": [],
+  "student_attendance": [],
+  "security_settings": [
+    {
+      "id": 1,
+      "security_password_hash": "$2a$10$P4sUbo1rTevPc4A0SBKKFelenXfW4anGi/MlGopI7.E.xVuXBqWcW",
+      "updated_by": "System",
+      "updated_at": "2026-06-29T06:38:50.984Z"
+    }
+  ]
+}

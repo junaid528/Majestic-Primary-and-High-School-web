@@ -1,0 +1,2038 @@
+{
+  "tree": "├── assets\n│   ├── admission-poster.jpg\n│   ├── Chairman_Arif Sir.png\n│   ├── fee-structure-2026.pdf\n│   ├── logo.png\n│   ├── Majestic-Fee-Structure-2026 (7).pdf\n│   ├── Nabijan sir.jpeg\n│   ├── Principal_Photo.png\n│   ├── school_building.jpeg\n│   ├── school-video.mp4\n│   ├── slider-1.jpg\n│   ├── slider-2.png\n│   ├── slider-3.png\n│   ├── slider-4.png\n│   ├── slider-5.png\n│   ├── slider-6.png\n│   └── slider-7.png\n├── backend\n│   ├── app\n│   │   ├── api\n│   │   │   ├── v1\n│   │   │   │   ├── endpoints\n│   │   │   │   │   ├── admin.py\n│   │   │   │   │   ├── admissions.py\n│   │   │   │   │   ├── auth.py\n│   │   │   │   │   ├── contact.py\n│   │   │   │   │   ├── notifications.py\n│   │   │   │   │   ├── public.py\n│   │   │   │   │   └── uploads.py\n│   │   │   │   └── api.py\n│   │   │   └── deps.py\n│   │   ├── core\n│   │   │   ├── config.py\n│   │   │   └── security.py\n│   │   ├── db\n│   │   │   └── session.py\n│   │   ├── models\n│   │   │   ├── base.py\n│   │   │   ├── enums.py\n│   │   │   ├── future_models.py\n│   │   │   └── models.py\n│   │   ├── schemas\n│   │   │   └── schemas.py\n│   │   ├── services\n│   │   │   ├── notification.py\n│   │   │   └── upload_service.py\n│   │   └── main.py\n│   ├── config\n│   │   ├── db.js\n│   │   ├── school_schedule.js\n│   │   └── timetable_config.py\n│   ├── data\n│   │   └── database.json\n│   ├── middleware\n│   │   ├── auth.js\n│   │   └── upload.js\n│   ├── routes\n│   │   └── api.js\n│   ├── services\n│   │   └── email.js\n│   └── requirements.txt\n├── css\n│   ├── dashboard.css\n│   ├── main.css\n│   └── sections.css\n├── js\n│   ├── api-config.js\n│   ├── dashboard.js\n│   ├── error-handler.js\n│   ├── final-verification.js\n│   ├── main.js\n│   ├── mock-api.js\n│   ├── navigation.js\n│   └── security-audit.js\n├── src\n│   ├── App.tsx\n│   ├── index.css\n│   └── main.tsx\n├── temp-clone\n│   ├── assets\n│   │   ├── admission-poster.jpg\n│   │   ├── Chairman_Arif Sir.png\n│   │   ├── fee-structure-2026.pdf\n│   │   ├── logo.png\n│   │   ├── Majestic-Fee-Structure-2026 (7).pdf\n│   │   ├── Nabijan sir.jpeg\n│   │   ├── Principal_Photo.png\n│   │   ├── school_building.jpeg\n│   │   ├── school-video.mp4\n│   │   ├── slider-1.jpg\n│   │   ├── slider-2.png\n│   │   ├── slider-3.png\n│   │   ├── slider-4.png\n│   │   ├── slider-5.png\n│   │   ├── slider-6.png\n│   │   └── slider-7.png\n│   ├── backend\n│   │   ├── app\n│   │   │   ├── api\n│   │   │   │   ├── v1\n│   │   │   │   │   ├── endpoints\n│   │   │   │   │   │   ├── admin.py\n│   │   │   │   │   │   ├── admissions.py\n│   │   │   │   │   │   ├── auth.py\n│   │   │   │   │   │   ├── contact.py\n│   │   │   │   │   │   ├── notifications.py\n│   │   │   │   │   │   ├── public.py\n│   │   │   │   │   │   └── uploads.py\n│   │   │   │   │   └── api.py\n│   │   │   │   └── deps.py\n│   │   │   ├── core\n│   │   │   │   ├── config.py\n│   │   │   │   └── security.py\n│   │   │   ├── db\n│   │   │   │   └── session.py\n│   │   │   ├── models\n│   │   │   │   ├── base.py\n│   │   │   │   ├── enums.py\n│   │   │   │   ├── future_models.py\n│   │   │   │   └── models.py\n│   │   │   ├── schemas\n│   │   │   │   └── schemas.py\n│   │   │   ├── services\n│   │   │   │   ├── notification.py\n│   │   │   │   └── upload_service.py\n│   │   │   └── main.py\n│   │   ├── config\n│   │   │   ├── db.js\n│   │   │   ├── school_schedule.js\n│   │   │   └── timetable_config.py\n│   │   ├── data\n│   │   │   └── database.json\n│   │   ├── middleware\n│   │   │   ├── auth.js\n│   │   │   └── upload.js\n│   │   ├── routes\n│   │   │   └── api.js\n│   │   ├── services\n│   │   │   └── email.js\n│   │   └── requirements.txt\n│   ├── css\n│   │   ├── dashboard.css\n│   │   ├── main.css\n│   │   └── sections.css\n│   ├── js\n│   │   ├── api-config.js\n│   │   ├── dashboard.js\n│   │   ├── error-handler.js\n│   │   ├── final-verification.js\n│   │   ├── main.js\n│   │   ├── mock-api.js\n│   │   ├── navigation.js\n│   │   └── security-audit.js\n│   ├── .env.example\n│   ├── .gitignore\n│   ├── about.html\n│   ├── academic-outcomes.html\n│   ├── academics.html\n│   ├── achievements.html\n│   ├── admin-dashboard.html\n│   ├── admin-login.html\n│   ├── admissions.html\n│   ├── annual-report.html\n│   ├── chairman.html\n│   ├── contact.html\n│   ├── dashboard.html\n│   ├── events.html\n│   ├── excellence-gallery.html\n│   ├── facilities.html\n│   ├── faculty-mentors.html\n│   ├── forgot-password.html\n│   ├── guiding-philosophy.html\n│   ├── handbook-downloads.html\n│   ├── index.html\n│   ├── login.html\n│   ├── main\n│   ├── metadata.json\n│   ├── package-lock.json\n│   ├── package.json\n│   ├── parent-guidelines.html\n│   ├── perform-runtime-verification.js\n│   ├── president-secretary.html\n│   ├── README.md\n│   ├── register.html\n│   ├── registration.html\n│   ├── reset-password.html\n│   ├── safety-security.html\n│   ├── school-timings.html\n│   ├── server.js\n│   ├── signup.html\n│   ├── simulate_client_fetches.js\n│   ├── student-achievements.html\n│   ├── student-guidelines.html\n│   ├── verify_classrooms.js\n│   ├── verify_login_diagnostics.js\n│   ├── verify_session_jwt_audit.js\n│   ├── verify-email.html\n│   └── vision-values.html\n├── .env.example\n├── .gitignore\n├── about.html\n├── academic-outcomes.html\n├── academics.html\n├── achievements.html\n├── admin-dashboard.html\n├── admin-login.html\n├── admissions.html\n├── annual-report.html\n├── chairman.html\n├── contact.html\n├── dashboard.html\n├── events.html\n├── excellence-gallery.html\n├── facilities.html\n├── faculty-mentors.html\n├── forgot-password.html\n├── get-files.cjs\n├── guiding-philosophy.html\n├── handbook-downloads.html\n├── index.html\n├── login.html\n├── main\n├── metadata.json\n├── package.json\n├── parent-guidelines.html\n├── perform-runtime-verification.js\n├── president-secretary.html\n├── README.md\n├── register.html\n├── registration.html\n├── reset-password.html\n├── safety-security.html\n├── school-timings.html\n├── server.js\n├── signup.html\n├── simulate_client_fetches.js\n├── student-achievements.html\n├── student-guidelines.html\n├── tsconfig.json\n├── verify_classrooms.js\n├── verify_login_diagnostics.js\n├── verify_session_jwt_audit.js\n├── verify-email.html\n├── vision-values.html\n└── vite.config.ts\n",
+  "counts": {
+    "totalFiles": 207,
+    "totalFolders": 38,
+    "html": 64,
+    "css": 7,
+    "js": 41,
+    "ts": 3,
+    "python": 42,
+    "json": 8,
+    "images": 26,
+    "assets": 6
+  },
+  "fileInventory": [
+    {
+      "name": ".env.example",
+      "relativePath": ".env.example",
+      "extension": ".example",
+      "size": 605
+    },
+    {
+      "name": ".gitignore",
+      "relativePath": ".gitignore",
+      "extension": "",
+      "size": 73
+    },
+    {
+      "name": "README.md",
+      "relativePath": "README.md",
+      "extension": ".md",
+      "size": 694
+    },
+    {
+      "name": "about.html",
+      "relativePath": "about.html",
+      "extension": ".html",
+      "size": 72456
+    },
+    {
+      "name": "academic-outcomes.html",
+      "relativePath": "academic-outcomes.html",
+      "extension": ".html",
+      "size": 60344
+    },
+    {
+      "name": "academics.html",
+      "relativePath": "academics.html",
+      "extension": ".html",
+      "size": 61597
+    },
+    {
+      "name": "achievements.html",
+      "relativePath": "achievements.html",
+      "extension": ".html",
+      "size": 19207
+    },
+    {
+      "name": "admin-dashboard.html",
+      "relativePath": "admin-dashboard.html",
+      "extension": ".html",
+      "size": 326435
+    },
+    {
+      "name": "admin-login.html",
+      "relativePath": "admin-login.html",
+      "extension": ".html",
+      "size": 24939
+    },
+    {
+      "name": "admissions.html",
+      "relativePath": "admissions.html",
+      "extension": ".html",
+      "size": 116081
+    },
+    {
+      "name": "annual-report.html",
+      "relativePath": "annual-report.html",
+      "extension": ".html",
+      "size": 49989
+    },
+    {
+      "name": "Chairman_Arif Sir.png",
+      "relativePath": "assets/Chairman_Arif Sir.png",
+      "extension": ".png",
+      "size": 2038648
+    },
+    {
+      "name": "Majestic-Fee-Structure-2026 (7).pdf",
+      "relativePath": "assets/Majestic-Fee-Structure-2026 (7).pdf",
+      "extension": ".pdf",
+      "size": 1082
+    },
+    {
+      "name": "Nabijan sir.jpeg",
+      "relativePath": "assets/Nabijan sir.jpeg",
+      "extension": ".jpeg",
+      "size": 2018037
+    },
+    {
+      "name": "Principal_Photo.png",
+      "relativePath": "assets/Principal_Photo.png",
+      "extension": ".png",
+      "size": 203373
+    },
+    {
+      "name": "admission-poster.jpg",
+      "relativePath": "assets/admission-poster.jpg",
+      "extension": ".jpg",
+      "size": 232243
+    },
+    {
+      "name": "fee-structure-2026.pdf",
+      "relativePath": "assets/fee-structure-2026.pdf",
+      "extension": ".pdf",
+      "size": 0
+    },
+    {
+      "name": "logo.png",
+      "relativePath": "assets/logo.png",
+      "extension": ".png",
+      "size": 1660529
+    },
+    {
+      "name": "school-video.mp4",
+      "relativePath": "assets/school-video.mp4",
+      "extension": ".mp4",
+      "size": 11480501
+    },
+    {
+      "name": "school_building.jpeg",
+      "relativePath": "assets/school_building.jpeg",
+      "extension": ".jpeg",
+      "size": 2154232
+    },
+    {
+      "name": "slider-1.jpg",
+      "relativePath": "assets/slider-1.jpg",
+      "extension": ".jpg",
+      "size": 168775
+    },
+    {
+      "name": "slider-2.png",
+      "relativePath": "assets/slider-2.png",
+      "extension": ".png",
+      "size": 220017
+    },
+    {
+      "name": "slider-3.png",
+      "relativePath": "assets/slider-3.png",
+      "extension": ".png",
+      "size": 91643
+    },
+    {
+      "name": "slider-4.png",
+      "relativePath": "assets/slider-4.png",
+      "extension": ".png",
+      "size": 951913
+    },
+    {
+      "name": "slider-5.png",
+      "relativePath": "assets/slider-5.png",
+      "extension": ".png",
+      "size": 43028
+    },
+    {
+      "name": "slider-6.png",
+      "relativePath": "assets/slider-6.png",
+      "extension": ".png",
+      "size": 346087
+    },
+    {
+      "name": "slider-7.png",
+      "relativePath": "assets/slider-7.png",
+      "extension": ".png",
+      "size": 149964
+    },
+    {
+      "name": "deps.py",
+      "relativePath": "backend/app/api/deps.py",
+      "extension": ".py",
+      "size": 3857
+    },
+    {
+      "name": "api.py",
+      "relativePath": "backend/app/api/v1/api.py",
+      "extension": ".py",
+      "size": 1626
+    },
+    {
+      "name": "admin.py",
+      "relativePath": "backend/app/api/v1/endpoints/admin.py",
+      "extension": ".py",
+      "size": 21961
+    },
+    {
+      "name": "admissions.py",
+      "relativePath": "backend/app/api/v1/endpoints/admissions.py",
+      "extension": ".py",
+      "size": 6996
+    },
+    {
+      "name": "auth.py",
+      "relativePath": "backend/app/api/v1/endpoints/auth.py",
+      "extension": ".py",
+      "size": 25529
+    },
+    {
+      "name": "contact.py",
+      "relativePath": "backend/app/api/v1/endpoints/contact.py",
+      "extension": ".py",
+      "size": 2595
+    },
+    {
+      "name": "notifications.py",
+      "relativePath": "backend/app/api/v1/endpoints/notifications.py",
+      "extension": ".py",
+      "size": 2039
+    },
+    {
+      "name": "public.py",
+      "relativePath": "backend/app/api/v1/endpoints/public.py",
+      "extension": ".py",
+      "size": 2476
+    },
+    {
+      "name": "uploads.py",
+      "relativePath": "backend/app/api/v1/endpoints/uploads.py",
+      "extension": ".py",
+      "size": 5893
+    },
+    {
+      "name": "config.py",
+      "relativePath": "backend/app/core/config.py",
+      "extension": ".py",
+      "size": 1094
+    },
+    {
+      "name": "security.py",
+      "relativePath": "backend/app/core/security.py",
+      "extension": ".py",
+      "size": 1743
+    },
+    {
+      "name": "session.py",
+      "relativePath": "backend/app/db/session.py",
+      "extension": ".py",
+      "size": 595
+    },
+    {
+      "name": "main.py",
+      "relativePath": "backend/app/main.py",
+      "extension": ".py",
+      "size": 3174
+    },
+    {
+      "name": "base.py",
+      "relativePath": "backend/app/models/base.py",
+      "extension": ".py",
+      "size": 534
+    },
+    {
+      "name": "enums.py",
+      "relativePath": "backend/app/models/enums.py",
+      "extension": ".py",
+      "size": 938
+    },
+    {
+      "name": "future_models.py",
+      "relativePath": "backend/app/models/future_models.py",
+      "extension": ".py",
+      "size": 7402
+    },
+    {
+      "name": "models.py",
+      "relativePath": "backend/app/models/models.py",
+      "extension": ".py",
+      "size": 15422
+    },
+    {
+      "name": "schemas.py",
+      "relativePath": "backend/app/schemas/schemas.py",
+      "extension": ".py",
+      "size": 10966
+    },
+    {
+      "name": "notification.py",
+      "relativePath": "backend/app/services/notification.py",
+      "extension": ".py",
+      "size": 2702
+    },
+    {
+      "name": "upload_service.py",
+      "relativePath": "backend/app/services/upload_service.py",
+      "extension": ".py",
+      "size": 5210
+    },
+    {
+      "name": "db.js",
+      "relativePath": "backend/config/db.js",
+      "extension": ".js",
+      "size": 122064
+    },
+    {
+      "name": "school_schedule.js",
+      "relativePath": "backend/config/school_schedule.js",
+      "extension": ".js",
+      "size": 2383
+    },
+    {
+      "name": "timetable_config.py",
+      "relativePath": "backend/config/timetable_config.py",
+      "extension": ".py",
+      "size": 2447
+    },
+    {
+      "name": "database.json",
+      "relativePath": "backend/data/database.json",
+      "extension": ".json",
+      "size": 28066
+    },
+    {
+      "name": "auth.js",
+      "relativePath": "backend/middleware/auth.js",
+      "extension": ".js",
+      "size": 3279
+    },
+    {
+      "name": "upload.js",
+      "relativePath": "backend/middleware/upload.js",
+      "extension": ".js",
+      "size": 2239
+    },
+    {
+      "name": "requirements.txt",
+      "relativePath": "backend/requirements.txt",
+      "extension": ".txt",
+      "size": 167
+    },
+    {
+      "name": "api.js",
+      "relativePath": "backend/routes/api.js",
+      "extension": ".js",
+      "size": 118490
+    },
+    {
+      "name": "email.js",
+      "relativePath": "backend/services/email.js",
+      "extension": ".js",
+      "size": 10784
+    },
+    {
+      "name": "chairman.html",
+      "relativePath": "chairman.html",
+      "extension": ".html",
+      "size": 34581
+    },
+    {
+      "name": "contact.html",
+      "relativePath": "contact.html",
+      "extension": ".html",
+      "size": 32310
+    },
+    {
+      "name": "dashboard.css",
+      "relativePath": "css/dashboard.css",
+      "extension": ".css",
+      "size": 17484
+    },
+    {
+      "name": "main.css",
+      "relativePath": "css/main.css",
+      "extension": ".css",
+      "size": 82724
+    },
+    {
+      "name": "sections.css",
+      "relativePath": "css/sections.css",
+      "extension": ".css",
+      "size": 17180
+    },
+    {
+      "name": "dashboard.html",
+      "relativePath": "dashboard.html",
+      "extension": ".html",
+      "size": 68372
+    },
+    {
+      "name": "events.html",
+      "relativePath": "events.html",
+      "extension": ".html",
+      "size": 15899
+    },
+    {
+      "name": "excellence-gallery.html",
+      "relativePath": "excellence-gallery.html",
+      "extension": ".html",
+      "size": 30567
+    },
+    {
+      "name": "facilities.html",
+      "relativePath": "facilities.html",
+      "extension": ".html",
+      "size": 17251
+    },
+    {
+      "name": "faculty-mentors.html",
+      "relativePath": "faculty-mentors.html",
+      "extension": ".html",
+      "size": 14389
+    },
+    {
+      "name": "forgot-password.html",
+      "relativePath": "forgot-password.html",
+      "extension": ".html",
+      "size": 16979
+    },
+    {
+      "name": "get-files.cjs",
+      "relativePath": "get-files.cjs",
+      "extension": ".cjs",
+      "size": 1865
+    },
+    {
+      "name": "guiding-philosophy.html",
+      "relativePath": "guiding-philosophy.html",
+      "extension": ".html",
+      "size": 52402
+    },
+    {
+      "name": "handbook-downloads.html",
+      "relativePath": "handbook-downloads.html",
+      "extension": ".html",
+      "size": 64540
+    },
+    {
+      "name": "index.html",
+      "relativePath": "index.html",
+      "extension": ".html",
+      "size": 107120
+    },
+    {
+      "name": "api-config.js",
+      "relativePath": "js/api-config.js",
+      "extension": ".js",
+      "size": 980
+    },
+    {
+      "name": "dashboard.js",
+      "relativePath": "js/dashboard.js",
+      "extension": ".js",
+      "size": 296245
+    },
+    {
+      "name": "error-handler.js",
+      "relativePath": "js/error-handler.js",
+      "extension": ".js",
+      "size": 18179
+    },
+    {
+      "name": "final-verification.js",
+      "relativePath": "js/final-verification.js",
+      "extension": ".js",
+      "size": 16834
+    },
+    {
+      "name": "main.js",
+      "relativePath": "js/main.js",
+      "extension": ".js",
+      "size": 6402
+    },
+    {
+      "name": "mock-api.js",
+      "relativePath": "js/mock-api.js",
+      "extension": ".js",
+      "size": 5940
+    },
+    {
+      "name": "navigation.js",
+      "relativePath": "js/navigation.js",
+      "extension": ".js",
+      "size": 12999
+    },
+    {
+      "name": "security-audit.js",
+      "relativePath": "js/security-audit.js",
+      "extension": ".js",
+      "size": 13922
+    },
+    {
+      "name": "login.html",
+      "relativePath": "login.html",
+      "extension": ".html",
+      "size": 25813
+    },
+    {
+      "name": "main",
+      "relativePath": "main",
+      "extension": "",
+      "size": 0
+    },
+    {
+      "name": "metadata.json",
+      "relativePath": "metadata.json",
+      "extension": ".json",
+      "size": 311
+    },
+    {
+      "name": "package.json",
+      "relativePath": "package.json",
+      "extension": ".json",
+      "size": 770
+    },
+    {
+      "name": "parent-guidelines.html",
+      "relativePath": "parent-guidelines.html",
+      "extension": ".html",
+      "size": 53302
+    },
+    {
+      "name": "perform-runtime-verification.js",
+      "relativePath": "perform-runtime-verification.js",
+      "extension": ".js",
+      "size": 33623
+    },
+    {
+      "name": "president-secretary.html",
+      "relativePath": "president-secretary.html",
+      "extension": ".html",
+      "size": 34598
+    },
+    {
+      "name": "register.html",
+      "relativePath": "register.html",
+      "extension": ".html",
+      "size": 13138
+    },
+    {
+      "name": "registration.html",
+      "relativePath": "registration.html",
+      "extension": ".html",
+      "size": 11500
+    },
+    {
+      "name": "reset-password.html",
+      "relativePath": "reset-password.html",
+      "extension": ".html",
+      "size": 10704
+    },
+    {
+      "name": "safety-security.html",
+      "relativePath": "safety-security.html",
+      "extension": ".html",
+      "size": 46497
+    },
+    {
+      "name": "school-timings.html",
+      "relativePath": "school-timings.html",
+      "extension": ".html",
+      "size": 50378
+    },
+    {
+      "name": "server.js",
+      "relativePath": "server.js",
+      "extension": ".js",
+      "size": 6365
+    },
+    {
+      "name": "signup.html",
+      "relativePath": "signup.html",
+      "extension": ".html",
+      "size": 20715
+    },
+    {
+      "name": "simulate_client_fetches.js",
+      "relativePath": "simulate_client_fetches.js",
+      "extension": ".js",
+      "size": 2365
+    },
+    {
+      "name": "App.tsx",
+      "relativePath": "src/App.tsx",
+      "extension": ".tsx",
+      "size": 116
+    },
+    {
+      "name": "index.css",
+      "relativePath": "src/index.css",
+      "extension": ".css",
+      "size": 23
+    },
+    {
+      "name": "main.tsx",
+      "relativePath": "src/main.tsx",
+      "extension": ".tsx",
+      "size": 231
+    },
+    {
+      "name": "student-achievements.html",
+      "relativePath": "student-achievements.html",
+      "extension": ".html",
+      "size": 40016
+    },
+    {
+      "name": "student-guidelines.html",
+      "relativePath": "student-guidelines.html",
+      "extension": ".html",
+      "size": 43253
+    },
+    {
+      "name": ".env.example",
+      "relativePath": "temp-clone/.env.example",
+      "extension": ".example",
+      "size": 605
+    },
+    {
+      "name": ".gitignore",
+      "relativePath": "temp-clone/.gitignore",
+      "extension": "",
+      "size": 73
+    },
+    {
+      "name": "README.md",
+      "relativePath": "temp-clone/README.md",
+      "extension": ".md",
+      "size": 655
+    },
+    {
+      "name": "about.html",
+      "relativePath": "temp-clone/about.html",
+      "extension": ".html",
+      "size": 72456
+    },
+    {
+      "name": "academic-outcomes.html",
+      "relativePath": "temp-clone/academic-outcomes.html",
+      "extension": ".html",
+      "size": 60344
+    },
+    {
+      "name": "academics.html",
+      "relativePath": "temp-clone/academics.html",
+      "extension": ".html",
+      "size": 61597
+    },
+    {
+      "name": "achievements.html",
+      "relativePath": "temp-clone/achievements.html",
+      "extension": ".html",
+      "size": 19207
+    },
+    {
+      "name": "admin-dashboard.html",
+      "relativePath": "temp-clone/admin-dashboard.html",
+      "extension": ".html",
+      "size": 276764
+    },
+    {
+      "name": "admin-login.html",
+      "relativePath": "temp-clone/admin-login.html",
+      "extension": ".html",
+      "size": 24939
+    },
+    {
+      "name": "admissions.html",
+      "relativePath": "temp-clone/admissions.html",
+      "extension": ".html",
+      "size": 112476
+    },
+    {
+      "name": "annual-report.html",
+      "relativePath": "temp-clone/annual-report.html",
+      "extension": ".html",
+      "size": 49989
+    },
+    {
+      "name": "Chairman_Arif Sir.png",
+      "relativePath": "temp-clone/assets/Chairman_Arif Sir.png",
+      "extension": ".png",
+      "size": 3387916
+    },
+    {
+      "name": "Majestic-Fee-Structure-2026 (7).pdf",
+      "relativePath": "temp-clone/assets/Majestic-Fee-Structure-2026 (7).pdf",
+      "extension": ".pdf",
+      "size": 1699
+    },
+    {
+      "name": "Nabijan sir.jpeg",
+      "relativePath": "temp-clone/assets/Nabijan sir.jpeg",
+      "extension": ".jpeg",
+      "size": 3623340
+    },
+    {
+      "name": "Principal_Photo.png",
+      "relativePath": "temp-clone/assets/Principal_Photo.png",
+      "extension": ".png",
+      "size": 367086
+    },
+    {
+      "name": "admission-poster.jpg",
+      "relativePath": "temp-clone/assets/admission-poster.jpg",
+      "extension": ".jpg",
+      "size": 421469
+    },
+    {
+      "name": "fee-structure-2026.pdf",
+      "relativePath": "temp-clone/assets/fee-structure-2026.pdf",
+      "extension": ".pdf",
+      "size": 0
+    },
+    {
+      "name": "logo.png",
+      "relativePath": "temp-clone/assets/logo.png",
+      "extension": ".png",
+      "size": 2993563
+    },
+    {
+      "name": "school-video.mp4",
+      "relativePath": "temp-clone/assets/school-video.mp4",
+      "extension": ".mp4",
+      "size": 3583239
+    },
+    {
+      "name": "school_building.jpeg",
+      "relativePath": "temp-clone/assets/school_building.jpeg",
+      "extension": ".jpeg",
+      "size": 3608166
+    },
+    {
+      "name": "slider-1.jpg",
+      "relativePath": "temp-clone/assets/slider-1.jpg",
+      "extension": ".jpg",
+      "size": 302031
+    },
+    {
+      "name": "slider-2.png",
+      "relativePath": "temp-clone/assets/slider-2.png",
+      "extension": ".png",
+      "size": 396974
+    },
+    {
+      "name": "slider-3.png",
+      "relativePath": "temp-clone/assets/slider-3.png",
+      "extension": ".png",
+      "size": 165148
+    },
+    {
+      "name": "slider-4.png",
+      "relativePath": "temp-clone/assets/slider-4.png",
+      "extension": ".png",
+      "size": 1745513
+    },
+    {
+      "name": "slider-5.png",
+      "relativePath": "temp-clone/assets/slider-5.png",
+      "extension": ".png",
+      "size": 76611
+    },
+    {
+      "name": "slider-6.png",
+      "relativePath": "temp-clone/assets/slider-6.png",
+      "extension": ".png",
+      "size": 636713
+    },
+    {
+      "name": "slider-7.png",
+      "relativePath": "temp-clone/assets/slider-7.png",
+      "extension": ".png",
+      "size": 275642
+    },
+    {
+      "name": "deps.py",
+      "relativePath": "temp-clone/backend/app/api/deps.py",
+      "extension": ".py",
+      "size": 3857
+    },
+    {
+      "name": "api.py",
+      "relativePath": "temp-clone/backend/app/api/v1/api.py",
+      "extension": ".py",
+      "size": 1626
+    },
+    {
+      "name": "admin.py",
+      "relativePath": "temp-clone/backend/app/api/v1/endpoints/admin.py",
+      "extension": ".py",
+      "size": 21961
+    },
+    {
+      "name": "admissions.py",
+      "relativePath": "temp-clone/backend/app/api/v1/endpoints/admissions.py",
+      "extension": ".py",
+      "size": 6996
+    },
+    {
+      "name": "auth.py",
+      "relativePath": "temp-clone/backend/app/api/v1/endpoints/auth.py",
+      "extension": ".py",
+      "size": 25529
+    },
+    {
+      "name": "contact.py",
+      "relativePath": "temp-clone/backend/app/api/v1/endpoints/contact.py",
+      "extension": ".py",
+      "size": 2595
+    },
+    {
+      "name": "notifications.py",
+      "relativePath": "temp-clone/backend/app/api/v1/endpoints/notifications.py",
+      "extension": ".py",
+      "size": 2039
+    },
+    {
+      "name": "public.py",
+      "relativePath": "temp-clone/backend/app/api/v1/endpoints/public.py",
+      "extension": ".py",
+      "size": 2476
+    },
+    {
+      "name": "uploads.py",
+      "relativePath": "temp-clone/backend/app/api/v1/endpoints/uploads.py",
+      "extension": ".py",
+      "size": 5893
+    },
+    {
+      "name": "config.py",
+      "relativePath": "temp-clone/backend/app/core/config.py",
+      "extension": ".py",
+      "size": 1094
+    },
+    {
+      "name": "security.py",
+      "relativePath": "temp-clone/backend/app/core/security.py",
+      "extension": ".py",
+      "size": 1743
+    },
+    {
+      "name": "session.py",
+      "relativePath": "temp-clone/backend/app/db/session.py",
+      "extension": ".py",
+      "size": 595
+    },
+    {
+      "name": "main.py",
+      "relativePath": "temp-clone/backend/app/main.py",
+      "extension": ".py",
+      "size": 3174
+    },
+    {
+      "name": "base.py",
+      "relativePath": "temp-clone/backend/app/models/base.py",
+      "extension": ".py",
+      "size": 534
+    },
+    {
+      "name": "enums.py",
+      "relativePath": "temp-clone/backend/app/models/enums.py",
+      "extension": ".py",
+      "size": 938
+    },
+    {
+      "name": "future_models.py",
+      "relativePath": "temp-clone/backend/app/models/future_models.py",
+      "extension": ".py",
+      "size": 7402
+    },
+    {
+      "name": "models.py",
+      "relativePath": "temp-clone/backend/app/models/models.py",
+      "extension": ".py",
+      "size": 15422
+    },
+    {
+      "name": "schemas.py",
+      "relativePath": "temp-clone/backend/app/schemas/schemas.py",
+      "extension": ".py",
+      "size": 10966
+    },
+    {
+      "name": "notification.py",
+      "relativePath": "temp-clone/backend/app/services/notification.py",
+      "extension": ".py",
+      "size": 2702
+    },
+    {
+      "name": "upload_service.py",
+      "relativePath": "temp-clone/backend/app/services/upload_service.py",
+      "extension": ".py",
+      "size": 5210
+    },
+    {
+      "name": "db.js",
+      "relativePath": "temp-clone/backend/config/db.js",
+      "extension": ".js",
+      "size": 113965
+    },
+    {
+      "name": "school_schedule.js",
+      "relativePath": "temp-clone/backend/config/school_schedule.js",
+      "extension": ".js",
+      "size": 2383
+    },
+    {
+      "name": "timetable_config.py",
+      "relativePath": "temp-clone/backend/config/timetable_config.py",
+      "extension": ".py",
+      "size": 2447
+    },
+    {
+      "name": "database.json",
+      "relativePath": "temp-clone/backend/data/database.json",
+      "extension": ".json",
+      "size": 0
+    },
+    {
+      "name": "auth.js",
+      "relativePath": "temp-clone/backend/middleware/auth.js",
+      "extension": ".js",
+      "size": 3088
+    },
+    {
+      "name": "upload.js",
+      "relativePath": "temp-clone/backend/middleware/upload.js",
+      "extension": ".js",
+      "size": 2239
+    },
+    {
+      "name": "requirements.txt",
+      "relativePath": "temp-clone/backend/requirements.txt",
+      "extension": ".txt",
+      "size": 167
+    },
+    {
+      "name": "api.js",
+      "relativePath": "temp-clone/backend/routes/api.js",
+      "extension": ".js",
+      "size": 91027
+    },
+    {
+      "name": "email.js",
+      "relativePath": "temp-clone/backend/services/email.js",
+      "extension": ".js",
+      "size": 10784
+    },
+    {
+      "name": "chairman.html",
+      "relativePath": "temp-clone/chairman.html",
+      "extension": ".html",
+      "size": 34581
+    },
+    {
+      "name": "contact.html",
+      "relativePath": "temp-clone/contact.html",
+      "extension": ".html",
+      "size": 32310
+    },
+    {
+      "name": "dashboard.css",
+      "relativePath": "temp-clone/css/dashboard.css",
+      "extension": ".css",
+      "size": 17484
+    },
+    {
+      "name": "main.css",
+      "relativePath": "temp-clone/css/main.css",
+      "extension": ".css",
+      "size": 82724
+    },
+    {
+      "name": "sections.css",
+      "relativePath": "temp-clone/css/sections.css",
+      "extension": ".css",
+      "size": 17180
+    },
+    {
+      "name": "dashboard.html",
+      "relativePath": "temp-clone/dashboard.html",
+      "extension": ".html",
+      "size": 68372
+    },
+    {
+      "name": "events.html",
+      "relativePath": "temp-clone/events.html",
+      "extension": ".html",
+      "size": 15899
+    },
+    {
+      "name": "excellence-gallery.html",
+      "relativePath": "temp-clone/excellence-gallery.html",
+      "extension": ".html",
+      "size": 30567
+    },
+    {
+      "name": "facilities.html",
+      "relativePath": "temp-clone/facilities.html",
+      "extension": ".html",
+      "size": 17251
+    },
+    {
+      "name": "faculty-mentors.html",
+      "relativePath": "temp-clone/faculty-mentors.html",
+      "extension": ".html",
+      "size": 14389
+    },
+    {
+      "name": "forgot-password.html",
+      "relativePath": "temp-clone/forgot-password.html",
+      "extension": ".html",
+      "size": 16979
+    },
+    {
+      "name": "guiding-philosophy.html",
+      "relativePath": "temp-clone/guiding-philosophy.html",
+      "extension": ".html",
+      "size": 52402
+    },
+    {
+      "name": "handbook-downloads.html",
+      "relativePath": "temp-clone/handbook-downloads.html",
+      "extension": ".html",
+      "size": 64540
+    },
+    {
+      "name": "index.html",
+      "relativePath": "temp-clone/index.html",
+      "extension": ".html",
+      "size": 107120
+    },
+    {
+      "name": "api-config.js",
+      "relativePath": "temp-clone/js/api-config.js",
+      "extension": ".js",
+      "size": 980
+    },
+    {
+      "name": "dashboard.js",
+      "relativePath": "temp-clone/js/dashboard.js",
+      "extension": ".js",
+      "size": 244560
+    },
+    {
+      "name": "error-handler.js",
+      "relativePath": "temp-clone/js/error-handler.js",
+      "extension": ".js",
+      "size": 18090
+    },
+    {
+      "name": "final-verification.js",
+      "relativePath": "temp-clone/js/final-verification.js",
+      "extension": ".js",
+      "size": 16834
+    },
+    {
+      "name": "main.js",
+      "relativePath": "temp-clone/js/main.js",
+      "extension": ".js",
+      "size": 6402
+    },
+    {
+      "name": "mock-api.js",
+      "relativePath": "temp-clone/js/mock-api.js",
+      "extension": ".js",
+      "size": 5940
+    },
+    {
+      "name": "navigation.js",
+      "relativePath": "temp-clone/js/navigation.js",
+      "extension": ".js",
+      "size": 12999
+    },
+    {
+      "name": "security-audit.js",
+      "relativePath": "temp-clone/js/security-audit.js",
+      "extension": ".js",
+      "size": 13922
+    },
+    {
+      "name": "login.html",
+      "relativePath": "temp-clone/login.html",
+      "extension": ".html",
+      "size": 25813
+    },
+    {
+      "name": "main",
+      "relativePath": "temp-clone/main",
+      "extension": "",
+      "size": 0
+    },
+    {
+      "name": "metadata.json",
+      "relativePath": "temp-clone/metadata.json",
+      "extension": ".json",
+      "size": 311
+    },
+    {
+      "name": "package-lock.json",
+      "relativePath": "temp-clone/package-lock.json",
+      "extension": ".json",
+      "size": 0
+    },
+    {
+      "name": "package.json",
+      "relativePath": "temp-clone/package.json",
+      "extension": ".json",
+      "size": 770
+    },
+    {
+      "name": "parent-guidelines.html",
+      "relativePath": "temp-clone/parent-guidelines.html",
+      "extension": ".html",
+      "size": 53302
+    },
+    {
+      "name": "perform-runtime-verification.js",
+      "relativePath": "temp-clone/perform-runtime-verification.js",
+      "extension": ".js",
+      "size": 33623
+    },
+    {
+      "name": "president-secretary.html",
+      "relativePath": "temp-clone/president-secretary.html",
+      "extension": ".html",
+      "size": 34598
+    },
+    {
+      "name": "register.html",
+      "relativePath": "temp-clone/register.html",
+      "extension": ".html",
+      "size": 13138
+    },
+    {
+      "name": "registration.html",
+      "relativePath": "temp-clone/registration.html",
+      "extension": ".html",
+      "size": 11500
+    },
+    {
+      "name": "reset-password.html",
+      "relativePath": "temp-clone/reset-password.html",
+      "extension": ".html",
+      "size": 10704
+    },
+    {
+      "name": "safety-security.html",
+      "relativePath": "temp-clone/safety-security.html",
+      "extension": ".html",
+      "size": 46497
+    },
+    {
+      "name": "school-timings.html",
+      "relativePath": "temp-clone/school-timings.html",
+      "extension": ".html",
+      "size": 50378
+    },
+    {
+      "name": "server.js",
+      "relativePath": "temp-clone/server.js",
+      "extension": ".js",
+      "size": 6365
+    },
+    {
+      "name": "signup.html",
+      "relativePath": "temp-clone/signup.html",
+      "extension": ".html",
+      "size": 20715
+    },
+    {
+      "name": "simulate_client_fetches.js",
+      "relativePath": "temp-clone/simulate_client_fetches.js",
+      "extension": ".js",
+      "size": 2365
+    },
+    {
+      "name": "student-achievements.html",
+      "relativePath": "temp-clone/student-achievements.html",
+      "extension": ".html",
+      "size": 40016
+    },
+    {
+      "name": "student-guidelines.html",
+      "relativePath": "temp-clone/student-guidelines.html",
+      "extension": ".html",
+      "size": 43253
+    },
+    {
+      "name": "verify-email.html",
+      "relativePath": "temp-clone/verify-email.html",
+      "extension": ".html",
+      "size": 17934
+    },
+    {
+      "name": "verify_classrooms.js",
+      "relativePath": "temp-clone/verify_classrooms.js",
+      "extension": ".js",
+      "size": 2202
+    },
+    {
+      "name": "verify_login_diagnostics.js",
+      "relativePath": "temp-clone/verify_login_diagnostics.js",
+      "extension": ".js",
+      "size": 6018
+    },
+    {
+      "name": "verify_session_jwt_audit.js",
+      "relativePath": "temp-clone/verify_session_jwt_audit.js",
+      "extension": ".js",
+      "size": 9703
+    },
+    {
+      "name": "vision-values.html",
+      "relativePath": "temp-clone/vision-values.html",
+      "extension": ".html",
+      "size": 54302
+    },
+    {
+      "name": "tsconfig.json",
+      "relativePath": "tsconfig.json",
+      "extension": ".json",
+      "size": 508
+    },
+    {
+      "name": "verify-email.html",
+      "relativePath": "verify-email.html",
+      "extension": ".html",
+      "size": 17934
+    },
+    {
+      "name": "verify_classrooms.js",
+      "relativePath": "verify_classrooms.js",
+      "extension": ".js",
+      "size": 2202
+    },
+    {
+      "name": "verify_login_diagnostics.js",
+      "relativePath": "verify_login_diagnostics.js",
+      "extension": ".js",
+      "size": 6018
+    },
+    {
+      "name": "verify_session_jwt_audit.js",
+      "relativePath": "verify_session_jwt_audit.js",
+      "extension": ".js",
+      "size": 9703
+    },
+    {
+      "name": "vision-values.html",
+      "relativePath": "vision-values.html",
+      "extension": ".html",
+      "size": 54302
+    },
+    {
+      "name": "vite.config.ts",
+      "relativePath": "vite.config.ts",
+      "extension": ".ts",
+      "size": 708
+    }
+  ],
+  "packageJsonDeps": {
+    "dependencies": {
+      "bcryptjs": "^2.4.3",
+      "body-parser": "^1.20.2",
+      "cors": "^2.8.5",
+      "dotenv": "^16.3.1",
+      "express": "^4.18.2",
+      "express-rate-limit": "^8.5.2",
+      "express-session": "^1.17.3",
+      "helmet": "^8.2.0",
+      "jsonwebtoken": "^9.0.3",
+      "multer": "^2.1.1",
+      "nodemailer": "^6.9.7",
+      "pdf-lib": "^1.17.1",
+      "pg": "^8.21.0",
+      "twilio": "^4.19.0"
+    },
+    "devDependencies": {}
+  },
+  "requirementsTxt": "None",
+  "brokenReferences": [
+    {
+      "file": "about.html",
+      "ref": "assets/slider-6.jpg",
+      "type": "src/href"
+    },
+    {
+      "file": "admin-dashboard.html",
+      "ref": "/assets/school_logo_placeholder.png",
+      "type": "src/href"
+    },
+    {
+      "file": "admin-dashboard.html",
+      "ref": "/assets/school_logo_placeholder.png",
+      "type": "src/href"
+    },
+    {
+      "file": "annual-report.html",
+      "ref": "assets/classroom.jpeg",
+      "type": "src/href"
+    },
+    {
+      "file": "facilities.html",
+      "ref": "js/animations.js",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/School_Diary_Handbook_2026.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Leave_Of_Absence_Form.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Admission_Syllabus_Requirements.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Leave_Request_Format_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Admission_Eligibility_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Fee_Schedules_Notice_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/PTM_Feedback_Schedule_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/General_Announcements_Circular_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Yearly_Academic_Calendar_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Exam_Schedules_Sheet_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Academic_Syllabus_Splitup_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Study_Support_Notices_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Co_Curricular_Competitions_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Sports_Activities_Enrolment_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Handbook_Disciplinary_Code_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Mid_Term_Exam_Schedule_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Annual_Athletic_Meet_Form_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Summer_Vacation_Circular_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/PTM_Consultation_Circular_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Debate_Competition_Enrolment_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "handbook-downloads.html",
+      "ref": "documents/Fee_Transport_Revisions_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/auth/me",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/admin/stats",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/users",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/announcements",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/admissions",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/messages",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/auth/reauth",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/admin/audit-logs",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/users",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/admissions",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/announcements",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/announcements",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/events",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/events",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/messages",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/auth/logout",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/logout",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/auth/register",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/teachers",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/teachers",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/students",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/parents",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/students",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/parents",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/registrations",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/auth/reset-admin-password",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/auth/logout",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/logout",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/school/security/change",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/admin/test-email",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/classrooms",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/subjects",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/attendance",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/attendance/summary",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/attendance/student-records",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/students",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/attendance/summary",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/exams",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/school-timings",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/school-timings",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/classrooms",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/subjects",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/student-attendance",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/student-attendance",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/attendance",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/exams",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/academic-results",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/school/settings",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/school/settings",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/timetable/config",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/dashboard.js",
+      "ref": "/api/timetable",
+      "type": "api-fetch"
+    },
+    {
+      "file": "js/navigation.js",
+      "ref": "assets/logo.png",
+      "type": "src/href"
+    },
+    {
+      "file": "president-secretary.html",
+      "ref": "assets/secretary-placeholder.jpg",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/about.html",
+      "ref": "assets/slider-6.jpg",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/annual-report.html",
+      "ref": "assets/classroom.jpeg",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/facilities.html",
+      "ref": "js/animations.js",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/School_Diary_Handbook_2026.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Leave_Of_Absence_Form.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Admission_Syllabus_Requirements.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Leave_Request_Format_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Admission_Eligibility_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Fee_Schedules_Notice_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/PTM_Feedback_Schedule_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/General_Announcements_Circular_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Yearly_Academic_Calendar_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Exam_Schedules_Sheet_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Academic_Syllabus_Splitup_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Study_Support_Notices_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Co_Curricular_Competitions_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Sports_Activities_Enrolment_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Handbook_Disciplinary_Code_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Mid_Term_Exam_Schedule_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Annual_Athletic_Meet_Form_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Summer_Vacation_Circular_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/PTM_Consultation_Circular_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Debate_Competition_Enrolment_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/handbook-downloads.html",
+      "ref": "documents/Fee_Transport_Revisions_Majestic.pdf",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/auth/me",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/admin/stats",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/users",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/announcements",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/admissions",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/messages",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/users",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/admissions",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/announcements",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/announcements",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/events",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/events",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/messages",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/auth/logout",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/logout",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/auth/register",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/teachers",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/teachers",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/students",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/parents",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/students",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/parents",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/registrations",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/auth/reset-admin-password",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/auth/logout",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/logout",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/admin/test-email",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/classrooms",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/subjects",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/attendance",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/students",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/exams",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/school-timings",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/school-timings",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/classrooms",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/subjects",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/attendance",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/attendance",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/exams",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/academic-results",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/school/settings",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/school/settings",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/timetable/config",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/dashboard.js",
+      "ref": "/api/timetable",
+      "type": "api-fetch"
+    },
+    {
+      "file": "temp-clone/js/navigation.js",
+      "ref": "assets/logo.png",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/president-secretary.html",
+      "ref": "assets/secretary-placeholder.jpg",
+      "type": "src/href"
+    },
+    {
+      "file": "temp-clone/verify-email.html",
+      "ref": "/api/verify-email",
+      "type": "api-fetch"
+    },
+    {
+      "file": "verify-email.html",
+      "ref": "/api/verify-email",
+      "type": "api-fetch"
+    }
+  ],
+  "gitTrackedCount": 207,
+  "hasUntracked": false
+}

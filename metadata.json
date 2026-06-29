@@ -1,0 +1,6 @@
+{
+  "name": "Majestic School Web Project",
+  "description": "A comprehensive web portal for Majestic Primary and High School, featuring an Express.js backend, student/parent portals, and an admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
